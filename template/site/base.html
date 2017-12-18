@@ -1,19 +1,21 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en" class="wide wow-animation smoothscroll scrollTo">
 
 <head>
     <!-- Site Title-->
-    <title>BASE</title>
+    <title>{% block title %}Odontologia{% endblock %}</title>
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="keywords" content="SANA design multipurpose template">
-    <meta name="date" content="Dec 26">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta name="keywords" content="odontologia, uls, la serena, clinica, online">
+    <meta name="description" content="Odontologia Universidad de La Serena">
+    <meta name="date" content="Dec 18">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <!-- Stylesheets-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald%7CLato:400italic,400,700">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <!--[if lt IE 10]>
         <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
         <script src="js/html5shiv.min.js"></script>
@@ -40,7 +42,7 @@
                                 </address>
                             </div>
                             <!--Navbar Brand-->
-                            <div class="rd-navbar-brand veil reveal-md-inline-block"><a href="index.html"><img width='316' height='57' class='img-responsive' src='images/logo-dark.png' alt=''/></a></div>
+                            <div class="rd-navbar-brand veil reveal-md-inline-block"><a href="index.html"><img width='316' height='57' class='img-responsive' src='{% static 'images/logo-dark.png' %}' alt=''/></a></div>
                             <div>
                                 <address class="contact-info reveal-sm-inline-block text-left">
                                     <div class="p unit unit-horizontal unit-spacing-xs">
@@ -55,14 +57,14 @@
                             <!-- RD Navbar Toggle-->
                             <button data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
                             <!--Navbar Brand-->
-                            <div class="rd-navbar-brand veil-md"><a href="index.html"><img width='316' height='57' class='img-responsive' src='images/logo-dark.png' alt=''/></a></div>
+                            <div class="rd-navbar-brand veil-md"><a href="index.html"><img width='316' height='57' class='img-responsive' src='{% static 'images/logo-dark.png' %}' alt=''/></a></div>
                             <button data-rd-navbar-toggle=".rd-navbar, .rd-navbar-top-panel" class="rd-navbar-top-panel-toggle"><span></span></button>
                         </div>
                         <div class="rd-navbar-menu-wrap">
                             <div class="rd-navbar-nav-wrap">
                                 <div class="rd-navbar-mobile-scroll">
                                     <!--Navbar Brand Mobile-->
-                                    <div class="rd-navbar-mobile-brand"><a href="index.html"><img width='316' height='57' class='img-responsive' src='images/logo-dark.png' alt=''/></a></div>
+                                    <div class="rd-navbar-mobile-brand"><a href="index.html"><img width='316' height='57' class='img-responsive' src='{% static 'images/logo-dark.png' %}' alt=''/></a></div>
                                     <div class="form-search-wrap">
                                         <!-- RD Search Form-->
                                         <form action="search-results.html" method="GET" class="form-search rd-search">
@@ -166,7 +168,7 @@
             <!--Swiper-->
             <div data-loop="true" data-height="" data-slide-effect="fade" data-dragable="false" data-min-height="400px" class="swiper-container swiper-slider bg-white">
                 <div class="swiper-wrapper text-center">
-                    <div id="page-loader" data-slide-bg="images/intros/slide-01.jpg" class="swiper-slide">
+                    <div id="page-loader" data-slide-bg="{% static 'images/intros/slide-01.jpg' %}" class="swiper-slide">
                         <div class="swiper-caption">
                             <div class="swiper-slide-caption">
                                 <div class="shell bg-dark section-41 section-sm-98 section-md-bottom-167">
@@ -178,7 +180,7 @@
                             </div>
                         </div>
                     </div>
-                    <div data-slide-bg="images/intros/slide-02.jpg" class="swiper-slide">
+                    <div data-slide-bg="{% static 'images/intros/slide-02.jpg' %}" class="swiper-slide">
                         <div class="swiper-caption">
                             <div class="swiper-slide-caption">
                                 <div class="shell bg-dark section-41 section-sm-98 section-md-bottom-167">
@@ -190,7 +192,7 @@
                             </div>
                         </div>
                     </div>
-                    <div data-slide-bg="images/intros/slide-03.jpg" class="swiper-slide">
+                    <div data-slide-bg="{% static 'images/intros/slide-03.jpg' %}" class="swiper-slide">
                         <div class="swiper-caption">
                             <div class="swiper-slide-caption">
                                 <div class="shell bg-dark section-41 section-sm-98 section-md-bottom-167">
@@ -235,7 +237,7 @@
             </section>
             <!-- Call to action-->
             <section class="rd-parallax">
-                <div data-speed="0.2" data-type="media" data-url="images/backgrounds/background-03-1920x610.jpg" class="rd-parallax-layer"></div>
+                <div data-speed="0.2" data-type="media" data-url="{% static 'images/backgrounds/background-03-1920x610.jpg' %}" class="rd-parallax-layer"></div>
                 <div data-speed="0" data-type="html" class="rd-parallax-layer section-98 section-sm-110 context-dark">
                     <div class="shell text-center">
                         <h2>Supporting spinal health</h2>
@@ -256,27 +258,27 @@
                     </div>
                     <div class="range offset-top-60 text-md-left">
                         <div class="cell-sm-6 cell-md-4">
-                            <div class="service"><img src="images/pages/home-01-320x320.jpg" width="320" height="320" alt="" class="img-responsive" /><a href="services.html" class="service-desc h6">Chiropractic Care</a>
+                            <div class="service"><img src="{% static 'images/pages/home-01-320x320.jpg' %}" width="320" height="320" alt="" class="img-responsive" /><a href="services.html" class="service-desc h6">Chiropractic Care</a>
                             </div>
                         </div>
                         <div class="cell-sm-6 cell-md-4 offset-top-50 offset-sm-top-0">
-                            <div class="service"><img src="images/pages/home-02-320x320.jpg" width="320" height="320" alt="" class="img-responsive" /><a href="services.html" class="service-desc h6">Massage Therapy</a>
+                            <div class="service"><img src="{% static 'images/pages/home-02-320x320.jpg' %}" width="320" height="320" alt="" class="img-responsive" /><a href="services.html" class="service-desc h6">Massage Therapy</a>
                             </div>
                         </div>
                         <div class="cell-sm-6 cell-md-4 offset-top-50 offset-md-top-0">
-                            <div class="service"><img src="images/pages/home-03-320x320.jpg" width="320" height="320" alt="" class="img-responsive" /><a href="services.html" class="service-desc h6">Lifestyle Advice</a>
+                            <div class="service"><img src="{% static 'images/pages/home-03-320x320.jpg' %}" width="320" height="320" alt="" class="img-responsive" /><a href="services.html" class="service-desc h6">Lifestyle Advice</a>
                             </div>
                         </div>
                         <div class="cell-sm-6 cell-md-4 offset-top-50">
-                            <div class="service"><img src="images/pages/home-04-320x320.jpg" width="320" height="320" alt="" class="img-responsive" /><a href="services.html" class="service-desc h6">Nutrition Counseling</a>
+                            <div class="service"><img src="{% static 'images/pages/home-04-320x320.jpg' %}" width="320" height="320" alt="" class="img-responsive" /><a href="services.html" class="service-desc h6">Nutrition Counseling</a>
                             </div>
                         </div>
                         <div class="cell-sm-6 cell-md-4 offset-top-50">
-                            <div class="service"><img src="images/pages/home-05-320x320.jpg" width="320" height="320" alt="" class="img-responsive" /><a href="services.html" class="service-desc h6">Corrective Exercises</a>
+                            <div class="service"><img src="{% static 'images/pages/home-05-320x320.jpg' %}" width="320" height="320" alt="" class="img-responsive" /><a href="services.html" class="service-desc h6">Corrective Exercises</a>
                             </div>
                         </div>
                         <div class="cell-sm-6 cell-md-4 offset-top-50">
-                            <div class="service"><img src="images/pages/home-06-320x320.jpg" width="320" height="320" alt="" class="img-responsive" /><a href="services.html" class="service-desc h6">Spinal Screenings</a>
+                            <div class="service"><img src="{% static 'images/pages/home-06-320x320.jpg' %}" width="320" height="320" alt="" class="img-responsive" /><a href="services.html" class="service-desc h6">Spinal Screenings</a>
                             </div>
                         </div>
                     </div>
@@ -286,7 +288,7 @@
             <section>
                 <div class="reveal-md-flex range-xs-center">
                     <!-- Thumbnail Josip-->
-                    <figure class="thumbnail-josip thumbnail-big odd"><a href="team-member.html"><img width="384" height="410" src="images/pages/our-team-05-384x410.jpg" alt=""/></a>
+                    <figure class="thumbnail-josip thumbnail-big odd"><a href="team-member.html"><img width="384" height="410" src="{% static 'images/pages/our-team-05-384x410.jpg' %}" alt=""/></a>
                         <div class="thumbnail-desc">
                             <h5 class="thumbnail-josip-title text-bold text-white">Scott Riley</h5>
                             <p class="veil reveal-md-block text-italic text-white offset-top-0">Chief Medical Officer</p>
@@ -294,7 +296,7 @@
                         <figcaption><a href="team-member.html" class="btn btn-block btn-rect text-md-left btn-java">view full profile</a></figcaption>
                     </figure>
                     <!-- Thumbnail Josip-->
-                    <figure class="thumbnail-josip thumbnail-big offset-top-41 offset-md-top-0"><a href="team-member.html"><img width="384" height="410" src="images/pages/our-team-06-384x410.jpg" alt=""/></a>
+                    <figure class="thumbnail-josip thumbnail-big offset-top-41 offset-md-top-0"><a href="team-member.html"><img width="384" height="410" src="{% static 'images/pages/our-team-06-384x410.jpg' %}" alt=""/></a>
                         <div class="thumbnail-desc">
                             <h5 class="thumbnail-josip-title text-bold text-white">Johnny Fowler</h5>
                             <p class="veil reveal-md-block text-italic text-white offset-top-0">Chiropractor</p>
@@ -302,7 +304,7 @@
                         <figcaption><a href="team-member.html" class="btn btn-block btn-rect text-md-left btn-java">view full profile</a></figcaption>
                     </figure>
                     <!-- Thumbnail Josip-->
-                    <figure class="thumbnail-josip thumbnail-big offset-top-41 offset-md-top-0 odd"><a href="team-member.html"><img width="384" height="410" src="images/pages/our-team-07-384x410.jpg" alt=""/></a>
+                    <figure class="thumbnail-josip thumbnail-big offset-top-41 offset-md-top-0 odd"><a href="team-member.html"><img width="384" height="410" src="{% static 'images/pages/our-team-07-384x410.jpg' %}" alt=""/></a>
                         <div class="thumbnail-desc">
                             <h5 class="thumbnail-josip-title text-bold text-white">Eric Snyder</h5>
                             <p class="veil reveal-md-block text-italic text-white offset-top-0">Clinical Chiropractic Assistant</p>
@@ -310,7 +312,7 @@
                         <figcaption><a href="team-member.html" class="btn btn-block btn-rect text-md-left btn-java">view full profile</a></figcaption>
                     </figure>
                     <!-- Thumbnail Josip-->
-                    <figure class="thumbnail-josip thumbnail-big offset-top-41 offset-md-top-0"><a href="team-member.html"><img width="384" height="410" src="images/pages/our-team-08-384x410.jpg" alt=""/></a>
+                    <figure class="thumbnail-josip thumbnail-big offset-top-41 offset-md-top-0"><a href="team-member.html"><img width="384" height="410" src="{% static 'images/pages/our-team-08-384x410.jpg' %}" alt=""/></a>
                         <div class="thumbnail-desc">
                             <h5 class="thumbnail-josip-title text-bold text-white">Martha Schmidt</h5>
                             <p class="veil reveal-md-block text-italic text-white offset-top-0">Licensed Massage Therapist</p>
@@ -318,7 +320,7 @@
                         <figcaption><a href="team-member.html" class="btn btn-block btn-rect text-md-left btn-java">view full profile</a></figcaption>
                     </figure>
                     <!-- Thumbnail Josip-->
-                    <figure class="thumbnail-josip thumbnail-big offset-top-41 offset-md-top-0 odd"><a href="team-member.html"><img width="384" height="410" src="images/pages/our-team-09-384x410.jpg" alt=""/></a>
+                    <figure class="thumbnail-josip thumbnail-big offset-top-41 offset-md-top-0 odd"><a href="team-member.html"><img width="384" height="410" src="{% static 'images/pages/our-team-09-384x410.jpg' %}" alt=""/></a>
                         <div class="thumbnail-desc">
                             <h5 class="thumbnail-josip-title text-bold text-white">Katherine Wong</h5>
                             <p class="veil reveal-md-block text-italic text-white offset-top-0">Front Desk Coordinator</p>
@@ -338,7 +340,7 @@
                             <div class="range range-md-justify range-md-middle">
                                 <div class="cell-md-4 cell-md-push-1 text-md-left">
                                     <!-- Footer brand-->
-                                    <div class="footer-brand reveal-inline-block"><a href="index.html"><img width='316' height='57' class='img-responsive' src='images/logo-dark.png' alt=''/></a></div>
+                                    <div class="footer-brand reveal-inline-block"><a href="index.html"><img width='316' height='57' class='img-responsive' src="{% static 'images/logo-dark.png' %}" alt=''/></a></div>
                                 </div>
                                 <div class="cell-md-4 offset-top-55 offset-md-top-0 cell-md-push-3 text-md-right">
                                     <ul class="list-inline">
@@ -357,7 +359,6 @@
                 </div>
             </div>
         </footer>
-        More <a rel="nofollow" href="http://www.templatemonster.com/category.php?category=448&type=1" target="_blank">Medical Templates at TemplateMonster.com</a>
     </div>
     <!-- Global Mailform Output-->
     <div id="form-output-global" class="snackbars"></div>
@@ -397,8 +398,8 @@
         </div>
     </div>
     <!-- Java script-->
-    <script src="js/core.min.js"></script>
-    <script src="js/script.js"></script>
+    <script type="text/javascript" src="{% static 'js/core.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>
