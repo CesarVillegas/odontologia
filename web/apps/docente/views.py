@@ -3,10 +3,11 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 
+# Create your views here.
 
-def home(request):
-    return render(request, 'home.html')
-
+def lista(request):
+    return render(request, 'lista_docentes.html')
+    
 
 def handler404(request):
     return render(request, '404.html', status=404)
