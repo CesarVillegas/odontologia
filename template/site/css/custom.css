@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+footer#footer-principal{
+	background-color: #696969;
+}
+
+div.after-footer{
+	background-color: #606060;
+	color: #f1f1f1;
+	font-weight: 200;
+}

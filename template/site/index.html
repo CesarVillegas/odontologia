@@ -14,6 +14,7 @@
     <!-- Stylesheets-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald%7CLato:400italic,400,700">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/custom.css">
     <!--[if lt IE 10]>
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script>
@@ -40,7 +41,7 @@
                                 </address>
                             </div>
                             <!--Navbar Brand-->
-                            <div class="rd-navbar-brand veil reveal-md-inline-block"><a href="index.html"><img width='316' height='57' class='img-responsive' src='images/logo-dark.png' alt=''/></a></div>
+                            <div class="rd-navbar-brand veil reveal-md-inline-block"><a href="index.html"><img width='316' height='57' class='img-responsive' src='images/logo.png' alt=''/></a></div>
                             <div>
                                 <address class="contact-info reveal-sm-inline-block text-left">
                                     <div class="p unit unit-horizontal unit-spacing-xs">
@@ -55,14 +56,14 @@
                             <!-- RD Navbar Toggle-->
                             <button data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
                             <!--Navbar Brand-->
-                            <div class="rd-navbar-brand veil-md"><a href="index.html"><img width='316' height='57' class='img-responsive' src='images/logo-dark.png' alt=''/></a></div>
+                            <div class="rd-navbar-brand veil-md"><a href="index.html"><img width='316' height='57' class='img-responsive' src='images/logo.png' alt=''/></a></div>
                             <button data-rd-navbar-toggle=".rd-navbar, .rd-navbar-top-panel" class="rd-navbar-top-panel-toggle"><span></span></button>
                         </div>
                         <div class="rd-navbar-menu-wrap">
                             <div class="rd-navbar-nav-wrap">
                                 <div class="rd-navbar-mobile-scroll">
                                     <!--Navbar Brand Mobile-->
-                                    <div class="rd-navbar-mobile-brand"><a href="index.html"><img width='316' height='57' class='img-responsive' src='images/logo-dark.png' alt=''/></a></div>
+                                    <div class="rd-navbar-mobile-brand"><a href="index.html"><img width='316' height='57' class='img-responsive' src='images/logo.png' alt=''/></a></div>
                                     <div class="form-search-wrap">
                                         <!-- RD Search Form-->
                                         <form action="search-results.html" method="GET" class="form-search rd-search">
@@ -540,7 +541,7 @@
         </main>
         <!-- Page Footer-->
         <!-- Default footer-->
-        <footer class="section-relative section-34 section-md-66 page-footer bg-lighter context-light">
+        <footer id="footer-principal" class="section-relative section-34 section-md-66 page-footer bg-lighter context-light">
             <div class="shell-wide">
                 <div class="inset-xl-left-30">
                     <div class="range range-sm-center">
@@ -559,7 +560,7 @@
                                     </ul>
                                 </div>
                                 <div class="cell-md-4 offset-top-55 offset-md-top-0 cell-md-push-2">
-                                    <p class="text-gray">&copy; <span id="copyright-year"></span> All Rights Reserved. <a href="privacy.html" class="text-gray">Privacy Policy</a></p>
+                                    <p class="text-white">&copy; <span id="copyright-year"></span> All Rights Reserved. <a href="privacy.html" class="text-gray">Privacy Policy</a></p>
                                 </div>
                             </div>
                         </div>
@@ -567,7 +568,9 @@
                 </div>
             </div>
         </footer>
-        Desarrollado por <a rel="nofollow" href="http://userena.digital" target="_blank">Campus Digital</a>
+        <div class="after-footer">
+            Desarrollado por <a rel="nofollow" href="http://userena.digital" target="_blank">Campus Digital</a>
+        </div
     </div>
     <!-- Global Mailform Output-->
     <div id="form-output-global" class="snackbars"></div>
