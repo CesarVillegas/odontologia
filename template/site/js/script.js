@@ -532,7 +532,7 @@ $document.ready(function () {
           .addClass("not-animated")
           .end()
           .swiper({
-            autoplay: s.attr('data-autoplay') === "true" ? 5000 : false,
+            autoplay: s.attr('data-autoplay') === "true" ? 4000 : false,
             direction: s.attr('data-direction') ? s.attr('data-direction') : "horizontal",
             effect: s.attr('data-slide-effect') ? s.attr('data-slide-effect') : "slide",
             speed: s.attr('data-slide-speed') ? s.attr('data-slide-speed') : 400,
