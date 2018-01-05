@@ -1544,7 +1544,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #248186;
+    color: #214e83;
     text-decoration: underline;
 }
 
@@ -37309,7 +37309,7 @@ fieldset[disabled] .bg-primary .btn-java {
 .rd-navbar-floated.rd-navbar-static .rd-navbar-cart-dropdown li a:hover,
 .rd-navbar-top-panel.rd-navbar-static .rd-navbar-cart-dropdown li a:hover,
 .rd-navbar-logo-center.rd-navbar-static .rd-navbar-cart-dropdown li a:hover {
-    color: #248186;
+    color: #214e83;
 }
 
 .rd-navbar-default.rd-navbar-static .rd-navbar-dropdown .rd-navbar-dropdown,
