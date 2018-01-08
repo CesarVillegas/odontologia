@@ -4,7 +4,7 @@
 
 <head>
     <!-- Site Title-->
-    <title>{% block title %}Odontologia{% endblock %}</title>
+    <title>{% block title %}Odontología{% endblock %}</title>
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -29,11 +29,13 @@
         <!-- Page Head-->
         <header class="page-head">
             <!-- RD Navbar minimal-->
-            <div class="rd-navbar-wrap">
-                {% block header %}{% include 'header.html' %}{% endblock %}
-            </div>      
+            {% block navegation %}{% include 'navegation.html' %}{% endblock %}
+            {% block swiper %}{% include 'swiper.html' %}{% endblock %}
         </header>
-        {% block content %}{% endblock %}
+        <!-- Page Contents-->
+        <main class="page-content">
+            {% block content %}{% endblock %}
+        </main>
         <!-- Page Footer-->
         <!-- Default footer-->
         <footer class="section-relative section-34 section-md-66 page-footer bg-lighter context-light" id="footer-principal">
