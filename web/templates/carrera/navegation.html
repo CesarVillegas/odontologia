@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load etiquetas %}
 <div class="rd-navbar-wrap">
     <nav data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-static" data-md-stick-up-offset="120px" data-lg-stick-up-offset="120px" class="rd-navbar rd-navbar-minimal rd-navbar-light" data-lg-auto-height="true" data-md-layout="rd-navbar-static" data-lg-layout="rd-navbar-static" data-lg-stick-up="true">
         <div class="rd-navbar-inner">
@@ -35,24 +36,17 @@
                     <div class="rd-navbar-mobile-scroll">
                         <!-- RD Navbar Nav-->
                         <ul class="rd-navbar-nav">
-                            <li class="active"><a href="/"><span>Inicio</span></a>
-                            </li>
-                            <li><a href="#"><span>Admisón</span></a>
-                            </li>
+                            <li class="{% active_menu '/' %}"><a href="/"><span>Inicio</span></a></li>
+                            <li><a href="#"><span>Admisón</span></a></li>
                             <li><a href="#"><span>Carrera</span></a>
                                 <ul class="rd-navbar-dropdown">
-                                    <li><a href="#"><span class="text-middle">Plan Estudios</span></a>
-                                    </li>
-                                    <li><a href="#"><span class="text-middle">Perfil Profesional</span></a>
-                                    </li>
+                                    <li><a href="#"><span class="text-middle">Plan Estudios</span></a></li>
+                                    <li><a href="#"><span class="text-middle">Perfil Profesional</span></a></li>
                                 </ul>
                             </li>
-                            <li><a href="/docentes"><span>Docentes</span></a>
-                            </li>
-                            <li><a href="#"><span>Clínica</span></a>
-                            </li>
-                            <li><a href="#"><span>Contacto</span></a>
-                            </li>
+                            <li class="{% active_menu '/docentes' %}"><a href="/docentes"><span>Docentes</span></a></li>
+                            <li class="{% active_menu '/clinica' %}"><a href="/clinica"><span>Clínica</span></a></li>
+                            <li><a href="#"><span>Contacto</span></a></li>
                         </ul>
                     </div>
                 </div>
