@@ -4,6 +4,7 @@ from django.conf.urls import url, include
 from . import views
 
 urlpatterns = [
+    url(r'^psu/$', views.psu, name='psu'),
     url(r'^$', views.home, name='home'),
     url(r'^404/$', views.handler404, name='handler404'),
     url(r'^500/$', views.handler500, name='handler500'),

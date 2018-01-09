@@ -4,8 +4,12 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 
 
+def psu(request):
+    return render(request, 'carrera/psu.html')
+
+
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'carrera/home.html')
 
 
 def handler404(request):
