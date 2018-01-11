@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'apps.portada',
     'apps.docente',
     'apps.clinica',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +139,51 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# CKEDITOR
+
+CKEDITOR_UPLOAD_PATH = 'media/'
+
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_UPLOAD_SLUGIFY_FILENAME = True
+CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+        'toolbar': 'Custom',
+        'toolbar_Custom':[
+            {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
+            {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
+            '/',
+            {'name': 'basicstyles',
+             'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
+            {'name': 'paragraph',
+             'items': ['NumberedList', 'BulletedList', '-', 'Blockquote', '-',
+                       'Language']},
+            {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
+            {'name': 'insert',
+             'items': ['Table', 'SpecialChar', 'Youtube']},
+            '/',
+            {'name': 'insert',
+             'items': ['Image', 'Table']},
+            '/',
+            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+            {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
+            {'name': 'about', 'items': ['About']},
+        ],
+        'extraPlugins': ','.join([
+            'uploadimage', # the upload image feature
+            'youtube'
+        ]),
+        'config.uploadUrl': '/uploader/upload.php',
+        'config.youtube_width': '560',
+        'config.youtube_height': '315',
+        'youtube_responsive': True,
+        'youtube_related': False,
+        'youtube_older': False,
+        'youtube_privacy': False,
+        'youtube_autoplay': False,
+        'youtube_controls': True,
+        'youtube_disabled_fields': ['txtEmbed', 'chkAutoplay'],
+    },
+}

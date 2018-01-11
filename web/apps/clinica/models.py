@@ -2,5 +2,50 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.core.exceptions import ValidationError
+from django.core.files.images import get_image_dimensions
+from ckeditor_uploader.fields import RichTextUploadingField
 
-# Create your models here.
+TIPO_EQUIPO = (
+    ('funcionario', 'Funcionario'),
+    ('academico', 'Académico'),
+)
+
+def validate_image(fieldfile_obj):
+    filesize = fieldfile_obj.file.size
+    megabyte_limit = 1.0
+    if filesize > megabyte_limit*1024*1024:
+        raise ValidationError("El tamano maximo permitido es de %sMB" % str(megabyte_limit))
+    w, h = get_image_dimensions(fieldfile_obj)
+    if w != 120 and h != 120:
+        raise ValidationError("Las dimensiones de la foto son de %ix%i, y estas deben ser de 120x120 pixeles" %(h,w))
+
+class Contenido(models.Model):
+	seccion = models.CharField(max_length=100, blank=False, null=False)
+	texto = RichTextUploadingField(max_length=5000, blank=True, null=True, config_name='awesome_ckeditor')
+
+class Equipo(models.Model):
+    nombres = models.CharField(max_length=100, blank=False, null=False)
+    apellido_paterno = models.CharField(max_length=100, blank=False, null=False)
+    apellido_materno = models.CharField(max_length=100, blank=False, null=False)
+    cargo = models.CharField(max_length=300)
+    foto = models.ImageField(upload_to='equipo/', height_field=None, width_field=None, max_length=100, validators=[validate_image], help_text='Tamano maximo de la imagen es 1Mb, sus dimensiones deben ser de 120x120 pixeles')
+    nivel = models.IntegerField(default=1)
+    tipo_equipo = models.CharField(max_length=10, choices=TIPO_EQUIPO)
+
+    class Meta:
+        ordering = ["nivel"]
+
+    def __str__(self): # __unicode__ en Python 2
+        return '%s %s %s' % (self.nombres.encode('utf8'), self.apellido_paterno.encode('utf8'), self.apellido_materno.encode('utf8'))
+
+    def nombre_completo(self):
+        return '%s %s %s' % (self.nombres.encode('utf8'), self.apellido_paterno.encode('utf8'), self.apellido_materno.encode('utf8'))
+
+    def image_foto(self):
+          if self.foto:
+              return u'<img width="125px" height="auto" src="%s" />' % self.foto.url
+          else:
+              return '(Sin imagen)'
+    image_foto.short_description = 'Imagen'
+    image_foto.allow_tags = True
