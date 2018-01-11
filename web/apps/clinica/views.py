@@ -9,11 +9,12 @@ def index(request):
     return render(request, 'clinica/index.html')
 
 def organigrama(request):
-    organigrama = Contenido.objects.get(seccion='organigrama')
-    return render(request, 'clinica/organigrama.html', {'organigrama':organigrama})
+    organigrama = Contenido.objects.get(seccion='Organigrama')
+    return render(request, 'clinica/contenido.html', {'contenido':organigrama})
 
 def mision(request):
-    return render(request, 'clinica/mision.html')
+    mision = Contenido.objects.get(seccion='Misión')
+    return render(request, 'clinica/contenido.html', {'contenido':mision})
 
 def equipo(request):
     return render(request, 'clinica/equipo.html')
@@ -22,7 +23,8 @@ def catedra(request):
     return render(request, 'clinica/catedra.html')
 
 def paciente(request):
-    return render(request, 'clinica/paciente.html')
+    paciente = Contenido.objects.get(seccion='Paciente')
+    return render(request, 'clinica/contenido.html', {'contenido':paciente})
 
 
 def handler404(request):
