@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'apps.clinica',
     'ckeditor',
     'ckeditor_uploader',
+    'apps.carrera',
 ]
 
 MIDDLEWARE = [
