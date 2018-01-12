@@ -17,6 +17,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+*.pyc
 
 # Django stuff:
 *.log
