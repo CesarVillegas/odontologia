@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-from .models import Contenido
+from .models import Contenido, Servicio
 # Create your views here.
 
 def index(request):
@@ -12,9 +12,13 @@ def organigrama(request):
     organigrama = Contenido.objects.get(seccion='Organigrama')
     return render(request, 'clinica/contenido.html', {'contenido':organigrama})
 
-def mision(request):
-    mision = Contenido.objects.get(seccion='Misión')
-    return render(request, 'clinica/contenido.html', {'contenido':mision})
+def servicios_imagenologia(request):
+    servicios = Servicio.objects.all().filter(tipo_servicio='imagenologia')
+    return render(request, 'clinica/servicios.html', {'servicios':servicios, 'tipo':'Imagenología'})
+
+def servicios_odontologia(request):
+    servicios = Servicio.objects.all().filter(tipo_servicio='odontologia')
+    return render(request, 'clinica/servicios.html', {'servicios':servicios, 'tipo':'Odontología'})
 
 def equipo(request):
     return render(request, 'clinica/equipo.html')

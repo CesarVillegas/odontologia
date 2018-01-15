@@ -11,6 +11,11 @@ TIPO_EQUIPO = (
     ('academico', 'Académico'),
 )
 
+TIPO_SERVICIO = (
+    ('imagenologia ', 'Imagenología'),
+    ('odontologia', 'Odontología'),
+)
+
 def validate_image(fieldfile_obj):
     filesize = fieldfile_obj.file.size
     megabyte_limit = 1.0
@@ -49,3 +54,8 @@ class Equipo(models.Model):
               return '(Sin imagen)'
     image_foto.short_description = 'Imagen'
     image_foto.allow_tags = True
+
+class Servicio(models.Model):
+    nombre = models.CharField(max_length=200, blank=False, null=False)
+    valor = models.IntegerField()
+    tipo_servicio = models.CharField(max_length=13, choices=TIPO_SERVICIO)
