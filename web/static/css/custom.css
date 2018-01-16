@@ -9,3 +9,32 @@ div.after-footer{
 	color: #f1f1f1;
 	font-weight: 200;
 }
+
+div.swiper-container h2,
+div.swiper-container h5{
+	text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Barra titulos */
+
+div.section-md-bottom-41 {
+    padding-bottom: 20px;
+}
+
+div.section-md-top-110 {
+    padding-top: 60px;
+}
+
+.context-dark h1 {
+	font-size: 60px;
+	text-shadow: #214e83 2px 2px 2px;
+}
+
+html .page .offset-md-top-70 {
+    margin-top: 40px;
+}
+
+section.breadcrumb-modern {
+	background-image: url('../images/textura.svg');
+
+}

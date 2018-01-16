@@ -35,62 +35,6 @@ html .page .offset-md-top-70 {
 }
 
 section.breadcrumb-modern {
-	/*
-	background-color: #4eaad7;
-	background-image: linear-gradient(90deg, rgba(27,36,67,.10) 50%, transparent 50%),
-	linear-gradient(90deg, rgba(41,100,176,.13) 50%, transparent 50%),
-	linear-gradient(90deg, transparent 50%, rgba(36,107,199,.17) 50%),
-	linear-gradient(90deg, transparent 50%, rgba(60,135,230,.19) 50%);
-	background-size: 63px, 79px, 87px, 103px;
-	*/
 	background-image: url('../images/textura.svg');
 
 }
-
-section.breadcrumb-modern:before {
-	content: " ";
-	position: absolute;
-	right: 0px;
-	top: 60px;
-	height: 300px;
-	width: 300px;
-	background-image: url('../images/herramientas.svg');
-	background-repeat: no-repeat;
-	z-index: 1;
-	opacity: 0.7;
-
-}
-
-@media (max-width: 992px) {
-    section.breadcrumb-modern:before {
-		content: " ";
-		position: absolute;
-		right: 0px;
-		top: 50px;
-		height: 200px;
-		width: 200px;
-		background-image: url('../images/herramientas.svg');
-		background-repeat: no-repeat;
-		z-index: 1;
-		opacity: 0.7;
-
-	}
-}
-
-@media (max-width: 767px) {
-    section.breadcrumb-modern:before {
-		content: " ";
-		position: absolute;
-		right: 0px;
-		top: 50px;
-		height: 200px;
-		width: 200px;
-		background-image: none;
-		background-repeat: no-repeat;
-		z-index: 1;
-		opacity: 0.7;
-
-	}
-}
-
-
