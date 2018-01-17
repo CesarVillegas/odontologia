@@ -15,7 +15,7 @@ div.swiper-container h5{
 	text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.4);
 }
 
-/* Barra titulos */
+/* Barra titulos contenido */
 
 div.section-md-bottom-41 {
     padding-bottom: 20px;
@@ -37,4 +37,59 @@ html .page .offset-md-top-70 {
 section.breadcrumb-modern {
 	background-image: url('../images/textura.svg');
 
+}
+
+/* Menu */
+
+.rd-navbar-minimal.rd-navbar-static .rd-navbar-dropdown {
+    border-radius: 0px 0px 5px 5px;
+}
+
+.rd-navbar-minimal.rd-navbar-static .rd-navbar-dropdown2 {
+	position: absolute;
+	top: 0px;
+	left: 225px;
+	z-index: 1;
+	width: 200px;
+	padding: 0;
+	visibility: hidden;
+	transition: .3s all ease;
+	text-align: left;
+	opacity: 0;
+	box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 0px 5px 5px 0px;
+	background-color: #ffffff;
+}
+
+.rd-navbar-default.rd-navbar-static .rd-navbar-dropdown2:before,
+.rd-navbar-minimal.rd-navbar-static .rd-navbar-dropdown2:before,
+.rd-navbar-floated.rd-navbar-static .rd-navbar-dropdown2:before,
+.rd-navbar-top-panel.rd-navbar-static .rd-navbar-dropdown2:before,
+.rd-navbar-logo-center.rd-navbar-static .rd-navbar-dropdown2:before {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    font-size: 14px;
+    font-family: "FontAwesome";
+    line-height: 14px;
+    content: " ";
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    transition: .3s all ease;
+    border-right: 8px solid #ffffff;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    margin-top: -25px;
+    margin-left: -8px;
+}
+
+.rd-navbar-default.rd-navbar-static .rd-navbar-dropdown li:hover .rd-navbar-dropdown2,
+.rd-navbar-minimal.rd-navbar-static .rd-navbar-dropdown li:hover .rd-navbar-dropdown2,
+.rd-navbar-floated.rd-navbar-static .rd-navbar-dropdown li:hover .rd-navbar-dropdown2,
+.rd-navbar-top-panel.rd-navbar-static .rd-navbar-dropdown li:hover .rd-navbar-dropdown2,
+.rd-navbar-logo-center.rd-navbar-static .rd-navbar-dropdown li:hover .rd-navbar-dropdown2 {
+    opacity: 1;
+    visibility: visible;
 }
