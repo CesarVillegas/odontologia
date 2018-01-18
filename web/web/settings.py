@@ -185,5 +185,6 @@ CKEDITOR_CONFIGS = {
         'youtube_autoplay': False,
         'youtube_controls': True,
         'youtube_disabled_fields': ['txtEmbed', 'chkAutoplay'],
+        'allowedContent': True,
     },
 }

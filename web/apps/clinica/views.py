@@ -31,9 +31,9 @@ def equipo(request):
 def catedra(request):
     return render(request, 'clinica/catedra.html')
 
-def paciente(request):
-    paciente = Contenido.objects.get(seccion='Paciente')
-    return render(request, 'clinica/contenido.html', {'contenido':paciente})
+def faq(request):
+    faq = Contenido.objects.get(seccion='Preguntas Frecuentes')
+    return render(request, 'clinica/contenido.html', {'contenido':faq})
 
 
 def handler404(request):
