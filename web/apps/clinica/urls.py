@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^servicios/odontologia$', views.servicios_odontologia, name='servicios_odontologia'),
     url(r'^equipo/$', views.equipo, name='equipo'),
     url(r'^catedra/$', views.catedra, name='catedra'),
-    url(r'^paciente/$', views.paciente, name='paciente'),
+    url(r'^faq/$', views.faq, name='faq'),
     url(r'^404/$', views.handler404, name='handler404'),
     url(r'^500/$', views.handler500, name='handler500'),
 ]

@@ -25,8 +25,8 @@ def validate_image(fieldfile_obj):
     if filesize > megabyte_limit*1024*1024:
         raise ValidationError("El tamano maximo permitido es de %sMB" % str(megabyte_limit))
     w, h = get_image_dimensions(fieldfile_obj)
-    if w != 110 and h != 110:
-        raise ValidationError("Las dimensiones de la foto son de %ix%i, y estas deben ser de 110x110 pixeles" %(h,w))
+    if w != 270 and h != 270:
+        raise ValidationError("Las dimensiones de la foto son de %ix%i, y estas deben ser de 270x270 pixeles" %(h,w))
 
 class Contenido(models.Model):
 	seccion = models.CharField(max_length=100, blank=False, null=False)
@@ -37,7 +37,7 @@ class Equipo(models.Model):
     apellido_paterno = models.CharField(max_length=100, blank=False, null=False)
     apellido_materno = models.CharField(max_length=100, blank=False, null=False)
     cargo = models.CharField(max_length=10, choices=CARGO)
-    foto = models.ImageField(upload_to='clinica/equipo/', height_field=None, width_field=None, max_length=100, validators=[validate_image], help_text='Tamano maximo de la imagen es 1Mb, sus dimensiones deben ser de 110x110 pixeles')
+    foto = models.ImageField(upload_to='clinica/equipo/', height_field=None, width_field=None, max_length=100, validators=[validate_image], help_text='Tamano maximo de la imagen es 1Mb, sus dimensiones deben ser de 270x270 pixeles')
     nivel = models.IntegerField(default=1)
 
     class Meta:
