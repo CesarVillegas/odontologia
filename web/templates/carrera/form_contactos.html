@@ -1,0 +1,183 @@
+{% extends "carrera/base.html" %}
+{% load staticfiles %}
+
+{% block title %}Contáctenos{% endblock %}
+
+{% block content %}
+
+
+<!-- Modern Breadcrumbs-->
+<section class="breadcrumb-modern context-dark text-md-left">
+  <div class="shell section-34 section-md-top-110 section-md-bottom-41">
+    <h1>Contactenos</h1>
+    <ul class="list-inline list-inline-arrows p offset-top-34 offset-md-top-70">
+      <li><a href="index.html">Inicio</a></li>
+      <li>Contacto</li>
+    </ul>
+  </div>
+</section>
+      <!-- Page Content-->
+      <main class="page-content section-top-98 section-sm-top-110">
+        <!-- Get In Touch-->
+        <section>
+          <div class="shell">
+            <div class="range range-xs-center">
+              <div class="cell-sm-9 cell-md-8 cell-lg-12">
+                <div class="range">
+                  <div class="cell-lg-8 text-left">
+                    <h3>Contáctenos</h3>
+                    <hr class="divider divider-lg bg-java hr-left-0 hr-sm-left-2">
+                    <div class="offset-top-66">
+                      <!--p>You can contact us any way that is convenient for you. We are available 24/7 via fax or email. You can also use a quick contact form below or visit us personally.</p>
+                      <p>We would be happy to answer your questions.</p -->
+                      <p>
+                        <label id="msg_inicial">Los campos marcados con (*) son requeridos obligatoriamente para poder enviar su postulación.</label>
+                      </p>
+                    </div>
+                    <div class="offset-top-34">
+                      <form data-form-output="form-output-global" data-form-type="contact" id="formcontacto" class="rd-mailform text-left" data-toggle="validator" action="" method="POST" role="form">
+                      {% csrf_token %}
+                      <!-- form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php"
+                      novalidate="novalidate" class="rd-mailform text-left" -->
+                        <div class="range range-xs-center">
+                          <!--div class="cell-sm-12">
+                            <div class="form-group form-group-label-outside">
+                              <label for="id_rut" class="form-label form-label-outside text-dark rd-input-label">Rut</label>
+                              <input id="contacts-rut" type="text" name="rut" data-constraints="@Required" class="form-control form-control-last-child"><span class="form-validation"></span>
+                            </div>
+                          </div-->
+                          <!--div class="cell-sm-6">
+                            <div class="form-group form-group-label-outside">
+                              {  {  form . nombres }   }
+                              <span class="form-validation"></span>
+                            </div>
+                          </div -->
+                          <div class="cell-sm-6">
+                            <div class="form-group form-group-label-outside">
+                              <label for="contacts-first-name" class="form-label form-label-outside text-dark rd-input-label">Nombres</label>
+                              <!--input id="contacts-first-name" type="text" name="first-name" data-constraints="@Required" class="form-control form-control-last-child"-->
+                              {{form.nombres}}
+                              <span class="form-validation"></span>
+                            </div>
+                            <div class="form-group form-group-label-outside offset-top-20">
+                              <label for="contacts-email" class="form-label form-label-outside text-dark rd-input-label">E-mail</label>
+                              <!--input id="contacts-email" type="email" name="email" data-constraints="@Email @Required" class="form-control form-control-last-child"-->
+                              {{form.email}}
+                              <span class="form-validation"></span>
+                            </div>
+                          </div>
+                          <div class="cell-sm-6 offset-top-20 offset-sm-top-0">
+                            <div class="form-group form-group-label-outside">
+                              <label for="contacts-last-name" class="form-label form-label-outside text-dark rd-input-label">Apellidos</label>
+                              <!--input id="contacts-last-name" type="text" name="last-name" data-constraints="@Required" class="form-control form-control-last-child"-->
+                              {{form.apellidos}}
+                              <span class="form-validation"></span>
+                            </div>
+                            <div class="form-group form-group-label-outside offset-top-20">
+                              <label for="contacts-phone" class="form-label form-label-outside text-dark rd-input-label">Celular</label>
+                              <!--input id="contacts-phone" type="text" name="last-name" data-constraints="@IsNumeric @Required" class="form-control form-control-last-child"-->
+                              {{form.celular}}
+                              <span class="form-validation"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group form-group-label-outside offset-top-20">
+                          <label for="contacts-message" class="form-label form-label-outside text-dark rd-input-label">Mensaje</label>
+                          <!--ltextarea id="contacts-message" name="message" data-constraints="@Required" style="max-height: 150px;" class="form-control form-control-last-child">
+                          </textarea-->
+                          {{form.mensaje}}
+                          <span class="form-validation"></span>
+                        </div>
+                        <div class="offset-top-18 offset-sm-top-24 text-center text-sm-left">
+                          <button type="submit" style="min-width: 130px;" class="btn btn-ellipse btn-java">Enviar</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="cell-lg-4 text-left offset-top-66 offset-lg-top-0">
+                    <div class="inset-lg-left-40">
+                      <div>
+                        <h6>Redes Sociales</h6>
+                        <hr class="text-subline">
+                                <ul class="list-inline">
+                                  <li><a href="#" class="icon fa fa-facebook icon-xxs icon-circle icon-gray-light"></a></li>
+                                  <li><a href="#" class="icon fa fa-twitter icon-xxs icon-circle icon-gray-light"></a></li>
+                                  <li><a href="#" class="icon fa fa-google-plus icon-xxs icon-circle icon-gray-light"></a></li>
+                                  <li><a href="#" class="icon fa fa-rss icon-xxs icon-circle icon-gray-light"></a></li>
+                                </ul>
+                      </div>
+                      <div class="offset-top-60">
+                        <h6>Dirección</h6>
+                        <hr class="text-subline">
+                        <div class="offset-top-20">
+                          <div class="unit unit-horizontal unit-spacing-xxs p">
+                            <div class="unit-left">
+                              <div class="icon icon-xxs text-middle mdi mdi-map-marker text-primary"></div>
+                            </div>
+                            <div class="unit-body">
+                              <p><a href="#" class="text-gray-dark">2130 Fulton Street San Diego,<br>CA 94117-1080 USA</a></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="offset-top-60">
+                        <h6>OPENING hours</h6>
+                        <hr class="text-subline">
+                        <div class="offset-top-20">
+                          <div class="unit unit-horizontal unit-spacing-xxs p">
+                            <div class="unit-left">
+                              <div class="icon icon-xxs text-middle mdi mdi-calendar-clock text-primary"></div>
+                            </div>
+                            <div class="unit-body">
+                              <div>Mon–Fri: 8:00am–6:00pm</div>
+                              <div>Sat: 9:00am–3:00pm</div>
+                              <div>Sun: 10:00am–2:00pm</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="offset-top-60">
+                        <h6>Teléfono</h6>
+                        <hr class="text-subline">
+                        <div class="offset-top-20">
+                          <div class="unit unit-horizontal unit-spacing-xxs p">
+                            <div class="unit-left">
+                              <div class="icon icon-xxs text-middle mdi mdi-phone text-primary"></div>
+                            </div>
+                            <div class="unit-body"><a href="callto:#" class="text-dark reveal-block">1-800-1234-567</a><a href="callto:#" class="text-dark reveal-block">1-800-7654-876</a></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="offset-top-60">
+                        <h6>e-mail</h6>
+                        <hr class="text-subline">
+                        <div class="offset-top-20">
+                          <div class="unit unit-horizontal unit-spacing-xxs p">
+                            <div class="unit-left">
+                              <div class="icon icon-xxs text-middle mdi mdi-email-outline text-primary"></div>
+                            </div>
+                            <div class="unit-body"><a href="mailto:#" class="text-dark">info@demolink.org</a></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="offset-top-110">
+            <!-- RD Google Map-->
+            <div class="rd-google-map">
+              <div id="rd-google-map" data-zoom="14" data-x="-73.9874068" data-y="40.643180" data-styles='[{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"geometry.fill","stylers":[{"visibility":"on"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#b4d4e1"},{"visibility":"on"}]}]' class="rd-google-map__model"></div>
+              <ul class="rd-google-map__locations">
+                <li data-x="-73.9874068" data-y="40.643180">
+                  <p>9870 St Vincent Place, Glasgow, DC 45 Fr 45</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+{% endblock %}
