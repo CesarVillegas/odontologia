@@ -12,6 +12,6 @@ admin.site.register(Admision, admisionAdmin)
 
 
 class ContenidoAdmin(admin.ModelAdmin):
-  list_display = (['seccion'])
+    list_display = (['seccion'])
 
 admin.site.register(Contenido, ContenidoAdmin)
