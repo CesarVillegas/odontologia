@@ -34,11 +34,3 @@ def catedra(request):
 def faq(request):
     faq = Contenido.objects.get(seccion='Preguntas Frecuentes')
     return render(request, 'clinica/contenido.html', {'contenido':faq})
-
-
-def handler404(request):
-    return render(request, '404.html', status=404)
-
-
-def handler500(request):
-    return render(request, '500.html', status=500)

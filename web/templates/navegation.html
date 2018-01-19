@@ -36,31 +36,29 @@
                     <div class="rd-navbar-mobile-scroll">
                         <!-- RD Navbar Nav-->
                         <ul class="rd-navbar-nav">
-                            <li class="{% active_menu '/' %}"><a href="/"><span>Inicio</span></a></li>
-                            <li><a href="#"><span>Admisón</span></a></li>
-                            <li><a href="#"><span>Carrera</span></a>
+                            <li class="{% active_menu '^[/]$' %}"><a href="/"><span>Inicio</span></a></li>
+                            <li class="{% active_menu '/carrera' %}"><a href="#"><span>Quienes Somos</span></a>
                                 <ul class="rd-navbar-dropdown">
-                                    <li><a href="#"><span class="text-middle">Plan Estudios</span></a></li>
-                                    <li><a href="#"><span class="text-middle">Perfil Profesional</span></a></li>
+                                    <li><a href="/carrera/organigrama"><span class="text-middle">Organigrama</span></a>
+                                    <li><a href="/carrera/mision"><span class="text-middle">Misión - Visión</span></a>
+                                    <li><a href="/carrera/plan"><span class="text-middle">Plan Estudios</span></a></li>
+                                    <li><a href="/carrera/perfil"><span class="text-middle">Perfil Profesional</span></a></li>
                                 </ul>
                             </li>
+                            <li><a href="#"><span>Admisón</span></a></li>
                             <li class="{% active_menu '/docentes' %}"><a href="/docentes"><span>Docentes</span></a></li>
-                            <li class="{% active_menu '/clinica' %}"><a href="{% url 'clinica' %}"><span>Clínica</span></a>
+                            <li class="{% active_menu '/clinica' %}"><a href="/clinica"><span>Clínica</span></a>
                                 <ul class="rd-navbar-dropdown">
-                                    <li><a href="/clinica/organigrama"><span class="text-middle">Organigrama</span></a>
-                                    </li>
+                                    <li><a href="/clinica/organigrama"><span class="text-middle">Organigrama</span></a></li>
                                     <li><a href="/clinica/servicios"><span class="text-middle">Servicios</span></a>
-                                        <ul>
-                                            <li>Odontología</li>
-                                            <li>Imagenología</li>                       
+                                        <ul class="rd-navbar-dropdown2">
+                                            <li><a href="#"><span class="text-middle">Odontología</span></a></li>
+                                            <li><a href="#"><span class="text-middle">Imagenología</span></a></li>                       
                                         </ul>
                                     </li>
-                                    <li><a href="/clinica/equipo"><span class="text-middle">Equipo</span></a>
-                                    </li>
-                                    <li><a href="/clinica/catedra"><span class="text-middle">Cátedras</span></a>
-                                    </li>  
-                                    <li><a href="/clinica/paciente"><span class="text-middle">Paciente</span></a>
-                                    </li>                                                 
+                                    <li><a href="/clinica/equipo"><span class="text-middle">Equipo</span></a></li>
+                                    <li><a href="/clinica/catedra"><span class="text-middle">Cátedras</span></a></li>  
+                                    <li><a href="/clinica/paciente"><span class="text-middle">Paciente</span></a></li>                                                 
                                 </ul>  
                             </li>
                             <li><a href="#"><span>Contacto</span></a></li>
