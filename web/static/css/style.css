@@ -1544,7 +1544,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #248186;
+    color: #214e83;
     text-decoration: underline;
 }
 
@@ -10789,7 +10789,7 @@ h5 a:hover,
 .h5 a:hover,
 h6 a:hover,
 .h6 a:hover {
-    color: #3f589c;
+    color: #214e83;
 }
 
 h1 .small,
@@ -11238,7 +11238,7 @@ mark,
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    color: #3f589c;
+    color: #214e83;
 }
 
 .list-marked-gray li:before {
@@ -11269,8 +11269,8 @@ mark,
 }
 
 .bg-java {
-    background: #3f589c;
-    fill: #3f589c;
+    background: #214e83;
+    fill: #214e83;
 }
 
 .bg-white-liac {
@@ -11553,7 +11553,7 @@ mark,
 .page .text-java,
 .page .text-java a,
 .page .text-java a:focus {
-    color: #3f589c;
+    color: #214e83;
 }
 
 .page .text-java a:hover {
@@ -11561,7 +11561,7 @@ mark,
 }
 
 .page a.text-java:focus {
-    color: #3f589c;
+    color: #214e83;
 }
 
 .page a.text-java:hover {
@@ -12102,8 +12102,8 @@ fieldset[disabled] .btn-primary {
 
 .btn-java {
     color: #fff;
-    background-color: #3f589c;
-    border-color: #3f589c;
+    background-color: #214e83;
+    border-color: #214e83;
 }
 
 .btn-java:focus,
@@ -12145,7 +12145,7 @@ fieldset[disabled] .btn-java {
 }
 
 .btn-java .badge {
-    color: #3f589c;
+    color: #214e83;
     background-color: #fff;
 }
 
@@ -26134,7 +26134,7 @@ a.thumbnail:hover {
 }
 
 .panel-group.accordion .panel-heading {
-    background: #3f589c;
+    background: #214e83;
     position: relative;
     padding: 0;
     border: none;
@@ -26173,7 +26173,7 @@ a.thumbnail:hover {
     font-size: 16px;
     line-height: 1.5625;
     border: none;
-    background: #3f589c;
+    background: #214e83;
     color: #e5e5e5;
     border: none !important;
 }
@@ -26453,7 +26453,7 @@ a.icon {
 @supports (-webkit-background-clip: text) and (-webkit-text-fill-color: transparent) {
     .icon-gradient:before {
         transition: color .25s, -webkit-text-fill-color .25s 0s;
-        background: linear-gradient(135deg, #4eaad7 0%, #3f589c 100%);
+        background: linear-gradient(135deg, #4eaad7 0%, #214e83 100%);
         color: transparent;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -26637,7 +26637,7 @@ a.icon-rounded.fa-behance:hover {
 }
 
 .icon-list .unit:hover {
-    background: #3f589c;
+    background: #214e83;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
 }
 
@@ -27039,7 +27039,7 @@ button.list-group-item-danger.active:focus {
 }
 
 .breadcrumb-modern {
-    background: linear-gradient(0deg, #4eaad7 0%, #3f589c 100%);
+    background: linear-gradient(0deg, #4eaad7 0%, #214e83 100%);
 }
 
 .breadcrumb-modern .list-inline li a {
@@ -28738,7 +28738,7 @@ p .label-custom {
 }
 
 .post-modern-classic .post-content .list-inline a:hover {
-    color: #3f589c;
+    color: #214e83;
     text-decoration: none;
 }
 
@@ -29831,7 +29831,7 @@ input.text-gray-darker::-webkit-input-placeholder {
 
 .form-search-submit:hover,
 .form-search-submit:focus {
-    color: #3f589c;
+    color: #214e83;
     outline: none;
 }
 
@@ -34880,8 +34880,8 @@ fieldset[disabled] .context-dark .btn-default {
 
 .bg-primary .btn-java {
     color: #fff;
-    background-color: #3f589c;
-    border-color: #3f589c;
+    background-color: #214e83;
+    border-color: #214e83;
 }
 
 .bg-primary .btn-java:focus,
@@ -34923,7 +34923,7 @@ fieldset[disabled] .bg-primary .btn-java {
 }
 
 .bg-primary .btn-java .badge {
-    color: #3f589c;
+    color: #214e83;
     background-color: #fff;
 }
 
@@ -35124,7 +35124,7 @@ fieldset[disabled] .bg-primary .btn-java {
 }
 
 .service .service-desc:hover {
-    background: #3f589c;
+    background: #214e83;
 }
 
 .service .service-desc:hover:after {
@@ -37142,7 +37142,7 @@ fieldset[disabled] .bg-primary .btn-java {
 .rd-navbar-minimal.rd-navbar-static .rd-navbar-nav>li:hover,
 .rd-navbar-floated.rd-navbar-static .rd-navbar-nav>li:hover,
 .rd-navbar-top-panel.rd-navbar-static .rd-navbar-nav>li:hover {
-    background: #3f589c;
+    background: #214e83;
 }
 
 .rd-navbar-minimal.rd-navbar-static .rd-navbar-nav>li>a,
@@ -37309,7 +37309,7 @@ fieldset[disabled] .bg-primary .btn-java {
 .rd-navbar-floated.rd-navbar-static .rd-navbar-cart-dropdown li a:hover,
 .rd-navbar-top-panel.rd-navbar-static .rd-navbar-cart-dropdown li a:hover,
 .rd-navbar-logo-center.rd-navbar-static .rd-navbar-cart-dropdown li a:hover {
-    color: #248186;
+    color: #214e83;
 }
 
 .rd-navbar-default.rd-navbar-static .rd-navbar-dropdown .rd-navbar-dropdown,
@@ -39454,7 +39454,7 @@ fieldset[disabled] .bg-primary .btn-java {
 .rd-navbar-default.rd-navbar-static .rd-navbar-nav>li.active>a,
 .rd-navbar-default.rd-navbar-static .rd-navbar-nav>li.focus>a,
 .rd-navbar-default.rd-navbar-static .rd-navbar-nav>li>a:hover {
-    color: #3f589c !important;
+    color: #214e83 !important;
 }
 
 .rd-navbar-default.rd-navbar-static .rd-navbar-nav>li.rd-navbar--has-megamenu {
@@ -41528,7 +41528,7 @@ fieldset[disabled] .bg-primary .btn-java {
     }
     .swiper-pagination-bullet-active,
     .swiper-pagination-bullet:hover {
-        background: #3f589c;
+        background: #214e83;
     }
     .swiper-pagination-bullet-active:before,
     .swiper-pagination-bullet:hover:before {
@@ -41547,7 +41547,7 @@ fieldset[disabled] .bg-primary .btn-java {
 }
 
 .swiper-pagination-bullet-active {
-    background: #3f589c;
+    background: #214e83;
 }
 
 .swiper-pagination-white .swiper-pagination-bullet-active {
@@ -45565,7 +45565,7 @@ html:not(.lt-ie10) .not-animated {
 
 .owl-carousel-class-light .owl-dot.active,
 .owl-carousel-class-light .owl-dot:hover {
-    background: #3f589c;
+    background: #214e83;
 }
 
 .owl-carousel-dots-custom-style.owl-carousel-default .owl-dot:before {
@@ -47435,7 +47435,7 @@ html:not(.lt-ie10) .not-animated {
         left: 50%;
         width: 0;
         height: 1px;
-        background: #3f589c;
+        background: #214e83;
         transition: .4s;
     }
     .isotope-filters-horizontal:not(.isotope-filter-collapse-lg) .isotope-filters-list>li>a.active,
@@ -48428,7 +48428,7 @@ a.pswp__share--download:hover {
 
 .responsive-tabs .resp-accordion:hover {
     cursor: pointer;
-    color: #3f589c;
+    color: #214e83;
 }
 
 .responsive-tabs .resp-accordion .resp-arrow {
@@ -48593,7 +48593,7 @@ a.pswp__share--download:hover {
     }
     .responsive-tabs-classic[data-type="vertical"] .resp-tabs-list li:hover,
     .responsive-tabs-classic[data-type="horizontal"] .resp-tabs-list li:hover {
-        color: #3f589c;
+        color: #214e83;
     }
     .responsive-tabs-classic[data-type="vertical"] .resp-tabs-list li.resp-tab-active,
     .responsive-tabs-classic[data-type="horizontal"] .resp-tabs-list li.resp-tab-active {
@@ -50825,7 +50825,7 @@ a.pswp__share--download:hover {
     position: relative;
     padding: 18px 30px;
     text-align: center;
-    background: #3f589c;
+    background: #214e83;
 }
 
 .rdc-next,
@@ -51016,8 +51016,8 @@ a.pswp__share--download:hover {
 
 @media (min-width: 1200px) {
     .rdc-table_has-events:hover {
-        background: #3f589c !important;
-        border-color: #3f589c !important;
+        background: #214e83 !important;
+        border-color: #214e83 !important;
     }
     .rdc-table_has-events:hover .rdc-table_date,
     .rdc-table_has-events:hover .icon,
@@ -51091,7 +51091,7 @@ a.pswp__share--download:hover {
     }
     .rd-calendar-fullwidth .rd-calendar .rdc-next,
     .rd-calendar-fullwidth .rd-calendar .rdc-prev {
-        color: #3f589c;
+        color: #214e83;
     }
     .rd-calendar-fullwidth .rd-calendar .rdc-panel {
         background: transparent;
@@ -51116,7 +51116,7 @@ a.pswp__share--download:hover {
     }
     .rd-calendar-fullwidth .rd-calendar .rdc-table_today {
         border-radius: 50%;
-        border: 2px solid #3f589c;
+        border: 2px solid #214e83;
         background-color: transparent;
         color: #434445;
     }
@@ -51144,7 +51144,7 @@ a.pswp__share--download:hover {
     .rd-calendar-fullwidth .rd-calendar .rdc-events_close {
         top: 3px;
         right: 5px;
-        color: #3f589c;
+        color: #214e83;
     }
     .rd-calendar-fullwidth .rd-calendar .widget-event {
         padding: 5px;
@@ -51650,7 +51650,7 @@ html[class*="ie"] .dtp-hour-hand {
 
 .ui-to-top:hover {
     color: #fff;
-    background: #3f589c;
+    background: #214e83;
 }
 
 .ui-to-top.active {
