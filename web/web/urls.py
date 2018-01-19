@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^clinica/', include('apps.clinica.urls'), name='clinica'),
     url(r'^docentes/', include('apps.docente.urls'), name='docente'),
     url(r'^carrera/', include('apps.carrera.urls'), name='carrera'),
+    
     url(r'^admin/', admin.site.urls),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]

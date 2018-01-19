@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
+from ckeditor.fields import RichTextField
+
+from django.core.exceptions import ValidationError
+from django.core.files.images import get_image_dimensions
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 class Admision(models.Model):
@@ -18,3 +23,17 @@ class Admision(models.Model):
 
     def __str__(self):
         return "%s " %self.anio
+
+# Clase definición formulario de contacto
+class Contactos(models.Model):
+    nombres = models.CharField(max_length=100, blank=False, null=False)
+    apellidos = models.CharField(max_length=100, blank=False, null=False)
+    email = models.EmailField(max_length=254, blank=False, null=False)
+    celular = models.CharField(max_length=8, blank=False, null=False)
+    mensaje = RichTextField(max_length=500, blank=True, null=True, config_name='awesome_ckeditor')
+
+
+# Clase para definición de contenido estandar
+class Contenido(models.Model):
+	seccion = models.CharField(max_length=100, blank=False, null=False)
+	texto = RichTextUploadingField(max_length=5000, blank=True, null=True, config_name='awesome_ckeditor')
