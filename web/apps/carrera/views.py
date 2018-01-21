@@ -69,7 +69,7 @@ def perfil(request):
     return render(request, 'carrera/contenido.html', {'contenido':perfil})
 
 def mision(request):
-    mision = Contenido.objects.get(seccion='Misión')
+    mision = Contenido.objects.get(seccion='objetivos')
     return render(request, 'carrera/contenido.html', {'contenido':mision})
 
 def plan(request):
