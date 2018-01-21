@@ -18,7 +18,6 @@ def admision(request):
     return render(request, 'carrera/admision.html', {'admisiones': admisiones})
 
 def contacto(request):
-
     if request.method == 'POST':
         form = FormularioContactos(request.POST)
         if form.is_valid():
@@ -35,7 +34,7 @@ def contacto(request):
         return HttpResponse("<h1>OK</h1>")
     else:
         form = FormularioContactos()
-        return render(request, 'carrera/form_contactos.html', {'form': form})
+        return render(request, 'carrera/contacto.html', {'form': form})
 
 
 def contacto2(request):

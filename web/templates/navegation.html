@@ -37,7 +37,7 @@
                         <!-- RD Navbar Nav-->
                         <ul class="rd-navbar-nav">
                             <li class="{% active_menu '^[/]$' %}"><a href="/"><span>Inicio</span></a></li>
-                            <li class="{% active_menu '/carrera' %}"><a href="#"><span>Quienes Somos</span></a>
+                            <li class="{% active_menu '^(/carrera/)(or|ob|pl|pe)([a-z]+)' %}"><a href="#"><span>Quienes Somos</span></a>
                                 <ul class="rd-navbar-dropdown">
                                     <li><a href="/carrera/organigrama"><span class="text-middle">Organigrama</span></a>
                                     <li><a href="/carrera/objetivos"><span class="text-middle">Misión - Visión</span></a>
@@ -45,7 +45,7 @@
                                     <li><a href="/carrera/perfil"><span class="text-middle">Perfil Profesional</span></a></li>
                                 </ul>
                             </li>
-                            <li class="{% active_menu '/admision' %}"><a href="/carrera/admision"><span>Admisión</span></a></li>
+                            <li class="{% active_menu '^(/carrera/)(ad)([a-z]+)' %}"><a href="/carrera/admision"><span>Admisión</span></a></li>
                             <li class="{% active_menu '/clinica' %}"><a href="/clinica"><span>Clínica</span></a>
                                 <ul class="rd-navbar-dropdown">
                                     <li><a href="/clinica/organigrama"><span class="text-middle">Organigrama</span></a></li>
@@ -60,7 +60,7 @@
                                     <li><a href="/clinica/paciente"><span class="text-middle">Paciente</span></a></li>                                                 
                                 </ul>  
                             </li>
-                            <li class="{% active_menu '/contacto' %}"><a href="/carrera/contacto"><span>Contacto</span></a></li>
+                            <li class="{% active_menu '^(/carrera/)(co)([a-z]+)' %}"><a href="/carrera/contacto"><span>Contacto</span></a></li>
                         </ul>
                     </div>
                 </div>

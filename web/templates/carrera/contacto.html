@@ -1,4 +1,4 @@
-{% extends "carrera/base.html" %} 
+{% extends "carrera/basecontenido.html" %} 
 {% load staticfiles %} 
 
 {% block title %}Contáctenos{% endblock %} {% block content %}
@@ -24,64 +24,42 @@
                             <h3>Contáctenos</h3>
                             <hr class="divider divider-lg bg-java hr-left-0 hr-sm-left-2">
                             <div class="offset-top-66">
-                                <!--p>You can contact us any way that is convenient for you. We are available 24/7 via fax or email. You can also use a quick contact form below or visit us personally.</p>
-                      <p>We would be happy to answer your questions.</p -->
                                 <p>
-                                    <label id="msg_inicial">Los campos marcados con (*) son requeridos obligatoriamente para poder enviar su postulación.</label>
+                                    <label id="msg_inicial">Los campos marcados con (*) son requeridos obligatoriamente.</label>
                                 </p>
                             </div>
                             <div class="offset-top-34">
                                 <form data-form-output="form-output-global" data-form-type="contact" id="formcontacto" class="rd-mailform text-left" data-toggle="validator" action="" method="POST" role="form">
                                     {% csrf_token %}
-                                    <!-- form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php"
-                      novalidate="novalidate" class="rd-mailform text-left" -->
                                     <div class="range range-xs-center">
-                                        <!--div class="cell-sm-12">
-                            <div class="form-group form-group-label-outside">
-                              <label for="id_rut" class="form-label form-label-outside text-dark rd-input-label">Rut</label>
-                              <input id="contacts-rut" type="text" name="rut" data-constraints="@Required" class="form-control form-control-last-child"><span class="form-validation"></span>
-                            </div>
-                          </div-->
-                                        <!--div class="cell-sm-6">
-                            <div class="form-group form-group-label-outside">
-                              {  {  form . nombres }   }
-                              <span class="form-validation"></span>
-                            </div>
-                          </div -->
                                         <div class="cell-sm-6">
                                             <div class="form-group form-group-label-outside">
                                                 <label for="contacts-first-name" class="form-label form-label-outside text-dark rd-input-label">Nombres</label>
-                                                <!--input id="contacts-first-name" type="text" name="first-name" data-constraints="@Required" class="form-control form-control-last-child"-->
-                                                {{form.nombres}}
+                                                {{ form.nombres }}
                                                 <span class="form-validation"></span>
                                             </div>
                                             <div class="form-group form-group-label-outside offset-top-20">
                                                 <label for="contacts-email" class="form-label form-label-outside text-dark rd-input-label">E-mail</label>
-                                                <!--input id="contacts-email" type="email" name="email" data-constraints="@Email @Required" class="form-control form-control-last-child"-->
-                                                {{form.email}}
+                                                {{ form.email }}
                                                 <span class="form-validation"></span>
                                             </div>
                                         </div>
                                         <div class="cell-sm-6 offset-top-20 offset-sm-top-0">
                                             <div class="form-group form-group-label-outside">
                                                 <label for="contacts-last-name" class="form-label form-label-outside text-dark rd-input-label">Apellidos</label>
-                                                <!--input id="contacts-last-name" type="text" name="last-name" data-constraints="@Required" class="form-control form-control-last-child"-->
-                                                {{form.apellidos}}
+                                                {{ form.apellidos }}
                                                 <span class="form-validation"></span>
                                             </div>
                                             <div class="form-group form-group-label-outside offset-top-20">
                                                 <label for="contacts-phone" class="form-label form-label-outside text-dark rd-input-label">Celular</label>
-                                                <!--input id="contacts-phone" type="text" name="last-name" data-constraints="@IsNumeric @Required" class="form-control form-control-last-child"-->
-                                                {{form.celular}}
+                                                {{ form.celular }}
                                                 <span class="form-validation"></span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-label-outside offset-top-20">
                                         <label for="contacts-message" class="form-label form-label-outside text-dark rd-input-label">Mensaje</label>
-                                        <!--ltextarea id="contacts-message" name="message" data-constraints="@Required" style="max-height: 150px;" class="form-control form-control-last-child">
-                          </textarea-->
-                                        {{form.mensaje}}
+                                        {{ form.mensaje }}
                                         <span class="form-validation"></span>
                                     </div>
                                     <div class="offset-top-18 offset-sm-top-24 text-center text-sm-left">
