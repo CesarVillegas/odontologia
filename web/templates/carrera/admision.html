@@ -1,104 +1,87 @@
-{% extends "carrera/basecontenido.html" %}
-{% load staticfiles %}
+{% extends "carrera/basecontenido.html" %} 
+{% load staticfiles %} 
 
-{% block title %}Admisión{% endblock %}
-
-{% block content %}
+{% block title %}Admisión{% endblock %} {% block content %}
 <!-- What makes us different-->
 <!--What makes us different-->
 <!-- Modern Breadcrumbs-->
 <section class="breadcrumb-modern context-dark text-md-left">
-<div class="shell section-34 section-md-top-110 section-md-bottom-41">
-  <h1>Admisión</h1>
-  <ul class="list-inline list-inline-arrows p offset-top-34 offset-md-top-70">
-    <li><a href="/">Inicio</a></li>
-    <li>Admisión</li>
-  </ul>
-</div>
+    <div class="shell section-34 section-md-top-110 section-md-bottom-41">
+        <h1>Admisión</h1>
+        <ul class="list-inline list-inline-arrows p offset-top-34 offset-md-top-70">
+            <li><a href="/">Inicio</a></li>
+            <li>Admisión</li>
+        </ul>
+    </div>
 </section>
 <!-- Page Content-->
 <main class="page-content">
-  <section style="background-color:#fdfdfd" class="section-98 section-sm-110 section-lg-bottom-0">
-    <div class="shell text-left">
-      <div class="range range-xs-center">
-        <div class="cell-sm-9 cell-lg-8">
-          <h3>Odontología</h3>
-          <hr class="divider divider-lg bg-java hr-left-0 hr-sm-left-2">
-          <div class="offset-top-41 offset-lg-top-66">
-            <!-- Classic Accordion-->
-            <div data-type="accordion" class="responsive-tabs responsive-tabs-classic">
-              <ul data-group="tabs-group-default" class="resp-tabs-list tabs-group-default">
-                <li>Información:</li>
-                <li>Descripción Profesional:</li>
-                <li>Campo Ocupacional:</li>
-                <li>Aptitudes:</li>
-                <li>Continuidad:</li>
-                <li>Otros Antecedentes:</li>
-              </ul>
-              <div data-group="tabs-group-default" class="resp-tabs-container tabs-group-default">
-                <div>
-                   <p><b>Código Carrera:</b> 25036</p>
-                   <p><b>Título Profesional:</b> Cirujano(a) Dentista</p>
-                   <p><b>Grado:</b> Licenciado en Odontología</p>
-                   <p><b>Duración:</b> 12 semestres</p>
-                   <p><b>Vacantes:</b> {{ admisiones.vacantes }}</p>
-                   <p><b>Régimen:</b> Semestral</p>
-                 </div>
-                <div>
-                  La carrera de Odontología tiene una fuerte formación científica, humanista y tecnológica, con sólidos principios éticos y
-                  responsabilidad social, con énfasis en las ciencias biomédicas básicas, técnicas y clínicas para entender las condiciones normales y patologías
-                  relevantes relativas a la salud bucal de poblaciones adultas e infantiles.
-                  <ul style="text-align: justify;">
-                    <li>Enseñanza media: 20%</li>
-                    <li>Ranking: 20%</li>
-                    <li>PSU Lenguaje y Comunicación: 15%</li>
-                    <li>PSU Matemáticas: 25%</li>
-                    <li>PSU Ciencias: 20%</li>
-                  </ul>
-                 </div>
-                <div>
-                  El Cirujano Dentista puede ejercer libremente la profesión en atención clínica de pacientes en el ámbito público y privado, área urbana y rural, redes asistenciales de atención primaria y nivel secundario; realiza gestión de administración en salud y dirección de centros de salud dental, docencia en instituciones de educación superior e investigación.
+    <section style="background-color:#fdfdfd" class="section-98 section-sm-110 section-lg-bottom-0">
+        <div class="shell text-left">
+            <div class="range range-xs-center">
+                <div class="cell-sm-9 cell-lg-8">
+                    <h3>Odontología</h3>
+                    <hr class="divider divider-lg bg-java hr-left-0 hr-sm-left-2">
+                    <div class="offset-top-41 offset-lg-top-66">
+                        <!-- Classic Accordion-->
+                        <div data-type="accordion" class="responsive-tabs responsive-tabs-classic">
+                            <ul data-group="tabs-group-default" class="resp-tabs-list tabs-group-default">
+                                <li>Información:</li>
+                                <li>Descripción Profesional:</li>
+                                <li>Campo Ocupacional:</li>
+                                <li>Aptitudes:</li>
+                                <li>Continuidad:</li>
+                                <li>Otros Antecedentes:</li>
+                            </ul>
+                            <div data-group="tabs-group-default" class="resp-tabs-container tabs-group-default">
+                                <div>
+                                    <p><b>Código Carrera:</b> 25036</p>
+                                    <p><b>Título Profesional:</b> Cirujano(a) Dentista</p>
+                                    <p><b>Grado:</b> Licenciado en Odontología</p>
+                                    <p><b>Duración:</b> 12 semestres</p>
+                                    <p><b>Vacantes:</b> {{ admisiones.vacantes }}</p>
+                                    <p><b>Régimen:</b> Semestral</p>
+                                </div>
+                                <div>
+                                    La carrera de Odontología tiene una fuerte formación científica, humanista y tecnológica, con sólidos principios éticos y responsabilidad social, con énfasis en las ciencias biomédicas básicas, técnicas y clínicas para entender las condiciones normales y patologías relevantes relativas a la salud bucal de poblaciones adultas e infantiles.
+                                    <ul style="text-align: justify;">
+                                        <li>Enseñanza media: 20%</li>
+                                        <li>Ranking: 20%</li>
+                                        <li>PSU Lenguaje y Comunicación: 15%</li>
+                                        <li>PSU Matemáticas: 25%</li>
+                                        <li>PSU Ciencias: 20%</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    El Cirujano Dentista puede ejercer libremente la profesión en atención clínica de pacientes en el ámbito público y privado, área urbana y rural, redes asistenciales de atención primaria y nivel secundario; realiza gestión de administración en salud y dirección de centros de salud dental, docencia en instituciones de educación superior e investigación.
+                                </div>
+                                <div>
+                                    Interés hacia el ámbito de las ciencias de la salud como también compromiso en esta área, muestra responsabilidad social e interés por la búsqueda permanente de nuevos conocimientos.
+                                </div>
+                                <div>
+                                    El Cirujano(a) Dentista está habilitado para seguir estudios de postgrado: Magister y Doctorado en el área de la salud. Además acceder a especialidades tales como: Ortodoncia, Periodoncia e Implantología, Endodoncia, Cirugía Oral y Maxilofacial, etc.
+                                </div>
+                                <div>
+                                    <p><b>Informaciones:</b> Campus Ignacio Domeyko, Benavente 980, La Serena.</p>
+                                    <p><b>Teléfono:</b> 51 2 334658</p>
+                                    <p><b>Ponderado:</b> {{ admisiones.puntaje_ponderado }}</p>
+                                    <p><b>Punt. Mínimo {% if admisiones.anio %} {{ admisiones.anio }} {% endif %}:</b> 
+                                    {% if admisiones.puntaje_minimo %} {{ admisiones.puntaje_minimo }} {% else %} - {% endif %}
+                                    </p>
+                                    <p><b>Punt. Máximo {{ admisiones.anio }}:</b> {% if admisiones.puntaje_maximo %} {{ admisiones.puntaje_maximo }} {% else %} - {% endif %}</p>
+                                    <p><b>Sitio Web Facultad:</b> <a href="http://fciencias.userena.cl/" target="_blank">fciencias.userena.cl</a></p>
+                                    <p>Carrera con Sistema de Créditos Transferibles (SCT).</p>
+                                    <p>Carrera con Renovación Curricular Vigente desde 2013.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                  Interés hacia el ámbito de las ciencias de la salud como también compromiso en esta área, muestra responsabilidad social e interés por la búsqueda permanente de nuevos conocimientos.
+                <div class="cell-lg-4 offset-top-0 veil reveal-lg-block">
+                    <img src="{% static 'images/pages/faq-01-426x582.jpg' %}" width="426" height="582" alt="" class="veil reveal-md-inline-block">
                 </div>
-                <div>
-                  El Cirujano(a) Dentista está habilitado para seguir estudios de postgrado: Magister y Doctorado en el área de la salud. Además acceder a especialidades tales como: Ortodoncia, Periodoncia e Implantología, Endodoncia, Cirugía Oral y Maxilofacial, etc.
-                </div>
-                <div>
-                  <p><b>Informaciones:</b> Campus Ignacio Domeyko, Benavente 980, La Serena.</p>
-                  <p><b>Teléfono:</b> 51 2 334658</p>
-                  <p><b>Ponderado:</b> {{ admisiones.puntaje_ponderado }}</p>
-
-                  <p><b>Punt. Mínimo
-                    {% if admisiones.anio %}
-                      {{ admisiones.anio }}
-                    {% endif %}:
-                  </b>
-                  {% if admisiones.puntaje_minimo %}
-                    {{ admisiones.puntaje_minimo }}
-                  {% else %}
-                    -
-                  {% endif %}
-                  </p>
-                  <p><b>Punt. Máximo {{ admisiones.anio }}:</b>
-                  {% if admisiones.puntaje_maximo %}
-                      {{ admisiones.puntaje_maximo }}
-                  {% else %}
-                      -
-                  {% endif %}
-                  </p>
-                  <p><b>Sitio Web Facultad:</b> <a href="http://fciencias.userena.cl/" target="_blank">fciencias.userena.cl</a></p>
-                  <p>Carrera con Sistema de Créditos Transferibles (SCT).</p>
-                  <p>Carrera con Renovación Curricular Vigente desde 2013.</p>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-        <div class="cell-lg-4 offset-top-0 veil reveal-lg-block"><img src="{% static 'images/pages/faq-01-426x582.jpg' %}" width="426" height="582" alt="" class="veil reveal-md-inline-block"></div>
-      </div>
-    </div>
-  </section>
+    </section>
 </main>
 {% endblock %}
