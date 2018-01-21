@@ -102,3 +102,31 @@ section.breadcrumb-modern {
 figure.thumbnail-spacing {
 	margin-bottom: 25px;
 }
+
+/* Iconos */
+
+.icon-rayos-md:before,
+.icon-rayos-xl:before,
+.icon-sillon-md:before,
+.icon-sillon-xl:before,
+.icon-doctor-md:before,
+.icon-doctor-xl:before {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-rayos-xl:before {
+    background-image: url("../images/icons/icon-rayos-xl.png");
+}
+
+.icon-sillon-xl:before {
+    background-image: url("../images/icons/icon-sillon-xl.png");
+}
+
+.icon-doctor-xl:before {
+    background-image: url("../images/icons/icon-doctor-xl.png");
+}
