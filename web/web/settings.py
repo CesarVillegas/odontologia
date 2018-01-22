@@ -38,11 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.portada',
-    'apps.docente',
+    'apps.carrera',
     'apps.clinica',
     'ckeditor',
     'ckeditor_uploader',
-    'apps.carrera',
     'sorl.thumbnail',
 ]
 
