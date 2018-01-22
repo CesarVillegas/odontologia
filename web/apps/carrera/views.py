@@ -63,8 +63,12 @@ def contacto2(request):
         )
 
 
-def perfil(request):
-    perfil = Contenido.objects.get(seccion='perfil')
+def perfile(request):
+    perfil = Contenido.objects.get(seccion='perfil egresado')
+    return render(request, 'carrera/contenido.html', {'contenido':perfil})
+
+def perfilp(request):
+    perfil = Contenido.objects.get(seccion='perfil profesional')
     return render(request, 'carrera/contenido.html', {'contenido':perfil})
 
 def mision(request):
