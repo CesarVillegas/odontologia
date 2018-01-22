@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^equipo/$', views.equipo, name='equipo'),
     url(r'^catedra/$', views.catedra, name='catedra'),
     url(r'^faq/$', views.faq, name='faq'),
+    url(r'^galeria/$', views.galeria, name='galeria'),
 ]
