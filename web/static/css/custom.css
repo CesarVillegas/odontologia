@@ -120,13 +120,13 @@ figure.thumbnail-spacing {
 }
 
 .icon-rayos-xl:before {
-    background-image: url("../images/icons/icon-rayos-xl.png");
+    background-image: url("../images/icons/icon_rayos.svg");
 }
 
 .icon-sillon-xl:before {
-    background-image: url("../images/icons/icon-sillon-xl.png");
+    background-image: url("../images/icons/icon_sillon.svg");
 }
 
 .icon-doctor-xl:before {
-    background-image: url("../images/icons/icon-doctor-xl.png");
+    background-image: url("../images/icons/icon_doctor.svg");
 }
