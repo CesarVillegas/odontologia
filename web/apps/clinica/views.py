@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-from .models import Contenido, Servicio, Equipo
+from .models import Contenido, Servicio, Equipo, Galeria, Imagen
 # Create your views here.
 
 def index(request):
@@ -34,3 +34,8 @@ def catedra(request):
 def faq(request):
     faq = Contenido.objects.get(seccion='Preguntas Frecuentes')
     return render(request, 'clinica/contenido.html', {'contenido':faq})
+
+def galeria(request):
+    galerias = Galeria.objects.all()
+    imagenes = Imagen.objects.all()
+    return render(request, 'clinica/galeria.html', {'galerias':galerias, 'imagenes':imagenes})
