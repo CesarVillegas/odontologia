@@ -1,9 +1,9 @@
 {% extends "carrera/basecontenido.html" %} 
 {% load staticfiles %} 
 
-{% block title %}Admisión{% endblock %} {% block content %}
-<!-- What makes us different-->
-<!--What makes us different-->
+{% block title %}Admisión{% endblock %} 
+
+{% block content %}
 <!-- Modern Breadcrumbs-->
 <section class="breadcrumb-modern context-dark text-md-left">
     <div class="shell section-34 section-md-top-110 section-md-bottom-41">
@@ -16,7 +16,7 @@
 </section>
 <!-- Page Content-->
 <main class="page-content">
-    <section style="background-color:#fdfdfd" class="section-98 section-sm-110 section-lg-bottom-0">
+    <section class="section-98 section-sm-50 section-lg-bottom-0">
         <div class="shell text-left">
             <div class="range range-xs-center">
                 <div class="cell-sm-9 cell-lg-8">
@@ -35,22 +35,65 @@
                             </ul>
                             <div data-group="tabs-group-default" class="resp-tabs-container tabs-group-default">
                                 <div>
-                                    <p><b>Código Carrera:</b> 25036</p>
-                                    <p><b>Título Profesional:</b> Cirujano(a) Dentista</p>
-                                    <p><b>Grado:</b> Licenciado en Odontología</p>
-                                    <p><b>Duración:</b> 12 semestres</p>
-                                    <p><b>Vacantes:</b> {{ admisiones.vacantes }}</p>
-                                    <p><b>Régimen:</b> Semestral</p>
+                                    <table data-responsive="true" class="table table-custom table-hover-rows">
+                                        <tr>
+                                            <th>Dato</th>
+                                            <th>Valor</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Código Carrera:</td>
+                                            <td>25036</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Título Profesional:</td>
+                                            <td>Cirujano(a) Dentista</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Grado:</td>
+                                            <td>Licenciado en Odontología</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Duración:</td>
+                                            <td>12 semestres</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vacantes:</td>
+                                            <td>{{ admisiones.vacantes }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Régimen:</td>
+                                            <td>Semestral</td>
+                                        </tr>
+                                    </table>
                                 </div>
                                 <div>
                                     La carrera de Odontología tiene una fuerte formación científica, humanista y tecnológica, con sólidos principios éticos y responsabilidad social, con énfasis en las ciencias biomédicas básicas, técnicas y clínicas para entender las condiciones normales y patologías relevantes relativas a la salud bucal de poblaciones adultas e infantiles.
-                                    <ul style="text-align: justify;">
-                                        <li>Enseñanza media: 20%</li>
-                                        <li>Ranking: 20%</li>
-                                        <li>PSU Lenguaje y Comunicación: 15%</li>
-                                        <li>PSU Matemáticas: 25%</li>
-                                        <li>PSU Ciencias: 20%</li>
-                                    </ul>
+                                    <table data-responsive="true" class="table table-custom table-hover-rows">
+                                        <tr>
+                                            <th>Dato</th>
+                                            <th>Valor</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Enseñanza media:</td>
+                                            <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ranking:</td>
+                                            <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PSU Lenguaje y Comunicación:</td>
+                                            <td>15%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PSU Matemáticas:</td>
+                                            <td>25%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PSU Ciencias:</td>
+                                            <td>20%</td>
+                                        </tr>
+                                    </table>
                                 </div>
                                 <div>
                                     El Cirujano Dentista puede ejercer libremente la profesión en atención clínica de pacientes en el ámbito público y privado, área urbana y rural, redes asistenciales de atención primaria y nivel secundario; realiza gestión de administración en salud y dirección de centros de salud dental, docencia en instituciones de educación superior e investigación.
@@ -62,16 +105,44 @@
                                     El Cirujano(a) Dentista está habilitado para seguir estudios de postgrado: Magister y Doctorado en el área de la salud. Además acceder a especialidades tales como: Ortodoncia, Periodoncia e Implantología, Endodoncia, Cirugía Oral y Maxilofacial, etc.
                                 </div>
                                 <div>
-                                    <p><b>Informaciones:</b> Campus Ignacio Domeyko, Benavente 980, La Serena.</p>
-                                    <p><b>Teléfono:</b> 51 2 334658</p>
-                                    <p><b>Ponderado:</b> {{ admisiones.puntaje_ponderado }}</p>
-                                    <p><b>Punt. Mínimo {% if admisiones.anio %} {{ admisiones.anio }} {% endif %}:</b> 
-                                    {% if admisiones.puntaje_minimo %} {{ admisiones.puntaje_minimo }} {% else %} - {% endif %}
-                                    </p>
-                                    <p><b>Punt. Máximo {{ admisiones.anio }}:</b> {% if admisiones.puntaje_maximo %} {{ admisiones.puntaje_maximo }} {% else %} - {% endif %}</p>
-                                    <p><b>Sitio Web Facultad:</b> <a href="http://fciencias.userena.cl/" target="_blank">fciencias.userena.cl</a></p>
-                                    <p>Carrera con Sistema de Créditos Transferibles (SCT).</p>
-                                    <p>Carrera con Renovación Curricular Vigente desde 2013.</p>
+                                    <table data-responsive="true" class="table table-custom table-hover-rows">
+                                        <tr>
+                                            <th>Dato</th>
+                                            <th>Valor</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Informaciones:</td>
+                                            <td>Campus Ignacio Domeyko, Benavente 980, La Serena</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Teléfono:</td>
+                                            <td>51 2 334658</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ponderado:</td>
+                                            <td>{% if admisiones.puntaje_ponderado %} {{ admisiones.puntaje_ponderado }} {% else %} - {% endif %}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Punt. Mínimo {% if admisiones.anio %} {{ admisiones.anio }} {% endif %}:</td>
+                                            <td>{% if admisiones.puntaje_minimo %} {{ admisiones.puntaje_minimo }} {% else %} - {% endif %}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Punt. Máximo {{ admisiones.anio }}:</td>
+                                            <td>{% if admisiones.puntaje_maximo %} {{ admisiones.puntaje_maximo }} {% else %} - {% endif %}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sitio Web Facultad:</td>
+                                            <td><a href="http://fciencias.userena.cl/" target="_blank">fciencias.userena.cl</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carrera con Sistema de Créditos Transferibles (SCT)</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carrera con Renovación Curricular Vigente desde 2013</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                         </div>

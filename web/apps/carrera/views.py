@@ -2,8 +2,9 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-from .models import Admision, Contactos, Contenido
+from .models import Admision, Contactos, Contenido, Docentes
 from .forms import FormularioContactos
+from datetime import datetime
 from django.http import JsonResponse
 from django.http import HttpResponse
 import json
@@ -26,12 +27,13 @@ def contacto(request):
                 apellidos=form.cleaned_data.get('apellidos'),
                 email=form.cleaned_data.get('email'),
                 celular=form.cleaned_data.get('celular'),
-                mensaje=form.cleaned_data.get('mensaje')
+                mensaje=form.cleaned_data.get('mensaje'),
+                fecha_contacto=datetime.now()
             )
         nuevo_contacto.save()
             #cd = form.cleaned_data
             #return render(request, 'carrera/index.html')
-        return HttpResponse("<h1>OK</h1>")
+        return HttpResponse("<h5>Se ha recibido correctamente su información.</h5>")
     else:
         form = FormularioContactos()
         return render(request, 'carrera/contacto.html', {'form': form})
@@ -84,7 +86,8 @@ def organigrama(request):
     return render(request, 'carrera/contenido.html', {'contenido':organigrama})
 
 def docentes(request):
-    return render(request, 'carrera/lista_docentes.html')
+    docentes = Docentes.objects.all()
+    return render(request, 'carrera/lista_docentes.html', {'docentes': docentes})
 
 def handler404(request):
     return render(request, '404.html', status=404)
