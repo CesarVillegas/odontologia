@@ -85,3 +85,9 @@ def organigrama(request):
 
 def docentes(request):
     return render(request, 'carrera/lista_docentes.html')
+
+def handler404(request):
+    return render(request, '404.html', status=404)
+
+def handler500(request):
+    return render(request, '500.html', status=500)
