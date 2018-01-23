@@ -30,7 +30,7 @@ def validate_image(fieldfile_obj):
 
 class Contenido(models.Model):
 	seccion = models.CharField(max_length=100, blank=False, null=False)
-	texto = RichTextUploadingField(max_length=5000, blank=True, null=True, config_name='awesome_ckeditor')
+	texto = RichTextUploadingField(max_length=35000, blank=True, null=True, config_name='awesome_ckeditor')
 
 class Equipo(models.Model):
     nombres = models.CharField(max_length=100, blank=False, null=False)
