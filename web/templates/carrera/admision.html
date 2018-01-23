@@ -1,9 +1,9 @@
 {% extends "carrera/basecontenido.html" %} 
 {% load staticfiles %} 
 
-{% block title %}Admisión{% endblock %} {% block content %}
-<!-- What makes us different-->
-<!--What makes us different-->
+{% block title %}Admisión{% endblock %} 
+
+{% block content %}
 <!-- Modern Breadcrumbs-->
 <section class="breadcrumb-modern context-dark text-md-left">
     <div class="shell section-34 section-md-top-110 section-md-bottom-41">
@@ -120,7 +120,7 @@
                                         </tr>
                                         <tr>
                                             <td>Ponderado:</td>
-                                            <td>{{ admisiones.puntaje_ponderado }}</td>
+                                            <td>{% if admisiones.puntaje_ponderado %} {{ admisiones.puntaje_ponderado }} {% else %} - {% endif %}</td>
                                         </tr>
                                         <tr>
                                             <td>Punt. Mínimo {% if admisiones.anio %} {{ admisiones.anio }} {% endif %}:</td>
