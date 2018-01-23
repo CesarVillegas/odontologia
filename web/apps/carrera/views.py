@@ -65,8 +65,12 @@ def contacto2(request):
         )
 
 
-def perfil(request):
-    perfil = Contenido.objects.get(seccion='perfil')
+def perfile(request):
+    perfil = Contenido.objects.get(seccion='perfil egresado')
+    return render(request, 'carrera/contenido.html', {'contenido':perfil})
+
+def perfilp(request):
+    perfil = Contenido.objects.get(seccion='perfil profesional')
     return render(request, 'carrera/contenido.html', {'contenido':perfil})
 
 def mision(request):
@@ -81,10 +85,6 @@ def organigrama(request):
     organigrama = Contenido.objects.get(seccion='organigrama')
     return render(request, 'carrera/contenido.html', {'contenido':organigrama})
 
-#def docentes(request):
-#    return render(request, 'carrera/lista_docentes.html')
-
 def docentes(request):
     docentes = Docentes.objects.all()
     return render(request, 'carrera/lista_docentes.html', {'docentes': docentes})
-    #return render(request, 'clinica/equipo.html', {'directores':directores, 'enfermeras':enfermeras, 'tecnicos':tecnicos, 'secretarias':secretarias, 'auxiliares':auxiliares})
