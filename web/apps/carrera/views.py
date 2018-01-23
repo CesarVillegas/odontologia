@@ -39,32 +39,6 @@ def contacto(request):
         return render(request, 'carrera/contacto.html', {'form': form})
 
 
-def contacto2(request):
-    if request.method == 'POST':
-        form = FormularioContactos(request.POST)
-        if form.is_valid():
-            nueva = Contactos.objects.create(
-                rut=form.cleaned_data.get('rut'),
-                nombres=form.cleaned_data.get('nombres'),
-                apellido_paterno=form.cleaned_data.get('apellido_paterno'),
-                email=form.cleaned_data.get('email'),
-                celular=form.cleaned_data.get('celular'),
-                mensaje=form.cleaned_data.get('mensaje')
-            )
-            nueva.save()
-            return HttpResponse(json.dumps({"estado": "saved"}), content_type="application/json")
-        else:
-            return HttpResponse(
-                json.dumps({"estado": "forminvalid"}),
-                content_type="application/json"
-            )
-    else:
-        return HttpResponse(
-            json.dumps({"estado": "notpost"}),
-            content_type="application/json"
-        )
-
-
 def perfil(request):
     perfil = Contenido.objects.get(seccion='perfil')
     return render(request, 'carrera/contenido.html', {'contenido':perfil})
@@ -85,6 +59,8 @@ def organigrama(request):
 #    return render(request, 'carrera/lista_docentes.html')
 
 def docentes(request):
-    docentes = Docentes.objects.all()
-    return render(request, 'carrera/lista_docentes.html', {'docentes': docentes})
+    docentes = Docentes.objects.all().filter(area='docente')
+    endodoncias = Docentes.objects.all().filter(area='endodoncia')
+    odontopediatrias = Docentes.objects.all().filter(area='odontopediatria')
+    return render(request, 'carrera/lista_docentes.html', {'docentes': docentes, 'endodoncias':endodoncias, 'odontopediatrias':odontopediatrias})
     #return render(request, 'clinica/equipo.html', {'directores':directores, 'enfermeras':enfermeras, 'tecnicos':tecnicos, 'secretarias':secretarias, 'auxiliares':auxiliares})

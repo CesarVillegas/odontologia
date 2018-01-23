@@ -18,26 +18,105 @@
 </section>
 <!-- Page Content-->
 <main class="page-content">
-    <!-- Our team-->
-    <section class="section-98 section-sm-110">
-        <div class="shell">
-            <h3>Equipo Docente</h3>
-            <hr class="divider divider-lg bg-java">
-            <div class="offset-top-41 offset-lg-top-60">
-              <div class="range range-xs-center">
-                {% for docente in docentes %}
-                  <div class="cell-xs-8 cell-sm-7 cell-md-3 offset-top-41 offset-md-top-0">
-                  <figure class="thumbnail-josip odd">
-                    <img width="270" height="270" src="{{ docente.foto.url }}" class="img-responsive" alt=""/>
-                      <div class="thumbnail-desc">
-                          <h5 class="thumbnail-josip-title text-bold text-white">{{ docente.nombre_completo}}</h5>
-                          <p class="veil reveal-md-block text-italic text-white offset-top-0"> {{ docente.cargo}} </p>
+
+  <!-- Our team-->
+  <section class="section-98 section-sm-50">
+      <div class="shell">
+          <div class="isotope-wrap">
+              <div class="row">
+                  <!-- Isotope Filters-->
+                  <div class="col-lg-3">
+                      <div class="isotope-filters isotope-filters-vertical">
+                          <h4 class="text-uppercase isotope-filters-title offset-top-34"> </h4>
+                          <ul class="list-inline list-inline-sm">
+                              <li class="veil-md"><p>Equipos</p></li>
+                              <li class="section-relative">
+                                  <button data-custom-toggle="isotope-1" data-custom-toggle-disable-on-blur="true" class="isotope-filters-toggle btn btn-sm btn-default">Filtro<span class="caret"></span>
+                                  </button>
+                                  <ul id="isotope-1" class="list-sm-inline isotope-filters-list">
+                                      <li><a data-isotope-filter="docentes" data-isotope-group="gallery" href="#" class="active">Docentes</a></li>
+                                      <li><a data-isotope-filter="endodoncia" data-isotope-group="gallery" href="#">Endodoncia </a></li>
+                                      <li><a data-isotope-filter="odontopediatria" data-isotope-group="gallery" href="#">Odontopediatría</a></li>
+                                  </ul>
+                              </li>
+                          </ul>
                       </div>
-                      <figcaption><a href="#" class="btn btn-block btn-rect text-md-left btn-java">ver perfil completo</a></figcaption>
-                  </figure>
+                  </div>
+                  <!-- Isotope Content-->
+                  <div class="col-lg-9 offset-lg-top-0 offset-top-34">
+                      <div data-isotope-layout="fitRows" data-isotope-group="gallery" class="isotope">
+                          <div data-photo-swipe-gallery="gallery" class="row text-sm-left">
+
+                              <div data-filter="docentes" class="col-md-12 isotope-item">
+                                  <h3>Docentes</h3>
+                                  <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                                  <div class="offset-top-41 offset-lg-top-60">
+                                      <div class="range range-xs-left">
+                                          {% for docente in docentes %}
+                                          <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                              <figure class="thumbnail-josip thumbnail-spacing">
+                                                  <a href="#"><img width="270" height="270" src="{{ docente.foto.url }}" alt=""/></a>
+                                                  <div class="thumbnail-desc">
+                                                      <h5 class="thumbnail-josip-title text-bold text-white">{{ docente.nombre_completo }}</h5>
+                                                  </div>
+                                                  <figcaption>
+                                                      <a href="#" class="btn btn-block btn-rect text-md-left btn-java">Perfil completo</a>
+                                                  </figcaption>
+                                              </figure>
+                                          </div>
+                                          {% endfor %}
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div data-filter="endodoncia" class="col-md-12 isotope-item">
+                                  <h3>Endodoncia</h3>
+                                  <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                                  <div class="offset-top-41 offset-lg-top-60">
+                                      <div class="range range-xs-left">
+                                          {% for endodoncia in endodoncias %}
+                                          <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                              <figure class="thumbnail-josip thumbnail-spacing">
+                                                  <a href="#"><img width="270" height="270" src="{{ endodoncia.foto.url }}" alt=""/></a>
+                                                  <div class="thumbnail-desc">
+                                                      <h5 class="thumbnail-josip-title text-bold text-white">{{ endodoncia.nombre_completo }}</h5>
+                                                  </div>
+                                                  <figcaption>
+                                                      <a href="#" class="btn btn-block btn-rect text-md-left btn-java">Perfil completo</a>
+                                                  </figcaption>
+                                              </figure>
+                                          </div>
+                                          {% endfor %}
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div data-filter="odontopediatria" class="col-md-12 isotope-item">
+                                  <h3>Odontopediatría</h3>
+                                  <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                                  <div class="offset-top-41 offset-lg-top-60">
+                                      <div class="range range-xs-left">
+                                          {% for odontopediatria in odontopediatrias %}
+                                          <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                              <figure class="thumbnail-josip thumbnail-spacing">
+                                                  <a href="#"><img width="270" height="270" src="{{ odontopediatria.foto.url }}" alt=""/></a>
+                                                  <div class="thumbnail-desc">
+                                                      <h5 class="thumbnail-josip-title text-bold text-white">{{ odontopediatria.nombre_completo }}</h5>
+                                                  </div>
+                                                  <figcaption>
+                                                      <a href="#" class="btn btn-block btn-rect text-md-left btn-java">Perfil completo</a>
+                                                  </figcaption>
+                                              </figure>
+                                          </div>
+                                          {% endfor %}
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
               </div>
-              {% endfor %}
-            </div>
+          </div>
         </div>
     </section>
 </main>

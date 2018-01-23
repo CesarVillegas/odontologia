@@ -11,7 +11,13 @@ from ckeditor_uploader.fields import RichTextUploadingField
 TITULO = (
     ('candidato_doctor', 'C.D.'),
     ('profesor', 'Profesor'),
-    ('magister', 'M.G'),
+    ('magister', 'MG.'),
+)
+
+AREA = (
+    ('docente', 'docente'),
+    ('endodoncia', 'endodoncia'),
+    ('odontopediatria', 'odontopediatria'),
 )
 
 def validate_image(fieldfile_obj):
@@ -66,6 +72,7 @@ class Docentes(models.Model):
     apellido_materno = models.CharField(max_length=100, blank=True, null=True)
     cargo = models.CharField(max_length=100, blank=False, null=False)
     titulo = models.CharField(max_length=20, choices=TITULO)
+    area = models.CharField(max_length=30, choices=AREA)
 
     foto = models.ImageField(upload_to='carrera/docente/', height_field=None, width_field=None, max_length=100, validators=[validate_image], help_text='Tamano maximo de la imagen es 1Mb, sus dimensiones deben ser de 270x270 pixeles')
     nivel = models.IntegerField(default=1)
