@@ -39,3 +39,9 @@ def galeria(request):
     galerias = Galeria.objects.all()
     imagenes = Imagen.objects.all()
     return render(request, 'clinica/galeria.html', {'galerias':galerias, 'imagenes':imagenes})
+
+def handler404(request):
+    return render(request, '404.html', status=404)
+
+def handler500(request):
+    return render(request, '500.html', status=500)
