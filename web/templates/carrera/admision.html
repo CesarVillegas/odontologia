@@ -1,5 +1,5 @@
-{% extends "carrera/basecontenido.html" %} 
-{% load staticfiles %} 
+{% extends "carrera/basecontenido.html" %}
+{% load staticfiles %}
 
 {% block title %}Admisión{% endblock %} {% block content %}
 <!-- What makes us different-->
@@ -65,7 +65,7 @@
                                     <p><b>Informaciones:</b> Campus Ignacio Domeyko, Benavente 980, La Serena.</p>
                                     <p><b>Teléfono:</b> 51 2 334658</p>
                                     <p><b>Ponderado:</b> {{ admisiones.puntaje_ponderado }}</p>
-                                    <p><b>Punt. Mínimo {% if admisiones.anio %} {{ admisiones.anio }} {% endif %}:</b> 
+                                    <p><b>Punt. Mínimo {% if admisiones.anio %} {{ admisiones.anio }} {% endif %}:</b>
                                     {% if admisiones.puntaje_minimo %} {{ admisiones.puntaje_minimo }} {% else %} - {% endif %}
                                     </p>
                                     <p><b>Punt. Máximo {{ admisiones.anio }}:</b> {% if admisiones.puntaje_maximo %} {{ admisiones.puntaje_maximo }} {% else %} - {% endif %}</p>
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="cell-lg-4 offset-top-0 veil reveal-lg-block">
-                    <img src="{% static 'images/pages/faq-01-426x582.jpg' %}" width="426" height="582" alt="" class="veil reveal-md-inline-block">
+                    <img src="{% static 'images/carrera/admision.png' %}" width="426" height="582" alt="" class="veil reveal-md-inline-block">
                 </div>
             </div>
         </div>

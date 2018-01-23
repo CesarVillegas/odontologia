@@ -2,8 +2,9 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-from .models import Admision, Contactos, Contenido
+from .models import Admision, Contactos, Contenido, Docentes
 from .forms import FormularioContactos
+from datetime import datetime
 from django.http import JsonResponse
 from django.http import HttpResponse
 import json
@@ -26,12 +27,13 @@ def contacto(request):
                 apellidos=form.cleaned_data.get('apellidos'),
                 email=form.cleaned_data.get('email'),
                 celular=form.cleaned_data.get('celular'),
-                mensaje=form.cleaned_data.get('mensaje')
+                mensaje=form.cleaned_data.get('mensaje'),
+                fecha_contacto=datetime.now()
             )
         nuevo_contacto.save()
             #cd = form.cleaned_data
             #return render(request, 'carrera/index.html')
-        return HttpResponse("<h1>OK</h1>")
+        return HttpResponse("<h5>Se ha recibido correctamente su información.</h5>")
     else:
         form = FormularioContactos()
         return render(request, 'carrera/contacto.html', {'form': form})
@@ -63,12 +65,8 @@ def contacto2(request):
         )
 
 
-def perfile(request):
-    perfil = Contenido.objects.get(seccion='perfil egresado')
-    return render(request, 'carrera/contenido.html', {'contenido':perfil})
-
-def perfilp(request):
-    perfil = Contenido.objects.get(seccion='perfil profesional')
+def perfil(request):
+    perfil = Contenido.objects.get(seccion='perfil')
     return render(request, 'carrera/contenido.html', {'contenido':perfil})
 
 def mision(request):
@@ -83,11 +81,10 @@ def organigrama(request):
     organigrama = Contenido.objects.get(seccion='organigrama')
     return render(request, 'carrera/contenido.html', {'contenido':organigrama})
 
+#def docentes(request):
+#    return render(request, 'carrera/lista_docentes.html')
+
 def docentes(request):
-    return render(request, 'carrera/lista_docentes.html')
-
-def handler404(request):
-    return render(request, '404.html', status=404)
-
-def handler500(request):
-    return render(request, '500.html', status=500)
+    docentes = Docentes.objects.all()
+    return render(request, 'carrera/lista_docentes.html', {'docentes': docentes})
+    #return render(request, 'clinica/equipo.html', {'directores':directores, 'enfermeras':enfermeras, 'tecnicos':tecnicos, 'secretarias':secretarias, 'auxiliares':auxiliares})
