@@ -148,3 +148,9 @@ figure.thumbnail-spacing {
 .icon-tecnologia-xl:before {
     background-image: url("../images/icons/icon_tecnologia.svg");
 }
+
+/* Galeria */
+
+.thumbnail-custom::before {
+    background: rgba(78, 170, 215, 0.7);
+}
