@@ -970,7 +970,7 @@ $document.ready(function () {
    * @description Enables RD Google Maps plugin
    */
   if (plugins.rdGoogleMaps.length) {
-    $.getScript("http://maps.google.com/maps/api/js?sensor=false&libraries=geometry,places&v=3.7", function () {
+    $.getScript("http://maps.google.com/maps/api/js?sensor=false&libraries=geometry,places&v=3.7&key=AIzaSyBq0aXs_33x1oY4MA6q9ElOULs-1fbfzvU", function () {
       var head = document.getElementsByTagName('head')[0],
           insertBefore = head.insertBefore;
 
@@ -995,7 +995,7 @@ $document.ready(function () {
               var marker = new google.maps.Marker(
                   {
                     map: map,
-                    icon: "images/gmap_marker.png",
+                    icon: "/static/images/gmap_marker.png",
                   }
               );
               var autocomplete = new google.maps.places.Autocomplete(inputAddress[0]);
