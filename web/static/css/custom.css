@@ -109,6 +109,10 @@ figure.thumbnail-spacing {
 .icon-rayos-xl:before,
 .icon-sillon-md:before,
 .icon-sillon-xl:before,
+.icon-biomedicina-md:before,
+.icon-biomedicina-xl:before,
+.icon-tecnologia-md:before,
+.icon-tecnologia-xl:before,
 .icon-doctor-md:before,
 .icon-doctor-xl:before {
     content: '';
@@ -129,4 +133,12 @@ figure.thumbnail-spacing {
 
 .icon-doctor-xl:before {
     background-image: url("../images/icons/icon_doctor.svg");
+}
+
+.icon-biomedicina-xl:before {
+    background-image: url("../images/icons/icon_biomedicas.svg");
+}
+
+.icon-tecnologia-xl:before {
+    background-image: url("../images/icons/icon_tecnologia.svg");
 }
