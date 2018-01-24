@@ -107,6 +107,8 @@ figure.thumbnail-spacing {
 
 .icon-rayos-md:before,
 .icon-rayos-xl:before,
+.icon-compromiso-md:before,
+.icon-compromiso-xl:before,
 .icon-sillon-md:before,
 .icon-sillon-xl:before,
 .icon-biomedicina-md:before,
@@ -137,6 +139,10 @@ figure.thumbnail-spacing {
 
 .icon-biomedicina-xl:before {
     background-image: url("../images/icons/icon_biomedicas.svg");
+}
+
+.icon-compromiso-xl:before {
+    background-image: url("../images/icons/icon_compromiso.svg");
 }
 
 .icon-tecnologia-xl:before {
