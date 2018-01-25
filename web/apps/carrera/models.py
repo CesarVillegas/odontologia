@@ -69,7 +69,7 @@ class Contenido(models.Model):
 class Docentes(models.Model):
     nombres = models.CharField(max_length=100, blank=False, null=False)
     apellido_paterno = models.CharField(max_length=100, blank=False, null=False)
-    apellido_materno = models.CharField(max_length=100, blank=True, null=True)
+    apellido_materno = models.CharField(max_length=100, blank=False, null=False)
     cargo = models.CharField(max_length=100, blank=False, null=False)
     titulo = models.CharField(max_length=20, choices=TITULO)
     area = models.CharField(max_length=30, choices=AREA)
@@ -78,13 +78,14 @@ class Docentes(models.Model):
     nivel = models.IntegerField(default=1)
 
     class Meta:
+        verbose_name_plural = "Docentes"
         ordering = ["nivel"]
 
-    def __str__(self): # __unicode__ en Python 2
-        return '%s %s %s' % (self.nombres.encode('utf8'), self.apellido_paterno.encode('utf8'), self.apellido_materno.encode('utf8'))
+    def __unicode__(self): # __str__ en Python 3
+        return '%s %s %s' % (self.nombres, self.apellido_paterno, self.apellido_materno)
 
     def nombre_completo(self):
-        return '%s %s %s' % (self.nombres.encode('utf8'), self.apellido_paterno.encode('utf8'), self.apellido_materno.encode('utf8'))
+        return '%s %s %s' % (self.nombres, self.apellido_paterno, self.apellido_materno)
 
     def image_foto(self):
           if self.foto:
