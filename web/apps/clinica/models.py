@@ -52,11 +52,11 @@ class Equipo(models.Model):
     class Meta:
         ordering = ["nivel"]
 
-    def __str__(self): # __unicode__ en Python 2
-        return '%s %s %s' % (self.nombres.encode('utf8'), self.apellido_paterno.encode('utf8'), self.apellido_materno.encode('utf8'))
+    def __unicode__(self): # __str__ en Python 3
+        return '%s %s %s' % (self.nombres, self.apellido_paterno, self.apellido_materno)
 
     def nombre_completo(self):
-        return '%s %s %s' % (self.nombres.encode('utf8'), self.apellido_paterno.encode('utf8'), self.apellido_materno.encode('utf8'))
+        return '%s %s %s' % (self.nombres, self.apellido_paterno, self.apellido_materno)
 
     def image_foto(self):
           if self.foto:
@@ -74,8 +74,8 @@ class Servicio(models.Model):
 class Galeria(models.Model):
     nombre = models.CharField(max_length=200, blank=False, null=False)
 
-    def __str__(self): # __unicode__ en Python 2
-        return '%s' % (self.nombre.encode('utf8'))
+    def __unicode__(self): # __unicode__ en Python 2
+        return '%s' % (self.nombre)
 
 class Imagen(models.Model):
     url = models.ImageField(upload_to='clinica/galeria/', height_field=None, width_field=None, max_length=100, validators=[validate_image_galeria], help_text='Tamano maximo de la imagen es de 1Mb y sus dimensiones deben ser de 1200x800px')
@@ -92,4 +92,3 @@ class Imagen(models.Model):
             return '(Sin imagen)'
     image_img.short_description = 'Preview'
     image_img.allow_tags = True
-
