@@ -55,16 +55,12 @@
                                           {% for docente in docentes %}
                                           <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
                                               <figure class="thumbnail-josip thumbnail-spacing">
-                                                  <a href="detalle_academico?detalle={{docente.id}}"><img width="270" height="270" src="{{ docente.foto.url }}" alt=""/></a>
+                                                  <img width="270" height="270" src="{{ docente.foto.url }}" alt=""/>
                                                   <div class="thumbnail-desc" style="padding: 10px; text-align:center">
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ docente.nombres }}</h6>
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ docente.apellido_paterno }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ docente.cargo }}</h6>
                                                   </div>
-                                                  <figcaption>
-                                                      <a href="detalle_academico?detalle={{docente.id}}" class="btn btn-block btn-rect text-md-left btn-java" style="text-align:center">Perfil completo</a>
-                                                      <!-- a href="{ % url 'views' %}?office=foobar" -->
-                                                        <!--https://stackoverflow.com/questions/25345392/how-to-add-url-parameters-to-django-template-url-tag-->
-                                                  </figcaption>
                                               </figure>
                                           </div>
                                           {% endfor %}
@@ -80,14 +76,12 @@
                                           {% for endodoncia in endodoncias %}
                                           <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
                                               <figure class="thumbnail-josip thumbnail-spacing">
-                                                  <a href="detalle_academico?detalle={{endodoncia.id}}"><img width="270" height="270" src="{{ endodoncia.foto.url }}" alt=""/></a>
+                                                  <img width="270" height="270" src="{{ endodoncia.foto.url }}" alt=""/>
                                                   <div class="thumbnail-desc" style="padding: 10px; text-align:center">
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ endodoncia.nombres }}</h6>
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ endodoncia.apellido_paterno }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ endodoncia.cargo }}</h6>
                                                   </div>
-                                                  <figcaption>
-                                                      <a href="detalle_academico?detalle={{endodoncia.id}}" class="btn btn-block btn-rect text-md-left btn-java" style="text-align:center">Perfil completo</a>
-                                                  </figcaption>
                                               </figure>
                                           </div>
                                           {% endfor %}
@@ -103,14 +97,12 @@
                                           {% for odontopediatria in odontopediatrias %}
                                           <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
                                               <figure class="thumbnail-josip thumbnail-spacing">
-                                                  <a href="detalle_academico?detalle={{odontopediatria.id}}"><img width="270" height="270" src="{{ odontopediatria.foto.url }}" alt=""/></a>
+                                                  <img width="270" height="270" src="{{ odontopediatria.foto.url }}" alt=""/>
                                                   <div class="thumbnail-desc" style="padding: 10px; text-align:center">
                                                     <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ odontopediatria.nombres }}</h6>
                                                     <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ odontopediatria.apellido_paterno }}</h6>
+                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ odontopediatria.cargo }}</h6>
                                                   </div>
-                                                  <figcaption>
-                                                      <a href="detalle_academico?detalle={{odontopediatria.id}}" class="btn btn-block btn-rect text-md-left btn-java" style="text-align:center">Perfil completo</a>
-                                                  </figcaption>
                                               </figure>
                                           </div>
                                           {% endfor %}
