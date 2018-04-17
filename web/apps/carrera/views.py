@@ -7,8 +7,8 @@ from .forms import FormularioContactos
 from datetime import datetime
 from django.http import JsonResponse
 from django.http import HttpResponse
+from django.core.exceptions import ObjectDoesNotExist
 import json
-
 
 # Create your views here.
 def index(request):
@@ -61,6 +61,22 @@ def docentes(request):
     endodoncias = Docentes.objects.all().filter(area='endodoncia')
     odontopediatrias = Docentes.objects.all().filter(area='odontopediatria')
     return render(request, 'carrera/lista_docentes.html', {'docentes': docentes, 'endodoncias':endodoncias, 'odontopediatrias':odontopediatrias})
+
+def detalle_academico(request):
+    try:
+        id = request.GET['detalle']
+        datos = Docentes.objects.get(id=id)
+        return render(request, 'carrera/detalle_academico.html', {'datos': datos})
+    except ObjectDoesNotExist:
+        return render(request, '404.html', status=404)
+
+    #if 'detalle' in request.GET:
+    #    id = request.GET['detalle']
+    #    datos = Docentes.objects.get(id=id)
+    #    return render(request, 'carrera/detalle_academico.html', {'datos': datos})
+    #else:
+    #    return HttpResponse('<h1>Pagina no encontrada</h1>')
+
 
 def handler404(request):
     return render(request, '404.html', status=404)

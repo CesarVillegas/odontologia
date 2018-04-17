@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^carrera/plan/$', views.plan, name='plan'),
     url(r'^carrera/organigrama/$', views.organigrama, name='organigrama'),
     url(r'^carrera/docentes/$', views.docentes),
+    url(r'^carrera/docentes/detalle_academico/$', views.detalle_academico, name='detalle'),
     url(r'^carrera/contacto/$', views.contacto, name='contacto'),
     url(r'^404/$', views.handler404, name='handler404'),
     url(r'^500/$', views.handler500, name='handler500'),

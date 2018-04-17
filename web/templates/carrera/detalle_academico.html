@@ -1,0 +1,48 @@
+{% extends "carrera/basecontenido.html" %}
+{% load staticfiles %}
+
+{% block title %}Admisión{% endblock %}
+
+{% block content %}
+<!-- What makes us different-->
+<!--What makes us different-->
+<!-- Modern Breadcrumbs-->
+<section class="breadcrumb-modern context-dark text-md-left">
+    <div class="shell section-34 section-md-top-110 section-md-bottom-41">
+        <h1>Docentes</h1>
+        <ul class="list-inline list-inline-arrows p offset-top-34 offset-md-top-70">
+            <li><a href="/">Inicio</a></li>
+            <li>docentes</li>
+        </ul>
+    </div>
+</section>
+<!-- Page Content-->
+<main class="page-content">
+  <section class="section-98 section-sm-top-34 section-sm-bottom-110" style="margin-bottom: 10px; padding-top:10px">
+      <div class="shell">
+          <h4>{{ datos.nombres }} {{ datos.apellido_paterno }}</h4>
+          <div class="range range-xs-center" style="margin-top: 10px;">
+              <div class="cell-xs-10 cell-md-4" style="margin-top: 10px;">
+                  <!-- Member block type 5-->
+                  <div class="inset-md-right-20 cell-xs-10 cell-md-8 text-md-left offset-top-10 offset-md-top-0" style="border: 10px solid #fff;border-radius: 5px;box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.15);">
+                    <img src="{{ datos.foto.url }}" width="320" height="320" alt="" class="img-responsive center-block" />
+                  </div>
+              </div>
+              <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
+                  <div class="range">
+                      <div class="cell-sm-5">
+                          <div>Profesión</div>
+                          <h5 class="text-bold">{{ datos.cargo }}</h5>
+                      </div>
+                      <div class="cell-sm-7 offset-top-41 offset-sm-top-0">
+                          <div>Especialidad</div>
+                          <h5 class="text-bold">{{ datos.titulo }}</h5>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+</main>
+{% endblock %}
