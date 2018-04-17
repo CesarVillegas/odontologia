@@ -68,7 +68,6 @@ class Equipo(models.Model):
 
 class Servicio(models.Model):
     nombre = models.CharField(max_length=200, blank=False, null=False)
-    valor = models.IntegerField()
     tipo_servicio = models.CharField(max_length=13, choices=TIPO_SERVICIO)
 
 class Galeria(models.Model):
