@@ -7,27 +7,70 @@
 <!--What makes us different-->
 <section class="section-98 section-sm-110">
     <div class="shell">
-        <h3>Marcamos la diferencia</h3>
+        <h3>Ultimos Eventos</h3>
         <hr class="divider divider-lg bg-primary">
         <div class="range offset-top-60">
             <div class="cell-md-4">
-                <div class="icon icon-xlg icon-rect icon-default icon-tecnologia-xl"></div>
-                <h5 class="text-bold text-primary">Ciencia, humanidad y tecnología</h5>
-                <p>La carrera de Odontología tiene una fuerte formación científica, humanista y tecnológica.</p>
+                <div class="bg-white-liac section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
+                    <div id="loading1">
+                        <img src="{% static 'images/loading.gif' %}" width="100px" height="100px">
+                        <p>Cargando...</p>
+                    </div>
+                    <div id="noticia1" style="display:none"></div>
+                </div>
             </div>
-            <div class="cell-md-4 offset-top-50 offset-md-top-0">
-                <div class="icon icon-xlg icon-rect icon-default icon-compromiso-xl"></div>
-                <h5 class="text-bold text-primary">Responsabilidad social</h5>
-                <p>Sólidos principios éticos y responsabilidad social.</p>
+            <div class="cell-md-4">
+                <div class="bg-white-liac section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
+                    <div id="loading2">
+                        <img src="{% static 'images/loading.gif' %}" width="100px" height="100px">
+                        <p>Cargando...</p>
+                    </div>
+                    <div id="noticia2" style="display:none"></div>
+                </div>
             </div>
-            <div class="cell-md-4 offset-top-50 offset-md-top-0">
-                <div class="icon icon-xlg icon-rect icon-default icon-biomedicina-xl"></div>
-                <h5 class="text-bold text-primary">Ciencias biomédicas</h5>
-                <p>Énfasis en las ciencias biomédicas básicas, técnicas y clínicas para entender las condiciones normales y patologías.</p>
+            <div class="cell-md-4">
+                <div class="bg-white-liac section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
+                    <div id="loading3">
+                        <img src="{% static 'images/loading.gif' %}" width="100px" height="100px">
+                        <p>Cargando...</p>
+                    </div>
+                    <div id="noticia3" style="display:none"></div>
+                </div>
             </div>
         </div>
     </div>
 </section>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(document).ajaxStart(function() {
+            $('#loading1').show(); $('#loading2').show(); $('#loading3').show();
+            $('#noticia1').hide(); $('#noticia2').hide(); $('#noticia3').hide();
+        })
+        .ajaxStop(function() {
+            $('#loading1').hide(); $('#loading2').hide(); $('#loading3').hide();
+            $('#noticia1').show(); $('#noticia2').show(); $('#noticia3').show();
+        });
+        //LLamada ajax
+        $.ajax({
+            type: 'GET',
+            url: '/carrera/timeline/',
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(response, request) {
+                //noticia1
+                $("<h6 />", { text: response.tweet0['created_at'] }).appendTo("#noticia1");
+                $("<p />", { text: response.tweet0['text'] }).appendTo("#noticia1");
+                //noticia2
+                $("<h6 />", { text: response.tweet1['created_at'] }).appendTo("#noticia2");
+                $("<p />", { text: response.tweet1['text'] }).appendTo("#noticia2");
+                //noticia3
+                $("<h6 />", { text: response.tweet2['created_at'] }).appendTo("#noticia3");
+                $("<p />", { text: response.tweet2['text'] }).appendTo("#noticia3");
+            }
+        });
+    });
+</script>
 <!-- Call to action-->
 <section class="rd-parallax">
     <div data-speed="0.2" data-type="media" data-url="{% static 'images/backgrounds/background-12-1920x610.jpg' %}" class="rd-parallax-layer"></div>

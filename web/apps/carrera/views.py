@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from .models import Admision, Contactos, Contenido, Docentes
 from .forms import FormularioContactos
@@ -8,9 +8,35 @@ from datetime import datetime
 from django.http import JsonResponse
 from django.http import HttpResponse
 import json
+import twitter
 
 
-# Create your views here.
+def gettweets():
+    api = twitter.Api(consumer_key='H3hIMnLyS4ooJV10N3qTNskvb',
+                      consumer_secret='wwyz0stSlIvxvgBwrRl4sJN0TGQSbZcN3dSuXlSOuZzAqyFmyX',
+                      access_token_key='3153752663-miwwTH2UtGCwIJd9e7mTD3u9a2bji0yznWPKJBp',
+                      access_token_secret='vuhc27ZGZ3VzBENNsi3g4KQA2Ob4BueDFOzrXmsabuQ5U')
+    return api.GetUserTimeline(screen_name='CampusDULS', exclude_replies=True, include_rts=False)
+
+
+@csrf_exempt
+def timeline(request):
+    if request.method == 'GET':
+        cantidad = request.GET.get('num')
+        json_data = {}
+        contador = 0
+        tweets = gettweets()
+        for tweet in tweets:
+            temp = {
+                "created_at": tweet.created_at,
+                "source": tweet.source,
+                "text": tweet.text,
+            }
+            json_data['tweet'+str(contador)] = temp
+            contador += 1
+        return HttpResponse(json.dumps(json_data), content_type="application/json")
+    return render(request)
+
 def index(request):
     return render(request, 'carrera/index.html')
 
