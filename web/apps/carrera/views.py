@@ -2,8 +2,8 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-from .models import Admision, Contactos, Contenido, Docentes
-from .forms import FormularioContactos
+from .models import Admision, Contacto, Contenido, Docentes
+from .forms import FormularioContacto
 from datetime import datetime
 from django.http import JsonResponse
 from django.http import HttpResponse
@@ -20,20 +20,21 @@ def admision(request):
 
 def contacto(request):
     if request.method == 'POST':
-        form = FormularioContactos(request.POST)
+        form = FormularioContacto(request.POST)
         if form.is_valid():
-            nuevo_contacto = Contactos.objects.create(
+            nuevo_contacto = Contacto.objects.create(
                 nombres=form.cleaned_data.get('nombres'),
                 apellidos=form.cleaned_data.get('apellidos'),
                 email=form.cleaned_data.get('email'),
                 celular=form.cleaned_data.get('celular'),
                 mensaje=form.cleaned_data.get('mensaje'),
+                contacto_destino=form.cleaned_data.get('contacto_destino'),
                 fecha_contacto=datetime.now()
             )
         nuevo_contacto.save()
         return HttpResponse("<h5>Se ha recibido correctamente su información.</h5>")
     else:
-        form = FormularioContactos()
+        form = FormularioContacto()
         return render(request, 'carrera/contacto.html', {'form': form})
 
 def perfile(request):

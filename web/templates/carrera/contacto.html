@@ -29,8 +29,15 @@
                                 </p>
                             </div>
                             <div class="offset-top-34">
-                                <form data-form-output="form-output-global" data-form-type="contact" id="formcontacto" class="rd-mailform text-left" data-toggle="validator" action="" method="POST" role="form">
+                                <form data-form-type="contact" id="formcontacto" class="rd-mailform text-left" data-toggle="validator" action="" method="POST" role="form">
                                     {% csrf_token %}
+                                    <div class="form-group form-group-label-outside offset-top-20">
+                                        <div class="form-group form-group-label-outside">
+                                            <label for="contacts-first-name">Para</label>
+                                            {{ form.contacto_destino }}
+                                            <span class="form-validation"></span>
+                                        </div>
+                                    </div>
                                     <div class="range range-xs-center">
                                         <div class="cell-sm-6">
                                             <div class="form-group form-group-label-outside">
