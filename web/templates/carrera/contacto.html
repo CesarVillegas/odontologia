@@ -25,11 +25,11 @@
                             <hr class="divider divider-lg bg-java hr-left-0 hr-sm-left-2">
                             <div class="offset-top-66">
                                 <p>
-                                    <label id="msg_inicial">Los campos marcados con (*) son requeridos obligatoriamente.</label>
+                                    <label id="msg_inicial">{{ respuesta }}</label>
                                 </p>
                             </div>
                             <div class="offset-top-34">
-                                <form data-form-type="contact" id="formcontacto" class="rd-mailform text-left" data-toggle="validator" action="" method="POST" role="form">
+                                <form data-form-output="form-output-global" data-form-type="contact" id="formcontacto" data-toggle="validator" action="" method="POST" role="form">
                                     {% csrf_token %}
                                     <div class="form-group form-group-label-outside offset-top-20">
                                         <div class="form-group form-group-label-outside">

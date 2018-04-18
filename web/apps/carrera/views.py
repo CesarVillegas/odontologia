@@ -32,10 +32,13 @@ def contacto(request):
                 fecha_contacto=datetime.now()
             )
         nuevo_contacto.save()
-        return HttpResponse("<h5>Se ha recibido correctamente su información.</h5>")
-    else:
+        respuesta = 'Se ha recibido correctamente su información.'
         form = FormularioContacto()
-        return render(request, 'carrera/contacto.html', {'form': form})
+        return render(request, 'carrera/contacto.html', {'form': form, 'respuesta': respuesta})
+    else:
+        respuesta = 'Todos los campos del formulario son requeridos.'
+        form = FormularioContacto()
+        return render(request, 'carrera/contacto.html', {'form': form, 'respuesta': respuesta})
 
 def perfile(request):
     perfil = Contenido.objects.get(seccion='perfil egresado')
