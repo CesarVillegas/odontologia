@@ -20,6 +20,11 @@ AREA = (
     ('odontopediatria', 'odontopediatria'),
 )
 
+CONTACTO_DESTINO = (
+    ('carrera', 'Carrera'),
+    ('clinica', 'Clínica'),
+)
+
 def validate_image(fieldfile_obj):
     filesize = fieldfile_obj.file.size
     megabyte_limit = 1.0
@@ -49,13 +54,14 @@ class Admision(models.Model):
         return "%s " %self.anio
 
 # Clase definición formulario de contacto
-class Contactos(models.Model):
+class Contacto(models.Model):
     nombres = models.CharField(max_length=100, blank=False, null=False)
     apellidos = models.CharField(max_length=100, blank=False, null=False)
     email = models.EmailField(max_length=254, blank=False, null=False)
     celular = models.CharField(max_length=8, blank=False, null=False)
     mensaje = RichTextField(max_length=500, blank=True, null=True, config_name='awesome_ckeditor')
     fecha_contacto = models.DateTimeField()
+    contacto_destino = models.CharField(max_length=11, choices=CONTACTO_DESTINO)
 
     class Meta:
         ordering = ["fecha_contacto"]
