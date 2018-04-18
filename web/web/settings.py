@@ -188,3 +188,11 @@ CKEDITOR_CONFIGS = {
         'allowedContent': True,
     },
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mx.userena.digital'
+EMAIL_HOST_PASSWORD = 'info@q1w2e3'
+EMAIL_HOST_USER = 'info@userena.digital'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
