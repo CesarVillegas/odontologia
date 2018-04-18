@@ -42,7 +42,7 @@ def contacto(request):
             )
         nuevo_contacto.save()
         if(enviarcorreo(nuevo_contacto)):
-            respuesta = 'Se ha recibido correctamente su información.'
+            respuesta = '<div class="alert alert-success">Se ha recibido correctamente su información.</div>'
             form = FormularioContacto()
         else:
             respuesta = 'Error en enviar su información.'

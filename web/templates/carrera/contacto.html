@@ -25,7 +25,7 @@
                             <hr class="divider divider-lg bg-java hr-left-0 hr-sm-left-2">
                             <div class="offset-top-66">
                                 <p>
-                                    <label id="msg_inicial">{{ respuesta }}</label>
+                                    <label id="msg_inicial">{% autoescape off %}{{ respuesta }}{% endautoescape %}</label>
                                 </p>
                             </div>
                             <div class="offset-top-34">
