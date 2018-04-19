@@ -15,12 +15,14 @@ def gettweets():
     api = twitter.Api(consumer_key='H3hIMnLyS4ooJV10N3qTNskvb',
                       consumer_secret='wwyz0stSlIvxvgBwrRl4sJN0TGQSbZcN3dSuXlSOuZzAqyFmyX',
                       access_token_key='3153752663-miwwTH2UtGCwIJd9e7mTD3u9a2bji0yznWPKJBp',
-                      access_token_secret='vuhc27ZGZ3VzBENNsi3g4KQA2Ob4BueDFOzrXmsabuQ5U')
-    return api.GetUserTimeline(screen_name='CampusDULS', exclude_replies=True, include_rts=False)
+                      access_token_secret='vuhc27ZGZ3VzBENNsi3g4KQA2Ob4BueDFOzrXmsabuQ5U',
+                      tweet_mode= 'extended')
+    return api.GetUserTimeline(screen_name='CampusDULS', exclude_replies=True, include_rts=False, trim_user=False)
 
 
 @csrf_exempt
 def timeline(request):
+    #return HttpResponse(gettweets())
     if request.method == 'GET':
         cantidad = request.GET.get('num')
         json_data = {}
@@ -29,8 +31,7 @@ def timeline(request):
         for tweet in tweets:
             temp = {
                 "created_at": tweet.created_at,
-                "source": tweet.source,
-                "text": tweet.text,
+                "full_text": tweet.full_text,
             }
             json_data['tweet'+str(contador)] = temp
             contador += 1

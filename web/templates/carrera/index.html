@@ -60,13 +60,13 @@
             success: function(response, request) {
                 //noticia1
                 $("<h6 />", { text: response.tweet0['created_at'] }).appendTo("#noticia1");
-                $("<p />", { text: response.tweet0['text'] }).appendTo("#noticia1");
+                $("<p />", { text: response.tweet0['full_text'] }).appendTo("#noticia1");
                 //noticia2
                 $("<h6 />", { text: response.tweet1['created_at'] }).appendTo("#noticia2");
-                $("<p />", { text: response.tweet1['text'] }).appendTo("#noticia2");
+                $("<p />", { text: response.tweet1['full_text'] }).appendTo("#noticia2");
                 //noticia3
                 $("<h6 />", { text: response.tweet2['created_at'] }).appendTo("#noticia3");
-                $("<p />", { text: response.tweet2['text'] }).appendTo("#noticia3");
+                $("<p />", { text: response.tweet2['full_text'] }).appendTo("#noticia3");
             }
         });
     });
