@@ -38,6 +38,7 @@ def timeline(request):
         contador = 0
         tweets = gettweets()
         for tweet in tweets:
+            text_url = seturl(tweet.full_text, tweet.hashtags, tweet.user_mentions)
             temp = {
                 "created_at": tweet.created_at,
                 "full_text": tweet.full_text,
