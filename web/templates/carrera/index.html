@@ -7,6 +7,149 @@
 <!--What makes us different-->
 <section class="section-98 section-sm-110">
     <div class="shell">
+        <h3>Ultimos Eventos</h3>
+        <hr class="divider divider-lg bg-primary">
+        <div class="range offset-top-60">
+            <div class="cell-md-4 evento-box">
+                <div class="section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
+                    <div id="loading1" class="loading">
+                        <img src="{% static 'images/loading.gif' %}" width="100px" height="100px">
+                        <p>Cargando...</p>
+                    </div>
+                    <div id="noticia1" style="display:none">
+                        <div class="owl-item">
+                            <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
+                                <div class="unit-left unit-item-narrow">
+                                    <img width="60" height="60" src="#" alt="" class="img-circle quote-img" />
+                                </div>
+                                <div class="unit-body unit-item-wide">
+                                    <h5 class="quote-author text-capitalize text-bold text-left">
+                                        <cite class="text-normal"></cite>
+                                    </h5>
+                                    <p class="quote-desc text-capitalize text-gray text-italic text-left"></p>
+                                </div>
+                            </div>
+                            <hr style="padding:0;margin: 5px 0 5px 0;border:1px solid #2121212b;">
+                            <blockquote class="quote quote-classic">
+                                <div class="quote-body">
+                                    <p class="h4 text-italic text-gray-dark text"></p>             
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell-md-4 evento-box">
+                <div class="section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
+                    <div id="loading2" class="loading">
+                        <img src="{% static 'images/loading.gif' %}" width="100px" height="100px">
+                        <p>Cargando...</p>
+                    </div>
+                    <div id="noticia2" style="display:none">
+                        <div class="owl-item">
+                            <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
+                                <div class="unit-left unit-item-narrow">
+                                    <img width="60" height="60" src="#" alt="" class="img-circle quote-img" />
+                                </div>
+                                <div class="unit-body unit-item-wide">
+                                    <h5 class="quote-author text-capitalize text-bold text-left">
+                                        <cite class="text-normal"></cite>
+                                    </h5>
+                                    <p class="quote-desc text-capitalize text-gray text-italic text-left"></p>
+                                </div>
+                            </div>
+                            <hr style="padding:0;margin: 5px 0 5px 0;border:1px solid #2121212b;">
+                            <blockquote class="quote quote-classic">
+                                <div class="quote-body">
+                                    <p class="h4 text-italic text-gray-dark text"></p>             
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell-md-4 evento-box">
+                <div class="section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
+                    <div id="loading3" class="loading">
+                        <img src="{% static 'images/loading.gif' %}" width="100px" height="100px">
+                        <p>Cargando...</p>
+                    </div>
+                    <div id="noticia3" style="display:none">
+                        <div class="owl-item">
+                            <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
+                                <div class="unit-left unit-item-narrow">
+                                    <img width="60" height="60" src="#" alt="" class="img-circle quote-img" />
+                                </div>
+                                <div class="unit-body unit-item-wide">
+                                    <h5 class="quote-author text-capitalize text-bold text-left">
+                                        <cite class="text-normal"></cite>
+                                    </h5>
+                                    <p class="quote-desc text-capitalize text-gray text-italic text-left"></p>
+                                </div>
+                            </div>
+                            <hr style="padding:0;margin: 5px 0 5px 0;border:1px solid #2121212b;">
+                            <blockquote class="quote quote-classic">
+                                <div class="quote-body">
+                                    <p class="h4 text-italic text-gray-dark text"></p>             
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(document).ajaxStart(function() {
+            $('#loading1').show(); $('#loading2').show(); $('#loading3').show();
+            $('#noticia1').hide(); $('#noticia2').hide(); $('#noticia3').hide();
+        })
+        .ajaxStop(function() {
+            $('#loading1').hide(); $('#loading2').hide(); $('#loading3').hide();
+            $('#noticia1').show(); $('#noticia2').show(); $('#noticia3').show();
+        });
+        //LLamada ajax
+        $.ajax({
+            type: 'GET',
+            url: '/carrera/timeline/',
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(response, request) {
+                //noticia1
+                $("#noticia1 img").attr("src", response.tweet0['user_image']);
+                $("#noticia1 .unit-body h5 cite").html(response.tweet0['user_screen_name']);
+                $("#noticia1 .unit-body p").html(response.tweet0['user_created_at']);
+                $("#noticia1 .quote-body p").html(response.tweet0['full_text']);
+                //noticia2
+                $("#noticia2 img").attr("src", response.tweet1['user_image']);
+                $("#noticia2 .unit-body h5 cite").html(response.tweet1['user_screen_name']);
+                $("#noticia2 .unit-body p").html(response.tweet1['user_created_at']);
+                $("#noticia2 .quote-body p").html(response.tweet1['full_text']);
+                //noticia3
+                $("#noticia3 img").attr("src", response.tweet2['user_image']);
+                $("#noticia3 .unit-body h5 cite").html(response.tweet2['user_screen_name']);
+                $("#noticia3 .unit-body p").html(response.tweet2['user_created_at']);
+                $("#noticia3 .quote-body p").html(response.tweet2['full_text']);
+            }
+        });
+    });
+</script>
+<!-- Call to action-->
+<section class="rd-parallax">
+    <div data-speed="0.2" data-type="media" data-url="{% static 'images/backgrounds/background-12-1920x610.jpg' %}" class="rd-parallax-layer"></div>
+    <div data-speed="0" data-type="html" class="rd-parallax-layer section-98 section-sm-110 context-dark">
+        <div class="shell text-center">
+            <h2 style="text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.4);">Nuestro prestigio... consecuencia de un trabajo comprometido y de excelencia</h2>
+            <div class="offset-top-30"><a href="/carrera/admision" class="btn btn-ellipse btn-java">Admisión</a></div>
+        </div>
+    </div>
+</section>
+<!--What makes us different-->
+<section class="section-98 section-sm-110">
+    <div class="shell">
         <h3>Marcamos la diferencia</h3>
         <hr class="divider divider-lg bg-primary">
         <div class="range offset-top-60">
@@ -17,7 +160,7 @@
             </div>
             <div class="cell-md-4 offset-top-50 offset-md-top-0">
                 <div class="icon icon-xlg icon-rect icon-default icon-compromiso-xl"></div>
-                <h5 class="text-bold text-primary">Responsabilidad Social</h5>
+                <h5 class="text-bold text-primary">Responsabilidad social</h5>
                 <p>Sólidos principios éticos y responsabilidad social.</p>
             </div>
             <div class="cell-md-4 offset-top-50 offset-md-top-0">
@@ -25,16 +168,6 @@
                 <h5 class="text-bold text-primary">Ciencias biomédicas</h5>
                 <p>Énfasis en las ciencias biomédicas básicas, técnicas y clínicas para entender las condiciones normales y patologías.</p>
             </div>
-        </div>
-    </div>
-</section>
-<!-- Call to action-->
-<section class="rd-parallax">
-    <div data-speed="0.2" data-type="media" data-url="{% static 'images/backgrounds/background-11-1920x610.jpg' %}" class="rd-parallax-layer"></div>
-    <div data-speed="0" data-type="html" class="rd-parallax-layer section-98 section-sm-110 context-dark">
-        <div class="shell text-center">
-            <h2 style="text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.4);">Nuestro prestigio... consecuencia de un trabajo comprometido y de excelencia</h2>
-            <div class="offset-top-30"><a href="/carrera/admision" class="btn btn-ellipse btn-java">Admisión</a></div>
         </div>
     </div>
 </section>

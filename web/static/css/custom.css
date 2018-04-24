@@ -11,12 +11,6 @@ div.after-footer {
     font-weight: 200;
 }
 
-div.swiper-container h2,
-div.swiper-container h5 {
-    text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.4);
-}
-
-
 /* Barra titulos contenido */
 
 div.section-md-bottom-41 {
@@ -151,6 +145,29 @@ figure.thumbnail-spacing {
 
 /* Galeria */
 
-.thumbnail-custom::before {
+.thumbnail-custom:before {
     background: rgba(78, 170, 215, 0.7);
+}
+
+/* Banner */
+
+div.swiper-container h2,
+div.swiper-container h5 {
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+div.swiper-container h5,
+div.swiper-container a {
+    margin-top: 10px;
+}
+
+/* Tweets */
+
+div.loading {
+    text-align: center;
+}
+
+div.quote-body p.text {
+    font-size: 1.1em;
+    text-align: center;
 }

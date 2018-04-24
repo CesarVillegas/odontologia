@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from .models import Admision, Contacto, Contenido, Docentes
 from .forms import FormularioContacto
@@ -8,6 +8,7 @@ from datetime import datetime
 from django.http import JsonResponse
 from django.http import HttpResponse
 import json
+<<<<<<< HEAD
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.header import Header
@@ -18,8 +19,41 @@ import time
 import smtplib
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
+=======
+import twitter
 
-# Create your views here.
+
+def gettweets():
+    api = twitter.Api(consumer_key='H3hIMnLyS4ooJV10N3qTNskvb',
+                      consumer_secret='wwyz0stSlIvxvgBwrRl4sJN0TGQSbZcN3dSuXlSOuZzAqyFmyX',
+                      access_token_key='3153752663-miwwTH2UtGCwIJd9e7mTD3u9a2bji0yznWPKJBp',
+                      access_token_secret='vuhc27ZGZ3VzBENNsi3g4KQA2Ob4BueDFOzrXmsabuQ5U',
+                      tweet_mode= 'extended')
+    return api.GetUserTimeline(screen_name='CampusDULS', exclude_replies=True, include_rts=False, trim_user=False)
+
+@csrf_exempt
+def timeline(request):
+    #return HttpResponse(gettweets())
+    if request.method == 'GET':
+        cantidad = request.GET.get('num')
+        json_data = {}
+        contador = 0
+        tweets = gettweets()
+        for tweet in tweets:
+            temp = {
+                "created_at": tweet.created_at,
+                "full_text": tweet.full_text,
+                "user_screen_name": tweet.user.screen_name,
+                "user_created_at": tweet.created_at,
+                "user_image": tweet.user.profile_image_url_https,
+                "user_url": tweet.user.url,
+            }
+            json_data['tweet'+str(contador)] = temp
+            contador += 1
+        return HttpResponse(json.dumps(json_data), content_type="application/json")
+    return render(request)
+>>>>>>> template
+
 def index(request):
     return render(request, 'carrera/index.html')
 
