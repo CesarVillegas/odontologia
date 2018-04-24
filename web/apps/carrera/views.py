@@ -2,24 +2,22 @@
 from __future__ import unicode_literals
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
-from .models import Admision, Contacto, Contenido, Docentes
-from .forms import FormularioContacto
 from datetime import datetime
 from django.http import JsonResponse
 from django.http import HttpResponse
-import json
-<<<<<<< HEAD
+from django.conf import settings
+from django.core.exceptions import ObjectDoesNotExist
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.header import Header
 from email.utils import formataddr
 from email.utils import formatdate
 from email.utils import make_msgid
+from .models import Admision, Contacto, Contenido, Docentes
+from .forms import FormularioContacto
 import time
 import smtplib
-from django.conf import settings
-from django.core.exceptions import ObjectDoesNotExist
-=======
+import json
 import twitter
 
 
@@ -52,7 +50,6 @@ def timeline(request):
             contador += 1
         return HttpResponse(json.dumps(json_data), content_type="application/json")
     return render(request)
->>>>>>> template
 
 def index(request):
     return render(request, 'carrera/index.html')
@@ -110,7 +107,6 @@ def enviarcorreo(contacto):
         msg.add_header('Message-id', make_msgid())
         msg.attach(MIMEText(template, 'html'))
 
-             
         server = smtplib.SMTP(settings.EMAIL_HOST, settings.EMAIL_PORT)
         server.ehlo()
         server.starttls()
@@ -155,13 +151,6 @@ def detalle_academico(request):
         return render(request, 'carrera/detalle_academico.html', {'datos': datos})
     except ObjectDoesNotExist:
         return render(request, '404.html', status=404)
-
-    #if 'detalle' in request.GET:
-    #    id = request.GET['detalle']
-    #    datos = Docentes.objects.get(id=id)
-    #    return render(request, 'carrera/detalle_academico.html', {'datos': datos})
-    #else:
-    #    return HttpResponse('<h1>Pagina no encontrada</h1>')
 
 def handler404(request):
     return render(request, '404.html', status=404)
