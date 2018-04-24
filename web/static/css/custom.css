@@ -160,3 +160,14 @@ div.swiper-container h5,
 div.swiper-container a {
     margin-top: 10px;
 }
+
+/* Tweets */
+
+div.loading {
+    text-align: center;
+}
+
+div.quote-body p.text {
+    font-size: 1.1em;
+    text-align: center;
+}

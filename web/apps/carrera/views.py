@@ -19,7 +19,6 @@ def gettweets():
                       tweet_mode= 'extended')
     return api.GetUserTimeline(screen_name='CampusDULS', exclude_replies=True, include_rts=False, trim_user=False)
 
-
 @csrf_exempt
 def timeline(request):
     #return HttpResponse(gettweets())
@@ -32,6 +31,10 @@ def timeline(request):
             temp = {
                 "created_at": tweet.created_at,
                 "full_text": tweet.full_text,
+                "user_screen_name": tweet.user.screen_name,
+                "user_created_at": tweet.created_at,
+                "user_image": tweet.user.profile_image_url_https,
+                "user_url": tweet.user.url,
             }
             json_data['tweet'+str(contador)] = temp
             contador += 1
