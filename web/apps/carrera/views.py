@@ -19,15 +19,33 @@ import time
 import smtplib
 import json
 import twitter
+import requests
 
 
-def gettweets():
-    api = twitter.Api(consumer_key='H3hIMnLyS4ooJV10N3qTNskvb',
-                      consumer_secret='wwyz0stSlIvxvgBwrRl4sJN0TGQSbZcN3dSuXlSOuZzAqyFmyX',
-                      access_token_key='3153752663-miwwTH2UtGCwIJd9e7mTD3u9a2bji0yznWPKJBp',
-                      access_token_secret='vuhc27ZGZ3VzBENNsi3g4KQA2Ob4BueDFOzrXmsabuQ5U',
-                      tweet_mode= 'extended')
-    return api.GetUserTimeline(screen_name='CampusDULS', exclude_replies=True, include_rts=True, trim_user=False, count=9)
+def getinstagram():
+    BASE_URL='https://api.instagram.com/v1/'
+    APP_ACCESS_TOKEN='193698460.696c5ac.6b040f2fb6a64a6abb98c2ac555fc1be'
+    request_url = (BASE_URL + 'users/self/media/recent/?access_token=%s') % (APP_ACCESS_TOKEN)
+    print 'Requesting data from: %s' % (request_url)
+    recent_post = requests.get(request_url).json()
+    posts = recent_post['data']
+    imagenes = []
+    for index, post in enumerate(posts):
+        if index == 9:
+            break
+        imagenes.append({'image':post['images']['thumbnail']['url'],'url':post['link']})
+    return imagenes
+
+@csrf_exempt
+def instagram_timeline(request):
+    #return HttpResponse(gettweets())
+    if request.method == 'GET':
+        cantidad = request.GET.get('num')
+        json_data = {}
+        contador = 0
+        instagram_images = getinstagram()
+        return HttpResponse(json.dumps(instagram_images), content_type="application/json")
+    return render(request)
 
 def seturl(text, hashtags, users):
     for hash in hashtags:
@@ -40,9 +58,17 @@ def seturl(text, hashtags, users):
     #url = text[indice:]
     #text = text.replace(url, '<br><a href="%s" class="btn btn-xs btn-java btn-tweet" target="_blank">MAS</a>' % (url))
     return text
+  
+def gettweets():
+    api = twitter.Api(consumer_key='H3hIMnLyS4ooJV10N3qTNskvb',
+                      consumer_secret='wwyz0stSlIvxvgBwrRl4sJN0TGQSbZcN3dSuXlSOuZzAqyFmyX',
+                      access_token_key='3153752663-miwwTH2UtGCwIJd9e7mTD3u9a2bji0yznWPKJBp',
+                      access_token_secret='vuhc27ZGZ3VzBENNsi3g4KQA2Ob4BueDFOzrXmsabuQ5U',
+                      tweet_mode= 'extended')
+    return api.GetUserTimeline(screen_name='CampusDULS', exclude_replies=True, include_rts=True, trim_user=False, count=9)
 
 @csrf_exempt
-def timeline(request):
+def twitter_timeline(request):
     #return HttpResponse(gettweets())
     if request.method == 'GET':
         json_data = {}
