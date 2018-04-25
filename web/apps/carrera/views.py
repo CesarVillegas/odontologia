@@ -19,7 +19,7 @@ import time
 import smtplib
 import json
 import twitter
-
+import requests
 
 def getinstagram():
     BASE_URL='https://api.instagram.com/v1/'
@@ -30,7 +30,9 @@ def getinstagram():
     posts = recent_post['data']
     imagenes = []
     for index, post in enumerate(posts):
-        imagenes.insert(index,{'image':post['images']['standard_resolution']['url'],'url':post['link']})
+        if index == 9:
+            break
+        imagenes.append({'image':post['images']['thumbnail']['url'],'url':post['link']})
     return imagenes
 
 @csrf_exempt
@@ -73,7 +75,7 @@ def timeline(request):
         contador = 0
         tweets = gettweets()
         for tweet in tweets:
-            #text_url = seturl(tweet.full_text, tweet.hashtags, tweet.user_mentions)
+            text_url = seturl(tweet.full_text, tweet.hashtags, tweet.user_mentions)
             temp = {
                 "created_at": tweet.created_at,
                 "full_text": text_url,
