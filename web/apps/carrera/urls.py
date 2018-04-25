@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^carrera/docentes/$', views.docentes),
     url(r'^carrera/docentes/detalle_academico/$', views.detalle_academico, name='detalle'),
     url(r'^carrera/contacto/$', views.contacto, name='contacto'),
-    url(r'^carrera/timeline/$', views.timeline, name='timeline'),
+    url(r'^carrera/twitter_timeline/$', views.twitter_timeline, name='twitter_timeline'),
     url(r'^carrera/instagram_timeline/$', views.instagram_timeline, name='instagram_timeline'),
     url(r'^404/$', views.handler404, name='handler404'),
     url(r'^500/$', views.handler500, name='handler500'),
