@@ -165,9 +165,43 @@ div.swiper-container a {
 
 div.loading {
     text-align: center;
+    width: 100%;
 }
 
 div.quote-body p.text {
     font-size: 1.1em;
     text-align: center;
 }
+
+div#news_section div.owl-item{
+    height: 250px;
+    overflow: auto;
+    background-color: #F1F3F9;
+}
+
+div#news_section div.item-tweet {
+    padding: 5px;
+    position: relative;
+}
+
+div#news_section div.owl-item a.btn-tweet {
+    color: #ffffff;
+    margin-top: 5px;
+    font-size: 0.6em;
+    padding: 5px 10px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+div#news_section div.owl-item a.btn-tweet::hover {
+    color: #ffffff;
+}
+
+div#news_section div.owl-item hr.linea {
+    padding:0;
+    margin: 5px 0 5px 0;
+    border:1px solid #b7b7b72b;
+}
+
+
