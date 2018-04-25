@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
-from datetime import datetime
 from django.http import JsonResponse
 from django.http import HttpResponse
 from django.conf import settings
@@ -13,6 +12,7 @@ from email.header import Header
 from email.utils import formataddr
 from email.utils import formatdate
 from email.utils import make_msgid
+from datetime import datetime
 from .models import Admision, Contacto, Contenido, Docentes
 from .forms import FormularioContacto
 import time
@@ -29,6 +29,18 @@ def gettweets():
                       tweet_mode= 'extended')
     return api.GetUserTimeline(screen_name='CampusDULS', exclude_replies=True, include_rts=False, trim_user=False)
 
+def seturl(text, hashtags, users):
+    for hash in hashtags:
+        fullhash = '#'+hash.text
+        text = text.replace(fullhash, '<a href="https://twitter.com/hashtag/%s" target="_blank">%s</a>' % (hash.text, fullhash))
+    for user in users:
+        fulluser = '@'+user.screen_name
+        text = text.replace(fulluser, '<a href="https://twitter.com/%s" target="_blank">%s</a>' % (user.screen_name, fulluser))
+    indice = text.rindex("https")
+    url = text[indice:]
+    text = text.replace(url, '<br><a href="%s" class="btn btn-xs btn-java btn-tweet" target="_blank">MAS</a>' % (url))
+    return text
+
 @csrf_exempt
 def timeline(request):
     #return HttpResponse(gettweets())
@@ -41,7 +53,7 @@ def timeline(request):
             text_url = seturl(tweet.full_text, tweet.hashtags, tweet.user_mentions)
             temp = {
                 "created_at": tweet.created_at,
-                "full_text": tweet.full_text,
+                "full_text": text_url,
                 "user_screen_name": tweet.user.screen_name,
                 "user_created_at": tweet.created_at,
                 "user_image": tweet.user.profile_image_url_https,

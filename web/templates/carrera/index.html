@@ -10,92 +10,194 @@
         <h3>Ultimos Eventos</h3>
         <hr class="divider divider-lg bg-primary">
         <div class="range offset-top-60">
-            <div class="cell-md-4 evento-box">
-                <div class="section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
-                    <div id="loading1" class="loading">
-                        <img src="{% static 'images/loading.gif' %}" width="100px" height="100px">
-                        <p>Cargando...</p>
-                    </div>
-                    <div id="noticia1" style="display:none">
-                        <div class="owl-item">
-                            <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
-                                <div class="unit-left unit-item-narrow">
-                                    <img width="60" height="60" src="#" alt="" class="img-circle quote-img" />
-                                </div>
-                                <div class="unit-body unit-item-wide">
-                                    <h5 class="quote-author text-capitalize text-bold text-left">
-                                        <cite class="text-normal"></cite>
-                                    </h5>
-                                    <p class="quote-desc text-capitalize text-gray text-italic text-left"></p>
-                                </div>
-                            </div>
-                            <hr style="padding:0;margin: 5px 0 5px 0;border:1px solid #2121212b;">
-                            <blockquote class="quote quote-classic">
-                                <div class="quote-body">
-                                    <p class="h4 text-italic text-gray-dark text"></p>             
-                                </div>
-                            </blockquote>
-                        </div>
-                    </div>
-                </div>
+            <div id="loading_section" class="loading">
+                <center>
+                    <img src="{% static 'images/loading.gif' %}" width="100px" height="100px">
+                    <p>Cargando...</p>
+                </center>
             </div>
-            <div class="cell-md-4 evento-box">
-                <div class="section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
-                    <div id="loading2" class="loading">
-                        <img src="{% static 'images/loading.gif' %}" width="100px" height="100px">
-                        <p>Cargando...</p>
-                    </div>
-                    <div id="noticia2" style="display:none">
-                        <div class="owl-item">
-                            <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
-                                <div class="unit-left unit-item-narrow">
-                                    <img width="60" height="60" src="#" alt="" class="img-circle quote-img" />
-                                </div>
-                                <div class="unit-body unit-item-wide">
-                                    <h5 class="quote-author text-capitalize text-bold text-left">
-                                        <cite class="text-normal"></cite>
-                                    </h5>
-                                    <p class="quote-desc text-capitalize text-gray text-italic text-left"></p>
-                                </div>
+            <div id="news_section" data-loop="false" data-margin="15" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="3" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-class-light owl-theme owl-loaded" style="display:none;">
+
+                <div class="owl-item">
+                    <div class="item-tweet">
+                        <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
+                            <div class="unit-left unit-item-narrow">
+                                <img id="img_0" width="60" height="60" src="#" alt="" class="img-circle quote-img" />
                             </div>
-                            <hr style="padding:0;margin: 5px 0 5px 0;border:1px solid #2121212b;">
-                            <blockquote class="quote quote-classic">
-                                <div class="quote-body">
-                                    <p class="h4 text-italic text-gray-dark text"></p>             
-                                </div>
-                            </blockquote>
+                            <div class="unit-body unit-item-wide">
+                                <h5 class="quote-author text-capitalize text-bold text-left">
+                                    <cite id="name_0" class="text-normal"></cite>
+                                </h5>
+                                <p id="date_0" class="quote-desc text-capitalize text-gray text-italic text-left"></p>
+                            </div>
+                        </div>
+                        <hr class="linea">
+                        <div class="quote-body">
+                            <p id="msg_0" class="h4 text-gray-dark text"></p>             
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="cell-md-4 evento-box">
-                <div class="section-30 inset-left-15 inset-right-15 inset-md-left-30 inset-md-right-30">
-                    <div id="loading3" class="loading">
-                        <img src="{% static 'images/loading.gif' %}" width="100px" height="100px">
-                        <p>Cargando...</p>
-                    </div>
-                    <div id="noticia3" style="display:none">
-                        <div class="owl-item">
-                            <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
-                                <div class="unit-left unit-item-narrow">
-                                    <img width="60" height="60" src="#" alt="" class="img-circle quote-img" />
-                                </div>
-                                <div class="unit-body unit-item-wide">
-                                    <h5 class="quote-author text-capitalize text-bold text-left">
-                                        <cite class="text-normal"></cite>
-                                    </h5>
-                                    <p class="quote-desc text-capitalize text-gray text-italic text-left"></p>
-                                </div>
+
+                <div class="owl-item">
+                    <div class="item-tweet">
+                        <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
+                            <div class="unit-left unit-item-narrow">
+                                <img id="img_1" width="60" height="60" src="#" alt="" class="img-circle quote-img" />
                             </div>
-                            <hr style="padding:0;margin: 5px 0 5px 0;border:1px solid #2121212b;">
-                            <blockquote class="quote quote-classic">
-                                <div class="quote-body">
-                                    <p class="h4 text-italic text-gray-dark text"></p>             
-                                </div>
-                            </blockquote>
+                            <div class="unit-body unit-item-wide">
+                                <h5 class="quote-author text-capitalize text-bold text-left">
+                                    <cite id="name_1" class="text-normal"></cite>
+                                </h5>
+                                <p id="date_1" class="quote-desc text-capitalize text-gray text-italic text-left"></p>
+                            </div>
+                        </div>
+                        <hr class="linea">
+                        <div class="quote-body">
+                            <p id="msg_1" class="h4 text-gray-dark text"></p>             
                         </div>
                     </div>
                 </div>
+
+                <div class="owl-item">
+                    <div class="item-tweet">
+                        <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
+                            <div class="unit-left unit-item-narrow">
+                                <img id="img_2" width="60" height="60" src="#" alt="" class="img-circle quote-img" />
+                            </div>
+                            <div class="unit-body unit-item-wide">
+                                <h5 class="quote-author text-capitalize text-bold text-left">
+                                    <cite id="name_2" class="text-normal"></cite>
+                                </h5>
+                                <p id="date_2" class="quote-desc text-capitalize text-gray text-italic text-left"></p>
+                            </div>
+                        </div>
+                        <hr class="linea">
+                        <div class="quote-body">
+                            <p id="msg_2" class="h4 text-gray-dark text"></p>             
+                        </div>
+                    </div>
+                </div>
+
+                <div class="owl-item">
+                    <div class="item-tweet">
+                        <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
+                            <div class="unit-left unit-item-narrow">
+                                <img id="img_3" width="60" height="60" src="#" alt="" class="img-circle quote-img" />
+                            </div>
+                            <div class="unit-body unit-item-wide">
+                                <h5 class="quote-author text-capitalize text-bold text-left">
+                                    <cite id="name_3" class="text-normal"></cite>
+                                </h5>
+                                <p id="date_3" class="quote-desc text-capitalize text-gray text-italic text-left"></p>
+                            </div>
+                        </div>
+                        <hr class="linea">
+                        <div class="quote-body">
+                            <p id="msg_3" class="h4 text-gray-dark text"></p>             
+                        </div>
+                    </div>
+                </div>
+
+                <div class="owl-item">
+                    <div class="item-tweet">
+                        <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
+                            <div class="unit-left unit-item-narrow">
+                                <img id="img_4" width="60" height="60" src="#" alt="" class="img-circle quote-img" />
+                            </div>
+                            <div class="unit-body unit-item-wide">
+                                <h5 class="quote-author text-capitalize text-bold text-left">
+                                    <cite id="name_4" class="text-normal"></cite>
+                                </h5>
+                                <p id="date_4" class="quote-desc text-capitalize text-gray text-italic text-left"></p>
+                            </div>
+                        </div>
+                        <hr class="linea">
+                        <div class="quote-body">
+                            <p id="msg_4" class="h4 text-gray-dark text"></p>             
+                        </div>
+                    </div>
+                </div>
+
+                <div class="owl-item">
+                    <div class="item-tweet">
+                        <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
+                            <div class="unit-left unit-item-narrow">
+                                <img id="img_5" width="60" height="60" src="#" alt="" class="img-circle quote-img" />
+                            </div>
+                            <div class="unit-body unit-item-wide">
+                                <h5 class="quote-author text-capitalize text-bold text-left">
+                                    <cite id="name_5" class="text-normal"></cite>
+                                </h5>
+                                <p id="date_5" class="quote-desc text-capitalize text-gray text-italic text-left"></p>
+                            </div>
+                        </div>
+                        <hr class="linea">
+                        <div class="quote-body">
+                            <p id="msg_5" class="h4 text-gray-dark text"></p>             
+                        </div>
+                    </div>
+                </div>
+
+                <div class="owl-item">
+                    <div class="item-tweet">
+                        <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
+                            <div class="unit-left unit-item-narrow">
+                                <img id="img_6" width="60" height="60" src="#" alt="" class="img-circle quote-img" />
+                            </div>
+                            <div class="unit-body unit-item-wide">
+                                <h5 class="quote-author text-capitalize text-bold text-left">
+                                    <cite id="name_6" class="text-normal"></cite>
+                                </h5>
+                                <p id="date_6" class="quote-desc text-capitalize text-gray text-italic text-left"></p>
+                            </div>
+                        </div>
+                        <hr class="linea">
+                        <div class="quote-body">
+                            <p id="msg_6" class="h4 text-gray-dark text"></p>             
+                        </div>
+                    </div>
+                </div>
+
+                <div class="owl-item">
+                    <div class="item-tweet">
+                        <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
+                            <div class="unit-left unit-item-narrow">
+                                <img id="img_7" width="60" height="60" src="#" alt="" class="img-circle quote-img" />
+                            </div>
+                            <div class="unit-body unit-item-wide">
+                                <h5 class="quote-author text-capitalize text-bold text-left">
+                                    <cite id="name_7" class="text-normal"></cite>
+                                </h5>
+                                <p id="date_7" class="quote-desc text-capitalize text-gray text-italic text-left"></p>
+                            </div>
+                        </div>
+                        <hr class="linea">
+                        <div class="quote-body">
+                            <p id="msg_7" class="h4 text-gray-dark text"></p>             
+                        </div>
+                    </div>
+                </div>
+
+                <div class="owl-item">
+                    <div class="item-tweet">
+                        <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
+                            <div class="unit-left unit-item-narrow">
+                                <img id="img_8" width="60" height="60" src="#" alt="" class="img-circle quote-img" />
+                            </div>
+                            <div class="unit-body unit-item-wide">
+                                <h5 class="quote-author text-capitalize text-bold text-left">
+                                    <cite id="name_8" class="text-normal"></cite>
+                                </h5>
+                                <p id="date_8" class="quote-desc text-capitalize text-gray text-italic text-left"></p>
+                            </div>
+                        </div>
+                        <hr class="linea">
+                        <div class="quote-body">
+                            <p id="msg_8" class="h4 text-gray-dark text"></p>             
+                        </div>
+                    </div>
+                </div>
+  
             </div>
         </div>
     </div>
@@ -104,12 +206,12 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $(document).ajaxStart(function() {
-            $('#loading1').show(); $('#loading2').show(); $('#loading3').show();
-            $('#noticia1').hide(); $('#noticia2').hide(); $('#noticia3').hide();
+            $('#loading_section').show(); 
+            $('#news_section').hide(); 
         })
         .ajaxStop(function() {
-            $('#loading1').hide(); $('#loading2').hide(); $('#loading3').hide();
-            $('#noticia1').show(); $('#noticia2').show(); $('#noticia3').show();
+            $('#loading_section').hide(); 
+            $('#news_section').show(); 
         });
         //LLamada ajax
         $.ajax({
@@ -118,21 +220,18 @@
             contentType: 'application/json',
             dataType: 'json',
             success: function(response, request) {
-                //noticia1
-                $("#noticia1 img").attr("src", response.tweet0['user_image']);
-                $("#noticia1 .unit-body h5 cite").html(response.tweet0['user_screen_name']);
-                $("#noticia1 .unit-body p").html(response.tweet0['user_created_at']);
-                $("#noticia1 .quote-body p").html(response.tweet0['full_text']);
-                //noticia2
-                $("#noticia2 img").attr("src", response.tweet1['user_image']);
-                $("#noticia2 .unit-body h5 cite").html(response.tweet1['user_screen_name']);
-                $("#noticia2 .unit-body p").html(response.tweet1['user_created_at']);
-                $("#noticia2 .quote-body p").html(response.tweet1['full_text']);
-                //noticia3
-                $("#noticia3 img").attr("src", response.tweet2['user_image']);
-                $("#noticia3 .unit-body h5 cite").html(response.tweet2['user_screen_name']);
-                $("#noticia3 .unit-body p").html(response.tweet2['user_created_at']);
-                $("#noticia3 .quote-body p").html(response.tweet2['full_text']);
+                var indice = 0;
+                for(var tweet in response) {
+                    if(indice == 8)
+                        break;
+                    var tmpDate = new Date(response[tweet].created_at);
+                    console.log(tmpDate.getDate()+"/"+(tmpDate.getMonth()+1)+"/"+tmpDate.getFullYear());
+                    $('#img_'+indice).attr("src", response[tweet].user_image);
+                    $('#name_'+indice).html(response[tweet].user_screen_name);
+                    $('#date_'+indice).html(tmpDate.getDate()+"/"+(tmpDate.getMonth()+1)+"/"+tmpDate.getFullYear());
+                    $('#msg_'+indice).html(response[tweet].full_text);
+                    indice = indice+1;
+                }
             }
         });
     });
