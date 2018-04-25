@@ -30,9 +30,9 @@ def getinstagram():
     posts = recent_post['data']
     imagenes = []
     for index, post in enumerate(posts):
-        if index == 9:
+        if index == 8:
             break
-        imagenes.append({'image':post['images']['thumbnail']['url'],'url':post['link']})
+        imagenes.insert(index,{'image':post['images']['thumbnail']['url'],'url':post['link']})
     return imagenes
 
 @csrf_exempt

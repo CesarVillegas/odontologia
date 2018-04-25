@@ -208,7 +208,7 @@
                     <p>Cargando...</p>
                 </center>
             </div>
-            <div id="instagram_section" data-loop="false" data-margin="15" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="3" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-class-light owl-theme owl-loaded" style="display:none;">
+            <div id="instagram_section" data-loop="false" data-margin="15" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="4" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-class-light owl-theme owl-loaded" style="display:none;">
   
             </div>
         </div>
@@ -227,7 +227,9 @@
             $('#loading_section').hide(); 
             $('#news_section').show(); 
             $('#loading_section_instagram').hide(); 
-            $('#instagram_section').show(); 
+            $('#instagram_section').show();
+            $("#news_section").data('owlCarousel').onResize();
+            $("#instagram_section").data('owlCarousel').onResize();
         });
         //LLamada ajax twitter
         $.ajax({
@@ -261,9 +263,9 @@
                 response.forEach(function(instagram, i){
                     $('#instagram_section').trigger('add.owl.carousel', [$('<img id="img_instagram_'+i+'" src="'+instagram.image+'" alt="" class="quote-img"  />'), 0])
                 });
-                $('#instagram_section').trigger('refresh.owl.carousel')
+                $('#instagram_section').trigger('refresh.owl.carousel');
             }
-        });
+        });        
     });
 </script>
 <!-- Call to action-->
