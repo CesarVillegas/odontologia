@@ -10,13 +10,13 @@
         <h3>Ultimos Eventos</h3>
         <hr class="divider divider-lg bg-primary">
         <div class="range offset-top-60">
-            <div id="loading_section" class="loading">
+            <div id="loading_section_twitter" class="loading">
                 <center>
                     <img src="{% static 'images/loading.gif' %}" width="100px" height="100px">
                     <p>Cargando...</p>
                 </center>
             </div>
-            <div id="news_section" data-loop="false" data-margin="10" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="3" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-class-light" >
+            <div id="twitter_section" data-loop="false" data-margin="10" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="3" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-class-light" >
 
                 <div class="owl-item">
                     <div class="item-tweet">
@@ -218,20 +218,37 @@
   
             </div>
         </div>
+
+        <div class="range offset-top-60">
+            <div id="loading_section_instagram" class="loading">
+                <center>
+                    <img src="{% static 'images/loading.gif' %}" width="100px" height="100px">
+                    <p>Cargando...</p>
+                </center>
+            </div>
+            <div id="instagram_section" data-loop="false" data-margin="15" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="3" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-class-light owl-theme owl-loaded" style="display:none;">
+  
+            </div>
+        </div>
     </div>
 </section>
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
+        //Evento cuando carga ajax
         $(document).ajaxStart(function() {
-            $('#loading_section').show(); 
-            $('#news_section').hide(); 
+            $('#loading_section_twitter').show(); 
+            $('#twitter_section').hide();
+            $('#loading_section_instagram').show(); 
+            $('#instagram_section').hide(); 
         })
         .ajaxStop(function() {
-            $('#loading_section').hide(); 
-            $('#news_section').show(); 
+            $('#loading_section_twitter').hide(); 
+            $('#twitter_section').show(); 
+            $('#loading_section_instagram').hide(); 
+            $('#instagram_section').show(); 
         });
-        //LLamada ajax
+        //LLamada ajax twitter
         $.ajax({
             type: 'GET',
             url: '/carrera/twitter_timeline/',
@@ -249,6 +266,19 @@
                     $('#msg_'+indice).html(response[tweet].full_text);
                     indice += 1;
                 }
+            }
+        });
+        //LLamada ajax instagram
+        $.ajax({
+            type: 'GET',
+            url: '/carrera/instagram_timeline/',
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(response, request) {
+                response.forEach(function(instagram, i){
+                    $('#instagram_section').trigger('add.owl.carousel', [$('<img id="img_instagram_'+i+'" src="'+instagram.image+'" alt="" class="quote-img"  />'), 0])
+                });
+                $('#instagram_section').trigger('refresh.owl.carousel')
             }
         });
     });
