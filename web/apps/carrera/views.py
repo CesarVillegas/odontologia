@@ -27,7 +27,7 @@ def gettweets():
                       access_token_key='3153752663-miwwTH2UtGCwIJd9e7mTD3u9a2bji0yznWPKJBp',
                       access_token_secret='vuhc27ZGZ3VzBENNsi3g4KQA2Ob4BueDFOzrXmsabuQ5U',
                       tweet_mode= 'extended')
-    return api.GetUserTimeline(screen_name='CampusDULS', exclude_replies=True, include_rts=False, trim_user=False)
+    return api.GetUserTimeline(screen_name='CampusDULS', exclude_replies=True, include_rts=True, trim_user=False, count=9)
 
 def seturl(text, hashtags, users):
     for hash in hashtags:
@@ -36,32 +36,46 @@ def seturl(text, hashtags, users):
     for user in users:
         fulluser = '@'+user.screen_name
         text = text.replace(fulluser, '<a href="https://twitter.com/%s" target="_blank">%s</a>' % (user.screen_name, fulluser))
-    indice = text.rindex("https")
-    url = text[indice:]
-    text = text.replace(url, '<br><a href="%s" class="btn btn-xs btn-java btn-tweet" target="_blank">MAS</a>' % (url))
+    #indice = text.rindex("https")
+    #url = text[indice:]
+    #text = text.replace(url, '<br><a href="%s" class="btn btn-xs btn-java btn-tweet" target="_blank">MAS</a>' % (url))
     return text
 
 @csrf_exempt
 def timeline(request):
     #return HttpResponse(gettweets())
     if request.method == 'GET':
-        cantidad = request.GET.get('num')
         json_data = {}
-        contador = 0
+        indice = 0
         tweets = gettweets()
         for tweet in tweets:
-            text_url = seturl(tweet.full_text, tweet.hashtags, tweet.user_mentions)
-            temp = {
-                "created_at": tweet.created_at,
-                "full_text": text_url,
-                "user_screen_name": tweet.user.screen_name,
-                "user_created_at": tweet.created_at,
-                "user_image": tweet.user.profile_image_url_https,
-                "user_url": tweet.user.url,
-            }
-            json_data['tweet'+str(contador)] = temp
-            contador += 1
-        return HttpResponse(json.dumps(json_data), content_type="application/json")
+            if tweet.retweeted:
+                text_url = seturl(tweet.retweeted_status.full_text, tweet.retweeted_status.hashtags, tweet.retweeted_status.user_mentions)
+                temp = {
+                    "tweet_id": tweet.id_str,
+                    "created_at": tweet.created_at,
+                    "full_text": text_url,
+                    "user_name": tweet.retweeted_status.user.name,
+                    "user_screen_name": tweet.retweeted_status.user.screen_name,
+                    "user_created_at": tweet.retweeted_status.created_at,
+                    "user_image": tweet.retweeted_status.user.profile_image_url_https,
+                    "user_url": tweet.retweeted_status.user.url,
+                }
+            else:
+                text_url = seturl(tweet.full_text, tweet.hashtags, tweet.user_mentions)
+                temp = {
+                    "tweet_id": tweet.id_str,
+                    "created_at": tweet.created_at,
+                    "full_text": text_url,
+                    "user_name": tweet.user.name,
+                    "user_screen_name": tweet.user.screen_name,
+                    "user_created_at": tweet.created_at,
+                    "user_image": tweet.user.profile_image_url_https,
+                    "user_url": tweet.user.url,
+                }
+            json_data['tweet'+str(indice)] = temp
+            indice += 1
+        return HttpResponse(json.dumps(json_data, sort_keys=True), content_type="application/json")
     return render(request)
 
 def index(request):
