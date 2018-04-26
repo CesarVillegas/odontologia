@@ -66,9 +66,10 @@
                             '</div>'+
                         '</div>'+
                     '</div>';
-                    $('#twitter_section').trigger('add.owl.carousel', [$(item)])
+                    $('#twitter_section').trigger('add.owl.carousel', [$(item)]);
                 });
                 $('#twitter_section').trigger('refresh.owl.carousel');
+                $("#twitter_section").trigger('to.owl.carousel', [0, 1, true]);
             },
             beforeSend: function() {
                 $('#loading_section_twitter').show(); 
@@ -88,9 +89,10 @@
             dataType: 'json',
             success: function(response, request) {
                 response.forEach(function(instagram, i){
-                    $('#instagram_section').trigger('add.owl.carousel', [$('<img id="img_instagram_'+i+'" src="'+instagram.image+'" alt="" class="quote-img"  />')])
+                    $('#instagram_section').trigger('add.owl.carousel', [$('<img id="img_instagram_'+i+'" src="'+instagram.image+'" alt="" class="quote-img"  />')]);
                 });
                 $('#instagram_section').trigger('refresh.owl.carousel');
+                $("#instagram_section").trigger('to.owl.carousel', [0, 1, true]);
             },
             beforeSend: function() {
                 $('#loading_section_instagram').show(); 
