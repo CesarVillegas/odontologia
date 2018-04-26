@@ -38,11 +38,7 @@ def getinstagram():
 
 @csrf_exempt
 def instagram_timeline(request):
-    #return HttpResponse(gettweets())
     if request.method == 'GET':
-        cantidad = request.GET.get('num')
-        json_data = {}
-        contador = 0
         instagram_images = getinstagram()
         return HttpResponse(json.dumps(instagram_images), content_type="application/json")
     return render(request)
