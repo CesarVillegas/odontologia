@@ -27,7 +27,7 @@
                     <p>Cargando...</p>
                 </center>
             </div>
-            <div id="instagram_section" data-loop="false" data-margin="15" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="4" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-class-light owl-theme owl-loaded" style="display:none;">
+            <div id="instagram_section" data-loop="false" data-margin="10" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="4" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-class-light owl-theme owl-loaded" style="display:none;">
             </div>
         </div>
     </div>
@@ -89,7 +89,13 @@
             dataType: 'json',
             success: function(response, request) {
                 response.forEach(function(instagram, i){
-                    $('#instagram_section').trigger('add.owl.carousel', [$('<img id="img_instagram_'+i+'" src="'+instagram.image+'" alt="" class="quote-img"  />')]);
+                    var item = '<div class="owl-item">'+
+                        '<div class="item-instagram">'+
+                            '<a href="'+instagram.url+'" target="_blank">'+
+                                '<img id="img_instagram_'+i+'" src="'+instagram.image+'" alt="" class="quote-img img-instagram"/>'+
+                            '</a>'+
+                        '</div></div>';
+                    $('#instagram_section').trigger('add.owl.carousel', [$(item)]);
                 });
                 $('#instagram_section').trigger('refresh.owl.carousel');
                 $("#instagram_section").trigger('to.owl.carousel', [0, 1, true]);

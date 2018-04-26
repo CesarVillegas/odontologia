@@ -25,15 +25,12 @@ import requests
 def getinstagram():
     BASE_URL='https://api.instagram.com/v1/'
     APP_ACCESS_TOKEN='193698460.696c5ac.6b040f2fb6a64a6abb98c2ac555fc1be'
-    request_url = (BASE_URL + 'users/self/media/recent/?access_token=%s') % (APP_ACCESS_TOKEN)
-    print 'Requesting data from: %s' % (request_url)
+    request_url = (BASE_URL + 'users/self/media/recent/?access_token=%s&count=8') % (APP_ACCESS_TOKEN)
     recent_post = requests.get(request_url).json()
     posts = recent_post['data']
     imagenes = []
-    for index, post in enumerate(posts):
-        if index == 8:
-            break
-        imagenes.append({'image':post['images']['thumbnail']['url'],'url':post['link']})
+    for post in posts:
+        imagenes.append({'image':post['images']['low_resolution']['url'],'url':post['link']})
     return imagenes
 
 @csrf_exempt
