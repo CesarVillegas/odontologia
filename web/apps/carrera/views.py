@@ -24,7 +24,7 @@ import requests
 
 def getinstagram():
     BASE_URL='https://api.instagram.com/v1/'
-    APP_ACCESS_TOKEN='193698460.696c5ac.6b040f2fb6a64a6abb98c2ac555fc1be'
+    APP_ACCESS_TOKEN='7601766579.15c4221.f5ccc92f3f4446f1ab2e2ca0de4b0eb6'
     request_url = (BASE_URL + 'users/self/media/recent/?access_token=%s&count=8') % (APP_ACCESS_TOKEN)
     recent_post = requests.get(request_url).json()
     posts = recent_post['data']
