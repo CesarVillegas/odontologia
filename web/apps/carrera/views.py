@@ -53,12 +53,12 @@ def seturl(text, hashtags, users):
     return text
   
 def gettweets():
-    api = twitter.Api(consumer_key='H3hIMnLyS4ooJV10N3qTNskvb',
-                      consumer_secret='wwyz0stSlIvxvgBwrRl4sJN0TGQSbZcN3dSuXlSOuZzAqyFmyX',
-                      access_token_key='3153752663-miwwTH2UtGCwIJd9e7mTD3u9a2bji0yznWPKJBp',
-                      access_token_secret='vuhc27ZGZ3VzBENNsi3g4KQA2Ob4BueDFOzrXmsabuQ5U',
+    api = twitter.Api(consumer_key='av2SewVZQOGxCNy5wB6FtdEd6',
+                      consumer_secret='zr25IV7ECCd4Cq5uMlgj33pPLVaaz7Ri8cfi9jav9DP6q6DXkg',
+                      access_token_key='989629773675683840-oyOipWn7irKhnQTy0t6Rhn5x4ObC9vV',
+                      access_token_secret='e1PuQQ7vDnSTaPYiYbQAt04DAhIC7Eo0mzxhghTkPaLyU',
                       tweet_mode= 'extended')
-    return api.GetUserTimeline(screen_name='CampusDULS', exclude_replies=True, include_rts=True, trim_user=False, count=9)
+    return api.GetUserTimeline(screen_name='OdontologiaULS', exclude_replies=True, include_rts=True, trim_user=False, count=9)
 
 @csrf_exempt
 def twitter_timeline(request):
