@@ -181,21 +181,15 @@ div#twitter_section div.item-tweet {
 }
 
 div#twitter_section div.owl-item a.btn-tweet {
-    color: #ffffff;
-    margin-top: 5px;
-    font-size: 0.6em;
-    padding: 5px 10px;
+    margin: 0px;
+    padding: 0px;
     position: absolute;
     top: 30px;
     right: 5px;
-    background-color: #c1c1c1;
-    border-color: #b8b8b8;
 }
 
-div#twitter_section div.owl-item a.btn-tweet:hover {
-    color: #ffffff;
-    background-color: #b8b8b8;
-    border-color: #b8b8b8;
+div#twitter_section div.owl-item a.btn-tweet i {
+    font-style: normal;
 }
 
 div#twitter_section div.unit-body p.subtitle {
@@ -228,6 +222,32 @@ div#instagram_section div.item-instagram {
 div#instagram_section img.img-instagram {
     width: 100%;
     height: 100%;
+}
+
+div#instagram_section div.img-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: rgba(0, 0, 0, 0.75);
+    text-align: center;
+    opacity: 0;
+    -webkit-transition: opacity 0.25s ease;
+    -moz-transition: opacity 0.25s ease;
+}
+
+div#instagram_section a.box-instagram:hover > div.img-overlay {
+    opacity: 1;
+}
+
+div#instagram_section div.img-overlay i.fa-instagram {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-style: normal;
 }
 
 @media (min-width: 992px) {

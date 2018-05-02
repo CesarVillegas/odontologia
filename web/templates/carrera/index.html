@@ -57,7 +57,7 @@
                                     '</h5>'+
                                     '<p class="subtitle">@'+tweet.user_screen_name+'</p>'+
                                     '<p class="subtitle">'+d.getDay()+' '+monthNames[d.getMonth()]+' '+d.getFullYear()+'</p>'+
-                                    '<a href="https://twitter.com/statuses/'+tweet.tweet_id+'" class="btn btn-xs btn-java btn-tweet" target="_blank">MAS</a>'+
+                                    '<a href="https://twitter.com/statuses/'+tweet.tweet_id+'" class="btn-tweet" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a>'+
                                 '</div>'+
                             '</div>'+
                             '<hr class="linea">'+
@@ -91,8 +91,9 @@
                 response.forEach(function(instagram, i){
                     var item = '<div class="owl-item">'+
                         '<div class="item-instagram">'+
-                            '<a href="'+instagram.url+'" target="_blank">'+
+                            '<a href="'+instagram.url+'" class="box-instagram" target="_blank">'+
                                 '<img id="img_instagram_'+i+'" src="'+instagram.image+'" alt="" class="quote-img img-instagram"/>'+
+                                '<div class="img-overlay"><i class="fab fa-instagram fa-2x"></i></div>'+
                             '</a>'+
                         '</div></div>';
                     $('#instagram_section').trigger('add.owl.carousel', [$(item)]);
