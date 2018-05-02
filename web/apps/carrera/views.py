@@ -30,7 +30,7 @@ def getinstagram():
     posts = recent_post['data']
     imagenes = []
     for post in posts:
-        imagenes.append({'image':post['images']['low_resolution']['url'],'url':post['link']})
+        imagenes.append({'image':post['images']['thumbnail']['url'],'url':post['link']})
     return imagenes
 
 @csrf_exempt
