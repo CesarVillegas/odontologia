@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load etiquetas %}
+{% load servicios %}
 <div class="rd-navbar-wrap">
     <nav data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-static" data-md-stick-up-offset="120px" data-lg-stick-up-offset="120px" class="rd-navbar rd-navbar-minimal rd-navbar-light" data-lg-auto-height="true" data-md-layout="rd-navbar-static" data-lg-layout="rd-navbar-static" data-lg-stick-up="true">
         <div class="rd-navbar-inner">
@@ -56,8 +57,7 @@
                                     <li><a href="/clinica/organigrama"><span class="text-middle">Organigrama</span></a></li>
                                     <li><a href="#"><span class="text-middle">Servicios</span></a>
                                         <ul class="rd-navbar-dropdown2">
-                                            <li><a href="/clinica/servicios/odontologia"><span class="text-middle">Odontología</span></a></li>
-                                            <li><a href="/clinica/servicios/imagenologia"><span class="text-middle">Imagenología</span></a></li>
+                                            {% servicios %}
                                         </ul>
                                     </li>
                                     <li><a href="/clinica/equipo"><span class="text-middle">Equipo</span></a></li>

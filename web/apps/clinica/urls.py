@@ -6,8 +6,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^organigrama/$', views.organigrama, name='organigrama'),
-    url(r'^servicios/imagenologia/$', views.servicios_imagenologia, name='servicios_imagenologia'),
-    url(r'^servicios/odontologia/$', views.servicios_odontologia, name='servicios_odontologia'),
+    url(r'^servicios/(\d)+/$', views.servicios, name='servicios'),
     url(r'^equipo/$', views.equipo, name='equipo'),
     url(r'^catedra/$', views.catedra, name='catedra'),
     url(r'^faq/$', views.faq, name='faq'),

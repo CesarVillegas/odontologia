@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
-from .models import Contenido, Servicio, Equipo, Galeria, Imagen
+from django.shortcuts import render, redirect
+from .models import Contenido, TipoServicio, Servicio, Equipo, Galeria, Imagen
 # Create your views here.
 
 def index(request):
@@ -12,13 +12,12 @@ def organigrama(request):
     organigrama = Contenido.objects.get(seccion='Organigrama')
     return render(request, 'clinica/contenido.html', {'contenido':organigrama})
 
-def servicios_imagenologia(request):
-    servicios = Servicio.objects.all().filter(tipo_servicio='imagenologia')
-    return render(request, 'clinica/servicios.html', {'servicios':servicios, 'tipo':'Imagenología'})
-
-def servicios_odontologia(request):
-    servicios = Servicio.objects.all().filter(tipo_servicio='odontologia')
-    return render(request, 'clinica/servicios.html', {'servicios':servicios, 'tipo':'Odontología'})
+def servicios(request,id_tipo_servicio):
+    servicios = Servicio.objects.filter(tipo_servicio__id=id_tipo_servicio)
+    if servicios.exists():
+        tipo_servicio=TipoServicio.objects.get(id=id_tipo_servicio)
+        return render(request, 'clinica/servicios.html', {'servicios':servicios, 'tipo':tipo_servicio.nombre})
+    return redirect('/')
 
 def equipo(request):
     directores = Equipo.objects.all().filter(cargo='director')

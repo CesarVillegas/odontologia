@@ -14,11 +14,6 @@ CARGO = (
     ('auxiliar', 'Auxiliar de Servicio'),
 )
 
-TIPO_SERVICIO = (
-    ('imagenologia ', 'Imagenología'),
-    ('odontologia', 'Odontología'),
-)
-
 def validate_image(fieldfile_obj):
     filesize = fieldfile_obj.file.size
     megabyte_limit = 1.0
@@ -66,9 +61,14 @@ class Equipo(models.Model):
     image_foto.short_description = 'Imagen'
     image_foto.allow_tags = True
 
+class TipoServicio(models.Model):
+    nombre = models.CharField(max_length=200, blank=False, null=False)
+    def __unicode__(self): # __unicode__ en Python 2
+        return '%s' % (self.nombre)
+
 class Servicio(models.Model):
     nombre = models.CharField(max_length=200, blank=False, null=False)
-    tipo_servicio = models.CharField(max_length=13, choices=TIPO_SERVICIO)
+    tipo_servicio = models.ForeignKey(TipoServicio, on_delete=models.CASCADE)
 
 class Galeria(models.Model):
     nombre = models.CharField(max_length=200, blank=False, null=False)
