@@ -16,7 +16,7 @@ def servicios(request,id_tipo_servicio):
     servicios = Servicio.objects.filter(tipo_servicio__id=id_tipo_servicio)
     if servicios.exists():
         tipo_servicio=TipoServicio.objects.get(id=id_tipo_servicio)
-        return render(request, 'clinica/servicios.html', {'servicios':servicios, 'tipo':tipo_servicio.nombre})
+        return render(request, 'clinica/servicios.html', {'servicios':servicios, 'tipo_servicio':tipo_servicio})
     return redirect('/')
 
 def equipo(request):

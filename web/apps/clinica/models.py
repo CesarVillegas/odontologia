@@ -32,6 +32,15 @@ def validate_image_galeria(fieldfile_obj):
     if w != 1200 and h != 800:
         raise ValidationError("Las dimensiones de la foto son de %ix%i, y estas deben ser de 1200x800 pixeles" %(h,w))
 
+def validate_image_servicio(fieldfile_obj):
+    filesize = fieldfile_obj.file.size
+    megabyte_limit = 1.0
+    if filesize > megabyte_limit*1024*1024:
+        raise ValidationError("El tamano maximo permitido es de %sMB" % str(megabyte_limit))
+    w, h = get_image_dimensions(fieldfile_obj)
+    if w != 426 and h != 582:
+        raise ValidationError("Las dimensiones de la foto son de %ix%i, y estas deben ser de 426x582 pixeles" %(h,w))
+
 class Contenido(models.Model):
 	seccion = models.CharField(max_length=100, blank=False, null=False)
 	texto = RichTextUploadingField(max_length=35000, blank=True, null=True, config_name='awesome_ckeditor')
@@ -63,8 +72,17 @@ class Equipo(models.Model):
 
 class TipoServicio(models.Model):
     nombre = models.CharField(max_length=200, blank=False, null=False)
+    foto = models.ImageField(upload_to='clinica/servicio/', height_field=None, width_field=None, max_length=100, validators=[validate_image_servicio], help_text='Tamano maximo de la imagen es 1Mb, sus dimensiones deben ser de 426x582 pixeles')
+    descripcion = models.CharField(max_length=2000, blank=True, null=True)
     def __unicode__(self): # __unicode__ en Python 2
         return '%s' % (self.nombre)
+    def image_foto(self):
+          if self.foto:
+              return u'<img width="125px" height="auto" src="%s" />' % self.foto.url
+          else:
+              return '(Sin imagen)'
+    image_foto.short_description = 'Imagen'
+    image_foto.allow_tags = True
 
 class Servicio(models.Model):
     nombre = models.CharField(max_length=200, blank=False, null=False)

@@ -11,7 +11,7 @@ class ServicioAdmin(admin.ModelAdmin):
     list_display = ('nombre','tipo_servicio')
 
 class TipoServicioAdmin(admin.ModelAdmin):
-    list_display = (['nombre'])
+    list_display = ('nombre','image_foto')
 
 class EquipoAdmin(admin.ModelAdmin):
     list_display = ('nombre_completo', 'image_foto', 'cargo')
