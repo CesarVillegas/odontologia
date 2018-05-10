@@ -20,6 +20,7 @@ import smtplib
 import json
 import twitter
 import requests
+import re
 
 
 def getinstagram():
@@ -41,15 +42,13 @@ def instagram_timeline(request):
     return render(request)
 
 def seturl(text, hashtags, users):
+    text = re.sub(r"http\S+", "", text)
     for hash in hashtags:
         fullhash = '#'+hash.text
         text = text.replace(fullhash, '<a href="https://twitter.com/hashtag/%s" target="_blank">%s</a>' % (hash.text, fullhash))
     for user in users:
         fulluser = '@'+user.screen_name
         text = text.replace(fulluser, '<a href="https://twitter.com/%s" target="_blank">%s</a>' % (user.screen_name, fulluser))
-    #indice = text.rindex("https")
-    #url = text[indice:]
-    #text = text.replace(url, '<br><a href="%s" class="btn btn-xs btn-java btn-tweet" target="_blank">MAS</a>' % (url))
     return text
   
 def gettweets():
@@ -68,7 +67,7 @@ def twitter_timeline(request):
         indice = 0
         tweets = gettweets()
         for tweet in tweets:
-            if tweet.retweeted:
+            if tweet.retweeted_status:
                 text_url = seturl(tweet.retweeted_status.full_text, tweet.retweeted_status.hashtags, tweet.retweeted_status.user_mentions)
                 temp = {
                     "tweet_id": tweet.id_str,
