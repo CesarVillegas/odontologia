@@ -142,10 +142,10 @@ def enviarcorreo(contacto):
         """
 
         fromaddr = "info@userena.digital"
-        if contacto.contacto_destino == 'Carrera':
-            toaddr  = "dortiz@userena.cl"
+        if contacto.contacto_destino == 'carrera':
+            toaddr  = "odontologia@userena.cl"
         else:
-            toaddr  = "ortiz.uls.cl@gmail.com"
+            toaddr  = "clinicaodontologica@userena.cl"
         msg = MIMEMultipart('alternative')
         msg['From'] = formataddr((str(Header('Website Odontologia', 'utf-8')), fromaddr))
         msg['To'] = toaddr
