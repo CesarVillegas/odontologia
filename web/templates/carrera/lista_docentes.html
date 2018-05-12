@@ -34,9 +34,12 @@
                                   <button data-custom-toggle="isotope-1" data-custom-toggle-disable-on-blur="true" class="isotope-filters-toggle btn btn-sm btn-default">Filtro<span class="caret"></span>
                                   </button>
                                   <ul id="isotope-1" class="list-sm-inline isotope-filters-list">
-                                      <li><a data-isotope-filter="docentes" data-isotope-group="gallery" href="#" class="active">Docentes</a></li>
-                                      <li><a data-isotope-filter="endodoncia" data-isotope-group="gallery" href="#">Endodoncia </a></li>
-                                      <li><a data-isotope-filter="odontopediatria" data-isotope-group="gallery" href="#">Odontopediatría</a></li>
+                                      <li><a data-isotope-filter="rehabilitacion_orales" data-isotope-group="gallery" href="#" class="active">Rehabilitacion Oral</a></li>
+                                      <li><a data-isotope-filter="odontopediatrias" data-isotope-group="gallery" href="#">Odontopediatrías</a></li>
+                                      <li><a data-isotope-filter="periodoncias" data-isotope-group="gallery" href="#">Periodoncia</a></li>
+                                      <li><a data-isotope-filter="endodoncias" data-isotope-group="gallery" href="#">Endodoncia </a></li>
+                                      <li><a data-isotope-filter="cirugias" data-isotope-group="gallery" href="#">Cirugía</a></li>
+                                      <li><a data-isotope-filter="ciencias_preclinicas" data-isotope-group="gallery" href="#">Ciencias Preclínicas</a></li>
                                   </ul>
                               </li>
                           </ul>
@@ -47,19 +50,19 @@
                       <div data-isotope-layout="fitRows" data-isotope-group="gallery" class="isotope">
                           <div data-photo-swipe-gallery="gallery" class="row text-sm-left">
 
-                              <div data-filter="docentes" class="col-md-12 isotope-item">
-                                  <h3>Docentes</h3>
+                              <div data-filter="rehabilitacion_orales" class="col-md-12 isotope-item">
+                                  <h3>Rehabilitación Oral</h3>
                                   <hr class="divider divider-lg hr-sm-left-2 bg-primary">
                                   <div class="offset-top-41 offset-lg-top-60">
                                       <div class="range range-xs-left">
-                                          {% for docente in docentes %}
+                                          {% for rehabilitacion in rehabilitacion_orales %}
                                           <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
                                               <figure class="thumbnail-josip thumbnail-spacing">
-                                                  <img width="270" height="270" src="{{ docente.foto.url }}" alt=""/>
+                                                  <img width="270" height="270" src="{{ rehabilitacion.foto.url }}" alt=""/>
                                                   <div class="thumbnail-desc" style="padding: 10px; text-align:center">
-                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ docente.nombres }}</h6>
-                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ docente.apellido_paterno }}</h6>
-                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ docente.cargo }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ rehabilitacion.nombres }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ rehabilitacion.apellido_paterno }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ rehabilitacion.cargo }}</h6>
                                                   </div>
                                               </figure>
                                           </div>
@@ -68,7 +71,51 @@
                                   </div>
                               </div>
 
-                              <div data-filter="endodoncia" class="col-md-12 isotope-item">
+                              <div data-filter="odontopediatrias" class="col-md-12 isotope-item">
+                                  <h3>Odontopediatría</h3>
+                                  <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                                  <div class="offset-top-41 offset-lg-top-60">
+                                      <div class="range range-xs-left">
+                                          {% for odontopediatria in odontopediatrias %}
+                                          <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                              <figure class="thumbnail-josip thumbnail-spacing">
+                                                  <img width="270" height="270" src="{{ odontopediatria.foto.url }}" alt=""/>
+                                                  <div class="thumbnail-desc" style="padding: 10px; text-align:center">
+                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ odontopediatria.nombres }}</h6>
+                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ odontopediatria.apellido_paterno }}</h6>
+                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ odontopediatria.cargo }}</h6>
+                                                  </div>
+                                              </figure>
+                                          </div>
+                                          {% endfor %}
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div data-filter="periodoncias" class="col-md-12 isotope-item">
+                                  <h3>Periodoncia</h3>
+                                  <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                                  <div class="offset-top-41 offset-lg-top-60">
+                                      <div class="range range-xs-left">
+                                          {% for periodoncia in periodoncias %}
+                                          <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                              <figure class="thumbnail-josip thumbnail-spacing">
+                                                  <img width="270" height="270" src="{{ periodoncia.foto.url }}" alt=""/>
+                                                  <div class="thumbnail-desc" style="padding: 10px; text-align:center">
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ periodoncia.nombres }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ periodoncia.apellido_paterno }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ periodoncia.cargo }}</h6>
+                                                  </div>
+                                              </figure>
+                                          </div>
+                                          {% endfor %}
+                                      </div>
+                                  </div>
+                              </div>
+
+
+
+                              <div data-filter="endodoncias" class="col-md-12 isotope-item">
                                   <h3>Endodoncia</h3>
                                   <hr class="divider divider-lg hr-sm-left-2 bg-primary">
                                   <div class="offset-top-41 offset-lg-top-60">
@@ -89,19 +136,40 @@
                                   </div>
                               </div>
 
-                              <div data-filter="odontopediatria" class="col-md-12 isotope-item">
-                                  <h3>Odontopediatría</h3>
+                              <div data-filter="cirugias" class="col-md-12 isotope-item">
+                                  <h3>Cirugías</h3>
                                   <hr class="divider divider-lg hr-sm-left-2 bg-primary">
                                   <div class="offset-top-41 offset-lg-top-60">
                                       <div class="range range-xs-left">
-                                          {% for odontopediatria in odontopediatrias %}
+                                          {% for cirugia in cirugias %}
                                           <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
                                               <figure class="thumbnail-josip thumbnail-spacing">
-                                                  <img width="270" height="270" src="{{ odontopediatria.foto.url }}" alt=""/>
+                                                  <img width="270" height="270" src="{{ cirugia.foto.url }}" alt=""/>
                                                   <div class="thumbnail-desc" style="padding: 10px; text-align:center">
-                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ odontopediatria.nombres }}</h6>
-                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ odontopediatria.apellido_paterno }}</h6>
-                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ odontopediatria.cargo }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ cirugia.nombres }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ cirugia.apellido_paterno }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ cirugia.cargo }}</h6>
+                                                  </div>
+                                              </figure>
+                                          </div>
+                                          {% endfor %}
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div data-filter="ciencias_preclinicas" class="col-md-12 isotope-item">
+                                  <h3>Ciencias Preclínica</h3>
+                                  <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                                  <div class="offset-top-41 offset-lg-top-60">
+                                      <div class="range range-xs-left">
+                                          {% for ciencias_preclinica in ciencias_preclinicas %}
+                                          <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                              <figure class="thumbnail-josip thumbnail-spacing">
+                                                  <img width="270" height="270" src="{{ ciencias_preclinica.foto.url }}" alt=""/>
+                                                  <div class="thumbnail-desc" style="padding: 10px; text-align:center">
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ ciencias_preclinica.nombres }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ ciencias_preclinica.apellido_paterno }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ ciencias_preclinica.cargo }}</h6>
                                                   </div>
                                               </figure>
                                           </div>
