@@ -62,9 +62,66 @@
                                                   <div class="thumbnail-desc" style="padding: 10px; text-align:center">
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ rehabilitacion.nombres }}</h6>
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ rehabilitacion.apellido_paterno }}</h6>
-                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ rehabilitacion.cargo }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ rehabilitacion.titulo }}</h6>
                                                   </div>
+                                                  <figcaption>
+                                                    <button type="button" class="btn btn-info btn-lg btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#perfil_{{ rehabilitacion.id }}">
+                                                      ver perfil completo
+                                                    </button>
+                                                  </figcaption>
                                               </figure>
+
+                                              <!-- Modal -->
+                                              <div class="modal fade" id="perfil_{{ rehabilitacion.id }}" tabindex="-1000" role="dialog" aria-labelledby="myModalLabel">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                  <div class="modal-content">
+                                                    <div class="modal-header">
+                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                      <h4 class="modal-title text-md-center" id="myModalLabel">{{ rehabilitacion.nombres }} {{ rehabilitacion.apellido_paterno }} {{ rehabilitacion.apellido_materno }}</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                      <section class="section-98 section-sm-top-34 section-sm-bottom-110" style="margin-bottom: 10px; padding-top:10px">
+                                                          <div class="shell">
+                                                              <!--h4>{{ rehabilitacion.nombres }} {{ rehabilitacion.apellido_paterno }}</h4 -->
+                                                              <div class="range range-xs-center" style="margin-top: 10px;">
+                                                                  <div class="cell-xs-10 cell-md-4" style="margin-top: 10px;">
+                                                                      <!-- Member block type 5-->
+                                                                      <div class="inset-md-right-20 cell-xs-10 cell-md-8 text-md-left offset-top-10 offset-md-top-0" style="border: 10px solid #fff;border-radius: 5px;box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.15);">
+                                                                        <img src="{{ rehabilitacion.foto.url }}" width="320" height="320" alt="" class="img-responsive center-block" />
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
+                                                                      <div class="range">
+                                                                          <div class="cell-sm-3">
+                                                                              <div>Profesión</div>
+                                                                              <h5 class="text-bold">{{ rehabilitacion.titulo }}</h5>
+                                                                          </div>
+                                                                          <div class="cell-sm-7 offset-top-41 offset-sm-top-0">
+                                                                              <div>Registro SISS</div>
+                                                                              <h5 class="text-bold">{{ rehabilitacion.registro_siss }}</h5>
+                                                                          </div>
+                                                                      </div>
+                                                                      <div class="offset-top-66 text-left">
+                                                                          <h6>Especialidad</h6>
+                                                                          <hr class="text-subline">
+                                                                          <p>{{ rehabilitacion.especialidad }}</p>
+
+                                                                          <h6>Cargo</h6>
+                                                                          <hr class="text-subline">
+                                                                          <p>{{ rehabilitacion.cargo }}</p>
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </section>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <!-- Bootstrap v3.3.6 (http://getbootstrap.com-->
                                           </div>
                                           {% endfor %}
                                       </div>
@@ -85,6 +142,11 @@
                                                     <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ odontopediatria.apellido_paterno }}</h6>
                                                     <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ odontopediatria.cargo }}</h6>
                                                   </div>
+
+                                                  <figcaption>
+                                                    <a href="team-member.html" class="btn btn-block btn-rect text-md-left btn-java">ver perfil completo</a>
+                                                  </figcaption>
+
                                               </figure>
                                           </div>
                                           {% endfor %}
