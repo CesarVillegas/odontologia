@@ -7,17 +7,13 @@ from django.core.exceptions import ValidationError
 from django.core.files.images import get_image_dimensions
 from ckeditor_uploader.fields import RichTextUploadingField
 
-
-TITULO = (
-    ('candidato_doctor', 'C.D.'),
-    ('profesor', 'Profesor'),
-    ('magister', 'MG.'),
-)
-
 AREA = (
-    ('docente', 'docente'),
-    ('endodoncia', 'endodoncia'),
-    ('odontopediatria', 'odontopediatria'),
+    ('rehabilitacion_oral', 'Rehabilitación Oral'),
+    ('odontopediatria', 'Odontopediatría'),
+    ('periodoncia', 'Periodoncia'),
+    ('endodoncia', 'Endodoncia'),
+    ('cirugia', 'Cirugía'),
+    ('ciencias_preclinicas', 'Ciencias Preclínicas'),
 )
 
 CONTACTO_DESTINO = (
@@ -76,9 +72,11 @@ class Docentes(models.Model):
     nombres = models.CharField(max_length=100, blank=False, null=False)
     apellido_paterno = models.CharField(max_length=100, blank=False, null=False)
     apellido_materno = models.CharField(max_length=100, blank=False, null=False)
-    cargo = models.CharField(max_length=100, blank=False, null=False)
-    titulo = models.CharField(max_length=20, choices=TITULO)
+    cargo = RichTextField(max_length=500, blank=False, null=True, config_name='awesome_ckeditor')
+    titulo = models.CharField(max_length=100, blank=False, null=False)
     area = models.CharField(max_length=30, choices=AREA)
+    especialidad = models.CharField(max_length=100, blank=False, null=False)
+    registro_siss = models.CharField(max_length=100, blank=False, null=False)
 
     foto = models.ImageField(upload_to='carrera/docente/', height_field=None, width_field=None, max_length=100, validators=[validate_image], help_text='Tamano maximo de la imagen es 1Mb, sus dimensiones deben ser de 270x270 pixeles')
     nivel = models.IntegerField(default=1)

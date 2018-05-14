@@ -50,7 +50,7 @@ def seturl(text, hashtags, users):
         fulluser = '@'+user.screen_name
         text = text.replace(fulluser, '<a href="https://twitter.com/%s" target="_blank">%s</a>' % (user.screen_name, fulluser))
     return text
-  
+
 def gettweets():
     api = twitter.Api(consumer_key='av2SewVZQOGxCNy5wB6FtdEd6',
                       consumer_secret='zr25IV7ECCd4Cq5uMlgj33pPLVaaz7Ri8cfi9jav9DP6q6DXkg',
@@ -138,7 +138,7 @@ def enviarcorreo(contacto):
             <li><strong>Email:</strong> """+contacto.email.encode('utf8')+"""</li>
             <li><strong>Celular:</strong> """+str(contacto.celular)+"""</li>
             <li><strong>Mensaje:</strong> """+contacto.mensaje.encode('utf8')+"""</li>
-        </ul>   
+        </ul>
         """
 
         fromaddr = "info@userena.digital"
@@ -186,10 +186,14 @@ def organigrama(request):
     return render(request, 'carrera/contenido.html', {'contenido':organigrama})
 
 def docentes(request):
-    docentes = Docentes.objects.all().filter(area='docente')
-    endodoncias = Docentes.objects.all().filter(area='endodoncia')
+    rehabilitacion_orales = Docentes.objects.all().filter(area='rehabilitacion_oral')
     odontopediatrias = Docentes.objects.all().filter(area='odontopediatria')
-    return render(request, 'carrera/lista_docentes.html', {'docentes': docentes, 'endodoncias':endodoncias, 'odontopediatrias':odontopediatrias})
+    periodoncias = Docentes.objects.all().filter(area='periodoncia')
+    endodoncias = Docentes.objects.all().filter(area='endodoncia')
+    cirugias = Docentes.objects.all().filter(area='cirugia')
+    ciencias_preclinicas = Docentes.objects.all().filter(area='ciencias_preclinicas')
+
+    return render(request, 'carrera/lista_docentes.html', {'rehabilitacion_orales': rehabilitacion_orales, 'odontopediatrias':odontopediatrias, 'periodoncias': periodoncias, 'endodoncias':endodoncias, 'cirugias': cirugias, 'ciencias_preclinicas': ciencias_preclinicas})
 
 def detalle_academico(request):
     try:
