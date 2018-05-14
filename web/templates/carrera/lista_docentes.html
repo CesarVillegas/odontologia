@@ -58,7 +58,7 @@
                                           {% for rehabilitacion in rehabilitacion_orales %}
                                           <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
                                               <figure class="thumbnail-josip thumbnail-spacing">
-                                                  <img width="270" height="270" src="{{ rehabilitacion.foto.url }}" alt=""/>
+                                                  <img src="{{ rehabilitacion.foto.url }}" alt=""/>
                                                   <div class="thumbnail-desc" style="padding: 10px 10px 20px; text-align:center">
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ rehabilitacion.nombres }}</h6>
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ rehabilitacion.apellido_paterno }}</h6>
@@ -360,7 +360,7 @@
 
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
-                                    <p>{{ rehabilitacion.cargo }}</p>
+                                    <p>{% autoescape off %}{{ rehabilitacion.cargo }}{% endautoescape %}</p>
                                 </div>
                             </div>
                         </div>
