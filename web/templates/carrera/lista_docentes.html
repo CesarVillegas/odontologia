@@ -65,9 +65,9 @@
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ rehabilitacion.titulo }}</h6>
                                                   </div>
                                                   <figcaption>
-                                                    <button type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#rehabilitacion_{{ rehabilitacion.id }}">
+                                                    <a type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#rehabilitacion_{{ rehabilitacion.id }}">
                                                       ver perfil completo
-                                                    </button>
+                                                    </a>
                                                   </figcaption>
                                               </figure>
                                           </div>
@@ -91,9 +91,9 @@
                                                     <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ odontopediatria.titulo }}</h6>
                                                   </div>
                                                   <figcaption>
-                                                    <button type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#odontopediatria_{{ odontopediatria.id }}">
+                                                    <a type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#odontopediatria_{{ odontopediatria.id }}">
                                                       ver perfil completo
-                                                    </button>
+                                                    </a>
                                                   </figcaption>
                                               </figure>
                                           </div>
@@ -117,9 +117,9 @@
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ periodoncia.titulo }}</h6>
                                                   </div>
                                                   <figcaption>
-                                                    <button type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#periodoncia_{{ periodoncia.id }}">
+                                                    <a type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#periodoncia_{{ periodoncia.id }}">
                                                       ver perfil completo
-                                                    </button>
+                                                    </a>
                                                   </figcaption>
                                               </figure>
                                           </div>
@@ -145,9 +145,9 @@
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ endodoncia.titulo }}</h6>
                                                   </div>
                                                   <figcaption>
-                                                    <button type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#endodoncia_{{ endodoncia.id }}">
+                                                    <a type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#endodoncia_{{ endodoncia.id }}">
                                                       ver perfil completo
-                                                    </button>
+                                                    </a>
                                                   </figcaption>
                                               </figure>
                                           </div>
@@ -171,9 +171,9 @@
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ cirugia.titulo }}</h6>
                                                   </div>
                                                   <figcaption>
-                                                    <button type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#cirugia_{{ cirugia.id }}">
+                                                    <a type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#cirugia_{{ cirugia.id }}">
                                                       ver perfil completo
-                                                    </button>
+                                                    </a>
                                                   </figcaption>
                                               </figure>
                                           </div>
@@ -197,9 +197,9 @@
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ ciencias_preclinica.titulo }}</h6>
                                                   </div>
                                                   <figcaption>
-                                                    <button type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#ciencias_preclinica_{{ ciencias_preclinica.id }}">
+                                                    <a type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#ciencias_preclinica_{{ ciencias_preclinica.id }}">
                                                       ver perfil completo
-                                                    </button>
+                                                    </a>
                                                   </figcaption>
                                               </figure>
                                           </div>
@@ -213,114 +213,6 @@
               </div>
           </div>
         </div>
-
-
-      <!-- Modal -->
-      {% for rehabilitacion in rehabilitacion_orales %}
-        <div class="modal fade" id="perfil_{{ rehabilitacion.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-top:10%">
-          <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title text-md-center" id="myModalLabel">{{ rehabilitacion.nombres }} {{ rehabilitacion.apellido_paterno }} {{ rehabilitacion.apellido_materno }}</h4>
-              </div>
-              <div class="modal-body">
-                <section class="section-98 section-sm-top-34 section-sm-bottom-110" style="margin-bottom: 10px; padding-top:10px">
-                    <div class="shell">
-                        <!--h4>{{ rehabilitacion.nombres }} {{ rehabilitacion.apellido_paterno }}</h4 -->
-                        <div class="range range-xs-center" style="margin-top: 10px;">
-                            <div class="cell-xs-10 cell-md-4" style="margin-top: 10px;">
-                                <!-- Member block type 5-->
-                                <div class="inset-md-right-20 cell-xs-10 cell-md-8 text-md-left offset-top-10 offset-md-top-0" style="border: 10px solid #fff;border-radius: 5px;box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.15);">
-                                  <img src="{{ rehabilitacion.foto.url }}" width="320" height="320" alt="" class="img-responsive center-block" />
-                                </div>
-                            </div>
-                            <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
-                                <div class="range">
-                                    <div class="cell-sm-6">
-                                        <div>Profesión</div>
-                                        <h5 class="text-bold">{{ rehabilitacion.titulo }}</h5>
-                                    </div>
-                                    <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
-                                        <div>Registro SISS</div>
-                                        <h5 class="text-bold">{{ rehabilitacion.registro_siss }}</h5>
-                                    </div>
-                                </div>
-                                <div class="offset-top-66 text-left">
-                                    <h6>Especialidad</h6>
-                                    <hr class="text-subline">
-                                    <p>{{ rehabilitacion.especialidad }}</p>
-
-                                    <h6>Cargo</h6>
-                                    <hr class="text-subline">
-                                    <p>{{ rehabilitacion.cargo }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
-
-      <!-- Modal -->
-      {% for rehabilitacion in rehabilitacion_orales %}
-        <div class="modal fade" id="perfil_{{ rehabilitacion.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-top:10%">
-          <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title text-md-center" id="myModalLabel">{{ rehabilitacion.nombres }} {{ rehabilitacion.apellido_paterno }} {{ rehabilitacion.apellido_materno }}</h4>
-              </div>
-              <div class="modal-body">
-                <section class="section-98 section-sm-top-34 section-sm-bottom-110" style="margin-bottom: 10px; padding-top:10px">
-                    <div class="shell">
-                        <!--h4>{{ rehabilitacion.nombres }} {{ rehabilitacion.apellido_paterno }}</h4 -->
-                        <div class="range range-xs-center" style="margin-top: 10px;">
-                            <div class="cell-xs-10 cell-md-4" style="margin-top: 10px;">
-                                <!-- Member block type 5-->
-                                <div class="inset-md-right-20 cell-xs-10 cell-md-8 text-md-left offset-top-10 offset-md-top-0" style="border: 10px solid #fff;border-radius: 5px;box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.15);">
-                                  <img src="{{ rehabilitacion.foto.url }}" width="320" height="320" alt="" class="img-responsive center-block" />
-                                </div>
-                            </div>
-                            <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
-                                <div class="range">
-                                    <div class="cell-sm-6">
-                                        <div>Profesión</div>
-                                        <h5 class="text-bold">{{ rehabilitacion.titulo }}</h5>
-                                    </div>
-                                    <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
-                                        <div>Registro SISS</div>
-                                        <h5 class="text-bold">{{ rehabilitacion.registro_siss }}</h5>
-                                    </div>
-                                </div>
-                                <div class="offset-top-66 text-left">
-                                    <h6>Especialidad</h6>
-                                    <hr class="text-subline">
-                                    <p>{{ rehabilitacion.especialidad }}</p>
-
-                                    <h6>Cargo</h6>
-                                    <hr class="text-subline">
-                                    <p>{{ rehabilitacion.cargo }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
-
 
       <!-- Modal -->
       {% for rehabilitacion in rehabilitacion_orales %}
@@ -414,7 +306,7 @@
 
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
-                                    <p>{{ odontopediatria.cargo }}</p>
+                                    <p>{% autoescape off %}{{ odontopediatria.cargo }}{% endautoescape %}</p>
                                 </div>
                             </div>
                         </div>
@@ -468,7 +360,7 @@
 
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
-                                    <p>{{ periodoncia.cargo }}</p>
+                                    <p>{% autoescape off %}{{ periodoncia.cargo }}{% endautoescape %}</p>
                                 </div>
                             </div>
                         </div>
@@ -522,7 +414,7 @@
 
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
-                                    <p>{{ endodoncia.cargo }}</p>
+                                    <p>{% autoescape off %}{{ endodoncia.cargo }}{% endautoescape %}</p>
                                 </div>
                             </div>
                         </div>
@@ -576,7 +468,7 @@
 
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
-                                    <p>{{ cirugia.cargo }}</p>
+                                    <p>{% autoescape off %}{{ cirugia.cargo }}{% endautoescape %}</p>
                                 </div>
                             </div>
                         </div>
@@ -629,7 +521,7 @@
 
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
-                                    <p>{{ ciencias_preclinica.cargo }}</p>
+                                    <p>{% autoescape off %}{{ ciencias_preclinica.cargo }}{% endautoescape %}</p>
                                 </div>
                             </div>
                         </div>
@@ -643,8 +535,6 @@
           </div>
         </div>
       {% endfor %}
-    <!-- Bootstrap v3.3.6 (http://getbootstrap.com-->
-
     </section>
 </main>
 {% endblock %}
