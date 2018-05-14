@@ -1,0 +1,14 @@
+version: "3"
+services:
+  django:
+    container_name: odontologia
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: jggalleguillos/odontologia:1.0
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/var/www/webdjango
+    ports:
+      - "8000:8000"
