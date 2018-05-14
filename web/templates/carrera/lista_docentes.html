@@ -1,7 +1,7 @@
 {% extends "carrera/basecontenido.html" %}
 {% load staticfiles %}
 
-{% block title %}Admisión{% endblock %}
+{% block title %}Académicos{% endblock %}
 
 {% block content %}
 <!-- What makes us different-->
@@ -59,69 +59,17 @@
                                           <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
                                               <figure class="thumbnail-josip thumbnail-spacing">
                                                   <img width="270" height="270" src="{{ rehabilitacion.foto.url }}" alt=""/>
-                                                  <div class="thumbnail-desc" style="padding: 10px; text-align:center">
+                                                  <div class="thumbnail-desc" style="padding: 10px 10px 20px; text-align:center">
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ rehabilitacion.nombres }}</h6>
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ rehabilitacion.apellido_paterno }}</h6>
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ rehabilitacion.titulo }}</h6>
                                                   </div>
                                                   <figcaption>
-                                                    <button type="button" class="btn btn-info btn-lg btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#perfil_{{ rehabilitacion.id }}">
+                                                    <button type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#rehabilitacion_{{ rehabilitacion.id }}">
                                                       ver perfil completo
                                                     </button>
                                                   </figcaption>
                                               </figure>
-
-                                              <!-- Modal -->
-                                              <div class="modal fade" id="perfil_{{ rehabilitacion.id }}" tabindex="-1000" role="dialog" aria-labelledby="myModalLabel">
-                                                <div class="modal-dialog modal-lg" role="document">
-                                                  <div class="modal-content">
-                                                    <div class="modal-header">
-                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                      <h4 class="modal-title text-md-center" id="myModalLabel">{{ rehabilitacion.nombres }} {{ rehabilitacion.apellido_paterno }} {{ rehabilitacion.apellido_materno }}</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                      <section class="section-98 section-sm-top-34 section-sm-bottom-110" style="margin-bottom: 10px; padding-top:10px">
-                                                          <div class="shell">
-                                                              <!--h4>{{ rehabilitacion.nombres }} {{ rehabilitacion.apellido_paterno }}</h4 -->
-                                                              <div class="range range-xs-center" style="margin-top: 10px;">
-                                                                  <div class="cell-xs-10 cell-md-4" style="margin-top: 10px;">
-                                                                      <!-- Member block type 5-->
-                                                                      <div class="inset-md-right-20 cell-xs-10 cell-md-8 text-md-left offset-top-10 offset-md-top-0" style="border: 10px solid #fff;border-radius: 5px;box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.15);">
-                                                                        <img src="{{ rehabilitacion.foto.url }}" width="320" height="320" alt="" class="img-responsive center-block" />
-                                                                      </div>
-                                                                  </div>
-                                                                  <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
-                                                                      <div class="range">
-                                                                          <div class="cell-sm-3">
-                                                                              <div>Profesión</div>
-                                                                              <h5 class="text-bold">{{ rehabilitacion.titulo }}</h5>
-                                                                          </div>
-                                                                          <div class="cell-sm-7 offset-top-41 offset-sm-top-0">
-                                                                              <div>Registro SISS</div>
-                                                                              <h5 class="text-bold">{{ rehabilitacion.registro_siss }}</h5>
-                                                                          </div>
-                                                                      </div>
-                                                                      <div class="offset-top-66 text-left">
-                                                                          <h6>Especialidad</h6>
-                                                                          <hr class="text-subline">
-                                                                          <p>{{ rehabilitacion.especialidad }}</p>
-
-                                                                          <h6>Cargo</h6>
-                                                                          <hr class="text-subline">
-                                                                          <p>{{ rehabilitacion.cargo }}</p>
-                                                                      </div>
-                                                                  </div>
-                                                              </div>
-                                                          </div>
-                                                      </section>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              <!-- Bootstrap v3.3.6 (http://getbootstrap.com-->
                                           </div>
                                           {% endfor %}
                                       </div>
@@ -137,16 +85,16 @@
                                           <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
                                               <figure class="thumbnail-josip thumbnail-spacing">
                                                   <img width="270" height="270" src="{{ odontopediatria.foto.url }}" alt=""/>
-                                                  <div class="thumbnail-desc" style="padding: 10px; text-align:center">
+                                                  <div class="thumbnail-desc" style="padding: 10px 10px 20px; text-align:center">
                                                     <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ odontopediatria.nombres }}</h6>
                                                     <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ odontopediatria.apellido_paterno }}</h6>
-                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ odontopediatria.cargo }}</h6>
+                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ odontopediatria.titulo }}</h6>
                                                   </div>
-
                                                   <figcaption>
-                                                    <a href="team-member.html" class="btn btn-block btn-rect text-md-left btn-java">ver perfil completo</a>
+                                                    <button type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#odontopediatria_{{ odontopediatria.id }}">
+                                                      ver perfil completo
+                                                    </button>
                                                   </figcaption>
-
                                               </figure>
                                           </div>
                                           {% endfor %}
@@ -163,11 +111,16 @@
                                           <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
                                               <figure class="thumbnail-josip thumbnail-spacing">
                                                   <img width="270" height="270" src="{{ periodoncia.foto.url }}" alt=""/>
-                                                  <div class="thumbnail-desc" style="padding: 10px; text-align:center">
+                                                  <div class="thumbnail-desc" style="padding: 10px 10px 20px; text-align:center">
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ periodoncia.nombres }}</h6>
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ periodoncia.apellido_paterno }}</h6>
-                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ periodoncia.cargo }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ periodoncia.titulo }}</h6>
                                                   </div>
+                                                  <figcaption>
+                                                    <button type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#periodoncia_{{ periodoncia.id }}">
+                                                      ver perfil completo
+                                                    </button>
+                                                  </figcaption>
                                               </figure>
                                           </div>
                                           {% endfor %}
@@ -186,11 +139,16 @@
                                           <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
                                               <figure class="thumbnail-josip thumbnail-spacing">
                                                   <img width="270" height="270" src="{{ endodoncia.foto.url }}" alt=""/>
-                                                  <div class="thumbnail-desc" style="padding: 10px; text-align:center">
+                                                  <div class="thumbnail-desc" style="padding: 10px 10px 20px; text-align:center">
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ endodoncia.nombres }}</h6>
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ endodoncia.apellido_paterno }}</h6>
-                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ endodoncia.cargo }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ endodoncia.titulo }}</h6>
                                                   </div>
+                                                  <figcaption>
+                                                    <button type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#endodoncia_{{ endodoncia.id }}">
+                                                      ver perfil completo
+                                                    </button>
+                                                  </figcaption>
                                               </figure>
                                           </div>
                                           {% endfor %}
@@ -207,11 +165,16 @@
                                           <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
                                               <figure class="thumbnail-josip thumbnail-spacing">
                                                   <img width="270" height="270" src="{{ cirugia.foto.url }}" alt=""/>
-                                                  <div class="thumbnail-desc" style="padding: 10px; text-align:center">
+                                                  <div class="thumbnail-desc" style="padding: 10px 10px 20px; text-align:center">
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ cirugia.nombres }}</h6>
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ cirugia.apellido_paterno }}</h6>
-                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ cirugia.cargo }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ cirugia.titulo }}</h6>
                                                   </div>
+                                                  <figcaption>
+                                                    <button type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#cirugia_{{ cirugia.id }}">
+                                                      ver perfil completo
+                                                    </button>
+                                                  </figcaption>
                                               </figure>
                                           </div>
                                           {% endfor %}
@@ -228,11 +191,16 @@
                                           <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
                                               <figure class="thumbnail-josip thumbnail-spacing">
                                                   <img width="270" height="270" src="{{ ciencias_preclinica.foto.url }}" alt=""/>
-                                                  <div class="thumbnail-desc" style="padding: 10px; text-align:center">
+                                                  <div class="thumbnail-desc" style="padding: 10px 10px 20px; text-align:center">
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ ciencias_preclinica.nombres }}</h6>
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ ciencias_preclinica.apellido_paterno }}</h6>
-                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ ciencias_preclinica.cargo }}</h6>
+                                                      <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ ciencias_preclinica.titulo }}</h6>
                                                   </div>
+                                                  <figcaption>
+                                                    <button type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#ciencias_preclinica_{{ ciencias_preclinica.id }}">
+                                                      ver perfil completo
+                                                    </button>
+                                                  </figcaption>
                                               </figure>
                                           </div>
                                           {% endfor %}
@@ -245,6 +213,438 @@
               </div>
           </div>
         </div>
+
+
+      <!-- Modal -->
+      {% for rehabilitacion in rehabilitacion_orales %}
+        <div class="modal fade" id="perfil_{{ rehabilitacion.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-top:10%">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-md-center" id="myModalLabel">{{ rehabilitacion.nombres }} {{ rehabilitacion.apellido_paterno }} {{ rehabilitacion.apellido_materno }}</h4>
+              </div>
+              <div class="modal-body">
+                <section class="section-98 section-sm-top-34 section-sm-bottom-110" style="margin-bottom: 10px; padding-top:10px">
+                    <div class="shell">
+                        <!--h4>{{ rehabilitacion.nombres }} {{ rehabilitacion.apellido_paterno }}</h4 -->
+                        <div class="range range-xs-center" style="margin-top: 10px;">
+                            <div class="cell-xs-10 cell-md-4" style="margin-top: 10px;">
+                                <!-- Member block type 5-->
+                                <div class="inset-md-right-20 cell-xs-10 cell-md-8 text-md-left offset-top-10 offset-md-top-0" style="border: 10px solid #fff;border-radius: 5px;box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.15);">
+                                  <img src="{{ rehabilitacion.foto.url }}" width="320" height="320" alt="" class="img-responsive center-block" />
+                                </div>
+                            </div>
+                            <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
+                                <div class="range">
+                                    <div class="cell-sm-6">
+                                        <div>Profesión</div>
+                                        <h5 class="text-bold">{{ rehabilitacion.titulo }}</h5>
+                                    </div>
+                                    <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
+                                        <div>Registro SISS</div>
+                                        <h5 class="text-bold">{{ rehabilitacion.registro_siss }}</h5>
+                                    </div>
+                                </div>
+                                <div class="offset-top-66 text-left">
+                                    <h6>Especialidad</h6>
+                                    <hr class="text-subline">
+                                    <p>{{ rehabilitacion.especialidad }}</p>
+
+                                    <h6>Cargo</h6>
+                                    <hr class="text-subline">
+                                    <p>{{ rehabilitacion.cargo }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+      <!-- Modal -->
+      {% for rehabilitacion in rehabilitacion_orales %}
+        <div class="modal fade" id="perfil_{{ rehabilitacion.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-top:10%">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-md-center" id="myModalLabel">{{ rehabilitacion.nombres }} {{ rehabilitacion.apellido_paterno }} {{ rehabilitacion.apellido_materno }}</h4>
+              </div>
+              <div class="modal-body">
+                <section class="section-98 section-sm-top-34 section-sm-bottom-110" style="margin-bottom: 10px; padding-top:10px">
+                    <div class="shell">
+                        <!--h4>{{ rehabilitacion.nombres }} {{ rehabilitacion.apellido_paterno }}</h4 -->
+                        <div class="range range-xs-center" style="margin-top: 10px;">
+                            <div class="cell-xs-10 cell-md-4" style="margin-top: 10px;">
+                                <!-- Member block type 5-->
+                                <div class="inset-md-right-20 cell-xs-10 cell-md-8 text-md-left offset-top-10 offset-md-top-0" style="border: 10px solid #fff;border-radius: 5px;box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.15);">
+                                  <img src="{{ rehabilitacion.foto.url }}" width="320" height="320" alt="" class="img-responsive center-block" />
+                                </div>
+                            </div>
+                            <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
+                                <div class="range">
+                                    <div class="cell-sm-6">
+                                        <div>Profesión</div>
+                                        <h5 class="text-bold">{{ rehabilitacion.titulo }}</h5>
+                                    </div>
+                                    <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
+                                        <div>Registro SISS</div>
+                                        <h5 class="text-bold">{{ rehabilitacion.registro_siss }}</h5>
+                                    </div>
+                                </div>
+                                <div class="offset-top-66 text-left">
+                                    <h6>Especialidad</h6>
+                                    <hr class="text-subline">
+                                    <p>{{ rehabilitacion.especialidad }}</p>
+
+                                    <h6>Cargo</h6>
+                                    <hr class="text-subline">
+                                    <p>{{ rehabilitacion.cargo }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+
+      <!-- Modal -->
+      {% for rehabilitacion in rehabilitacion_orales %}
+        <div class="modal fade" id="rehabilitacion_{{ rehabilitacion.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-top:10%">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-md-center" id="myModalLabel">{{ rehabilitacion.nombres }} {{ rehabilitacion.apellido_paterno }} {{ rehabilitacion.apellido_materno }}</h4>
+              </div>
+              <div class="modal-body">
+                <section class="section-98 section-sm-top-34 section-sm-bottom-110" style="margin-bottom: 10px; padding-top:10px">
+                    <div class="shell">
+                        <!--h4>{{ rehabilitacion.nombres }} {{ rehabilitacion.apellido_paterno }}</h4 -->
+                        <div class="range range-xs-center" style="margin-top: 10px;">
+                            <div class="cell-xs-10 cell-md-4" style="margin-top: 10px;">
+                                <!-- Member block type 5-->
+                                <div class="inset-md-right-20 cell-xs-10 cell-md-8 text-md-left offset-top-10 offset-md-top-0" style="border: 10px solid #fff;border-radius: 5px;box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.15);">
+                                  <img src="{{ rehabilitacion.foto.url }}" width="320" height="320" alt="" class="img-responsive center-block" />
+                                </div>
+                            </div>
+                            <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
+                                <div class="range">
+                                    <div class="cell-sm-6">
+                                        <div>Profesión</div>
+                                        <h5 class="text-bold">{{ rehabilitacion.titulo }}</h5>
+                                    </div>
+                                    <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
+                                        <div>Registro SISS</div>
+                                        <h5 class="text-bold">{{ rehabilitacion.registro_siss }}</h5>
+                                    </div>
+                                </div>
+                                <div class="offset-top-66 text-left">
+                                    <h6>Especialidad</h6>
+                                    <hr class="text-subline">
+                                    <p>{{ rehabilitacion.especialidad }}</p>
+
+                                    <h6>Cargo</h6>
+                                    <hr class="text-subline">
+                                    <p>{{ rehabilitacion.cargo }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+
+      <!-- Modal -->
+      {% for odontopediatria in odontopediatrias %}
+        <div class="modal fade" id="odontopediatria_{{ odontopediatria.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-top:10%">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-md-center" id="myModalLabel">{{ odontopediatria.nombres }} {{ odontopediatria.apellido_paterno }} {{ odontopediatria.apellido_materno }}</h4>
+              </div>
+              <div class="modal-body">
+                <section class="section-98 section-sm-top-34 section-sm-bottom-110" style="margin-bottom: 10px; padding-top:10px">
+                    <div class="shell">
+                        <!--h4>{{ rehabilitacion.nombres }} {{ rehabilitacion.apellido_paterno }}</h4 -->
+                        <div class="range range-xs-center" style="margin-top: 10px;">
+                            <div class="cell-xs-10 cell-md-4" style="margin-top: 10px;">
+                                <!-- Member block type 5-->
+                                <div class="inset-md-right-20 cell-xs-10 cell-md-8 text-md-left offset-top-10 offset-md-top-0" style="border: 10px solid #fff;border-radius: 5px;box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.15);">
+                                  <img src="{{ odontopediatria.foto.url }}" width="320" height="320" alt="" class="img-responsive center-block" />
+                                </div>
+                            </div>
+                            <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
+                                <div class="range">
+                                    <div class="cell-sm-6">
+                                        <div>Profesión</div>
+                                        <h5 class="text-bold">{{ odontopediatria.titulo }}</h5>
+                                    </div>
+                                    <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
+                                        <div>Registro SISS</div>
+                                        <h5 class="text-bold">{{ odontopediatria.registro_siss }}</h5>
+                                    </div>
+                                </div>
+                                <div class="offset-top-66 text-left">
+                                    <h6>Especialidad</h6>
+                                    <hr class="text-subline">
+                                    <p>{{ odontopediatria.especialidad }}</p>
+
+                                    <h6>Cargo</h6>
+                                    <hr class="text-subline">
+                                    <p>{{ odontopediatria.cargo }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+
+      <!-- Modal periodoncia -->
+      {% for periodoncia in periodoncias %}
+        <div class="modal fade" id="periodoncia_{{ periodoncia.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-top:10%">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-md-center" id="myModalLabel">{{ periodoncia.nombres }} {{ periodoncia.apellido_paterno }} {{ periodoncia.apellido_materno }}</h4>
+              </div>
+              <div class="modal-body">
+                <section class="section-98 section-sm-top-34 section-sm-bottom-110" style="margin-bottom: 10px; padding-top:10px">
+                    <div class="shell">
+                        <!--h4>{{ periodoncia.nombres }} {{ periodoncia.apellido_paterno }}</h4 -->
+                        <div class="range range-xs-center" style="margin-top: 10px;">
+                            <div class="cell-xs-10 cell-md-4" style="margin-top: 10px;">
+                                <!-- Member block type 5-->
+                                <div class="inset-md-right-20 cell-xs-10 cell-md-8 text-md-left offset-top-10 offset-md-top-0" style="border: 10px solid #fff;border-radius: 5px;box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.15);">
+                                  <img src="{{ periodoncia.foto.url }}" width="320" height="320" alt="" class="img-responsive center-block" />
+                                </div>
+                            </div>
+                            <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
+                                <div class="range">
+                                    <div class="cell-sm-6">
+                                        <div>Profesión</div>
+                                        <h5 class="text-bold">{{ periodoncia.titulo }}</h5>
+                                    </div>
+                                    <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
+                                        <div>Registro SISS</div>
+                                        <h5 class="text-bold">{{ periodoncia.registro_siss }}</h5>
+                                    </div>
+                                </div>
+                                <div class="offset-top-66 text-left">
+                                    <h6>Especialidad</h6>
+                                    <hr class="text-subline">
+                                    <p>{{ periodoncia.especialidad }}</p>
+
+                                    <h6>Cargo</h6>
+                                    <hr class="text-subline">
+                                    <p>{{ periodoncia.cargo }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+
+      <!-- Modal endodoncias -->
+      {% for endodoncia in endodoncias %}
+        <div class="modal fade" id="endodoncia_{{ endodoncia.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-top:10%">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-md-center" id="myModalLabel">{{ endodoncia.nombres }} {{ endodoncia.apellido_paterno }} {{ endodoncia.apellido_materno }}</h4>
+              </div>
+              <div class="modal-body">
+                <section class="section-98 section-sm-top-34 section-sm-bottom-110" style="margin-bottom: 10px; padding-top:10px">
+                    <div class="shell">
+                        <!--h4>{{ endodoncia.nombres }} {{ endodoncia.apellido_paterno }}</h4 -->
+                        <div class="range range-xs-center" style="margin-top: 10px;">
+                            <div class="cell-xs-10 cell-md-4" style="margin-top: 10px;">
+                                <!-- Member block type 5-->
+                                <div class="inset-md-right-20 cell-xs-10 cell-md-8 text-md-left offset-top-10 offset-md-top-0" style="border: 10px solid #fff;border-radius: 5px;box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.15);">
+                                  <img src="{{ endodoncia.foto.url }}" width="320" height="320" alt="" class="img-responsive center-block" />
+                                </div>
+                            </div>
+                            <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
+                                <div class="range">
+                                    <div class="cell-sm-6">
+                                        <div>Profesión</div>
+                                        <h5 class="text-bold">{{ endodoncia.titulo }}</h5>
+                                    </div>
+                                    <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
+                                        <div>Registro SISS</div>
+                                        <h5 class="text-bold">{{ endodoncia.registro_siss }}</h5>
+                                    </div>
+                                </div>
+                                <div class="offset-top-66 text-left">
+                                    <h6>Especialidad</h6>
+                                    <hr class="text-subline">
+                                    <p>{{ endodoncia.especialidad }}</p>
+
+                                    <h6>Cargo</h6>
+                                    <hr class="text-subline">
+                                    <p>{{ endodoncia.cargo }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+
+      <!-- Modal cirugia -->
+      {% for cirugia in cirugias %}
+        <div class="modal fade" id="cirugia_{{ cirugia.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-top:10%">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-md-center" id="myModalLabel">{{ cirugia.nombres }} {{ cirugia.apellido_paterno }} {{ cirugia.apellido_materno }}</h4>
+              </div>
+              <div class="modal-body">
+                <section class="section-98 section-sm-top-34 section-sm-bottom-110" style="margin-bottom: 10px; padding-top:10px">
+                    <div class="shell">
+                        <!--h4>{{ cirugia.nombres }} {{ cirugia.apellido_paterno }}</h4 -->
+                        <div class="range range-xs-center" style="margin-top: 10px;">
+                            <div class="cell-xs-10 cell-md-4" style="margin-top: 10px;">
+                                <!-- Member block type 5-->
+                                <div class="inset-md-right-20 cell-xs-10 cell-md-8 text-md-left offset-top-10 offset-md-top-0" style="border: 10px solid #fff;border-radius: 5px;box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.15);">
+                                  <img src="{{ cirugia.foto.url }}" width="320" height="320" alt="" class="img-responsive center-block" />
+                                </div>
+                            </div>
+                            <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
+                                <div class="range">
+                                    <div class="cell-sm-6">
+                                        <div>Profesión</div>
+                                        <h5 class="text-bold">{{ cirugia.titulo }}</h5>
+                                    </div>
+                                    <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
+                                        <div>Registro SISS</div>
+                                        <h5 class="text-bold">{{ cirugia.registro_siss }}</h5>
+                                    </div>
+                                </div>
+                                <div class="offset-top-66 text-left">
+                                    <h6>Especialidad</h6>
+                                    <hr class="text-subline">
+                                    <p>{{ cirugia.especialidad }}</p>
+
+                                    <h6>Cargo</h6>
+                                    <hr class="text-subline">
+                                    <p>{{ cirugia.cargo }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+      <!-- Modal ciencias_preclinica -->
+      {% for ciencias_preclinica in ciencias_preclinicas %}
+        <div class="modal fade" id="ciencias_preclinica_{{ ciencias_preclinica.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-top:10%">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-md-center" id="myModalLabel">{{ ciencias_preclinica.nombres }} {{ ciencias_preclinica.apellido_paterno }} {{ ciencias_preclinica.apellido_materno }}</h4>
+              </div>
+              <div class="modal-body">
+                <section class="section-98 section-sm-top-34 section-sm-bottom-110" style="margin-bottom: 10px; padding-top:10px">
+                    <div class="shell">
+                        <!--h4>{{ ciencias_preclinica.nombres }} {{ ciencias_preclinica.apellido_paterno }}</h4 -->
+                        <div class="range range-xs-center" style="margin-top: 10px;">
+                            <div class="cell-xs-10 cell-md-4" style="margin-top: 10px;">
+                                <!-- Member block type 5-->
+                                <div class="inset-md-right-20 cell-xs-10 cell-md-8 text-md-left offset-top-10 offset-md-top-0" style="border: 10px solid #fff;border-radius: 5px;box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.15);">
+                                  <img src="{{ ciencias_preclinica.foto.url }}" width="320" height="320" alt="" class="img-responsive center-block" />
+                                </div>
+                            </div>
+                            <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
+                                <div class="range">
+                                    <div class="cell-sm-6">
+                                        <div>Profesión</div>
+                                        <h5 class="text-bold">{{ ciencias_preclinica.titulo }}</h5>
+                                    </div>
+                                    <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
+                                        <div>Registro SISS</div>
+                                        <h5 class="text-bold">{{ ciencias_preclinica.registro_siss }}</h5>
+                                    </div>
+                                </div>
+                                <div class="offset-top-66 text-left">
+                                    <h6>Especialidad</h6>
+                                    <hr class="text-subline">
+                                    <p>{{ ciencias_preclinica.especialidad }}</p>
+
+                                    <h6>Cargo</h6>
+                                    <hr class="text-subline">
+                                    <p>{{ ciencias_preclinica.cargo }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    <!-- Bootstrap v3.3.6 (http://getbootstrap.com-->
+
     </section>
 </main>
 {% endblock %}
