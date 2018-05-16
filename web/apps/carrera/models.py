@@ -73,9 +73,9 @@ class Docentes(models.Model):
     apellido_paterno = models.CharField(max_length=100, blank=False, null=False)
     apellido_materno = models.CharField(max_length=100, blank=False, null=False)
     cargo = RichTextField(max_length=500, blank=False, null=True, config_name='awesome_ckeditor')
-    titulo = models.CharField(max_length=100, blank=False, null=False)
+    titulo = models.CharField(max_length=150, blank=False, null=False)
     area = models.CharField(max_length=30, choices=AREA)
-    especialidad = models.CharField(max_length=100, blank=False, null=False)
+    especialidad = RichTextField(max_length=500, blank=False, null=True, config_name='awesome_ckeditor')
     registro_siss = models.CharField(max_length=100, blank=False, null=False)
 
     foto = models.ImageField(upload_to='carrera/docente/', height_field=None, width_field=None, max_length=100, validators=[validate_image], help_text='Tamano maximo de la imagen es 1Mb, sus dimensiones deben ser de 270x270 pixeles')
