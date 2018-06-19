@@ -35,7 +35,7 @@
                                   </button>
                                   <ul id="isotope-1" class="list-sm-inline isotope-filters-list">
                                       <li><a data-isotope-filter="rehabilitacion_orales" data-isotope-group="gallery" href="#" class="active">Rehabilitación Oral</a></li>
-                                      <li><a data-isotope-filter="odontopediatrias" data-isotope-group="gallery" href="#">Odontopediatrías</a></li>
+                                      <li><a data-isotope-filter="odontopediatrias" data-isotope-group="gallery" href="#">Odontopediatría</a></li>
                                       <li><a data-isotope-filter="periodoncias" data-isotope-group="gallery" href="#">Periodoncia</a></li>
                                       <li><a data-isotope-filter="endodoncias" data-isotope-group="gallery" href="#">Endodoncia </a></li>
                                       <li><a data-isotope-filter="cirugias" data-isotope-group="gallery" href="#">Cirugía</a></li>
@@ -240,7 +240,11 @@
                                 <div class="offset-top-66 text-left">
                                     <h6>Especialidad</h6>
                                     <hr class="text-subline">
-                                    <p>{{ rehabilitacion.especialidad }}</p>
+                                    <p>{% autoescape off %}{{ rehabilitacion.especialidad }}{% endautoescape %}</p>
+
+                                    <h6>Postgrados y Postítulos</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ rehabilitacion.postitulos }}{% endautoescape %}</p>
 
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
@@ -294,7 +298,11 @@
                                 <div class="offset-top-66 text-left">
                                     <h6>Especialidad</h6>
                                     <hr class="text-subline">
-                                    <p>{{ odontopediatria.especialidad }}</p>
+                                    <p>{% autoescape off %}{{ odontopediatria.especialidad }}{% endautoescape %}</p>
+
+                                    <h6>Postgrados y Postítulos</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ odontopediatria.postitulos }}{% endautoescape %}</p>
 
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
@@ -348,7 +356,11 @@
                                 <div class="offset-top-66 text-left">
                                     <h6>Especialidad</h6>
                                     <hr class="text-subline">
-                                    <p>{{ periodoncia.especialidad }}</p>
+                                    <p>{% autoescape off %}{{ periodoncia.especialidad }}{% endautoescape %}</p>
+
+                                    <h6>Postgrados y Postítulos</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ periodoncia.postitulos }}{% endautoescape %}</p>
 
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
@@ -402,7 +414,11 @@
                                 <div class="offset-top-66 text-left">
                                     <h6>Especialidad</h6>
                                     <hr class="text-subline">
-                                    <p>{{ endodoncia.especialidad }}</p>
+                                    <p>{% autoescape off %}{{ endodoncia.especialidad }}{% endautoescape %}</p>
+
+                                    <h6>Postgrados y Postítulos</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ endodoncia.postitulos }}{% endautoescape %}</p>
 
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
@@ -456,7 +472,11 @@
                                 <div class="offset-top-66 text-left">
                                     <h6>Especialidad</h6>
                                     <hr class="text-subline">
-                                    <p>{{ cirugia.especialidad }}</p>
+                                    <p>{% autoescape off %}{{ cirugia.especialidad }}{% endautoescape %}</p>
+
+                                    <h6>Postgrados y Postítulos</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ cirugia.postitulos }}{% endautoescape %}</p>
 
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
@@ -509,7 +529,11 @@
                                 <div class="offset-top-66 text-left">
                                     <h6>Especialidad</h6>
                                     <hr class="text-subline">
-                                    <p>{{ ciencias_preclinica.especialidad }}</p>
+                                    <p>{% autoescape off %}{{ ciencias_preclinica.especialidad }}{% endautoescape %}</p>
+
+                                    <h6>Postgrados y Postítulos</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ cirugia.postitulos }}{% endautoescape %}</p>
 
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
