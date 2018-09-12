@@ -2,10 +2,10 @@
 from __future__ import unicode_literals
 from django.db import models
 from ckeditor.fields import RichTextField
-
 from django.core.exceptions import ValidationError
 from django.core.files.images import get_image_dimensions
 from ckeditor_uploader.fields import RichTextUploadingField
+
 
 AREA = (
     ('rehabilitacion_oral', 'Rehabilitación Oral'),
@@ -16,10 +16,12 @@ AREA = (
     ('ciencias_preclinicas', 'Ciencias Preclínicas'),
 )
 
+
 CONTACTO_DESTINO = (
     ('carrera', 'Carrera'),
     ('clinica', 'Clínica'),
 )
+
 
 def validate_image(fieldfile_obj):
     filesize = fieldfile_obj.file.size
@@ -31,7 +33,6 @@ def validate_image(fieldfile_obj):
         raise ValidationError("Las dimensiones de la foto son de %ix%i, y estas deben ser de 270x270 pixeles" %(h,w))
 
 
-
 # Create your models here.
 class Admision(models.Model):
     anio = models.PositiveSmallIntegerField(verbose_name="año")
@@ -40,14 +41,13 @@ class Admision(models.Model):
     puntaje_ponderado = models.FloatField(verbose_name="puntaje ponderado")
     vacantes = models.PositiveSmallIntegerField(verbose_name="Vacantes")
 
-    #def __str__(self):
-    #return "El año de ingreso es %s y puntaje %s " % (self.anio, self.puntaje_minimo)
     class Meta:
          verbose_name_plural = "Admisiones"
          ordering = ["anio"]
 
     def __str__(self):
         return "%s " %self.anio
+
 
 # Clase definición formulario de contacto
 class Contacto(models.Model):
@@ -62,12 +62,14 @@ class Contacto(models.Model):
     class Meta:
         ordering = ["fecha_contacto"]
 
+
 # Clase para definición de contenido estandar
 class Contenido(models.Model):
 	seccion = models.CharField(max_length=100, blank=False, null=False)
 	texto = RichTextUploadingField(max_length=35000, blank=True, null=True, config_name='awesome_ckeditor')
 
 
+# Clase para los doscentes
 class Docentes(models.Model):
     nombres = models.CharField(max_length=100, blank=False, null=False)
     apellido_paterno = models.CharField(max_length=100, blank=False, null=False)
@@ -77,7 +79,7 @@ class Docentes(models.Model):
     area = models.CharField(max_length=30, choices=AREA)
     especialidad = RichTextField(max_length=500, blank=False, null=True, config_name='awesome_ckeditor')
     postitulos = RichTextField(max_length=500, blank=False, null=True, config_name='awesome_ckeditor')
-    registro_siss = models.CharField(max_length=100, blank=False, null=False)
+    registro_siss = models.CharField(max_length=100, blank=False, null=False, default=0)
 
     foto = models.ImageField(upload_to='carrera/docente/', height_field=None, width_field=None, max_length=100, validators=[validate_image], help_text='Tamano maximo de la imagen es 1Mb, sus dimensiones deben ser de 270x270 pixeles')
     nivel = models.IntegerField(default=1)

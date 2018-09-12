@@ -1,0 +1,260 @@
+@charset "UTF-8";
+
+footer#footer-principal {
+    background-color: #696969;
+    margin-top: 50px;
+}
+
+div.after-footer {
+    background-color: #606060;
+    color: #f1f1f1;
+    font-weight: 200;
+}
+
+/* Barra titulos contenido */
+
+div.section-md-bottom-41 {
+    padding-bottom: 20px;
+}
+
+div.section-md-top-110 {
+    padding-top: 60px;
+}
+
+.context-dark h1 {
+    font-size: 60px;
+    text-shadow: #214e83 2px 2px 2px;
+}
+
+html .page .offset-md-top-70 {
+    margin-top: 40px;
+}
+
+section.breadcrumb-modern {
+    background-image: url('../images/textura.svg');
+}
+
+
+/* Menu */
+
+.rd-navbar-minimal.rd-navbar-static .rd-navbar-dropdown {
+    border-radius: 0px 0px 5px 5px;
+}
+
+.rd-navbar-minimal.rd-navbar-static .rd-navbar-dropdown2 {
+    position: absolute;
+    top: 0px;
+    left: 225px;
+    z-index: 1;
+    width: 200px;
+    padding: 0;
+    visibility: hidden;
+    transition: .3s all ease;
+    text-align: left;
+    opacity: 0;
+    box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 0px 5px 5px 0px;
+    background-color: #ffffff;
+}
+
+.rd-navbar-default.rd-navbar-static .rd-navbar-dropdown2:before,
+.rd-navbar-minimal.rd-navbar-static .rd-navbar-dropdown2:before,
+.rd-navbar-floated.rd-navbar-static .rd-navbar-dropdown2:before,
+.rd-navbar-top-panel.rd-navbar-static .rd-navbar-dropdown2:before,
+.rd-navbar-logo-center.rd-navbar-static .rd-navbar-dropdown2:before {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    font-size: 14px;
+    font-family: "FontAwesome";
+    line-height: 14px;
+    content: " ";
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    transition: .3s all ease;
+    border-right: 8px solid #ffffff;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    margin-top: -25px;
+    margin-left: -8px;
+}
+
+.rd-navbar-default.rd-navbar-static .rd-navbar-dropdown li:hover .rd-navbar-dropdown2,
+.rd-navbar-minimal.rd-navbar-static .rd-navbar-dropdown li:hover .rd-navbar-dropdown2,
+.rd-navbar-floated.rd-navbar-static .rd-navbar-dropdown li:hover .rd-navbar-dropdown2,
+.rd-navbar-top-panel.rd-navbar-static .rd-navbar-dropdown li:hover .rd-navbar-dropdown2,
+.rd-navbar-logo-center.rd-navbar-static .rd-navbar-dropdown li:hover .rd-navbar-dropdown2 {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Equipo */
+
+figure.thumbnail-spacing {
+	margin-bottom: 25px;
+}
+
+/* Iconos */
+
+.icon-rayos-md:before,
+.icon-rayos-xl:before,
+.icon-compromiso-md:before,
+.icon-compromiso-xl:before,
+.icon-sillon-md:before,
+.icon-sillon-xl:before,
+.icon-biomedicina-md:before,
+.icon-biomedicina-xl:before,
+.icon-tecnologia-md:before,
+.icon-tecnologia-xl:before,
+.icon-doctor-md:before,
+.icon-doctor-xl:before {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-rayos-xl:before {
+    background-image: url("../images/icons/icon_rayos.svg");
+}
+
+.icon-sillon-xl:before {
+    background-image: url("../images/icons/icon_sillon.svg");
+}
+
+.icon-doctor-xl:before {
+    background-image: url("../images/icons/icon_doctor.svg");
+}
+
+.icon-biomedicina-xl:before {
+    background-image: url("../images/icons/icon_biomedicas.svg");
+}
+
+.icon-compromiso-xl:before {
+    background-image: url("../images/icons/icon_compromiso.svg");
+}
+
+.icon-tecnologia-xl:before {
+    background-image: url("../images/icons/icon_tecnologia.svg");
+}
+
+/* Galeria */
+
+.thumbnail-custom:before {
+    background: rgba(78, 170, 215, 0.7);
+}
+
+/* Banner */
+
+div.swiper-container h2,
+div.swiper-container h5 {
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+div.swiper-container h5,
+div.swiper-container a {
+    margin-top: 10px;
+}
+
+/* Tweets */
+
+div.loading {
+    text-align: center;
+    width: 100%;
+}
+
+div#twitter_section div.owl-item{
+    height: 250px;
+    overflow: auto;
+    background-color: #F1F3F9;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+div#twitter_section div.item-tweet {
+    padding: 5px;
+    position: relative;
+}
+
+div#twitter_section div.owl-item a.btn-tweet {
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 30px;
+    right: 5px;
+}
+
+div#twitter_section div.owl-item a.btn-tweet i {
+    font-style: normal;
+}
+
+div#twitter_section div.unit-body p.subtitle {
+    font-style: italic;
+    text-align: left;
+    color: #bdbdbd;
+    padding: 0px;
+    margin: 0px;
+    font-size: 1em;
+    line-height: 1.2em;
+}
+
+div#twitter_section div.quote-body p.text {
+    font-size: 1.1em;
+    text-align: center;
+}
+
+div#twitter_section div.owl-item hr.linea {
+    padding:0;
+    margin: 5px 0 5px 0;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+div#instagram_section div.item-instagram {
+    padding: 5px;
+    position: relative;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+div#instagram_section img.img-instagram {
+    width: 100%;
+    height: 100%;
+}
+
+div#instagram_section div.img-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: rgba(0, 0, 0, 0.75);
+    text-align: center;
+    opacity: 0;
+    -webkit-transition: opacity 0.25s ease;
+    -moz-transition: opacity 0.25s ease;
+}
+
+div#instagram_section a.box-instagram:hover > div.img-overlay {
+    opacity: 1;
+}
+
+div#instagram_section div.img-overlay i.fa-instagram {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-style: normal;
+}
+
+@media (min-width: 992px) {
+    div#instagram_section div.item-instagram {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+
