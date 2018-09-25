@@ -26535,7 +26535,7 @@ a.icon-circle.fa-facebook:hover,
 a.icon-outlined.fa-facebook:hover,
 a.icon-rounded.fa-facebook:hover {
     color: #fff;
-    background: #0956b5;
+    background: #214e83;
 }
 
 a.icon-rect.fa-twitter:hover,
@@ -26543,7 +26543,7 @@ a.icon-circle.fa-twitter:hover,
 a.icon-outlined.fa-twitter:hover,
 a.icon-rounded.fa-twitter:hover {
     color: #fff;
-    background: #28d4f9;
+    background: #214e83;
 }
 
 a.icon-rect.fa-google-plus:hover,
@@ -26551,7 +26551,7 @@ a.icon-circle.fa-google-plus:hover,
 a.icon-outlined.fa-google-plus:hover,
 a.icon-rounded.fa-google-plus:hover {
     color: #fff;
-    background: #e3401d;
+    background: #214e83;
 }
 
 a.icon-rect.fa-linkedin:hover,
@@ -26559,7 +26559,15 @@ a.icon-circle.fa-linkedin:hover,
 a.icon-outlined.fa-linkedin:hover,
 a.icon-rounded.fa-linkedin:hover {
     color: #fff;
-    background: #0E7EB5;
+    background: #214e83;
+}
+
+a.icon-rect.fa-instagram:hover,
+a.icon-circle.fa-instagram:hover,
+a.icon-outlined.fa-instagram:hover,
+a.icon-rounded.fa-instagram:hover {
+    color: #fff;
+    background: #214e83;
 }
 
 a.icon-rect.fa-500px:hover,
