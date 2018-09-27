@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'xrn!c(=#%df+0vpa2(u9e@$u$+8)@8+tyh(p74!2#!$9x@1a+f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ckeditor',
+    'snowpenguin.django.recaptcha2',
     'ckeditor_uploader',
     'sorl.thumbnail',
     'apps.carrera',
@@ -206,3 +207,8 @@ EMAIL_HOST_USER = 'info@userena.digital'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+# Google Recaptcha
+
+RECAPTCHA_PRIVATE_KEY = '6Lecf3IUAAAAABjoV_8KfLcVTtwS_nKIQi3hzYIb'
+RECAPTCHA_PUBLIC_KEY = '6Lecf3IUAAAAAMSgAR0YdPpxOK9eHfjarZspiyOP'

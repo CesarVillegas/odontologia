@@ -116,17 +116,22 @@ def contacto(request):
                 contacto_destino=form.cleaned_data.get('contacto_destino'),
                 fecha_contacto=datetime.now()
             )
-        nuevo_contacto.save()
-        if(enviarcorreo(nuevo_contacto)):
-            respuesta = '<div class="alert alert-success">Se ha recibido correctamente su información.</div>'
-            form = FormularioContacto()
+            nuevo_contacto.save()
+            if(enviarcorreo(nuevo_contacto)):
+                respuesta = '<div class="alert alert-success">Se ha recibido correctamente su información.</div>'
+                form = FormularioContacto()
+            else:
+                respuesta = '<div class="alert alert-warning">Error en enviar su información via mail.</div>'
+            return render(request, 'carrera/contacto.html', {'form': form, 'respuesta': respuesta})
         else:
-            respuesta = 'Error en enviar su información.'
-        return render(request, 'carrera/contacto.html', {'form': form, 'respuesta': respuesta})
+            respuesta = '<div class="alert alert-warning">No haz completado los campos del formulario que son obligatorios.</div>'
+            form = FormularioContacto()
+            return render(request, 'carrera/contacto.html', {'form': form, 'respuesta': respuesta})
     else:
-        respuesta = 'Todos los campos del formulario son requeridos.'
+        respuesta = ''
         form = FormularioContacto()
         return render(request, 'carrera/contacto.html', {'form': form, 'respuesta': respuesta})
+
 
 def enviarcorreo(contacto):
     try:
