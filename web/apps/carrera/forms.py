@@ -18,4 +18,4 @@ class FormularioContacto(forms.Form):
     celular = forms.RegexField(regex=r'[0-9]{8}', max_length=8,label='Celular', widget=forms.TextInput(attrs={'class':'form-control form-control-last-child', 'data-constraints':'@Required', 'placeholder':'Ej: 87656748', 'pattern':'^[0-9]{8}$', 'required':'','tabindex':'5'}))
     mensaje = forms.CharField(label='Describa su solicitud. (500 caracteres)', required=False, max_length=500, widget=forms.Textarea(attrs={'class':'form-control form-control-last-child', 'data-constraints':'@Required','tabindex':'6'}))
     contacto_destino = forms.ChoiceField(label='Para:', choices=CONTACTO_DESTINO, widget=forms.Select(attrs={'class':'form-control','tabindex':'1'}))
-    captcha = ReCaptchaField(widget=ReCaptchaWidget())
+    captcha = ReCaptchaField(widget=ReCaptchaWidget(explicit=False, theme='light', container_id='contacto'))

@@ -121,10 +121,10 @@ def contacto(request):
                 respuesta = '<div class="alert alert-success">Se ha recibido correctamente su información.</div>'
                 form = FormularioContacto()
             else:
-                respuesta = '<div class="alert alert-warning">Error en enviar su información via mail.</div>'
+                respuesta = '<div class="alert alert-error">Error en enviar su información via mail.</div>'
             return render(request, 'carrera/contacto.html', {'form': form, 'respuesta': respuesta})
         else:
-            respuesta = '<div class="alert alert-warning">No haz completado los campos del formulario que son obligatorios.</div>'
+            respuesta = '<div class="alert alert-warning">No haz completado correctamente el formulario, intentalo nuevamente.</div>'
             form = FormularioContacto()
             return render(request, 'carrera/contacto.html', {'form': form, 'respuesta': respuesta})
     else:
