@@ -34,7 +34,7 @@ def getinstagram():
         imagenes.append({'image':post['images']['thumbnail']['url'],'url':post['link']})
     return imagenes
 
-@csrf_exempt
+#@csrf_exempt
 def instagram_timeline(request):
     if request.method == 'GET':
         instagram_images = getinstagram()
@@ -59,7 +59,7 @@ def gettweets():
                       tweet_mode= 'extended')
     return api.GetUserTimeline(screen_name='OdontologiaULS', exclude_replies=True, include_rts=True, trim_user=False, count=9)
 
-@csrf_exempt
+#@csrf_exempt
 def twitter_timeline(request):
     #return HttpResponse(gettweets())
     if request.method == 'GET':
@@ -132,7 +132,6 @@ def contacto(request):
         form = FormularioContacto()
         return render(request, 'carrera/contacto.html', {'form': form, 'respuesta': respuesta})
 
-
 def enviarcorreo(contacto):
     try:
         template = """<h3>Nueva Consulta</h3><br/>
@@ -197,7 +196,6 @@ def docentes(request):
     endodoncias = Docentes.objects.all().filter(area='endodoncia')
     cirugias = Docentes.objects.all().filter(area='cirugia')
     ciencias_preclinicas = Docentes.objects.all().filter(area='ciencias_preclinicas')
-
     return render(request, 'carrera/lista_docentes.html', {'rehabilitacion_orales': rehabilitacion_orales, 'odontopediatrias':odontopediatrias, 'periodoncias': periodoncias, 'endodoncias':endodoncias, 'cirugias': cirugias, 'ciencias_preclinicas': ciencias_preclinicas})
 
 def detalle_academico(request):
