@@ -34,7 +34,7 @@ def getinstagram():
         imagenes.append({'image':post['images']['thumbnail']['url'],'url':post['link']})
     return imagenes
 
-@csrf_exempt
+#@csrf_exempt
 def instagram_timeline(request):
     if request.method == 'GET':
         instagram_images = getinstagram()
@@ -59,7 +59,7 @@ def gettweets():
                       tweet_mode= 'extended')
     return api.GetUserTimeline(screen_name='OdontologiaULS', exclude_replies=True, include_rts=True, trim_user=False, count=9)
 
-@csrf_exempt
+#@csrf_exempt
 def twitter_timeline(request):
     #return HttpResponse(gettweets())
     if request.method == 'GET':
@@ -116,15 +116,19 @@ def contacto(request):
                 contacto_destino=form.cleaned_data.get('contacto_destino'),
                 fecha_contacto=datetime.now()
             )
-        nuevo_contacto.save()
-        if(enviarcorreo(nuevo_contacto)):
-            respuesta = '<div class="alert alert-success">Se ha recibido correctamente su información.</div>'
-            form = FormularioContacto()
+            nuevo_contacto.save()
+            if(enviarcorreo(nuevo_contacto)):
+                respuesta = '<div class="alert alert-success">Se ha recibido correctamente su información.</div>'
+                form = FormularioContacto()
+            else:
+                respuesta = '<div class="alert alert-error">Error en enviar su información via mail.</div>'
+            return render(request, 'carrera/contacto.html', {'form': form, 'respuesta': respuesta})
         else:
-            respuesta = 'Error en enviar su información.'
-        return render(request, 'carrera/contacto.html', {'form': form, 'respuesta': respuesta})
+            respuesta = '<div class="alert alert-warning">No haz completado correctamente el formulario, intentalo nuevamente.</div>'
+            form = FormularioContacto()
+            return render(request, 'carrera/contacto.html', {'form': form, 'respuesta': respuesta})
     else:
-        respuesta = 'Todos los campos del formulario son requeridos.'
+        respuesta = ''
         form = FormularioContacto()
         return render(request, 'carrera/contacto.html', {'form': form, 'respuesta': respuesta})
 
@@ -192,7 +196,6 @@ def docentes(request):
     endodoncias = Docentes.objects.all().filter(area='endodoncia')
     cirugias = Docentes.objects.all().filter(area='cirugia')
     ciencias_preclinicas = Docentes.objects.all().filter(area='ciencias_preclinicas')
-
     return render(request, 'carrera/lista_docentes.html', {'rehabilitacion_orales': rehabilitacion_orales, 'odontopediatrias':odontopediatrias, 'periodoncias': periodoncias, 'endodoncias':endodoncias, 'cirugias': cirugias, 'ciencias_preclinicas': ciencias_preclinicas})
 
 def detalle_academico(request):

@@ -33,7 +33,7 @@
                                     {% csrf_token %}
                                     <div class="form-group form-group-label-outside offset-top-20">
                                         <div class="form-group form-group-label-outside">
-                                            <label for="contacts-first-name">Para</label>
+                                            <label for="contacts-first-name">Para *</label>
                                             {{ form.contacto_destino }}
                                             <span class="form-validation"></span>
                                         </div>
@@ -41,33 +41,36 @@
                                     <div class="range range-xs-center">
                                         <div class="cell-sm-6">
                                             <div class="form-group form-group-label-outside">
-                                                <label for="contacts-first-name">Nombres</label>
+                                                <label for="contacts-first-name">Nombres *</label>
                                                 {{ form.nombres }}
                                                 <span class="form-validation"></span>
                                             </div>
                                             <div class="form-group form-group-label-outside offset-top-20">
-                                                <label for="contacts-email">E-mail</label>
+                                                <label for="contacts-email">E-mail *</label>
                                                 {{ form.email }}
                                                 <span class="form-validation"></span>
                                             </div>
                                         </div>
                                         <div class="cell-sm-6 offset-top-20 offset-sm-top-0">
                                             <div class="form-group form-group-label-outside">
-                                                <label for="contacts-last-name">Apellidos</label>
+                                                <label for="contacts-last-name">Apellidos *</label>
                                                 {{ form.apellidos }}
                                                 <span class="form-validation"></span>
                                             </div>
                                             <div class="form-group form-group-label-outside offset-top-20">
-                                                <label for="contacts-phone">Celular</label>
+                                                <label for="contacts-phone">Celular *</label>
                                                 {{ form.celular }}
                                                 <span class="form-validation"></span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-label-outside offset-top-20">
-                                        <label for="contacts-message">Mensaje</label>
+                                        <label for="contacts-message">Mensaje *</label>
                                         {{ form.mensaje }}
                                         <span class="form-validation"></span>
+                                    </div>
+                                    <div class="form-group form-group-label-outside offset-top-20">
+                                        {{ form.captcha }}
                                     </div>
                                     <div class="offset-top-18 offset-sm-top-24 text-center text-sm-left">
                                         <button type="submit" style="min-width: 130px;" class="btn btn-ellipse btn-java">Enviar</button>

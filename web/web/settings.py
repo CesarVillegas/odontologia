@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ckeditor',
+    'snowpenguin.django.recaptcha2',
     'ckeditor_uploader',
     'sorl.thumbnail',
     'apps.carrera',
@@ -206,3 +207,16 @@ EMAIL_HOST_USER = 'info@userena.digital'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+# Google Recaptcha
+
+RECAPTCHA_PRIVATE_KEY = '6Lecf3IUAAAAABjoV_8KfLcVTtwS_nKIQi3hzYIb'
+RECAPTCHA_PUBLIC_KEY = '6Lecf3IUAAAAAMSgAR0YdPpxOK9eHfjarZspiyOP'
+
+# Seguridad en deploy
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
