@@ -34,7 +34,7 @@ def getinstagram():
         imagenes.append({'image':post['images']['thumbnail']['url'],'url':post['link']})
     return imagenes
 
-@csrf_exempt
+#@csrf_exempt
 def instagram_timeline(request):
     if request.method == 'GET':
         instagram_images = getinstagram()
@@ -59,7 +59,7 @@ def gettweets():
                       tweet_mode= 'extended')
     return api.GetUserTimeline(screen_name='OdontologiaULS', exclude_replies=True, include_rts=True, trim_user=False, count=9)
 
-@csrf_exempt
+#@csrf_exempt
 def twitter_timeline(request):
     #return HttpResponse(gettweets())
     if request.method == 'GET':
