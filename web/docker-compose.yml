@@ -1,4 +1,4 @@
-version: "3"
+version: "3.3"
 services:
   django:
     container_name: odontologia
@@ -12,3 +12,23 @@ services:
       - .:/var/www/odontologia
     ports:
       - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    container_name: mysql56-odonto
+    image: mysql:5.6
+    restart: always
+    environment:
+      MYSQL_DATABASE: "webodonto"
+      MYSQL_USER: "userodonto"
+      MYSQL_PASSWORD: "odontoq1w2e3"
+      MYSQL_ROOT_PASSWORD: "rootq1w2e3"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
