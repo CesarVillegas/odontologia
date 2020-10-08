@@ -5,10 +5,21 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: jggalleguillos/odontologia:1.0
+    image: odontologia:1.0    
     stdin_open: true
     tty: true
     volumes:
-      - .:/var/www/webdjango
+      - .:/var/www/odontologia
     ports:
       - "8000:8000"
+    depends_on:
+      - db
+  db:
+    image: mysql  
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: odontoq1w2e3
+      MYSQL_DATABASE: webodonto
+      MYSQL_USER: userodonto
+      MYSQL_PASSWORD: odontoq1w2e3
+      MYSQL_HOST: localhost

@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'xrn!c(=#%df+0vpa2(u9e@$u$+8)@8+tyh(p74!2#!$9x@1a+f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -85,8 +85,12 @@ if DEBUG:
 
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'webodonto',
+            'USER': 'userodonto',
+            'PASSWORD': 'odontoq1w2e3',
+            'HOST': 'db',
+            'PORT': '3306',
         }
     }
 
