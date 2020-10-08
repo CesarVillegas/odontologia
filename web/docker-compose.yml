@@ -23,3 +23,5 @@ services:
       MYSQL_USER: userodonto
       MYSQL_PASSWORD: odontoq1w2e3
       MYSQL_HOST: localhost
+    ports:
+      - "3306:3306"

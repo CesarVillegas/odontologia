@@ -165,7 +165,7 @@ def enviarcorreo(contacto):
         server.sendmail(fromaddr, toaddr, msg.as_string())
         server.close()
     except Exception as e:
-        print '%s (%s)' % (e.message, type(e))
+        print (e.message, type(e))
         return False
     return True
 
