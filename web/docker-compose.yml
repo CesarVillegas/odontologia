@@ -16,7 +16,7 @@ services:
       db:
         condition: service_healthy
   db:
-    container_name: mysql56-odonto
+    container_name: mysql-odonto
     image: mysql:5.6
     restart: always
     environment:
