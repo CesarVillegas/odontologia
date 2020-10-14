@@ -206,6 +206,11 @@ def detalle_academico(request):
     except ObjectDoesNotExist:
         return render(request, '404.html', status=404)
 
+
+def vinculacion(request):
+    return render(request, 'carrera/vinculacion.html')
+
+
 def handler404(request):
     return render(request, '404.html', status=404)
 
