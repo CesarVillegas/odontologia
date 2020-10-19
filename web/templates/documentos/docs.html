@@ -35,8 +35,9 @@
                             {% endifequal %}
 
                             <div class="unit-body">
-                              <p> <a href="{{ documento.archivo.url }}" target="_blank">{{ documento.titulo }}</a><br>
-                              </p>
+                              <h4><a href="{{ documento.archivo.url }}" target="_blank">{{ documento.titulo }}</a><br>
+                              </h4>
+                              <p>{{ documento.descripcion }}</p>
                             </div>
                           </div>
                           {% endfor %}

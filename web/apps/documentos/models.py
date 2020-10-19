@@ -19,7 +19,7 @@ def validate_document(fieldfile_obj):
 
 class Documento(models.Model):
     titulo = models.CharField(max_length=200, blank=False, null=False)
-    descripcion = RichTextUploadingField(max_length=5000, blank=True, null=True, config_name='awesome_ckeditor')
+    descripcion = models.CharField(max_length=5000, null=True, blank=True)
     archivo = models.FileField(upload_to='documentos/', blank=False, max_length=20000, validators=[validate_document], help_text='Tamaño máximo del archivo es 15Mb y solo se permite .pdf .docx .xlsx.')
     mostrar = models.BooleanField(default=True, help_text="Visualizar este Documento.")
     prioridad = models.IntegerField(default=1, help_text="Prioridad en el que se publican estos contenidos.")
