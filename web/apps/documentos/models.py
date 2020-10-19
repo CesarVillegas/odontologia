@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.dispatch import receiver
 from ckeditor_uploader.fields import RichTextUploadingField
 import os.path
 
@@ -35,3 +36,25 @@ class Documento(models.Model):
     documento_preview.short_description = 'Documento'
     documento_preview.allow_tags = True
 
+
+@receiver(models.signals.post_delete, sender=Documento)
+def auto_delete_file_on_delete(sender, instance, **kwargs):
+    if instance.archivo:
+        if os.path.isfile(instance.archivo.path):
+            os.remove(instance.archivo.path)
+
+
+@receiver(models.signals.pre_save, sender=Documento)
+def auto_delete_file_on_change(sender, instance, **kwargs):
+    if not instance.pk:
+        return False
+
+    try:
+        old_imagen = Documento.objects.get(pk=instance.pk).archivo
+    except Documento.DoesNotExist:
+        return False
+
+    new_imagen = instance.archivo
+    if not old_imagen == new_imagen:
+        if os.path.isfile(old_imagen.path):
+            os.remove(old_imagen.path)
