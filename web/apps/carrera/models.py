@@ -23,7 +23,7 @@ CONTACTO_DESTINO = (
 )
 
 
-def validate_image(fieldfile_obj):
+def validate_image_docente(fieldfile_obj):
     filesize = fieldfile_obj.file.size
     megabyte_limit = 1.0
     if filesize > megabyte_limit*1024*1024:
@@ -91,7 +91,7 @@ class Docentes(models.Model):
     postitulos = RichTextField(max_length=500, blank=False, null=True, config_name='awesome_ckeditor')
     registro_siss = models.CharField(max_length=100, blank=False, null=False, default=0)
 
-    foto = models.ImageField(upload_to='carrera/docente/', height_field=None, width_field=None, max_length=100, validators=[validate_image], help_text='Tamano maximo de la imagen es 1Mb, sus dimensiones deben ser de 270x270 pixeles')
+    foto = models.ImageField(upload_to='carrera/docente/', height_field=None, width_field=None, max_length=100, validators=[validate_image_docente], help_text='Tamano maximo de la imagen es 1Mb, sus dimensiones deben ser de 270x270 pixeles')
     nivel = models.IntegerField(default=1)
 
     class Meta:
