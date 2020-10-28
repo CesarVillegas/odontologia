@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^', include('apps.carrera.urls'), name='carrera'),
     url(r'^clinica/', include('apps.clinica.urls'), name='clinica'),
+    url(r'^investigacion/', include('apps.investigacion.urls'), name='investigacion'),
     url(r'^adminodontologia/', admin.site.urls),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
