@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'apps.carrera',
     'apps.clinica',
+    'apps.documentos',
 ]
 
 MIDDLEWARE = [
