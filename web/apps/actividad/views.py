@@ -5,7 +5,15 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def actividades(request):
-    acts = Actividad.objects.filter(mostrar=True).order_by('titulo').order_by('-inicio')
+    if 'query' in request.GET:
+        query = request.GET['query']
+        acts = (Actividad.objects.filter(titulo__icontains=query,mostrar=True) | Actividad.objects.filter(mostrar=True,descripcion__icontains=query)).distinct()
+    elif 'anio' in request.GET and 'mes' in request.GET:
+        anio = request.GET['anio']
+        mes = request.GET['mes']
+        acts = Actividad.objects.filter(inicio__year=anio,inicio__month=mes,mostrar=True).order_by('-inicio')
+    else:
+        acts = Actividad.objects.filter(mostrar=True).order_by('titulo').order_by('-inicio')
     paginator = Paginator(acts, 6)
     page = request.GET.get('page')
     try:
@@ -14,7 +22,8 @@ def actividades(request):
         acts = paginator.page(1)
     except EmptyPage:
         acts = paginator.page(paginator.num_pages)
-    return render(request, 'actividad/actividades.html',{'actividades':acts})
+    fechas = Actividad.objects.filter(mostrar=True).dates('inicio','month',order='DESC')
+    return render(request, 'actividad/actividades.html',{'actividades':acts, 'fechas':fechas})
 
 
 def detalle(request, actid):

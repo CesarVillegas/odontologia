@@ -53,40 +53,42 @@
                           </article>
                         </div>
                       {% endfor %}
-                      <!-- Classic Pagination-->
-                      <div class="offset-top-50 offset-lg-top-60 text-lg-left">
-                        <nav>
-                          <ul class="pagination-classic">
-                            <li>
-                              {% if actividades.has_previous %}
-                                <a href="?page={{ actividades.previous_page_number }}" class="btn btn-java">
-                              {% else %}
-                                <a href="#" class="btn btn-java disabled">
-                              {% endif %}
-                              <span class="fa-chevron-left" aria-hidden="true"></span></a>
-                            </li>
-                            {% for a in actividades.paginator.page_range %}
-                              {% if actividades.number == a %}
-                                <li class="active"><span class="btn btn-java">{{ a }}</span></li>
-                              {% else %}
-                                <li><a href="?page={{ a }}" class="btn btn-java">{{ a }}</a></li>
-                              {% endif %}
-                            {% endfor %}
-                            <li>
-                              {% if actividades.has_next %} 
-                                <a href="?page={{ actividades.next_page_number }}" class="btn btn-java">
-                              {% else %}
-                                <a href="#" class="btn btn-java disabled">
-                              {% endif %}
-                              <span class="fa-chevron-right" aria-hidden="true"></span></a>
-                            </li>
-                          </ul>
-                        </nav>
+                      <div class="cell-sm-12">
+                        <!-- Classic Pagination-->
+                        <div class="offset-top-50 offset-lg-top-60 text-lg-left">
+                          <nav>
+                            <ul class="pagination-classic">
+                              <li>
+                                {% if actividades.has_previous %}
+                                  <a href="?page={{ actividades.previous_page_number }}" class="btn btn-java">
+                                {% else %}
+                                  <a href="#" class="btn btn-java disabled">
+                                {% endif %}
+                                <span class="fa-chevron-left" aria-hidden="true"></span></a>
+                              </li>
+                              {% for a in actividades.paginator.page_range %}
+                                {% if actividades.number == a %}
+                                  <li class="active"><span class="btn btn-java">{{ a }}</span></li>
+                                {% else %}
+                                  <li><a href="?page={{ a }}" class="btn btn-java">{{ a }}</a></li>
+                                {% endif %}
+                              {% endfor %}
+                              <li>
+                                {% if actividades.has_next %} 
+                                  <a href="?page={{ actividades.next_page_number }}" class="btn btn-java">
+                                {% else %}
+                                  <a href="#" class="btn btn-java disabled">
+                                {% endif %}
+                                <span class="fa-chevron-right" aria-hidden="true"></span></a>
+                              </li>
+                            </ul>
+                          </nav>
+                        </div>
                       </div>
                     {% else %}
                       <div class="cell-sm-12">
                         <div class="offset-top-30 offset-md-top-60">
-                          <h6 style="text-align:left">Actualmente no existen actividades.</h6>
+                          <h6 style="text-align:left">Actualmente no existen actividades o la busqueda que esta realizando no tiene resultados.</h6>
                         </div>
                       </div>
                     {% endif %}
@@ -94,30 +96,51 @@
                 </div>
                 <div class="cell-sm-10 cell-md-8 cell-lg-4 offset-top-66 offset-md-top-90 offset-lg-top-0">
                    <div class="blog-grid-sidebar inset-lg-left-30">
+                      <!-- Search in Blog-->
+                      <div>
+                        <h6>Filtro de actividades</h6>
+                        <hr class="text-subline">
+                        <div class="offset-top-14 offset-md-top-20 rd-search-blog">
+                          <!-- RD Search Form-->
+                          <form action="{% url 'actividades' %}" method="GET" class="form-search rd-search">
+                            <div class="form-group">
+                              <label for="blog-classic-form-search-widget" class="form-label form-search-label">Buscar</label>
+                              <input id="blog-classic-form-search-widget" type="text" name="query" autocomplete="off" class="form-search-input form-control null">
+                            </div>
+                            <button type="submit" class="form-search-submit"><span class="fa fa-search"></span></button>
+                          </form>
+                        </div>
+                      </div>
                       <!-- Archive-->
                       <div class="offset-top-30 offset-md-top-60">
-                        <h6>Archive</h6>
+                        <h6>Actividades archivadas</h6>
                         <hr class="text-subline">
                       </div>
                       <div class="offset-top-14 offset-md-top-20">
                         <div class="range range-xs-center range-lg-left">
-                          <div class="cell-xs-6 cell-lg-5">
-                            <!-- List Marked-->
-                            <ul class="list list-marked inset-left-0 list-marked-icon text-dark list-marked-gray">
-                              <li><a href="#">Jan 2016</a></li>
-                              <li><a href="#">Mar 2016</a></li>
-                              <li><a href="#">May 2016</a></li>
-                              <li><a href="#">Jul 2016</a></li>
-                            </ul>
-                          </div>
-                          <div class="cell-xs-6 cell-lg-5 offset-top-10 offset-xs-top-0 inset-xs-left-5">
-                            <!-- List Marked-->
-                            <ul class="list list-marked inset-left-0 list-marked-icon text-dark list-marked-gray">
-                              <li><a href="#">Feb 2016</a></li>
-                              <li><a href="#">Apr 2016</a></li>
-                              <li><a href="#">Jun 2016</a></li>
-                            </ul>
-                          </div>
+                          {% if fechas %}
+                            <div class="cell-xs-6 cell-lg-5">
+                              <!-- List Marked Left -->
+                              <ul class="list list-marked inset-left-0 list-marked-icon text-dark list-marked-gray">
+                                {% for fecha in fechas %}
+                                  {% if not forloop.counter|divisibleby:2 %}
+                                    <li><a href="{% url 'actividades' %}?mes={{fecha|date:'n'}}&anio={{fecha|date:'Y'}}">{{ fecha|date:"M Y" }}</a></li>
+                                  {% endif %}
+                                {% endfor %}
+                              </ul>
+                              
+                            </div>
+                            <div class="cell-xs-6 cell-lg-5 offset-top-10 offset-xs-top-0 inset-xs-left-5">
+                              <!-- List Marked Right-->
+                              <ul class="list list-marked inset-left-0 list-marked-icon text-dark list-marked-gray">
+                                {% for fecha in fechas %}
+                                  {% if forloop.counter|divisibleby:2 %}
+                                    <li><a href="{% url 'actividades' %}?mes={{fecha|date:'n'}}&anio={{fecha|date:'Y'}}">{{ fecha|date:"M Y" }}</a></li>
+                                  {% endif %}
+                                {% endfor %}
+                              </ul>
+                            </div>
+                          {% endif %}
                         </div>
                     </div>
                    </div>
