@@ -5,7 +5,6 @@ from django.contrib import admin
 from .models import Admision, Contenido, Docentes, Contacto
 
 
-# Register your models here.
 class admisionAdmin(admin.ModelAdmin):
     list_display = ('anio','puntaje_minimo','puntaje_maximo','puntaje_ponderado', 'vacantes')
 

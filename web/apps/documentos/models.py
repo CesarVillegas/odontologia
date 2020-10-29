@@ -50,11 +50,11 @@ def auto_delete_file_on_change(sender, instance, **kwargs):
         return False
 
     try:
-        old_imagen = Documento.objects.get(pk=instance.pk).archivo
+        old_doc = Documento.objects.get(pk=instance.pk).archivo
     except Documento.DoesNotExist:
         return False
 
-    new_imagen = instance.archivo
-    if not old_imagen == new_imagen:
-        if os.path.isfile(old_imagen.path):
-            os.remove(old_imagen.path)
+    new_doc = instance.archivo
+    if not old_doc == new_doc:
+        if os.path.isfile(old_doc.path):
+            os.remove(old_doc.path)

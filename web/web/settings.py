@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'apps.carrera',
     'apps.clinica',
     'apps.documentos',
+    'apps.actividad',
 ]
 
 MIDDLEWARE = [
