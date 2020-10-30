@@ -65,7 +65,11 @@
                                     <li><a href="/vinculacion/actividades"><span class="text-middle">Actividades</span></a></li>
                                 </ul>
                             </li>
-                            <li class="{% active_menu '/investigacion' %}"><a href="/investigacion"><span>Investigación</span></a></li>
+                            <li class="{% active_menu '/investigacion' %}"><a href="#"><span>Investigación</span></a>
+                                <ul class="rd-navbar-dropdown">
+                                    <li><a href="/investigacion/documentos"><span class="text-middle">Políticas y Criterios</span></a></li>
+                                    <li><a href="/investigacion/cienciometria"><span class="text-middle">Cienciometría</span></a></li>
+                                </ul></li>
                             <li class="{% active_menu '/documentos' %}"><a href="/documentos"><span>Documentos</span></a></li>
                             <li class="{% active_menu '^(/carrera/)(co)([a-z]+)' %}"><a href="/carrera/contacto"><span>Contacto</span></a></li>
                         </ul>
