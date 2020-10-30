@@ -22,3 +22,8 @@ var/
 # Django stuff:
 *.log
 *.pot
+
+# Django
+*.pyc
+*.ai
+web/assets/
