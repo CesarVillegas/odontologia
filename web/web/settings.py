@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'apps.documentos',
     'apps.vinculacion',
     'apps.investigacion',
+    'apps.actividad',
 ]
 
 MIDDLEWARE = [
