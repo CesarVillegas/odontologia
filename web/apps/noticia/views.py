@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from django.http import Http404
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Noticia
@@ -32,4 +33,5 @@ def detalle(request, actid):
         fechas = Noticia.objects.filter(mostrar=True).dates('inicio','month',order='DESC')
         return render(request, 'noticia/noticia.html',{'noticia':nt, 'fechas':fechas})
     else:
-        return noticias(request)
+        #return noticias(request)
+        raise Http404
