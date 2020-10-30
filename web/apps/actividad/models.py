@@ -23,7 +23,7 @@ class Actividad(models.Model):
     descripcion = RichTextUploadingField(max_length=35000, blank=True, null=True, config_name='awesome_ckeditor')
     inicio = models.DateTimeField(blank=True, null=True)
     cierre = models.DateTimeField(blank=True, null=True)
-    imagen = models.ImageField(upload_to='calendario/', height_field=None, width_field=None, max_length=100, blank=False, validators=[validate_image_actividad], help_text='Tamano maximo de la imagen es 1Mb, sus dimensiones deben ser de 740x480 pixeles')
+    imagen = models.ImageField(upload_to='actividad/', height_field=None, width_field=None, max_length=100, blank=False, validators=[validate_image_actividad], help_text='Tamano maximo de la imagen es 1Mb, sus dimensiones deben ser de 740x480 pixeles')
     mostrar = models.BooleanField(default=True, help_text="Visualizar actividad.")
 
     class Meta:
