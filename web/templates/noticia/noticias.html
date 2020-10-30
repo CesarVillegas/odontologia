@@ -41,9 +41,7 @@
                               </ul>
                               <!-- Post Body-->
                               <div class="post-body">
-                                {% autoescape off %}
-                                    {{ noticia.descripcion|truncatechars:200 }}
-                                {% endautoescape %}
+                                {{ noticia.descripcion|truncatechars:200|safe }}
                               </div>
                               <!--
                               <div class="tags group group-sm"><a href="#" class="btn-tag btn btn-default">Health</a><a href="#" class="btn-tag btn btn-default">Care</a><a href="#" class="btn-tag btn btn-default">Chiropractic</a>

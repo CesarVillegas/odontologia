@@ -28,9 +28,7 @@
                       </ul>
                       <div class="offset-top-30"><img src="{{ noticia.imagen.url }}" width="770" height="480" alt="" class="img-responsive center-block"></div>
                       <div class="offset-top-30">
-                        {% autoescape off %}
-                            {{ noticia.descripcion }}
-                        {% endautoescape %}
+                          {{ noticia.descripcion|safe }}
                       </div>
                     </div>
                   </div>
