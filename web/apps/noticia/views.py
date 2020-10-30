@@ -29,6 +29,7 @@ def noticias(request):
 def detalle(request, actid):
     if Noticia.objects.filter(pk=actid, mostrar=True).exists():
         nt = Noticia.objects.get(pk=actid, mostrar=True)
-        return render(request, 'noticia/noticia.html',{'noticia':nt})
+        fechas = Noticia.objects.filter(mostrar=True).dates('inicio','month',order='DESC')
+        return render(request, 'noticia/noticia.html',{'noticia':nt, 'fechas':fechas})
     else:
         return noticias(request)

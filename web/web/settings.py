@@ -163,8 +163,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # CKEDITOR
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
-CKEDITOR_IMAGE_BACKEND = "pillow"
+#CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_FORCE_JPEG_COMPRESSION = True
 CKEDITOR_UPLOAD_SLUGIFY_FILENAME = True
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
 CKEDITOR_CONFIGS = {
     'awesome_ckeditor': {
         'toolbar': 'Custom',
@@ -192,7 +194,6 @@ CKEDITOR_CONFIGS = {
             'uploadimage', # the upload image feature
             'youtube'
         ]),
-        'config.uploadUrl': '/uploader/upload.php',
         'config.youtube_width': '560',
         'config.youtube_height': '315',
         'youtube_responsive': True,

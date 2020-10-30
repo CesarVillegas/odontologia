@@ -6,6 +6,7 @@ from django.core.exceptions import ValidationError
 from django.dispatch import receiver
 from django.core.files.images import get_image_dimensions
 from ckeditor_uploader.fields import RichTextUploadingField
+import os
 
 
 def validate_image_noticia(fieldfile_obj):
@@ -39,14 +40,14 @@ class Noticia(models.Model):
 
 
 @receiver(models.signals.post_delete, sender=Noticia)
-def auto_delete_file_on_delete_act(sender, instance, **kwargs):
+def auto_delete_file_on_delete_nt(sender, instance, **kwargs):
     if instance.imagen:
         if os.path.isfile(instance.imagen.path):
             os.remove(instance.imagen.path)
 
 
 @receiver(models.signals.pre_save, sender=Noticia)
-def auto_delete_file_on_change_act(sender, instance, **kwargs):
+def auto_delete_file_on_change_nt(sender, instance, **kwargs):
     if not instance.pk:
         return False
 
