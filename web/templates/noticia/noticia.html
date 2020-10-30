@@ -1,0 +1,92 @@
+{% extends "carrera/basecontenido.html" %} 
+{% load staticfiles %} 
+{% block title %}Odontología{% endblock %} 
+{% block content %} 
+<!-- Modern Breadcrumbs-->
+<section class="breadcrumb-modern context-dark text-md-left">
+    <div class="shell section-34 section-md-top-110 section-md-bottom-41">
+        <h1>Noticia</h1>
+        <ul class="list-inline list-inline-arrows p offset-top-34 offset-md-top-70">
+            <li><a href="/">Carrera</a></li>
+            <li><a href="{% url 'noticias' %}">Noticias</a></li>
+            <li>Noticia</li>
+        </ul>
+    </div>
+</section>
+<!-- Page Content-->
+<main class="page-content">
+    <section class="section-98 section-sm-50 section-lg-bottom-0">
+        <div class="shell text-left">
+            <div class="range range-xs-center">
+                <div class="cell-md-10 cell-lg-8">
+                  <div class="range">
+                    <div class="cell-sm-12">
+                      <h4 class="text-bold text-primary">{{ noticia.titulo }}</h4>
+                      <ul class="list list-inline list-inline-dashed offset-top-4">
+                        <li>{{ noticia.inicio|date:"d M Y, H:i" }} hrs</li>
+                        <li>{{ noticia.cierre|date:"d M Y, H:i" }} hrs</li>
+                      </ul>
+                      <div class="offset-top-30"><img src="{{ noticia.imagen.url }}" width="770" height="480" alt="" class="img-responsive center-block"></div>
+                      <div class="offset-top-30">
+                          {{ noticia.descripcion|safe }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cell-sm-10 cell-md-8 cell-lg-4 offset-top-66 offset-md-top-90 offset-lg-top-0">
+                   <div class="blog-grid-sidebar inset-lg-left-30">
+                      <!-- Search in Blog-->
+                      <div>
+                        <h6>Filtro de noticias</h6>
+                        <hr class="text-subline">
+                        <div class="offset-top-14 offset-md-top-20 rd-search-blog">
+                          <!-- RD Search Form-->
+                          <form action="{% url 'noticias' %}" method="GET" class="form-search rd-search">
+                            <div class="form-group">
+                              <label for="blog-classic-form-search-widget" class="form-label form-search-label">Buscar</label>
+                              <input id="blog-classic-form-search-widget" type="text" name="query" autocomplete="off" class="form-search-input form-control null">
+                            </div>
+                            <button type="submit" class="form-search-submit"><span class="fa fa-search"></span></button>
+                          </form>
+                        </div>
+                      </div>
+                      <!-- Archive-->
+                      <div class="offset-top-30 offset-md-top-60">
+                        <h6>Noticias archivadas</h6>
+                        <hr class="text-subline">
+                      </div>
+                      <div class="offset-top-14 offset-md-top-20">
+                        <div class="range range-xs-center range-lg-left">
+                          {% if fechas %}
+                            <div class="cell-xs-6 cell-lg-5">
+                              <!-- List Marked Left -->
+                              <ul class="list list-marked inset-left-0 list-marked-icon text-dark list-marked-gray">
+                                {% for fecha in fechas %}
+                                  {% if not forloop.counter|divisibleby:2 %}
+                                    <li><a href="{% url 'noticias' %}?mes={{fecha|date:'n'}}&anio={{fecha|date:'Y'}}">{{ fecha|date:"M Y" }}</a></li>
+                                  {% endif %}
+                                {% endfor %}
+                              </ul>
+                              
+                            </div>
+                            <div class="cell-xs-6 cell-lg-5 offset-top-10 offset-xs-top-0 inset-xs-left-5">
+                              <!-- List Marked Right-->
+                              <ul class="list list-marked inset-left-0 list-marked-icon text-dark list-marked-gray">
+                                {% for fecha in fechas %}
+                                  {% if forloop.counter|divisibleby:2 %}
+                                    <li><a href="{% url 'noticias' %}?mes={{fecha|date:'n'}}&anio={{fecha|date:'Y'}}">{{ fecha|date:"M Y" }}</a></li>
+                                  {% endif %}
+                                {% endfor %}
+                              </ul>
+                            </div>
+                          {% endif %}
+                        </div>
+                    </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+

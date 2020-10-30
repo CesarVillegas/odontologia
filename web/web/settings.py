@@ -38,15 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ckeditor',
-    'snowpenguin.django.recaptcha2',
     'ckeditor_uploader',
+    'snowpenguin.django.recaptcha2',
     'sorl.thumbnail',
     'apps.carrera',
     'apps.clinica',
     'apps.documentos',
     'apps.vinculacion',
     'apps.investigacion',
-    'apps.actividad',
+    'apps.noticia',
 ]
 
 MIDDLEWARE = [
@@ -162,22 +162,23 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # CKEDITOR
 
-CKEDITOR_UPLOAD_PATH = 'media/'
-
-CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+# CKEDITOR_IMAGE_BACKEND = "pillow"
+# CKEDITOR_IMAGE_QUALITY = 40
+# CKEDITOR_FORCE_JPEG_COMPRESSION = True
+# CKEDITOR_ALLOW_NONIMAGE_FILES = False
 CKEDITOR_UPLOAD_SLUGIFY_FILENAME = True
 CKEDITOR_CONFIGS = {
     'awesome_ckeditor': {
         'toolbar': 'Custom',
         'toolbar_Custom':[
-            {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
+            {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Print', '-', 'Templates']},
             {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
             '/',
             {'name': 'basicstyles',
              'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
             {'name': 'paragraph',
-             'items': ['NumberedList', 'BulletedList', '-', 'Blockquote', '-',
-                       'Language']},
+             'items': ['NumberedList', 'BulletedList', '-', 'Blockquote']},
             {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
             {'name': 'insert',
              'items': ['Table', 'SpecialChar', 'Youtube']},
@@ -194,7 +195,6 @@ CKEDITOR_CONFIGS = {
             'uploadimage', # the upload image feature
             'youtube'
         ]),
-        'config.uploadUrl': '/uploader/upload.php',
         'config.youtube_width': '560',
         'config.youtube_height': '315',
         'youtube_responsive': True,
@@ -225,6 +225,6 @@ RECAPTCHA_PUBLIC_KEY = '6Lecf3IUAAAAAMSgAR0YdPpxOK9eHfjarZspiyOP'
 
 #SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = False
-X_FRAME_OPTIONS = 'DENY'
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
