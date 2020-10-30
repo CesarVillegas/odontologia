@@ -8,7 +8,7 @@ from django.core.files.images import get_image_dimensions
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
-def validate_image_actividad(fieldfile_obj):
+def validate_image_noticia(fieldfile_obj):
     filesize = fieldfile_obj.file.size
     megabyte_limit = 1.0
     if filesize > megabyte_limit*1024*1024:
@@ -18,16 +18,16 @@ def validate_image_actividad(fieldfile_obj):
         raise ValidationError("Las dimensiones de la imagen son de %ix%i, y estas deben ser de 740x480 pixeles" %(h,w))
 
 
-class Actividad(models.Model):
+class Noticia(models.Model):
     titulo = models.CharField(max_length=150, blank=False, null=False)
     descripcion = RichTextUploadingField(max_length=35000, blank=True, null=True, config_name='awesome_ckeditor')
     inicio = models.DateTimeField(blank=True, null=True)
     cierre = models.DateTimeField(blank=True, null=True)
-    imagen = models.ImageField(upload_to='actividad/', height_field=None, width_field=None, max_length=100, blank=False, validators=[validate_image_actividad], help_text='Tamano maximo de la imagen es 1Mb, sus dimensiones deben ser de 740x480 pixeles')
-    mostrar = models.BooleanField(default=True, help_text="Visualizar actividad.")
+    imagen = models.ImageField(upload_to='noticias/', height_field=None, width_field=None, max_length=100, blank=False, validators=[validate_image_noticia], help_text='Tamano maximo de la imagen es 1Mb, sus dimensiones deben ser de 740x480 pixeles')
+    mostrar = models.BooleanField(default=True, help_text="Visualizar noticia.")
 
     class Meta:
-        verbose_name_plural = "Actividades"
+        verbose_name_plural = "Noticias"
 
     def image_preview(self):
         if self.imagen:
@@ -38,25 +38,24 @@ class Actividad(models.Model):
     image_preview.allow_tags = True
 
 
-@receiver(models.signals.post_delete, sender=Actividad)
+@receiver(models.signals.post_delete, sender=Noticia)
 def auto_delete_file_on_delete_act(sender, instance, **kwargs):
     if instance.imagen:
         if os.path.isfile(instance.imagen.path):
             os.remove(instance.imagen.path)
 
 
-@receiver(models.signals.pre_save, sender=Actividad)
+@receiver(models.signals.pre_save, sender=Noticia)
 def auto_delete_file_on_change_act(sender, instance, **kwargs):
     if not instance.pk:
         return False
 
     try:
-        old_imagen = Actividad.objects.get(pk=instance.pk).imagen
-    except Actividad.DoesNotExist:
+        old_imagen = Noticia.objects.get(pk=instance.pk).imagen
+    except Noticia.DoesNotExist:
         return False
 
     new_imagen = instance.imagen
     if not old_imagen == new_imagen:
         if os.path.isfile(old_imagen.path):
             os.remove(old_imagen.path)
-
