@@ -17,4 +17,5 @@ urlpatterns = [
     url(r'^carrera/twitter_timeline/$', views.twitter_timeline, name='twitter_timeline'),
     url(r'^carrera/instagram_timeline/$', views.instagram_timeline, name='instagram_timeline'),
     url(r'^carrera/vinculacion/$', views.vinculacion, name='vinculacion'),
+    url(r'^carrera/pyp/$', views.pyp, name='pyp'),
 ]

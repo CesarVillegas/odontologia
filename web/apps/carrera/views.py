@@ -22,10 +22,11 @@ import twitter
 import requests
 import re
 
+#IGQVJVQVcxX2c2LU05dllnN2hkdDBoWlJlZA2dVMk03X01OMVBpbGdoVGZAiMlJpZAnVDTDV5ZAGVnWFo2ZA2FOREZAhbGt0VFAyeEtpeEZAkdHpTZAnFoTDJtajRNdmJacVZASRk0ydEdCNXp3MHZAXQ29YZAzBFSQZDZD
 
 def getinstagram():
     BASE_URL='https://api.instagram.com/v1/'
-    APP_ACCESS_TOKEN='7601766579.15c4221.f5ccc92f3f4446f1ab2e2ca0de4b0eb6'
+    APP_ACCESS_TOKEN='IGQVJVMmR5TENqZAWt6Y256anU0S2xXUXVLMHA1bDc3Ym5NM2ZABRmpSMjVQa0dxa3lmc2t5Ui10MENKZATlTSFJVd3pTb1ZA5ekJHY0lrYUlVcEg2V2JsaTlUTkx3ODNjMXVWQmY3U3JQa0trUDBvTTVmaQZDZD'
     request_url = (BASE_URL + 'users/self/media/recent/?access_token=%s&count=8') % (APP_ACCESS_TOKEN)
     recent_post = requests.get(request_url).json()
     posts = recent_post['data']
@@ -206,10 +207,11 @@ def detalle_academico(request):
     except ObjectDoesNotExist:
         return render(request, '404.html', status=404)
 
-
 def vinculacion(request):
     return render(request, 'carrera/vinculacion.html')
 
+def pyp(request):
+    return render(request, 'carrera/pyp.html')
 
 def handler404(request):
     return render(request, '404.html', status=404)
