@@ -50,30 +50,17 @@
                               <th width="6%" style="text-aling:center !important; text-transform: uppercase;">Año</th>
                               <th width="10%" style="text-aling:center !important; text-transform: uppercase;">Grupos de interés</th>
                             </tr>
+
+                            {% for grupo in grupos_interes %}
                             <tr>
-                              <td>1</td>
-                              <td>Clínica asistencial docente</td>
-                              <td>Atención odontológica integral realizada por los estudiantes de cuarto y quinto año de la carrera a la comunidad en general.</td>
-                              <td>Contribuir al Perfil de Egreso en todas las competencias.</td>
-                              <td>2016 <br>2017<br>2018</td>
-                              <td>Comunidad</td>
+                              <td>{{ forloop.counter }}</td>
+                              <td>{% autoescape off %}{{ grupo.actividad }}{% endautoescape %}</td>
+                              <td>{% autoescape off %}{{ grupo.descripcion }}{% endautoescape %}</td>
+                              <td>{% autoescape off %}{{ grupo.objetivo }}{% endautoescape %}</td>
+                              <td>{{ grupo.anio }}</td>
+                              <td>{% autoescape off %}{{ grupo.grupo_interes }}{% endautoescape %}</td>
                             </tr>
-                            <tr>
-                              <td>2</td>
-                              <td>Semana de prevención del cáncer oral (MINSAL)</td>
-                              <td>Instalación de stand de enseñanza de técnica de Autoexamen oral realizada por estudiantes de 5to nivel de la carrera. <br><br>Se confeccionó afiche del tema y se entregó volantes de la campaña “Saca la lengua”.  Esta actividad fue dirigida a toda la comunidad Universitaria (estudiantes, académicos y funcionarios) y público en general.</td>
-                              <td>Contribuir al Perfil de Egreso de la carrera en C5 y C10 y al resultado de aprendizaje de la asignatura de Patología bucal I en lo referente a cáncer oral</td>
-                              <td>2016<br>2017</td>
-                              <td>Entidad pública</td>
-                            </tr>
-                            <tr>
-                              <td>3</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                            </tr>
+                            {% endfor %}
                           </table>
                         </div>
                     </div> <!-- offset-top-20 -->
@@ -104,24 +91,14 @@
                             <th width="50%" style="text-aling:center !important; text-transform: uppercase;">Descripción</th>
                             <th width="8%" style="text-aling:center !important; text-transform: uppercase;">Año</th>
                           </tr>
+                          {% for cientifico in cientificos %}
                           <tr>
-                            <td>1</td>
-                            <td>Segunda Jornada de Abordaje Interdisciplinario de Disfunciones Temporomandibulares y Cráneo Cervicales.</td>
-                            <td>Actividad expositiva sobre Disfunciones Temporomandibulares y Cráneo Cervicales, tratadas desde el punto de vista de la Kinesiología y Odontología. Participaron como expositores y asistentes docentes de la carrera Odontología y Kinesiología al igual que estudiantes de ambas carreras.	</td>
-                            <td>2014</td>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{% autoescape off %}{{ cientifico.actividad }}{% endautoescape %}</td>
+                            <td>{% autoescape off %}{{ cientifico.descripcion }}{% endautoescape %}</td>
+                            <td>{% autoescape off %}{{ cientifico.anio }}{% endautoescape %}</td>
                           </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>Workshop de materiales de impresión por Dentalstore.</td>
-                            <td>Actividad teórico-práctica sobre los últimos materiales de impresión, en donde participaron docentes y estudiantes de la asignatura de biomateriales I</td>
-                            <td>2014</td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td>...</td>
-                            <td></td>
-                            <td></td>
-                          </tr>
+                          {% endfor %}
                         </table>
                       </div>
                     </div> <!-- offset-top-20 -->
@@ -144,64 +121,56 @@
                           <th width="30%" style="text-aling:center !important; text-transform: uppercase;">Objetivo de la reunión</th>
                           <th width="35%" style="text-aling:center !important; text-transform: uppercase;">Tipo de participación</th>
                         </tr>
+
+                        {% for participacion in participaciones %}
                         <tr>
-                          <td>10-08-2018</td>
-                          <td>Seremi de Salud Región Coquimbo</td>
-                          <td>Abogacía para incorporar la temática de Salud Bucal en malla curricular.</td>
-                          <td>Miembro de la mesa intersectorial en salud bucal, liderada por el asesor odontológico de la seremi de salud de la Región de Coquimbo.</td>
+                          <td>{{ forloop.counter }}</td>
+                          <td>{% autoescape off %}{{ participacion.institucion_externa }}{% endautoescape %}</td>
+                          <td>{% autoescape off %}{{ participacion.objetivo_reunion }}{% endautoescape %}</td>
+                          <td>{% autoescape off %}{{ participacion.tipo_participacion }}{% endautoescape %}</td>
                         </tr>
-                        <tr>
-                          <td>2-10-2018</td>
-                          <td>Seremi de Salud Región Coquimbo</td>
-                          <td>- Dar a conocer los programas Odontológicos y nodos críticos. <br>
-                              - Asignación de funciones y roles de la mesa intersectorial de salud bucal.</td>
-                          <td>Miembro de la mesa intersectorial en salud bucal, liderada por el asesor odontológico de la seremi de salud de la Región de Coquimbo.</td>
-                        </tr>
+                        {% endfor %}
                       </table>
                     </div>
 
                     <br><br>
 
                     <div class="offset-top-20 offset-md-top-20">
-                      <h6>contribución al desarrollo de políticas públicas</h6>
+                      <h6>Contribución al desarrollo de políticas públicas</h6>
                       <div class="offset-top-10">
                           <hr class="text-subline">
                       </div>
                       <div class="offset-top-30">
-                        <table data-responsive="true" class="table table-custom table-primary table-fixed" style="text-align:justify">
-                          <tr>
-                            <th width="2%">#</th>
-                            <th width="25%" style="text-aling:center !important; text-transform: uppercase;">Actividad</th>
-                            <th width="32%" style="text-aling:center !important; text-transform: uppercase;">Descripción</th>
-                            <th width="25%" style="text-aling:center !important; text-transform: uppercase;">Participantes</th>
-                            <th width="6%" style="text-aling:center !important; text-transform: uppercase;">Año</th>
-                            <th width="10%" style="text-aling:center !important; text-transform: uppercase;">Grupos de interés</th>
-                          </tr>
-                          <tr>
-                            <td>1</td>
-                            <td>X Jornadas de especialidades odontológicas regionales de La Serena</td>
-                            <td>Jornadas organizadas por Hospital de La Serena con temáticas de: Referencia y Contrarreferencia en la red de salud, ética y temas relacionados con la Endodoncia, Periodoncia e infecciones odontogénicas. </td>
-                            <td>Actividad gratuita para todos los estudiantes.</td>
-                            <td>2015</td>
-                            <td>Entidad Pública</td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>Visitas a Centro de Salud de Atención Primaria de la comuna de La Serena</td>
-                            <td>Pasantía observacional a Centro de Salud de Atención Primaria.</td>
-                            <td>Obligatorio para los estudiantes de 6to nivel de la cátedra de preclínico integrado II unidad de introducción a la cirugía.</td>
-                            <td>2015 <br>2016</td>
-                            <td>Entidad Pública</td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td>...</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                        </table>
+                        {% for tipo in tipos %}
+                          <h6>{{ tipo.descripcion }}</h6>
+                          <table data-responsive="true" class="table table-custom table-primary table-fixed" style="text-align:justify">
+                            <tr>
+                              <th width="2%">#</th>
+                              <th width="25%" style="text-aling:center !important; text-transform: uppercase;">Actividad</th>
+                              <th width="32%" style="text-aling:center !important; text-transform: uppercase;">Descripción</th>
+                              <th width="25%" style="text-aling:center !important; text-transform: uppercase;">Participantes</th>
+                              <th width="6%" style="text-aling:center !important; text-transform: uppercase;">Año</th>
+                              <th width="10%" style="text-aling:center !important; text-transform: uppercase;">Grupos de interés</th>
+                            </tr>
+                            {% for politica in politicas %}
+                              {% if politica.tipo_id == tipo.id %}
+                                <tr>
+                                  <td>{{ politica.id }}</td>
+                                  <td>{{ politica.actividad }}</td>
+                                  <td>{{ politica.descripcion }}</td>
+                                  <td>{{ politica.participantes }}</td>
+                                  <td>{{ politica.anio }}</td>
+                                  <td>{{ politica.grupo_interes }}</td>
+                                </tr>
+                              {% endif %}
+                            {% endfor %}
+                          </table>
+                          <br/><br/>
+                        {% endfor %}
+
+
+
+
                       </div>
                     </div> <!-- offset-top-20 -->
                   </div> <!-- class="panel-body" -->

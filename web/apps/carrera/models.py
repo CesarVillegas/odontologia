@@ -102,3 +102,45 @@ class Docentes(models.Model):
               return '(Sin imagen)'
     image_foto.short_description = 'Imagen'
     image_foto.allow_tags = True
+
+
+class ActividadGruposInteres(models.Model):
+    actividad = RichTextUploadingField(max_length=300, config_name='awesome_ckeditor')
+    descripcion = RichTextUploadingField(max_length=500, blank=True, null=True, config_name='awesome_ckeditor')
+    objetivo = RichTextUploadingField(max_length=500, blank=True, null=True, config_name='awesome_ckeditor')
+    anio = models.CharField(max_length=30, verbose_name="Año", blank=True, null=True)
+    grupo_interes = models.CharField(max_length=200, blank=False, null=False)
+    orden = models.IntegerField(default=1, help_text="Orden que se desplegará la actividad")
+    mostrar = models.BooleanField(default=True, help_text="Mostrar u ocultar la actividad")
+
+class ActividadCientificoProductivo(models.Model):
+    actividad = RichTextUploadingField(max_length=300, config_name='awesome_ckeditor')
+    descripcion = RichTextUploadingField(max_length=500, blank=True, null=True, config_name='awesome_ckeditor')
+    anio = models.CharField(max_length=30, verbose_name="Año", blank=True, null=True)
+    orden = models.IntegerField(default=1, help_text="Orden que se desplegará la actividad")
+    mostrar = models.BooleanField(default=True, help_text="Mostrar u ocultar la actividad")
+
+class ActividadPoliticaPublicaParticipacion(models.Model):
+    fecha = models.CharField(max_length=20)
+    institucion_externa = models.CharField(max_length=100)
+    objetivo_reunion = RichTextUploadingField(max_length=300, config_name='awesome_ckeditor')
+    tipo_participacion = RichTextUploadingField(max_length=300, config_name='awesome_ckeditor')
+    orden = models.IntegerField(default=1, help_text="Orden que se desplegará la actividad")
+    mostrar = models.BooleanField(default=True, help_text="Mostrar u ocultar la actividad")
+
+class TipoPoliticaPublica(models.Model):
+    id = models.AutoField(primary_key=True)
+    descripcion = models.CharField(max_length=400, blank=False, null=False)
+    orden = models.IntegerField(default=1, help_text="Orden que se desplegará tipo politica publica")
+    mostrar = models.BooleanField(default=True, help_text="Mostrar u ocultar el tipo")
+
+
+class ActividadPoliticaPublica(models.Model):
+    actividad = RichTextUploadingField(max_length=300, config_name='awesome_ckeditor')
+    descripcion = RichTextUploadingField(max_length=500, blank=True, null=True, config_name='awesome_ckeditor')
+    participantes = RichTextUploadingField(max_length=300, blank=True, null=True, config_name='awesome_ckeditor')
+    anio = models.CharField(max_length=30, verbose_name="Año", blank=True, null=True)
+    grupo_interes = models.CharField(max_length=200, blank=False, null=False)
+    tipo = models.ForeignKey(TipoPoliticaPublica, on_delete=models.CASCADE)
+    orden = models.IntegerField(default=1, help_text="Orden que se desplegará la actividad")
+    mostrar = models.BooleanField(default=True, help_text="Mostrar u ocultar la actividad")
