@@ -168,9 +168,6 @@
                           <br/><br/>
                         {% endfor %}
 
-
-
-
                       </div>
                     </div> <!-- offset-top-20 -->
                   </div> <!-- class="panel-body" -->
@@ -187,22 +184,18 @@
                     <table data-responsive="true" class="table table-custom table-primary table-fixed" style="width:100%">
                       <tr>
                         <th style="width:25%">Años</th>
-                        <th width="15%">2016</th>
-                        <th width="15%">2017</th>
-                        <th width="15%">2018</th>
-                        <th width="15%">2019</th>
-                        <th width="15%">2020**</th>
+                        {% for beneficiario in beneficiarios %}
+                          <th>{{ beneficiario.anio }}</th>
+                        {% endfor %}
                       </tr>
                       <tr>
                         <td>Beneficiarios</td>
-                        <td>1132</td>
-                        <td>1901</td>
-                        <td>2147</td>
-                        <td>2358</td>
-                        <td>104</td>
+                        {% for beneficiario in beneficiarios %}
+                          <td>{{ beneficiario.beneficiario }}</td>
+                        {% endfor %}
                       </tr>
                     </table>
-                    <p>* Cifra entregada en informes semestrales de fichas clínicas.<br>** Cifra consolidada de prestaciones al 28/09/2020.</p>
+                    <p>* Cifra entregada en informes semestrales de fichas clínicas.<br>** Cifra consolidada de prestaciones al 28/09/2020. Prestaciones realizadas hasta <b>Marzo 2020</b> en contexto de pandemia.</p>
                 </div>
               </div>
 

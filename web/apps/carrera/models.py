@@ -144,3 +144,8 @@ class ActividadPoliticaPublica(models.Model):
     tipo = models.ForeignKey(TipoPoliticaPublica, on_delete=models.CASCADE)
     orden = models.IntegerField(default=1, help_text="Orden que se desplegará la actividad")
     mostrar = models.BooleanField(default=True, help_text="Mostrar u ocultar la actividad")
+
+class ActividadNumeroBeneficiario(models.Model):
+    anio = models.CharField(max_length=10, verbose_name="Año")
+    beneficiario = models.CharField(max_length=30)
+    

@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: odontologia:1.0    
+    image: odontologia:1.0
     stdin_open: true
     tty: true
     volumes:
@@ -34,3 +34,5 @@ services:
       - "3306:3306"
     expose:
       - "3306"
+    volumes:
+      - .:/home
