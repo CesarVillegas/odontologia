@@ -233,7 +233,7 @@ div#instagram_section div.img-overlay {
     background: rgba(0, 0, 0, 0.75);
     text-align: center;
     transition: transform 300ms;
-    transform: translate3d(0, calc(100%), 0);
+    transform: translate3d(0, calc(101%), 0);
     display: flex;
     padding: 10px;
     border: 1px solid #fff;
