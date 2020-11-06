@@ -218,3 +218,9 @@ def handler404(request):
 
 def handler500(request):
     return render(request, '500.html', status=500)
+
+def equipo_directivo(request):
+    return render(request, 'carrera/equipo_directivo.html')
+
+def coordinacion(request):
+    return render(request, 'carrera/coordinacion.html')

@@ -1,0 +1,144 @@
+{% extends "carrera/basecontenido.html" %}
+{% load staticfiles %}
+
+{% block title %}Equipo Directivo{% endblock %}
+
+{% block content %}
+<!-- What makes us different-->
+<!--What makes us different-->
+<!-- Modern Breadcrumbs-->
+<section class="breadcrumb-modern context-dark text-md-left">
+    <div class="shell section-34 section-md-top-110 section-md-bottom-41">
+        <h1>Equipo Directivo</h1>
+        <ul class="list-inline list-inline-arrows p offset-top-34 offset-md-top-70">
+            <li><a href="/">Carrera</a></li>
+            <li>Equipo Directivo</li>
+        </ul>
+    </div>
+</section>
+<!-- Page Content-->
+<main class="page-content">
+
+  <!-- Our team-->
+  <section class="section-98 section-sm-50">
+      <div class="shell">
+          <div class="isotope-wrap">
+              <div class="row">
+                  <!-- Isotope Filters-->
+                  <div class="col-lg-3">
+                      <div class="isotope-filters isotope-filters-vertical">
+                          <h4 class="text-uppercase isotope-filters-title offset-top-34"> </h4>
+                          <ul class="list-inline list-inline-sm">
+                              <li class="veil-md"><p>Equipos</p></li>
+                              <li class="section-relative">
+                                  <button data-custom-toggle="isotope-1" data-custom-toggle-disable-on-blur="true" class="isotope-filters-toggle btn btn-sm btn-default">Filtro<span class="caret"></span>
+                                  </button>
+                                  <ul id="isotope-1" class="list-sm-inline isotope-filters-list">
+                                      <li><a data-isotope-filter="rehabilitacion_orales" data-isotope-group="gallery" href="#" class="active">Dirección</a></li>
+                                      <li><a data-isotope-filter="odontopediatrias" data-isotope-group="gallery" href="#">Administración</a></li>
+                                      <li><a data-isotope-filter="periodoncias" data-isotope-group="gallery" href="#">Coordinación</a></li>
+                                  </ul>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <!-- Isotope Content-->
+                  <div class="col-lg-9 offset-lg-top-0 offset-top-34">
+                      <div data-isotope-layout="fitRows" data-isotope-group="gallery" class="isotope">
+                          <div data-photo-swipe-gallery="gallery" class="row text-sm-left">
+                              <div data-filter="rehabilitacion_orales" class="col-md-12 isotope-item">
+                                  <h3>Dirección</h3>
+                                  <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                                  <div class="row">
+                                    <div class="col-md-4">
+                                      <div class="thumbnail" style="background-color:lightblue">
+                                        <img width="270" height="270" src="{% static 'images/carrera/docentes/hombre.png' %}" alt=""/>
+                                        <div class="caption">
+                                          <h5 class="text-center">Cristian Oyanadel</h5>
+                                          <p class="text-center">Director de Carrera</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                              <div data-filter="odontopediatrias" class="col-md-12 isotope-item">
+                                  <h3>Administación</h3>
+                                  <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                                  <div class="row">
+                                    <div class="col-md-4">
+                                      <div class="thumbnail" style="background-color:lightblue">
+                                        <img width="270" height="270" src="{% static 'images/carrera/docentes/hombre.png' %}" alt=""/>
+                                        <div class="caption">
+                                          <h5 class="text-center">Rodrigo Rosales</h5>
+                                          <p class="text-center">Administrador de Carrera</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="thumbnail" style="background-color:lightblue">
+                                        <img width="270" height="270" src="{% static 'images/carrera/docentes/mujer.png' %}" alt=""/>
+                                        <div class="caption">
+                                          <h5 class="text-center">María Isabel Aguilera</h5>
+                                          <p class="text-center">Secretaria de Carrera</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                              <div data-filter="periodoncias" class="col-md-12 isotope-item">
+                                  <h3>Coordinación</h3>
+                                  <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                                  <div class="row">
+                                    <div class="col-md-4">
+                                      <div class="thumbnail" style="background-color:lightblue">
+                                        <img width="270" height="270" src="{% static 'images/carrera/docentes/mujer.png' %}" alt=""/>
+                                        <div class="caption">
+                                          <h5 class="text-center">Paula Arriagada</h5>
+                                          <p class="text-center">Coordinación de Salud Pública</p>
+                                          <br>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="thumbnail" style="background-color:lightblue">
+                                        <img width="270" height="270" src="{% static 'images/carrera/docentes/mujer.png' %}" alt=""/>
+                                        <div class="caption">
+                                          <h5 class="text-center">Viviana Escudero</h5>
+                                          <p class="text-center">Coordinación de Ciencias Preclínicas</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <br>
+                                  <br>
+                                  <div class="row">
+                                    <div class="col-md-4">
+                                      <div class="thumbnail" style="background-color:lightblue">
+                                        <img width="270" height="270" src="{% static 'images/carrera/docentes/hombre.png' %}" alt=""/>
+                                        <div class="caption">
+                                          <h5 class="text-center">Darwin Pérez</h5>
+                                          <p class="text-center">Coordinación de Pregrado Clínico</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="thumbnail" style="background-color:lightblue">
+                                        <img width="270" height="270" src="{% static 'images/carrera/docentes/hombre.png' %}" alt=""/>
+                                        <div class="caption">
+                                          <h5 class="text-center">Francisco Pedreros</h5>
+                                          <p class="text-center">Dirección Clínica Odontológica</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+  </section>
+</main>
+{% endblock %}

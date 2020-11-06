@@ -11,6 +11,8 @@ urlpatterns = [
     url(r'^carrera/objetivos/$', views.mision, name='objetivos'),
     url(r'^carrera/plan/$', views.plan, name='plan'),
     url(r'^carrera/organigrama/$', views.organigrama, name='organigrama'),
+    url(r'^carrera/equipo_directivo/$', views.equipo_directivo,name='equipo_directivo'),
+    url(r'^carrera/coordinacion/$', views.coordinacion,name='coordinacion'),
     url(r'^carrera/docentes/$', views.docentes),
     url(r'^carrera/docentes/detalle_academico/$', views.detalle_academico, name='detalle'),
     url(r'^carrera/contacto/$', views.contacto, name='contacto'),
