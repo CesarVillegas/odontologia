@@ -25,7 +25,7 @@
                     </p>
                 </div>
                 <div class="col-md-12" style="margin-top:20px;">
-                    <center><a href="https://www.youtube.com/channel/UC-uRcTLGKySwEn976VaeXtA/" class="btn btn-ellipse btn-java">mas videos</a></center>
+                    <center><a href="https://www.youtube.com/channel/UC-uRcTLGKySwEn976VaeXtA/" class="btn btn-ellipse btn-java" target="_blank">mas videos</a></center>
                 </div>
             </div>
         </div>
@@ -60,7 +60,13 @@
                           <a href="//instagram.com/p/{{ media.shortcode }}" target="_blank" class="box-instagram">
                             <img src="{{ media.thumbnail_src }}" alt="" class="quote-img img-instagram" />
                             <div class="img-overlay">
-                              <div><p>{{ media.edge_media_to_caption.edges.0.node.text|truncatechars:100 }}</p></div>
+                              <div>
+                                {% if media.edge_media_to_caption.edges.0.node.text %}
+                                  <p>{{ media.edge_media_to_caption.edges.0.node.text|truncatechars:100 }}</p>
+                                {% else %}
+                                  <p>ver mas sobre esta publicación</p>
+                                {% endif %}
+                              </div>
                             </div>
                           </a>
                         </div>
@@ -70,6 +76,9 @@
                     </div>
                   </div>
                 {% endfor %}
+              </div>
+              <div class="col-md-12" style="margin-top:20px;">
+                  <center><a href="https://www.instagram.com/odontologiauls/" class="btn btn-ellipse btn-java" target="_blank">mas novedades</a></center>
               </div>
           </div>
       </div>
