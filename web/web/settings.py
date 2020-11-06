@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'apps.vinculacion',
     'apps.investigacion',
     'apps.noticia',
+    'django_instagram',
 ]
 
 MIDDLEWARE = [

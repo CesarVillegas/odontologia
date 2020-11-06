@@ -1,5 +1,6 @@
 {% extends "carrera/base.html" %} 
 {% load staticfiles %} 
+{% load instagram_client %}
 
 {% block title %}Odontología{% endblock %} 
 
@@ -35,6 +36,7 @@
       <div class="shell">
           <h3>Novedades</h3>
           <hr class="divider divider-lg bg-primary">
+          <!--
           <div class="range offset-top-60">
               <div id="loading_section_twitter" class="loading">
                   <center>
@@ -45,20 +47,35 @@
               <div id="twitter_section" data-loop="false" data-margin="10" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="3" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-class-light" style="display:none;">
               </div>
           </div>
+          -->
 
           <div class="range offset-top-60">
-              <div id="loading_section_instagram" class="loading">
-                  <center>
-                      <img src="{% static 'images/loading.gif' %}" width="100px" height="100px">
-                      <p>Cargando...</p>
-                  </center>
-              </div>
-              <div id="instagram_section" data-loop="false" data-margin="10" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="4" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-class-light owl-theme owl-loaded" style="display:none;">
+              <div id="instagram_section" data-loop="false" data-margin="10" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="4" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-class-light owl-theme owl-loaded">
+                {% instagram_user_recent_media instagram_profile_name %}
+                {% for media in recent_media %}
+                  <div class="owl-item">
+                    <div class="item-instagram">
+                      <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
+                        <div class="unit-left unit-item-narrow">
+                          <a href="//instagram.com/p/{{ media.shortcode }}" target="_blank" class="box-instagram">
+                            <img src="{{ media.thumbnail_src }}" alt="" class="quote-img img-instagram" />
+                            <div class="img-overlay">
+                              <div><p>{{ media.edge_media_to_caption.edges.0.node.text|truncatechars:100 }}</p></div>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="unit-body unit-item-wide">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
               </div>
           </div>
       </div>
   </section>
 </div>   
+<!--
 <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -108,38 +125,9 @@
                 $("#twitter_section").data('owlCarousel').onResize();
             }
         });
-        //LLamada ajax instagram
-        $.ajax({
-            type: 'GET',
-            url: '/carrera/instagram_timeline/',
-            contentType: 'application/json',
-            dataType: 'json',
-            success: function(response, request) {
-                response.forEach(function(instagram, i){
-                    var item = '<div class="owl-item">'+
-                        '<div class="item-instagram">'+
-                            '<a href="'+instagram.url+'" class="box-instagram" target="_blank">'+
-                                '<img id="img_instagram_'+i+'" src="'+instagram.image+'" alt="" class="quote-img img-instagram"/>'+
-                                '<div class="img-overlay"><i class="fab fa-instagram fa-2x"></i></div>'+
-                            '</a>'+
-                        '</div></div>';
-                    $('#instagram_section').trigger('add.owl.carousel', [$(item)]);
-                });
-                $('#instagram_section').trigger('refresh.owl.carousel');
-                $("#instagram_section").trigger('to.owl.carousel', [0, 1, true]);
-            },
-            beforeSend: function() {
-                $('#loading_section_instagram').show(); 
-                $('#instagram_section').hide(); 
-            },
-            complete: function() { 
-                $('#loading_section_instagram').hide(); 
-                $('#instagram_section').show();
-                $("#instagram_section").data('owlCarousel').onResize();
-            }
-        });        
     });
 </script>
+-->
 <!-- Call to action-->
 <section class="rd-parallax">
     <div data-speed="0.2" data-type="media" data-url="{% static 'images/backgrounds/background-12-1920x610.jpg' %}" class="rd-parallax-layer"></div>
