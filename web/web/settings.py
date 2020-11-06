@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'apps.vinculacion',
     'apps.investigacion',
     'apps.noticia',
+    'apps.equipo_directivo',
+    'apps.coordinacion_area',
     'django_instagram',
 ]
 
