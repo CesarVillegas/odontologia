@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^vinculacion/', include('apps.vinculacion.urls'), name='vinculacion'),
     url(r'^documentos/', include('apps.documentos.urls'), name='documentos'),
     url(r'^equipo_directivo/', include('apps.equipo_directivo.urls'), name='equipo_directivo'),
+    url(r'^coordinacion_area/', include('apps.coordinacion_area.urls'), name='coordinacion_area'),
     url(r'^noticia/', include('apps.noticia.urls'), name='noticia'),
     url(r'^adminodontologia/', admin.site.urls),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
