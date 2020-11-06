@@ -22,11 +22,10 @@ import twitter
 import requests
 import re
 
-#IGQVJWbGJKTEFSajFPTTF6OVp3X1JvdkpINTdKemdYN3Fjb1BxVE9SYjMyZAEs5bzA4eVVzSTlFc0QyZAGhvTGhFUTFXQUJadUJpQzRXTm5nOWNzUkc2UkZA0QkxueEU1N1lNcmhibTliVGtGQUg3ZAXhoTgZDZD
 
 def getinstagram():
     BASE_URL='https://api.instagram.com/v1/'
-    APP_ACCESS_TOKEN='IGQVJVMmR5TENqZAWt6Y256anU0S2xXUXVLMHA1bDc3Ym5NM2ZABRmpSMjVQa0dxa3lmc2t5Ui10MENKZATlTSFJVd3pTb1ZA5ekJHY0lrYUlVcEg2V2JsaTlUTkx3ODNjMXVWQmY3U3JQa0trUDBvTTVmaQZDZD'
+    APP_ACCESS_TOKEN='#'
     request_url = (BASE_URL + 'users/self/media/recent/?access_token=%s&count=8') % (APP_ACCESS_TOKEN)
     recent_post = requests.get(request_url).json()
     posts = recent_post['data']
@@ -98,7 +97,7 @@ def twitter_timeline(request):
     return render(request)
 
 def index(request):
-    return render(request, 'carrera/index.html')
+    return render(request, 'carrera/index.html', {"instagram_profile_name": "odontologiauls"})
 
 def admision(request):
     admisiones = Admision.objects.all().last()
@@ -211,7 +210,7 @@ def vinculacion(request):
     return render(request, 'carrera/vinculacion.html')
 
 def pyp(request):
-    return render(request, 'carrera/pyp.html')
+    return render(request, 'carrera/vinculacion.html')
 
 def handler404(request):
     return render(request, '404.html', status=404)

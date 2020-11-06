@@ -230,15 +230,35 @@ div#instagram_section div.img-overlay {
     position: absolute;
     left: 0px;
     top: 0px;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(33,78,131,0.8);
     text-align: center;
-    opacity: 0;
-    -webkit-transition: opacity 0.25s ease;
-    -moz-transition: opacity 0.25s ease;
+    transition: transform 300ms;
+    transform: translate3d(0, calc(101%), 0);
+    display: flex;
+    padding: 10px;
+    border: 1px solid #fff;
 }
 
 div#instagram_section a.box-instagram:hover > div.img-overlay {
-    opacity: 1;
+    transition: transform 300ms;
+    transform: translate3d(0, 0, 0);
+}
+
+div#instagram_section div.img-overlay div{
+    margin: 5px;
+    border: 1px solid #f2f2f2;
+    display: flex;
+}
+
+div#instagram_section div.img-overlay div p{
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    vertical-align: middle;
+    font-family: "Oswald", sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin:auto;
 }
 
 div#instagram_section div.img-overlay i.fa-instagram {
@@ -303,6 +323,10 @@ section.section-150-up{
 
 section.section-100-down{
     padding-bottom: 100px;
+}
+
+section.section-150-down{
+    padding-bottom: 150px;
 }
 
 section.section-70-up{
