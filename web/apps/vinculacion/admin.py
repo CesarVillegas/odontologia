@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from apps.carrera.models import ActividadGruposInteres, ActividadCientificoProductivo, ActividadPoliticaPublicaParticipacion, TipoPoliticaPublica, ActividadPoliticaPublica
+from apps.carrera.models import ActividadGruposInteres, ActividadCientificoProductivo, ActividadPoliticaPublicaParticipacion, TipoPoliticaPublica, ActividadPoliticaPublica, ActividadNumeroBeneficiario
 
 # Actividades
 class GrupoInteresAdmin(admin.ModelAdmin):
@@ -20,9 +20,12 @@ class TipoPoliticaPublicaAdmin(admin.ModelAdmin):
 class PoliticaPublicaAdmin(admin.ModelAdmin):
     list_display = ('actividad','participantes','anio', 'mostrar')
 
+class ActividadNumeroBeneficiarioAdmin(admin.ModelAdmin):
+    list_display = ('anio', 'beneficiario')
 
 admin.site.register(ActividadGruposInteres, GrupoInteresAdmin)
 admin.site.register(ActividadCientificoProductivo, CientificoProductivoAdmin)
 admin.site.register(ActividadPoliticaPublicaParticipacion, PoliticaPublicaParticipacionAdmin)
 admin.site.register(TipoPoliticaPublica, TipoPoliticaPublicaAdmin)
 admin.site.register(ActividadPoliticaPublica, PoliticaPublicaAdmin)
+admin.site.register(ActividadNumeroBeneficiario, ActividadNumeroBeneficiarioAdmin)

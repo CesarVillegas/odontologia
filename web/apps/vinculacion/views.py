@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from apps.documentos.models import Documento
-from apps.carrera.models import ActividadGruposInteres, ActividadCientificoProductivo, ActividadPoliticaPublicaParticipacion, ActividadPoliticaPublica, TipoPoliticaPublica
+from apps.carrera.models import ActividadGruposInteres, ActividadCientificoProductivo, ActividadPoliticaPublicaParticipacion, ActividadPoliticaPublica, TipoPoliticaPublica, ActividadNumeroBeneficiario
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
@@ -26,7 +26,8 @@ def actividades(request):
     participaciones = ActividadPoliticaPublicaParticipacion.objects.all().filter(mostrar=True).order_by('orden')
     politicas = ActividadPoliticaPublica.objects.all().filter(mostrar=True).order_by('orden')
     tipos = TipoPoliticaPublica.objects.all().filter(mostrar=True).order_by('orden')
-    return render(request, 'vinculacion/actividades.html',{'grupos_interes':grupos_interes, 'cientificos': cientificos, 'participaciones': participaciones, 'tipos': tipos, 'politicas':politicas })
+    beneficiarios = ActividadNumeroBeneficiario.objects.all()
+    return render(request, 'vinculacion/actividades.html',{'grupos_interes':grupos_interes, 'cientificos': cientificos, 'participaciones': participaciones, 'tipos': tipos, 'politicas':politicas, 'beneficiarios':beneficiarios })
 
 def noticias(request):
     return render(request, 'vinculacion/noticias.html')
