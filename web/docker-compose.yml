@@ -28,6 +28,8 @@ services:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
       timeout: 20s
       retries: 10
+    volumes:
+      - ./datos:/home
     ports:
       - "3306:3306"
     expose:

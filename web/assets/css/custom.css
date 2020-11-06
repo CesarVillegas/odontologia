@@ -472,10 +472,16 @@ section.section-30-down{
 
 /* Documentos */
 
+div .unit.unit-horizontal.unit-middle.unit-space{
+  margin-bottom: 20px;
+}
+
 div.unit-body a.doc-title{
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 div.unit-body p.doc-descripcion{
   padding: 0px;
+  margin: 0px;
+  line-height: 1.1;
 }
