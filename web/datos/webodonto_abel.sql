@@ -1,0 +1,946 @@
+-- MySQL dump 10.13  Distrib 5.6.49, for Linux (x86_64)
+--
+-- Host: localhost    Database: webodonto
+-- ------------------------------------------------------
+-- Server version	5.6.49
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `actividad_actividad`
+--
+
+DROP TABLE IF EXISTS `actividad_actividad`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `actividad_actividad` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(150) NOT NULL,
+  `descripcion` longtext,
+  `inicio` datetime(6) DEFAULT NULL,
+  `cierre` datetime(6) DEFAULT NULL,
+  `imagen` varchar(100) NOT NULL,
+  `mostrar` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `actividad_actividad`
+--
+
+LOCK TABLES `actividad_actividad` WRITE;
+/*!40000 ALTER TABLE `actividad_actividad` DISABLE KEYS */;
+/*!40000 ALTER TABLE `actividad_actividad` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_group`
+--
+
+DROP TABLE IF EXISTS `auth_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_group` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(80) COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group`
+--
+
+LOCK TABLES `auth_group` WRITE;
+/*!40000 ALTER TABLE `auth_group` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_group_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_group_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_group_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_group_permissions_group_id_permission_id_0cd325b0_uniq` (`group_id`,`permission_id`),
+  KEY `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` (`permission_id`),
+  CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group_permissions`
+--
+
+LOCK TABLES `auth_group_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_group_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_permission`
+--
+
+DROP TABLE IF EXISTS `auth_permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_permission` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `content_type_id` int(11) NOT NULL,
+  `codename` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`),
+  CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_permission`
+--
+
+LOCK TABLES `auth_permission` WRITE;
+/*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
+INSERT INTO `auth_permission` VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can add group',2,'add_group'),(5,'Can change group',2,'change_group'),(6,'Can delete group',2,'delete_group'),(7,'Can add permission',3,'add_permission'),(8,'Can change permission',3,'change_permission'),(9,'Can delete permission',3,'delete_permission'),(10,'Can add user',4,'add_user'),(11,'Can change user',4,'change_user'),(12,'Can delete user',4,'delete_user'),(13,'Can add content type',5,'add_contenttype'),(14,'Can change content type',5,'change_contenttype'),(15,'Can delete content type',5,'delete_contenttype'),(16,'Can add session',6,'add_session'),(17,'Can change session',6,'change_session'),(18,'Can delete session',6,'delete_session'),(19,'Can add contenido',7,'add_contenido'),(20,'Can change contenido',7,'change_contenido'),(21,'Can delete contenido',7,'delete_contenido'),(22,'Can add contactos',8,'add_contactos'),(23,'Can change contactos',8,'change_contactos'),(24,'Can delete contactos',8,'delete_contactos'),(25,'Can add admision',9,'add_admision'),(26,'Can change admision',9,'change_admision'),(27,'Can delete admision',9,'delete_admision'),(28,'Can add equipo',10,'add_equipo'),(29,'Can change equipo',10,'change_equipo'),(30,'Can delete equipo',10,'delete_equipo'),(31,'Can add contenido',11,'add_contenido'),(32,'Can change contenido',11,'change_contenido'),(33,'Can delete contenido',11,'delete_contenido'),(34,'Can add imagen',12,'add_imagen'),(35,'Can change imagen',12,'change_imagen'),(36,'Can delete imagen',12,'delete_imagen'),(37,'Can add servicio',13,'add_servicio'),(38,'Can change servicio',13,'change_servicio'),(39,'Can delete servicio',13,'delete_servicio'),(40,'Can add galeria',14,'add_galeria'),(41,'Can change galeria',14,'change_galeria'),(42,'Can delete galeria',14,'delete_galeria'),(43,'Can add kv store',15,'add_kvstore'),(44,'Can change kv store',15,'change_kvstore'),(45,'Can delete kv store',15,'delete_kvstore'),(46,'Can add docentes',16,'add_docentes'),(47,'Can change docentes',16,'change_docentes'),(48,'Can delete docentes',16,'delete_docentes'),(49,'Can add contacto',17,'add_contacto'),(50,'Can change contacto',17,'change_contacto'),(51,'Can delete contacto',17,'delete_contacto'),(52,'Can add tipo servicio',18,'add_tiposervicio'),(53,'Can change tipo servicio',18,'change_tiposervicio'),(54,'Can delete tipo servicio',18,'delete_tiposervicio'),(55,'Can add actividad',19,'add_actividad'),(56,'Can change actividad',19,'change_actividad'),(57,'Can delete actividad',19,'delete_actividad'),(58,'Can add documento',20,'add_documento'),(59,'Can change documento',20,'change_documento'),(60,'Can delete documento',20,'delete_documento'),(61,'Can add actividad',21,'add_actividad'),(62,'Can change actividad',21,'change_actividad'),(63,'Can delete actividad',21,'delete_actividad'),(64,'Can add noticia',22,'add_noticia'),(65,'Can change noticia',22,'change_noticia'),(66,'Can delete noticia',22,'delete_noticia'),(67,'Can add actividad cientifico productivo',23,'add_actividadcientificoproductivo'),(68,'Can change actividad cientifico productivo',23,'change_actividadcientificoproductivo'),(69,'Can delete actividad cientifico productivo',23,'delete_actividadcientificoproductivo'),(70,'Can add actividad grupos interes',24,'add_actividadgruposinteres'),(71,'Can change actividad grupos interes',24,'change_actividadgruposinteres'),(72,'Can delete actividad grupos interes',24,'delete_actividadgruposinteres'),(73,'Can add actividad politica publica',25,'add_actividadpoliticapublica'),(74,'Can change actividad politica publica',25,'change_actividadpoliticapublica'),(75,'Can delete actividad politica publica',25,'delete_actividadpoliticapublica'),(76,'Can add actividad politica publica participacion',26,'add_actividadpoliticapublicaparticipacion'),(77,'Can change actividad politica publica participacion',26,'change_actividadpoliticapublicaparticipacion'),(78,'Can delete actividad politica publica participacion',26,'delete_actividadpoliticapublicaparticipacion'),(79,'Can add tipo politica publica',27,'add_tipopoliticapublica'),(80,'Can change tipo politica publica',27,'change_tipopoliticapublica'),(81,'Can delete tipo politica publica',27,'delete_tipopoliticapublica'),(82,'Can add directivo',28,'add_directivo'),(83,'Can change directivo',28,'change_directivo'),(84,'Can delete directivo',28,'delete_directivo'),(85,'Can add coordinador',29,'add_coordinador'),(86,'Can change coordinador',29,'change_coordinador'),(87,'Can delete coordinador',29,'delete_coordinador'),(88,'Can add actividad numero beneficiario',30,'add_actividadnumerobeneficiario'),(89,'Can change actividad numero beneficiario',30,'change_actividadnumerobeneficiario'),(90,'Can delete actividad numero beneficiario',30,'delete_actividadnumerobeneficiario');
+/*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user`
+--
+
+DROP TABLE IF EXISTS `auth_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `password` varchar(128) COLLATE utf8_spanish_ci NOT NULL,
+  `last_login` datetime(6) DEFAULT NULL,
+  `is_superuser` tinyint(1) NOT NULL,
+  `username` varchar(150) COLLATE utf8_spanish_ci NOT NULL,
+  `first_name` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `last_name` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `email` varchar(254) COLLATE utf8_spanish_ci NOT NULL,
+  `is_staff` tinyint(1) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `date_joined` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user`
+--
+
+LOCK TABLES `auth_user` WRITE;
+/*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$36000$gzV3XhhZ526q$9q2S6eAdfTVmfbfXXe0qliNZAsaT1eUnu37ltL5MFSY=','2018-09-28 15:19:21.942695',1,'dortiz','','','dortiz@userena.cl',1,1,'2018-01-22 19:51:54.302002'),(2,'pbkdf2_sha256$36000$yZWXO6PwB5Yl$yfjafijZmdy7IGCy87HSR8VO48RYC6Yt4tjDHQYches=','2020-10-08 21:09:53.071201',1,'jggalleguillos','','','jggalleguillos@userena.cl',1,1,'2018-01-23 11:43:05.000000'),(3,'pbkdf2_sha256$36000$fJyGRO0aiIhU$GVH/pcm9JoK4ve1GzCsmjp8X3p7qZialbIt/mRGy5Wk=','2020-09-25 12:12:41.999202',1,'cesar','','','cevillegas@userena.cl',1,1,'2018-01-25 13:46:29.586436'),(4,'pbkdf2_sha256$36000$jIrN0kI0MB2Q$y0sY/eyBcxp4gUX4U1flr82fTet4ZQM+biHtlKFyNZk=','2018-07-18 15:32:52.000000',0,'dperez','Darwin','Pérez Miranda','dperez@userena.cl',1,0,'2018-05-09 17:52:42.000000'),(5,'pbkdf2_sha256$36000$IiGjO9Lp7JTL$hTQETTo7cD9TAGiKGp5Jj/SsSu7/8PzwwCdgGRqvw0o=','2020-10-02 13:48:55.993933',0,'kfritz','Konrad','Fritz León','kfritz@userena.cl',1,1,'2020-09-25 14:13:14.000000'),(6,'pbkdf2_sha256$36000$n519JO5fY8Q3$yPTGC79jxMKESAYgHEJgyoyDlbdyVe65jYh/4CjPoWY=','2020-09-25 15:03:21.747108',0,'jbalbontin','Juan','Balbontin Cerda','juan.balbontin@userena.cl',1,1,'2020-09-25 14:45:42.000000'),(7,'pbkdf2_sha256$36000$5AXIxQZcPH1S$X8n9n8Fnc+Bsg4FLmUjDj08JyL2xyfNWeCCjrFujdz4=','2020-11-06 13:58:44.082502',1,'aaracena','','','aracena.abel@gmail.com',1,1,'2020-10-22 23:52:42.444247');
+/*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user_groups`
+--
+
+DROP TABLE IF EXISTS `auth_user_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_user_groups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_user_groups_user_id_group_id_94350c0c_uniq` (`user_id`,`group_id`),
+  KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`),
+  CONSTRAINT `auth_user_groups_group_id_97559544_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  CONSTRAINT `auth_user_groups_user_id_6a12ed8b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user_groups`
+--
+
+LOCK TABLES `auth_user_groups` WRITE;
+/*!40000 ALTER TABLE `auth_user_groups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_user_groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user_user_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_user_user_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_user_user_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_user_user_permissions_user_id_permission_id_14a6b632_uniq` (`user_id`,`permission_id`),
+  KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`),
+  CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user_user_permissions`
+--
+
+LOCK TABLES `auth_user_user_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_user_user_permissions` DISABLE KEYS */;
+INSERT INTO `auth_user_user_permissions` VALUES (1,4,13),(2,4,14),(3,4,15),(4,4,16),(5,4,17),(6,4,18),(7,4,19),(8,4,20),(9,4,21),(10,4,22),(11,4,23),(12,4,24),(13,4,25),(14,4,26),(15,4,27),(16,4,28),(17,4,29),(18,4,30),(19,4,31),(20,4,32),(21,4,33),(22,4,34),(23,4,35),(24,4,36),(25,4,37),(26,4,38),(27,4,39),(28,4,40),(29,4,41),(30,4,42),(31,4,43),(32,4,44),(33,4,45),(34,4,46),(35,4,47),(36,4,48),(37,4,49),(38,4,50),(39,4,51),(40,4,52),(41,4,53),(42,4,54),(43,5,19),(44,5,20),(45,5,21),(46,5,22),(47,5,23),(48,5,24),(49,5,25),(50,5,26),(51,5,27),(52,5,28),(53,5,29),(54,5,30),(55,5,31),(56,5,32),(57,5,33),(58,5,34),(59,5,35),(60,5,36),(61,5,37),(62,5,38),(63,5,39),(64,5,40),(65,5,41),(66,5,42),(67,5,46),(68,5,47),(69,5,48),(70,5,49),(71,5,50),(72,5,51),(73,5,52),(74,5,53),(75,5,54),(76,6,19),(77,6,20),(78,6,21),(79,6,22),(80,6,23),(81,6,24),(82,6,25),(83,6,26),(84,6,27),(85,6,28),(86,6,29),(87,6,30),(88,6,31),(89,6,32),(90,6,33),(91,6,34),(92,6,35),(93,6,36),(94,6,37),(95,6,38),(96,6,39),(97,6,40),(98,6,41),(99,6,42),(100,6,46),(101,6,47),(102,6,48),(103,6,49),(104,6,50),(105,6,51),(106,6,52),(107,6,53),(108,6,54);
+/*!40000 ALTER TABLE `auth_user_user_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `carrera_actividad`
+--
+
+DROP TABLE IF EXISTS `carrera_actividad`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `carrera_actividad` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(150) NOT NULL,
+  `descripcion` longtext,
+  `inicio` datetime(6) DEFAULT NULL,
+  `cierre` datetime(6) DEFAULT NULL,
+  `imagen` varchar(100) NOT NULL,
+  `mostrar` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carrera_actividad`
+--
+
+LOCK TABLES `carrera_actividad` WRITE;
+/*!40000 ALTER TABLE `carrera_actividad` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carrera_actividad` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `carrera_actividadcientificoproductivo`
+--
+
+DROP TABLE IF EXISTS `carrera_actividadcientificoproductivo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `carrera_actividadcientificoproductivo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `actividad` longtext NOT NULL,
+  `descripcion` longtext,
+  `anio` varchar(30) DEFAULT NULL,
+  `orden` int(11) NOT NULL,
+  `mostrar` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carrera_actividadcientificoproductivo`
+--
+
+LOCK TABLES `carrera_actividadcientificoproductivo` WRITE;
+/*!40000 ALTER TABLE `carrera_actividadcientificoproductivo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carrera_actividadcientificoproductivo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `carrera_actividadgruposinteres`
+--
+
+DROP TABLE IF EXISTS `carrera_actividadgruposinteres`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `carrera_actividadgruposinteres` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `actividad` longtext NOT NULL,
+  `descripcion` longtext,
+  `objetivo` longtext,
+  `anio` varchar(30) DEFAULT NULL,
+  `grupo_interes` varchar(200) NOT NULL,
+  `orden` int(11) NOT NULL,
+  `mostrar` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carrera_actividadgruposinteres`
+--
+
+LOCK TABLES `carrera_actividadgruposinteres` WRITE;
+/*!40000 ALTER TABLE `carrera_actividadgruposinteres` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carrera_actividadgruposinteres` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `carrera_actividadpoliticapublica`
+--
+
+DROP TABLE IF EXISTS `carrera_actividadpoliticapublica`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `carrera_actividadpoliticapublica` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `actividad` longtext NOT NULL,
+  `descripcion` longtext,
+  `participantes` longtext,
+  `anio` varchar(30) DEFAULT NULL,
+  `grupo_interes` varchar(200) NOT NULL,
+  `orden` int(11) NOT NULL,
+  `mostrar` tinyint(1) NOT NULL,
+  `tipo_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `carrera_actividadpol_tipo_id_69d2e56f_fk_carrera_t` (`tipo_id`),
+  CONSTRAINT `carrera_actividadpol_tipo_id_69d2e56f_fk_carrera_t` FOREIGN KEY (`tipo_id`) REFERENCES `carrera_tipopoliticapublica` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carrera_actividadpoliticapublica`
+--
+
+LOCK TABLES `carrera_actividadpoliticapublica` WRITE;
+/*!40000 ALTER TABLE `carrera_actividadpoliticapublica` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carrera_actividadpoliticapublica` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `carrera_actividadpoliticapublicaparticipacion`
+--
+
+DROP TABLE IF EXISTS `carrera_actividadpoliticapublicaparticipacion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `carrera_actividadpoliticapublicaparticipacion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` varchar(20) NOT NULL,
+  `institucion_externa` varchar(100) NOT NULL,
+  `objetivo_reunion` longtext NOT NULL,
+  `tipo_participacion` longtext NOT NULL,
+  `orden` int(11) NOT NULL,
+  `mostrar` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carrera_actividadpoliticapublicaparticipacion`
+--
+
+LOCK TABLES `carrera_actividadpoliticapublicaparticipacion` WRITE;
+/*!40000 ALTER TABLE `carrera_actividadpoliticapublicaparticipacion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carrera_actividadpoliticapublicaparticipacion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `carrera_admision`
+--
+
+DROP TABLE IF EXISTS `carrera_admision`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `carrera_admision` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `anio` smallint(5) unsigned NOT NULL,
+  `puntaje_minimo` double NOT NULL,
+  `puntaje_maximo` double NOT NULL,
+  `puntaje_ponderado` double NOT NULL,
+  `vacantes` smallint(5) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carrera_admision`
+--
+
+LOCK TABLES `carrera_admision` WRITE;
+/*!40000 ALTER TABLE `carrera_admision` DISABLE KEYS */;
+INSERT INTO `carrera_admision` VALUES (1,2017,500.5,760.3,550,63),(3,2016,600.23,800.35,650.9,21),(4,2018,0,0,0,70);
+/*!40000 ALTER TABLE `carrera_admision` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `carrera_contacto`
+--
+
+DROP TABLE IF EXISTS `carrera_contacto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `carrera_contacto` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombres` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `apellidos` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `email` varchar(254) COLLATE utf8_spanish_ci NOT NULL,
+  `celular` varchar(8) COLLATE utf8_spanish_ci NOT NULL,
+  `mensaje` longtext COLLATE utf8_spanish_ci,
+  `fecha_contacto` datetime(6) NOT NULL,
+  `contacto_destino` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carrera_contacto`
+--
+
+LOCK TABLES `carrera_contacto` WRITE;
+/*!40000 ALTER TABLE `carrera_contacto` DISABLE KEYS */;
+INSERT INTO `carrera_contacto` VALUES (1,'Cesar','Villegas','cevillegas@userena.cl','77138754','Probando formulario de Contacto','2018-09-27 19:49:29.281583','carrera'),(2,'test','test','cevillegas@userena.cl','89898988','selecr * from sys','2018-09-27 19:55:39.361958','clinica'),(3,'dahfhadjk','fhajhjksdf','cesarvillegasuls@gmail.com','78787878','teste','2018-09-27 19:56:56.181665','carrera'),(4,'tsts','tsetas','cevillegas@userena.cl','34243234','tesse','2018-09-27 19:57:20.025027','clinica'),(5,'JOSE MAURICIO','DIAZ SAN CRISTOBAL','jdiazsc@gmail.com','56241747','Soy titulado de la carrera de Auditoría y quisiera saber si en mi condición de ex alumno puedo acceder a prestaciones dentales y si existe algún beneficio asociado. Desde ya agradezco su respuesta.','2019-10-03 16:36:09.718403','clinica'),(6,'JOSE MAURICIO','DIAZ SAN CRISTOBAL','jdiazsc@gmail.com','56241747','Soy titulado de la carrera de Auditoría y quisiera saber si en mi condición de ex alumno puedo acceder a prestaciones dentales y si existe algún beneficio asociado. Desde ya agradezco su respuesta.','2019-10-03 16:37:27.568267','clinica'),(7,'Maximiliano Manuel Ignacio','Gálvez Gálvez','mrxevilx@gmail.com','88991650','Quisiera saber sobre los valores de atención ya que requiero oclusión de 4 piezas dentales y la extracción de muela del juicio.','2020-01-13 19:29:08.126487','clinica'),(8,'Maximiliano Manuel Ignacio','Gálvez Gálvez','mrxevilx@gmail.com','88991650','Quisiera saber sobre los valores de atención ya que requiero oclusión de 4 piezas dentales y la extracción de muela del juicio.','2020-01-13 19:29:25.959878','clinica'),(9,'Héctor Andrés','Rojas Flores','H3ctorrf@gmail.com','97342918','necesito extraerme un tercer molar con erupcion ya que no aguanto el dolor','2020-01-31 15:12:18.321904','clinica'),(10,'Héctor Andrés','Rojas Flores','H3ctorrf@gmail.com','97342918','necesito extraerme un tercer molar con erupcion ya que no aguanto el dolor','2020-01-31 15:12:40.384525','clinica'),(11,'Héctor Andrés','Rojas Flores','H3ctorrf@gmail.com','97342918','necesito extraerme un tercer molar con erupcion ya que no aguanto el dolor','2020-01-31 15:13:13.048763','clinica'),(12,'Karla Barrera','Barrera','Karla.barrera.hernandez@gmail.com','51385705','Buenas Tardes, quisiera consultar si quisiera realizar un tratamiento de periodoncia en la clínica, cuales son los pasos a seguir, muchas gracias','2020-02-12 16:58:55.075156','clinica'),(13,'Karla Barrera','Barrera','Karla.barrera.hernandez@gmail.com','51385705','Buenas Tardes, quisiera consultar si quisiera realizar un tratamiento de periodoncia en la clínica, cuales son los pasos a seguir, muchas gracias','2020-02-12 16:59:03.791948','clinica'),(14,'Karla','Barrera','Karla.barrera.hernandez@gmail.com','51385705','Buenas Tardes, quisiera consultar si quisiera realizar un tratamiento de periodoncia en la clínica, cuales son los pasos a seguir, muchas gracias','2020-02-12 16:59:26.786642','clinica'),(15,'Jonnathan Edisson','Fabres Lobos','Jonnathanfabrests@gmail.com','83611732','Estimados:\r\nAntes que todo saludarlos, el motivo del presente mensaje es realizar dos preguntas,  la primera de ellas es que deseo extraer dos dientes y cual es el costo?\r\n\r\nY la segunda pregunta, se pueden extraer las dos el mismo día?\r\n\r\nSaludos cordiales','2020-04-14 19:14:33.472143','clinica'),(16,'Jonnathan Edisson','Fabres Lobos','Jonnathanfabrests@gmail.com','83611732','Estimados:\r\nAntes que todo saludarlos, el motivo del presente mensaje es realizar dos preguntas,  la primera de ellas es que deseo extraer dos dientes y cual es el costo?\r\n\r\nY la segunda pregunta, se pueden extraer las dos el mismo día?\r\n\r\nSaludos cordiales','2020-04-14 19:14:50.855994','clinica'),(17,'Jonnathan Edisson','Fabres Lobos','Jonnathanfabrests@gmail.com','83611732','Estimados:\r\nAntes que todo saludarlos, el motivo del presente mensaje es realizar dos preguntas,  la primera de ellas es que deseo extraer dos dientes y cual es el costo?\r\n\r\nY la segunda pregunta, se pueden extraer las dos el mismo día?\r\n\r\nSaludos cordiales','2020-04-14 19:15:08.210812','clinica'),(18,'Jonnathan Edisson','Fabres Lobos','Jonnathanfabrests@gmail.com','83611732','Estimados:\r\nAntes que todo saludarlos, el motivo del presente mensaje es realizar dos preguntas,  la primera de ellas es que deseo extraer dos dientes y cual es el costo?\r\n\r\nY la segunda pregunta, se pueden extraer las dos el mismo día?\r\n\r\nSaludos cordiales','2020-04-14 19:15:41.964044','clinica'),(19,'Jonnathan Edisson','Fabres Lobos','Jonnathanfabrests@gmail.com','83611732','Estimados:\r\nAntes que todo saludarlos, el motivo del presente mensaje es realizar dos preguntas,  la primera de ellas es que deseo extraer dos dientes y cual es el costo?\r\n\r\nY la segunda pregunta, se pueden extraer las dos el mismo día?\r\n\r\nSaludos cordiales','2020-04-14 19:15:53.378214','clinica'),(20,'Jonnathan Edisson','Fabres Lobos','Jonnathanfabrests@gmail.com','83611732','Estimados:\r\nAntes que todo saludarlos, el motivo del presente mensaje es realizar dos preguntas,  la primera de ellas es que deseo extraer dos dientes y cual es el costo?\r\n\r\nY la segunda pregunta, se pueden extraer las dos el mismo día?\r\n\r\nSaludos cordiales','2020-04-14 19:16:03.215430','clinica'),(21,'Jonnathan Edisson','Fabres Lobos','Jonnathanfabrests@gmail.com','83611732','Estamos antes que todo saludarlos el motivo del presente mensaje es realizar dos preguntas,  la primera de ellas es que deseo extraer dos dientes y cual es precio? Y la segunda pregunta se pueden extraer las dos el mismo día?\r\n\r\nSaludos cordiales','2020-04-14 19:18:16.047847','clinica'),(22,'Jonnathan Edisson','Fabres Lobos','Jonnathanfabrests@gmail.com','83611732','Estamos antes que todo saludarlos el motivo del presente mensaje es realizar dos preguntas,  la primera de ellas es que deseo extraer dos dientes y cual es precio? Y la segunda pregunta se pueden extraer las dos el mismo día?\r\n\r\nSaludos cordiales','2020-04-14 19:18:30.401347','clinica'),(23,'Carlos','Heredia','cheredia83@gmail.com','44351890','Buenas noches, mi consulta es, si están atendiendo algun tipo de urgencia dental ya que tengo mucho dolor en las muelas.\r\nSi es así como lo podría hacer para conseguir atención.','2020-05-13 01:41:51.780633','clinica'),(24,'Carlos','Heredia','cheredia83@gmail.com','44351890','Buenas noches, mi consulta es, si están atendiendo algun tipo de urgencia dental ya que tengo mucho dolor en las muelas.\r\nSi es así como lo podría hacer para conseguir atención.','2020-05-13 01:42:01.803847','clinica'),(25,'Debora','Espinoza','deboraespinoza4@gmail.com','59089423','Buen día, quisiera saber si hacen extraccion de terceros molares y limpieza dental \r\nQuedo atenta','2020-05-25 00:29:30.168322','clinica'),(26,'Debora','Espinoza','Deboraespinoza4@gmail.com','59089423','Buen día, quisiera saber si hacen extraccion de terceros molares y limpieza dental \r\nQuedo atenta','2020-05-25 00:29:50.878874','clinica'),(27,'Tania soledad','Riveros soto','tania.santiago.woody2@gmail.com','96747922','Hola estimados.\r\nMi consulta es si en estos momentos estan atendiendo por la situación que estamos pasando? Y si al ser clinica de universidad es mas economica?.\r\nEspero su respuesta gracias.','2020-07-21 05:18:27.497945','clinica'),(28,'Tania soledad','Riveros soto','tania.santiago.woody2@gmail.com','96747922','Hola estimados.\r\nMi consulta es si en estos momentos estan atendiendo por la situación que estamos pasando? Y si al ser clinica de universidad es mas economica?.\r\nEspero su respuesta gracias.','2020-07-21 05:19:11.156202','clinica'),(29,'nadia del carmen','arriagada nuñez','ndcarriagada@gmail.com','96611976','necesito evaluacion y presupuesto para un transplante dental','2020-07-28 15:19:56.776223','carrera'),(30,'Pamela Alejandra','Armijo Sáez','psarmijo@gmail.com','97482748','Hola!\r\nMi consulta es si en la clínica realizan prótesis removible, para una persona de la tercera edad sin dientes, y cuál sería el costo. \r\nGracias!','2020-09-16 16:01:15.097667','clinica');
+/*!40000 ALTER TABLE `carrera_contacto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `carrera_contactos`
+--
+
+DROP TABLE IF EXISTS `carrera_contactos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `carrera_contactos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombres` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carrera_contactos`
+--
+
+LOCK TABLES `carrera_contactos` WRITE;
+/*!40000 ALTER TABLE `carrera_contactos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carrera_contactos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `carrera_contenido`
+--
+
+DROP TABLE IF EXISTS `carrera_contenido`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `carrera_contenido` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `seccion` varchar(100) NOT NULL,
+  `texto` longtext,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carrera_contenido`
+--
+
+LOCK TABLES `carrera_contenido` WRITE;
+/*!40000 ALTER TABLE `carrera_contenido` DISABLE KEYS */;
+INSERT INTO `carrera_contenido` VALUES (1,'perfil egresado','<h3 class=\"text-center text-sm-left\">Perfil del Egresado de la Carrera de Odontolog&iacute;a</h3>\r\n\r\n<hr class=\"divider divider-lg hr-sm-left-2 bg-java\" />\r\n<div class=\"offset-top-30\">\r\n<p>Profesional con una fuerte formaci&oacute;n cient&iacute;fica, humanista y tecnol&oacute;gica. Las competencias consideradas para el logro de este perfil son las siguientes:</p>\r\n\r\n<table class=\"table table-custom table-fixed striped-table\" data-responsive=\"true\">\r\n	<tbody>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td width=\"50px\"><img alt=\"mision\" src=\"/media/media/2018/01/23/icon_science.svg\" style=\"width: 50px; height: 50px;\" /></td>\r\n			<td>Conocer y comprender las ciencias biom&eacute;dicas b&aacute;sicas, m&eacute;dicas generales, t&eacute;cnicas y cl&iacute;nicas para as&iacute; entender las condiciones normales y patolog&iacute;as relevantes a la Odontolog&iacute;a.</td>\r\n		</tr>\r\n		<tr>\r\n			<td><img alt=\"mision\" src=\"/media/media/2018/01/23/icon_tratamiento.svg\" style=\"width: 50px; height: 50px;\" /></td>\r\n			<td>Realizar un diagn&oacute;stico de salud bucal en poblaciones adultas e infantiles, programando planes de tratamiento de las patolog&iacute;as orales m&aacute;s frecuentes, con enfoque de riesgo, basado en conocimientos cient&iacute;ficos centrados en la evidencia y con s&oacute;lidos principios &eacute;ticos y responsabilidad social.</td>\r\n		</tr>\r\n		<tr>\r\n			<td><img alt=\"mision\" src=\"/media/media/2018/01/23/icon_buscar.svg\" style=\"width: 50px; height: 50px;\" /></td>\r\n			<td>Poseer una actitud de b&uacute;squeda permanente de nueva informaci&oacute;n con la finalidad de actualizar sus conocimientos de acuerdo a los avances de las ciencias m&eacute;dicas utilizando las tecnolog&iacute;as de la informaci&oacute;n y comunicaciones</td>\r\n		</tr>\r\n		<tr>\r\n			<td><img alt=\"mision\" src=\"/media/media/2018/01/23/icon_equipo.svg\" style=\"width: 50px; height: 50px;\" /></td>\r\n			<td>Formar parte de equipos multidisciplinarios de salud, teniendo una fuerte actitud de liderazgo y gesti&oacute;n, demostrando flexibilidad y adaptaci&oacute;n a los cambios surgidos en el perfil salud enfermedad de la poblaci&oacute;n chilena</td>\r\n		</tr>\r\n		<tr>\r\n			<td><img alt=\"mision\" src=\"/media/media/2018/01/23/icon_compromiso.svg\" style=\"width: 50px; height: 50px;\" /></td>\r\n			<td>Tener un alto compromiso con la salud bucal de la poblaci&oacute;n y el desarrollo comunitario en lo referente a la odontolog&iacute;a, realizando acciones de promoci&oacute;n, con la finalidad de mantener la salud oral, demostrando un alto compromiso &eacute;tico y tratando al paciente desde una &oacute;ptica hol&iacute;stica.</td>\r\n		</tr>\r\n		<tr>\r\n			<td><img alt=\"mision\" src=\"/media/media/2018/01/23/icon_decreto.svg\" style=\"width: 50px; height: 50px;\" /></td>\r\n			<td>Ser competente en la toma de decisiones en el razonamiento y la realizaci&oacute;n de juicios cl&iacute;nicos, encaminados a poder desarrollar un diagn&oacute;stico diferencial y provisional o definitivo del proceso nosol&oacute;gico incluyendo, la interpretaci&oacute;n de la historia cl&iacute;nica y los datos obtenidos en los ex&aacute;menes cl&iacute;nicos, radiogr&aacute;ficos u otro tipo de pruebas diagn&oacute;sticas.</td>\r\n		</tr>\r\n		<tr>\r\n			<td><img alt=\"mision\" src=\"/media/media/2018/01/23/icon_urgencia.svg\" style=\"width: 50px; height: 50px;\" /></td>\r\n			<td>Realizar de forma adecuada la resoluci&oacute;n situaciones de Urgencia dental y manejo del dolor que se presenten en pacientes de todas las edades y condiciones.</td>\r\n		</tr>\r\n		<tr>\r\n			<td><img alt=\"mision\" src=\"/media/media/2018/01/23/icon_reloj_arena.svg\" style=\"width: 50px; height: 50px;\" /></td>\r\n			<td>Diagnosticar en forma oportuna las necesidades de tratamiento de patolog&iacute;as dento-maxilares, realizando actividades de intercepci&oacute;n o derivaci&oacute;n oportuna en los casos que correspondan.</td>\r\n		</tr>\r\n		<tr>\r\n			<td><img alt=\"mision\" src=\"/media/media/2018/01/23/icon_craneo.svg\" style=\"width: 50px; height: 50px;\" /></td>\r\n			<td>Realizar diagn&oacute;stico y tratamiento de disfunciones cr&aacute;neo cervical de baja y mediana complejidad.</td>\r\n		</tr>\r\n		<tr>\r\n			<td><img alt=\"mision\" src=\"/media/media/2018/01/23/icon_inclusion.svg\" style=\"width: 50px; height: 50px;\" /></td>\r\n			<td>Comunicarse y respetar la diversidad y pluralidad de las personas, sus familias y las comunidades en el cumplimiento de su rol, con responsabilidad social.</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n</div>'),(2,'objetivos','<div class=\"range range-xs-center\">\r\n    <div class=\"cell-sm-9 cell-lg-6\">\r\n        <h3>Misi&oacute;n Odontología</h3>\r\n        <hr class=\"divider divider-lg bg-java\" />\r\n        <div class=\"offset-top-41 offset-lg-top-66\">\r\n            <p>La carrera de Odontolog&iacute;a de la Universidad de La Serena tiene como misi&oacute;n aportar al mejoramiento de la realidad regional y nacional mediante la generaci&oacute;n de conocimiento y la formaci&oacute;n de profesionales competentes y socialmente responsables.</p>\r\n            <p>Para ello promueve el desarrollo de una docencia de calidad, caracterizada por la integralidad desde lo t&eacute;cnico y lo humano, para el ejercicio criterioso y &eacute;tico de la profesi&oacute;n de manera individual y colegiada.</p>\r\n        </div>\r\n    </div>\r\n    <div class=\"cell-lg-6 offset-top-0\">\r\n    	<img alt=\"\" class=\"img-responsive veil reveal-lg-inline-block\" height=\"330\" src=\"/media/media/2018/01/24/mision.jpg\" width=\"500\" />\r\n    </div>\r\n</div>\r\n<div class=\"range range-xs-center\">\r\n    <div class=\"cell-lg-6 offset-top-0\">\r\n    	<img alt=\"\" class=\"img-responsive veil reveal-lg-inline-block\" height=\"330\" src=\"/media/media/2018/01/24/vision.jpg\" width=\"500\" />\r\n    </div>\r\n    <div class=\"cell-sm-9 cell-lg-6\">\r\n        <h3>Visi&oacute;n Odontología</h3>\r\n        <hr class=\"divider divider-lg bg-java\" />\r\n        <div class=\"offset-top-41 offset-lg-top-66\">\r\n            <p>Constituirse en el referente de la zona norte del pa&iacute;s para la generaci&oacute;n de conocimiento y formaci&oacute;n de cirujanos dentistas tanto en pregrado como posgrado, siendo reconocida por su vinculaci&oacute;n con el medio.</p>\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"range range-xs-center\">\r\n    <div class=\"cell-xs-12 cell-lg-12\">\r\n    	<h3>Misi&oacute;n Universidad</h3>\r\n        <hr class=\"divider divider-lg bg-java\" />\r\n        <div class=\"offset-top-41 offset-lg-top-66\">\r\n            <p>La Universidad de La Serena es una universidad regional del Estado de Chile, comprometida con la Región de Coquimbo, que centra su quehacer en las áreas de las ciencias, la tecnología, las humanidades y las ciencias sociales.</p>\r\n			<p>Desarrolla principalmente programas formativos de profesionales y postgraduados, privilegiando su calidad tanto en lo académico como en lo valórico, y promoviendo en sus estudiantes una visión crítica y de responsabilidad respecto de su entorno.</p>\r\n			<p>Contribuye a la generación de conocimiento a través de la realización de investigación focalizada, preferentemente asociada a temáticas regionales, y a través de la creación artística.</p>\r\n			<p>En el aspecto misional de la vinculación con el medio, la Universidad de La Serena contribuye, desde la diversidad de su quehacer, al mejoramiento de los procesos de instituciones públicas y privadas, a la preservación y difusión de la cultura y al bienestar social.</p>\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"range range-xs-center\">\r\n    <div class=\"cell-xs-12 cell-lg-12\">\r\n        <h3>Visi&oacute;n Universidad</h3>\r\n        <hr class=\"divider divider-lg bg-java\" />\r\n        <div class=\"offset-top-41 offset-lg-top-66\">\r\n            <p>La Universidad de La Serena es una universidad regional del Estado de Chile que, consolidada en su quehacer académico, aspira a ejercer un rol protagónico en el desarrollo de la Región de Coquimbo y del país, y a ser reconocida en el sistema de educación superior por la calidad de sus actividades en el ámbito de la docencia, la investigación y la vinculación con el medio.</p>\r\n        </div>\r\n    </div>\r\n</div>'),(3,'plan','<h3 class=\"text-center text-sm-left\">Malla de la carrera en diagrama</h3>\r\n\r\n<hr class=\"divider divider-lg hr-sm-left-2 bg-java\" />\r\n<p><img alt=\"\" src=\"/media/media/2018/01/24/malla_carrera.svg\" /></p>\r\n<br>\r\n<br>\r\n<br>\r\n<h3 class=\"text-center text-sm-left\">Malla de la carrera en tabla</h3>\r\n\r\n<hr class=\"divider divider-lg hr-sm-left-2 bg-java\" />\r\n<table class=\"table table-custom table-primary table-fixed\" data-responsive=\"true\">\r\n	<tbody>\r\n		<tr>\r\n			<th class=\"col-md-1\">N&ordm;</th>\r\n			<th class=\"col-md-1\">C&oacute;digo</th>\r\n			<th class=\"col-md-4\">Nombre Asignatura</th>\r\n			<th class=\"col-md-1\">T</th>\r\n			<th class=\"col-md-1\">L</th>\r\n			<th class=\"col-md-1\">SCT</th>\r\n			<th class=\"col-md-1\">Requisitos</th>\r\n			<th class=\"col-md-1\">R&eacute;gimen</th>\r\n			<th class=\"col-md-1\">Periodicidad</th>\r\n		</tr>\r\n		<tr>\r\n			<th colspan=\"9\" style=\"text-align:center;\">1&ordm; Nivel</th>\r\n		</tr>\r\n		<tr>\r\n			<td>1</td>\r\n			<td>29011</td>\r\n			<td>Introducci&oacute;n a la Odontolog&iacute;a</td>\r\n			<td>2</td>\r\n			<td>0</td>\r\n			<td>3</td>\r\n			<td>&nbsp;</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>2</td>\r\n			<td>21012</td>\r\n			<td>Biolog&iacute;a Celular</td>\r\n			<td>4</td>\r\n			<td>2</td>\r\n			<td>6</td>\r\n			<td>&nbsp;</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>3</td>\r\n			<td>24013</td>\r\n			<td>Qu&iacute;mica General y Org&aacute;nica</td>\r\n			<td>6</td>\r\n			<td>2</td>\r\n			<td>9</td>\r\n			<td>&nbsp;</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>4</td>\r\n			<td>29014</td>\r\n			<td>Anatom&iacute;a General</td>\r\n			<td>4</td>\r\n			<td>4</td>\r\n			<td>8</td>\r\n			<td>&nbsp;</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>5</td>\r\n			<td>22015</td>\r\n			<td>F&iacute;sica Aplicada de la Salud</td>\r\n			<td>4</td>\r\n			<td>0</td>\r\n			<td>4</td>\r\n			<td>&nbsp;</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td><strong>Total T.E.L:</strong></td>\r\n			<td><strong>20</strong></td>\r\n			<td><strong>8</strong></td>\r\n			<td><strong>30</strong></td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<th colspan=\"9\" style=\"text-align:center;\">2&ordm; Nivel</th>\r\n		</tr>\r\n		<tr>\r\n			<td>6</td>\r\n			<td>21021</td>\r\n			<td>Fisiolog&iacute;a General</td>\r\n			<td>4</td>\r\n			<td>0</td>\r\n			<td>4</td>\r\n			<td>29014<br />\r\n			21012</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>7</td>\r\n			<td>21022</td>\r\n			<td>Biolog&iacute;a Molecular y Gen&eacute;tica</td>\r\n			<td>4</td>\r\n			<td>0</td>\r\n			<td>4</td>\r\n			<td>&nbsp;</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>8</td>\r\n			<td>29023</td>\r\n			<td>Salud P&uacute;blica</td>\r\n			<td>4</td>\r\n			<td>0</td>\r\n			<td>4</td>\r\n			<td>&nbsp;</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>9</td>\r\n			<td>21024</td>\r\n			<td>Embriolog&iacute;a e Histolog&iacute;a General</td>\r\n			<td>4</td>\r\n			<td>2</td>\r\n			<td>6</td>\r\n			<td>29014<br />\r\n			21012</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>10</td>\r\n			<td>29025</td>\r\n			<td>Anatom&iacute;a de Cabeza y Cuello</td>\r\n			<td>4</td>\r\n			<td>4</td>\r\n			<td>10</td>\r\n			<td>29014</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>11</td>\r\n			<td>70026</td>\r\n			<td>Comunicaci&oacute;n Oral y Escrita</td>\r\n			<td>2</td>\r\n			<td>0</td>\r\n			<td>2</td>\r\n			<td>&nbsp;</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td><strong>Total T.E.L:</strong></td>\r\n			<td><strong>22</strong></td>\r\n			<td><strong>6</strong></td>\r\n			<td><strong>30</strong></td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<th colspan=\"9\" style=\"text-align:center;\">3&ordm; Nivel</th>\r\n		</tr>\r\n		<tr>\r\n			<td>12</td>\r\n			<td>29031</td>\r\n			<td>Patolog&iacute;a General</td>\r\n			<td>4</td>\r\n			<td>0</td>\r\n			<td>4</td>\r\n			<td>21021<br />\r\n			21022</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>13</td>\r\n			<td>29032</td>\r\n			<td>Farmacolog&iacute;a I</td>\r\n			<td>4</td>\r\n			<td>0</td>\r\n			<td>4</td>\r\n			<td>21021<br />\r\n			24013</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>14</td>\r\n			<td>21033</td>\r\n			<td>Microbiolog&iacute;a e Inmunolog&iacute;a</td>\r\n			<td>4</td>\r\n			<td>2</td>\r\n			<td>7</td>\r\n			<td>21022</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>15</td>\r\n			<td>29034</td>\r\n			<td>Biomateriales I</td>\r\n			<td>2</td>\r\n			<td>4</td>\r\n			<td>7</td>\r\n			<td>24013<br />\r\n			22015</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>16</td>\r\n			<td>29035</td>\r\n			<td>Crecimiento y Desarrollo Cr&aacute;neo-Facial</td>\r\n			<td>4</td>\r\n			<td>0</td>\r\n			<td>4</td>\r\n			<td>21024<br />\r\n			29025</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>17</td>\r\n			<td>21036</td>\r\n			<td>Bioqu&iacute;mica</td>\r\n			<td>4</td>\r\n			<td>0</td>\r\n			<td>4</td>\r\n			<td>24013<br />\r\n			21022</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td><strong>Total T.E.L:</strong></td>\r\n			<td><strong>22</strong></td>\r\n			<td><strong>6</strong></td>\r\n			<td><strong>30</strong></td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<th colspan=\"9\" style=\"text-align:center;\">4&ordm; Nivel</th>\r\n		</tr>\r\n		<tr>\r\n			<td>18</td>\r\n			<td>29041</td>\r\n			<td>Fisiolog&iacute;a Oral</td>\r\n			<td>4</td>\r\n			<td>0</td>\r\n			<td>4</td>\r\n			<td>21021</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>19</td>\r\n			<td>29042</td>\r\n			<td>Farmacolog&iacute;a II</td>\r\n			<td>4</td>\r\n			<td>0</td>\r\n			<td>4</td>\r\n			<td>29032</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>20</td>\r\n			<td>29043</td>\r\n			<td>Microbiolog&iacute;a Oral</td>\r\n			<td>4</td>\r\n			<td>2</td>\r\n			<td>7</td>\r\n			<td>21033</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>21</td>\r\n			<td>29044</td>\r\n			<td>Biomateriales II</td>\r\n			<td>2</td>\r\n			<td>4</td>\r\n			<td>7</td>\r\n			<td>29034</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>22</td>\r\n			<td>29045</td>\r\n			<td>Fisiopatolog&iacute;a General</td>\r\n			<td>4</td>\r\n			<td>0</td>\r\n			<td>4</td>\r\n			<td>29031</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>23</td>\r\n			<td>29046</td>\r\n			<td>Histolog&iacute;a Buco-Dentaria</td>\r\n			<td>2</td>\r\n			<td>2</td>\r\n			<td>4</td>\r\n			<td>29025<br />\r\n			21024</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td><strong>Total T.E.L:</strong></td>\r\n			<td><strong>20</strong></td>\r\n			<td><strong>8</strong></td>\r\n			<td><strong>30</strong></td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<th colspan=\"9\" style=\"text-align:center;\">5&ordm; Nivel</th>\r\n		</tr>\r\n		<tr>\r\n			<td>24</td>\r\n			<td>29051</td>\r\n			<td>Precl&iacute;nico Integrado I</td>\r\n			<td>4</td>\r\n			<td>6</td>\r\n			<td>12</td>\r\n			<td>29044</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>25</td>\r\n			<td>29052</td>\r\n			<td>Patolog&iacute;a Bucal I</td>\r\n			<td>4</td>\r\n			<td>0</td>\r\n			<td>4</td>\r\n			<td>29031<br />\r\n			29046</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>26</td>\r\n			<td>29053</td>\r\n			<td>Cariolog&iacute;a</td>\r\n			<td>4</td>\r\n			<td>0</td>\r\n			<td>4</td>\r\n			<td>29043</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>27</td>\r\n			<td>29054</td>\r\n			<td>Bioestad&iacute;stica</td>\r\n			<td>2</td>\r\n			<td>0</td>\r\n			<td>2</td>\r\n			<td>29023</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>28</td>\r\n			<td>29055</td>\r\n			<td>Oclusi&oacute;n</td>\r\n			<td>4</td>\r\n			<td>2</td>\r\n			<td>6</td>\r\n			<td>29041</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>29</td>\r\n			<td>29056</td>\r\n			<td>Metodolog&iacute;a de la Investigaci&oacute;n</td>\r\n			<td>2</td>\r\n			<td>0</td>\r\n			<td>2</td>\r\n			<td>&nbsp;</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td><strong>Total T.E.L:</strong></td>\r\n			<td><strong>20</strong></td>\r\n			<td><strong>8</strong></td>\r\n			<td><strong>30</strong></td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<th colspan=\"9\" style=\"text-align:center;\">6&ordm; Nivel</th>\r\n		</tr>\r\n		<tr>\r\n			<td>30</td>\r\n			<td>29061</td>\r\n			<td>Precl&iacute;nico Integrado II</td>\r\n			<td>4</td>\r\n			<td>6</td>\r\n			<td>12</td>\r\n			<td>29051</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>31</td>\r\n			<td>29062</td>\r\n			<td>Patolog&iacute;a Bucal II</td>\r\n			<td>4</td>\r\n			<td>0</td>\r\n			<td>4</td>\r\n			<td>29052<br />\r\n			29046</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>32</td>\r\n			<td>29063</td>\r\n			<td>Periodoncia I</td>\r\n			<td>4</td>\r\n			<td>0</td>\r\n			<td>4</td>\r\n			<td>29043<br />\r\n			29046</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>33</td>\r\n			<td>29064</td>\r\n			<td>Epidemiolog&iacute;a y Demograf&iacute;a</td>\r\n			<td>2</td>\r\n			<td>0</td>\r\n			<td>2</td>\r\n			<td>29054</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>34</td>\r\n			<td>29065</td>\r\n			<td>Radiolog&iacute;a e Imagenolog&iacute;a Buco-Maxilofacial</td>\r\n			<td>4</td>\r\n			<td>2</td>\r\n			<td>6</td>\r\n			<td>29035</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>35</td>\r\n			<td>29066</td>\r\n			<td>Semiolog&iacute;a</td>\r\n			<td>2</td>\r\n			<td>0</td>\r\n			<td>2</td>\r\n			<td>29045<br />\r\n			29031</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td><strong>Total T.E.L:</strong></td>\r\n			<td><strong>20</strong></td>\r\n			<td><strong>8</strong></td>\r\n			<td><strong>30</strong></td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<th colspan=\"9\" style=\"text-align:center;\">7&ordm; Nivel</th>\r\n		</tr>\r\n		<tr>\r\n			<td>36</td>\r\n			<td>29071</td>\r\n			<td>Endodoncia I</td>\r\n			<td>1</td>\r\n			<td>3</td>\r\n			<td>4</td>\r\n			<td>6&ordm; Nivel</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>37</td>\r\n			<td>29072</td>\r\n			<td>Rehabilitaci&oacute;n Oral I</td>\r\n			<td>2</td>\r\n			<td>6</td>\r\n			<td>8</td>\r\n			<td>6&ordm; Nivel</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>38</td>\r\n			<td>29073</td>\r\n			<td>Periodoncia II</td>\r\n			<td>1</td>\r\n			<td>4</td>\r\n			<td>4</td>\r\n			<td>6&ordm; Nivel</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>39</td>\r\n			<td>29074</td>\r\n			<td>Cirug&iacute;a I</td>\r\n			<td>1</td>\r\n			<td>4</td>\r\n			<td>4</td>\r\n			<td>6&ordm; Nivel</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>40</td>\r\n			<td>29075</td>\r\n			<td>Odontopediatr&iacute;a I</td>\r\n			<td>2</td>\r\n			<td>4</td>\r\n			<td>5</td>\r\n			<td>6&ordm; Nivel</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>41</td>\r\n			<td>29076</td>\r\n			<td>Operator&iacute;a I</td>\r\n			<td>1</td>\r\n			<td>4</td>\r\n			<td>5</td>\r\n			<td>6&ordm; Nivel</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td><strong>Total T.E.L:</strong></td>\r\n			<td><strong>8</strong></td>\r\n			<td><strong>25</strong></td>\r\n			<td><strong>30</strong></td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<th colspan=\"9\" style=\"text-align:center;\">8&ordm; Nivel</th>\r\n		</tr>\r\n		<tr>\r\n			<td>42</td>\r\n			<td>29081</td>\r\n			<td>Endodoncia II</td>\r\n			<td>1</td>\r\n			<td>4</td>\r\n			<td>4</td>\r\n			<td>29071</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>43</td>\r\n			<td>29082</td>\r\n			<td>Rehabilitaci&oacute;n Oral II</td>\r\n			<td>3</td>\r\n			<td>6</td>\r\n			<td>8</td>\r\n			<td>29072</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>44</td>\r\n			<td>29083</td>\r\n			<td>Periodoncia III</td>\r\n			<td>1</td>\r\n			<td>5</td>\r\n			<td>4</td>\r\n			<td>29073</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>45</td>\r\n			<td>29084</td>\r\n			<td>Cirug&iacute;a II</td>\r\n			<td>1</td>\r\n			<td>5</td>\r\n			<td>4</td>\r\n			<td>29074</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>46</td>\r\n			<td>29085</td>\r\n			<td>Odontopediatr&iacute;a II</td>\r\n			<td>2</td>\r\n			<td>5</td>\r\n			<td>5</td>\r\n			<td>29075</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>47</td>\r\n			<td>29086</td>\r\n			<td>Operator&iacute;a II</td>\r\n			<td>1</td>\r\n			<td>5</td>\r\n			<td>5</td>\r\n			<td>29076</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td><strong>Total T.E.L:</strong></td>\r\n			<td><strong>8</strong></td>\r\n			<td><strong>30</strong></td>\r\n			<td><strong>30</strong></td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<th colspan=\"9\" style=\"text-align:center;\">9&ordm; Nivel</th>\r\n		</tr>\r\n		<tr>\r\n			<td>48</td>\r\n			<td>29091</td>\r\n			<td>Pr&oacute;tesis Removible I</td>\r\n			<td>1</td>\r\n			<td>7</td>\r\n			<td>5</td>\r\n			<td>29082</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>49</td>\r\n			<td>29092</td>\r\n			<td>Cl&iacute;nica Integral del Adulto I</td>\r\n			<td>2</td>\r\n			<td>7</td>\r\n			<td>8</td>\r\n			<td>29081<br />\r\n			29082<br />\r\n			29083<br />\r\n			29084<br />\r\n			29086</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>50</td>\r\n			<td>29093</td>\r\n			<td>Cl&iacute;nica Integral del Ni&ntilde;o I</td>\r\n			<td>2</td>\r\n			<td>8</td>\r\n			<td>8</td>\r\n			<td>29085</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>51</td>\r\n			<td>29094</td>\r\n			<td>Cirug&iacute;a Maxilofacial</td>\r\n			<td>1</td>\r\n			<td>5</td>\r\n			<td>5</td>\r\n			<td>29084</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>52</td>\r\n			<td>29095</td>\r\n			<td>Odontolog&iacute;a Legal</td>\r\n			<td>2</td>\r\n			<td>0</td>\r\n			<td>2</td>\r\n			<td>&nbsp;</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>53</td>\r\n			<td>29096</td>\r\n			<td>Administraci&oacute;n y Gesti&oacute;n en Salud</td>\r\n			<td>2</td>\r\n			<td>0</td>\r\n			<td>2</td>\r\n			<td>29023</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td><strong>Total T.E.L:</strong></td>\r\n			<td><strong>10</strong></td>\r\n			<td><strong>27</strong></td>\r\n			<td><strong>30</strong></td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<th colspan=\"9\" style=\"text-align:center;\">10&ordm; Nivel</th>\r\n		</tr>\r\n		<tr>\r\n			<td>54</td>\r\n			<td>29101</td>\r\n			<td>Ortodoncia y Ortopedia</td>\r\n			<td>2</td>\r\n			<td>0</td>\r\n			<td>2</td>\r\n			<td>29093</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>55</td>\r\n			<td>29102</td>\r\n			<td>Pr&oacute;tesis Removible II</td>\r\n			<td>2</td>\r\n			<td>0</td>\r\n			<td>2</td>\r\n			<td>29091</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>56</td>\r\n			<td>29103</td>\r\n			<td>Cl&iacute;nica Integral del Adulto II</td>\r\n			<td>2</td>\r\n			<td>0</td>\r\n			<td>2</td>\r\n			<td>29092</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>57</td>\r\n			<td>29104</td>\r\n			<td>Cl&iacute;nica Integral del Ni&ntilde;o II</td>\r\n			<td>2</td>\r\n			<td>0</td>\r\n			<td>2</td>\r\n			<td>29093</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>58</td>\r\n			<td>29105</td>\r\n			<td>Cirug&iacute;a y Traumatolog&iacute;a Maxilofacial</td>\r\n			<td>2</td>\r\n			<td>0</td>\r\n			<td>2</td>\r\n			<td>29094</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>59</td>\r\n			<td>29106</td>\r\n			<td>Odontolog&iacute;a Geri&aacute;trica</td>\r\n			<td>2</td>\r\n			<td>0</td>\r\n			<td>2</td>\r\n			<td>&nbsp;</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td><strong>Total T.E.L:</strong></td>\r\n			<td><strong>8</strong></td>\r\n			<td><strong>30</strong></td>\r\n			<td><strong>30</strong></td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<th colspan=\"9\" style=\"text-align:center;\">11&ordm; Nivel</th>\r\n		</tr>\r\n		<tr>\r\n			<td>60</td>\r\n			<td>29111</td>\r\n			<td>Internado Cl&iacute;nico Asistencial I</td>\r\n			<td>0</td>\r\n			<td>53</td>\r\n			<td>30</td>\r\n			<td>10&ordm; Nivel</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td><strong>Total T.E.L:</strong></td>\r\n			<td><strong>0</strong></td>\r\n			<td><strong>53</strong></td>\r\n			<td><strong>30</strong></td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<th colspan=\"9\" style=\"text-align:center;\">12&ordm; Nivel</th>\r\n		</tr>\r\n		<tr>\r\n			<td>61</td>\r\n			<td>29121</td>\r\n			<td>Internado Cl&iacute;nico Asistencial II</td>\r\n			<td>0</td>\r\n			<td>53</td>\r\n			<td>28</td>\r\n			<td>29111</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>62</td>\r\n			<td>29122</td>\r\n			<td>Informe y Defensa de Internado</td>\r\n			<td>0</td>\r\n			<td>3</td>\r\n			<td>2</td>\r\n			<td>29111</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n		<tr>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td><strong>Total T.E.L:</strong></td>\r\n			<td><strong>0</strong></td>\r\n			<td><strong>53</strong></td>\r\n			<td><strong>30</strong></td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n			<td>&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<th colspan=\"9\">TIT: Preliminary English Test (PET)</th>\r\n		</tr>\r\n		<tr>\r\n			<td>63</td>\r\n			<td>899990201</td>\r\n			<td>Preliminary English Test (Pet)</td>\r\n			<td>0</td>\r\n			<td>0</td>\r\n			<td>0</td>\r\n			<td>2&ordm; Nivel</td>\r\n			<td>Semestral</td>\r\n			<td>Anual</td>\r\n		</tr>\r\n	</tbody>\r\n</table>'),(4,'organigrama','<p><img alt=\"\" src=\"/media/media/2018/01/24/organigrama_carrera_uSfZY9c.svg\" /></p>'),(5,'perfil profesional','<div class=\"range range-xs-center range-sm-left\">\r\n<div class=\"cell-xs-10 cell-sm-6 section-image-aside section-image-aside-right text-center text-sm-left\">\r\n<div class=\"section-image-aside-img veil reveal-sm-block\"><img alt=\"mision\" src=\"/media/media/2018/01/24/perfil_profesional_i1WpAjE.svg\" style=\"height: 90%; width: 90%;\" /></div>\r\n\r\n<div class=\"section-image-aside-body section-sm-bottom-66 inset-md-right-93\">\r\n<h3>Perfil del Profesional de la Carrera de Odontolog&iacute;a</h3>\r\n\r\n<hr class=\"divider divider-lg hr-sm-left-2 bg-java\" />\r\n<div class=\"offset-top-34 offset-md-top-60\">\r\n<table class=\"table table-responsive\" style=\"text-align:justify\">\r\n	<tbody>\r\n		<tr>\r\n			<td colspan=\"2\">&nbsp;</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>T&iacute;tulo Profesional:</strong></td>\r\n			<td>Cirujano Dentista</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>Grado Acad&eacute;mico: </strong></td>\r\n			<td>Licenciado en Odontolog&iacute;a</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>Duraci&oacute;n:</strong></td>\r\n			<td>12 semestres</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>Descripci&oacute;n:</strong></td>\r\n			<td>El Cirujano Dentista egresado de la Universidad de La Serena, ser&aacute; un profesional con una fuerte formaci&oacute;n cient&iacute;fica, humanista y tecnol&oacute;gica.</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n</div>\r\n</div>');
+/*!40000 ALTER TABLE `carrera_contenido` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `carrera_docentes`
+--
+
+DROP TABLE IF EXISTS `carrera_docentes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `carrera_docentes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombres` varchar(100) NOT NULL,
+  `apellido_paterno` varchar(100) NOT NULL,
+  `apellido_materno` varchar(100) NOT NULL,
+  `cargo` longtext,
+  `titulo` varchar(150) NOT NULL,
+  `foto` varchar(100) NOT NULL,
+  `nivel` int(11) NOT NULL,
+  `area` varchar(30) NOT NULL,
+  `especialidad` longtext,
+  `registro_siss` varchar(100) NOT NULL,
+  `postitulos` longtext,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carrera_docentes`
+--
+
+LOCK TABLES `carrera_docentes` WRITE;
+/*!40000 ALTER TABLE `carrera_docentes` DISABLE KEYS */;
+INSERT INTO `carrera_docentes` VALUES (1,'Viviana','Escudero','Jaramillo','Profesor de Biología','profesor','carrera/docente/viviana_escudero_jaramillo.png',1,'docente','','',NULL),(2,'Darwin','Pérez','Miranda','<p>Profesor Instructor adjunto<br />\r\nCoordinador Acad&eacute;mico &Aacute;rea Cl&iacute;nica<br />\r\nCoordinador Unidad de Rehabilitaci&oacute;n Oral<br />\r\nCoordinador y Docente Asignaturas Cl&iacute;nica Integral del Adulto, Operatoria y Odontolog&iacute;a Geri&aacute;trica.<br />\r\nDocente asignaturas Rehabilitaci&oacute;n Oral,&nbsp;Oclusi&oacute;n y Fisiolog&iacute;a Oral</p>','Cirujano Dentista','carrera/docente/darwin_perez_miranda.png',1,'rehabilitacion_oral','<p>Rehabilitaci&oacute;n Oral Prot&eacute;sica, Est&eacute;tica e Implantol&oacute;gica.</p>\r\n\r\n<p>Diplomado en Pedagog&iacute;a en Educaci&oacute;n Superior.</p>\r\n\r\n<p>Diplomado en Restauraciones Est&eacute;ticas Adhesivas.</p>','123736',NULL),(3,'Konrad','Fritz','León','<p>Coordinador&nbsp; Unidad de Endodoncia</p>\r\n\r\n<p>Coordinador y docente&nbsp;Asignaturas Endodoncia I y II</p>\r\n\r\n<p>Docente Asignatura Cl&iacute;nica Integral del Adulto I y II</p>','Cirujano Dentista','carrera/docente/konrad_fritz_M2dHS7t.png',1,'endodoncia','<p>Endodoncia</p>','7562',NULL),(4,'María Gabriela','Barahona','Moore','<p>Docente asignaturas&nbsp;Endodoncia I y II</p>','Cirujano Dentista','carrera/docente/maria_gabriela_barahona.png',2,'endodoncia','<p>Endodoncia</p>','7551',NULL),(5,'Ana María','García','Arévalo','<p>Docente asignaturas&nbsp;Endodoncia I y II y Cl&iacute;nica Integral del Adulto I y II</p>','Cirujano Dentista','carrera/docente/ana_maria_garcia.png',3,'endodoncia','<p>Endodoncia</p>','126803',NULL),(6,'Francisca Beatriz','Riquelme','Pedreros','<p>Docente asignaturas&nbsp;Endodoncia I y II</p>','Cirujano Dentista','carrera/docente/francisca_riquelme.png',4,'endodoncia','<p>Endodoncia</p>','1117',NULL),(7,'Francisco','Alarcón','Peredo','<p>Coordinador Unidad de Odontopediatr&iacute;a</p>\r\n\r\n<p>Coordinador y docente de Asignaturas&nbsp;Odontopediatr&iacute;a I y II,&nbsp;Clinica Integral del Ni&ntilde;o I y II</p>','Cirujano Dentista','carrera/docente/francisco_alarcon_KCqshV8.png',1,'odontopediatria','<p>Odontopediatr&iacute;a</p>','9152',NULL),(9,'Mónica','Acuña','Olivares','<p>Docente Asignaturas Cl&iacute;nica Integral del Ni&ntilde;o I y II</p>','Cirujano Dentista','carrera/docente/monica_acuna_Nc2Vhri.png',2,'odontopediatria','<p>Odontopediatr&iacute;a</p>','81566',NULL),(10,'Verónica','Flores','Rojas','<p>Docente asignaturas Odontopediatr&iacute;a I y II</p>','Cirujano Dentista','carrera/docente/veronica_flores.png',3,'odontopediatria','<p>Odontopediatr&iacute;a</p>','7560',NULL),(11,'Manuela','Camilla','Mondion','<p>Docente asignaturas Odontopediatr&iacute;a I y II, Cl&iacute;nica Integral del Ni&ntilde;o I y II.</p>\r\n\r\n<p>Docente asignatura Cariolog&iacute;a</p>','profesor','carrera/docente/manuela_mondion.png',4,'odontopediatria','<p>Odontopediatr&iacute;a</p>','268216',NULL),(12,'José Manuel','González','Pastén','<p>Coordinador y docente Asignaturas Rehabilitaci&oacute;n Oral I y II</p>','Cirujano Dentista','carrera/docente/hombre.png',2,'rehabilitacion_oral','<p>Especialista en Rehabilitaci&oacute;n Oral</p>','8139',NULL),(13,'Jorge Andrés','Maldonado','Williams','<p>Docente asignaturas Pr&oacute;tesis RemovibleI y II, Rehabilitaci&oacute;n Oral I y II.</p>','Cirujano Dentista','carrera/docente/hombre_UBTiDgN.png',3,'rehabilitacion_oral','<p>Trastornos Temporomandibulares y Dolor Orofacial (En curso)</p>\r\n\r\n<p>Magister en Docencia para la Educaci&oacute;n Superior</p>','120873',NULL),(14,'Giuseppe','Eccher','Herrera','<p>Docente Asignaturas Rehabilitaci&oacute;n Oral I y II,&nbsp;&nbsp;Operatoria I y II</p>','Cirujano Dentista','carrera/docente/hombre_uhvARQd.png',5,'rehabilitacion_oral','<p>Implantolog&iacute;a Oral Quir&uacute;rgico Prot&eacute;sico</p>','405154',NULL),(15,'Cristian Ignacio','Tapia','Apey','<p>Docente asignaturas Rehabilitaci&oacute;n Oral I y II, Operatoria I y II, y Cl&iacute;nica Integral del adulto I y II.</p>','Cirujano dentista','carrera/docente/hombre_Hohzqek.png',6,'rehabilitacion_oral','<p>Rehabilitaci&oacute;n Oral Prot&eacute;sica, Est&eacute;tica e Implantol&oacute;gica.</p>','202045',NULL),(16,'Paula','Arriagada','Diémer','<p>Encargada RAD carrera de odontolog&iacute;a<br />\r\nCoordinadora y docente Asignaturas Introducci&oacute;n a la Odontolog&iacute;a y Salud P&uacute;blica<br />\r\nDocente asignaturas&nbsp;Operatoria I y II.</p>','Cirujano dentista','carrera/docente/mujer.png',7,'rehabilitacion_oral','<p>Mag&iacute;ster Salud P&uacute;blica</p>\r\n\r\n<p>Diplomada Salud Familiar</p>\r\n\r\n<p>Diplomada Atenci&oacute;n Odontol&oacute;gica a pacientes con necesidades especiales.</p>','46633',NULL),(17,'Carlos','Araneda','Sotomayor','<p>Docente asignaturas Cl&iacute;nica Integral del Adulto I y II, Pr&oacute;tesis Removible I y II</p>\r\n\r\n<p>Docente asignatura Oclusi&oacute;n</p>','Cirujano Dentista','carrera/docente/hombre_sLX93wh.png',8,'rehabilitacion_oral','<p>Rehabilitaci&oacute;n Oral</p>','223875',NULL),(18,'Gonzalo','Hidalgo','Zañartu','<p>Docente asignaturas Rehabilitaci&oacute;n Oral I y II,&nbsp;&nbsp;Pr&oacute;tesis Removible I y II.</p>','Cirujano Dentista','carrera/docente/hombre_rNJuHbR.png',9,'rehabilitacion_oral','<p>Implantolog&iacute;a Oral</p>','202540',NULL),(19,'Raúl Ernesto','Frugone','Zambra','<p>Coordinador y Docente asignaturas Fisiolog&iacute;a Oral y de Oclusi&oacute;n.<br />\r\nInvestigador. Instituto de Investigaci&oacute;n Multidisciplinaria en Ciencia y Tecnolog&iacute;a.</p>','Cirujano Dentista','carrera/docente/hombre_8blWXEF.png',10,'rehabilitacion_oral','<p>Trastornos Temporomandibulares y Dolor Orofacial</p>\r\n\r\n<p>Doctor en Ciencias de la Salud con Menci&oacute;n en Trastornos Temporomandibulares.</p>\r\n\r\n<p>Mag&iacute;ster en Ciencias con menci&oacute;n en Fisiolog&iacute;a y Fisiopatolog&iacute;a del Crecimiento y Desarrollo Maxilo-facial.<br />\r\nMagister en&nbsp;Manejo Interdisciplinario de la Patolog&iacute;a Temporomandibular, Oclusal y Postural.<br />\r\n&nbsp;</p>','31405',NULL),(20,'Miguel Alejandro','Fuentealba','Fernández','<p>Docente asignatura de&nbsp; Oclusi&oacute;n</p>','Cirujano Dentista','carrera/docente/hombre_FM9tBdj.png',11,'rehabilitacion_oral','<p>Trastornos Temporomandibulares y Dolor Orofacial.</p>','254676',NULL),(21,'Marissa Catalina','Herbias','Morales','<p>Docente Asignatura Oclusi&oacute;n</p>','Cirujano Dentista','carrera/docente/mujer_V7GPbBg.png',12,'rehabilitacion_oral','<p>No registra</p>','155788',NULL),(23,'Juan','Balbontín','Cerda','<p>Coordinador&nbsp;Unidad de Periodoncia</p>\r\n\r\n<p>Docente Asignaturas de Periodoncia y Cl&iacute;nica Integral del Adulto</p>','Cirujano Dentista','carrera/docente/hombre_sRRxGWY.png',1,'periodoncia','<p>Especialista en Periodoncia e Implantolog&iacute;a</p>','97013',NULL),(24,'Rossana','Vásquez','Morán','<p>Docente asignaturas de Periodoncia I, II y III</p>','Cirujano Dentista','carrera/docente/mujer_RpwczlX.png',2,'periodoncia','<p>Especialista en Periodoncia</p>','8992',NULL),(25,'Jennie','Ospino','Saumett','<p>Docente asignaturas&nbsp;Periodoncia I, II y III.</p>','Cirujano Dentista','carrera/docente/mujer_gmSZXav.png',3,'periodoncia','<p>Periodoncia e Implantolog&iacute;a Oral</p>','259205',NULL),(26,'María de los Angeles','Valdivia','Cortés','<p>Docente asignaturas&nbsp;Periodoncia I, II y III</p>','Cirujano Dentista','carrera/docente/mujer_jxPyluW.png',4,'periodoncia','<p>Periodoncia e Implantolog&iacute;a Oral</p>','1279',NULL),(27,'María','Lazo','Soissa','<p>Docente asignaturas&nbsp;Periodoncia I, II y III.</p>','Cirujano Dentista','carrera/docente/mujer_vrMB2MF.png',5,'periodoncia','<p>Periodoncia</p>','28597',NULL),(28,'David','Miranda','González','<p>Docente asignatura de Periodoncia</p>','Cirujano Dentista','carrera/docente/hombre_F35OBxa.png',6,'periodoncia','Especialista en Periodoncia e Implantología Buco Maxilofacial','306919',NULL),(29,'Natalia','Olivares','Araya','<p>Docente asignaturas Cl&iacute;nica Integral del Adulto I y II</p>','Cirujano Dentista','carrera/docente/mujer_IoYryLp.png',7,'periodoncia','<p>Periodoncia e Implantolog&iacute;a Oral</p>','68824',NULL),(30,'Sofía','Castro','Castillo','<p>Coordinadora y docente de Biomateriales&nbsp; I y II</p>\r\n\r\n<p>Docente de Radiolog&iacute;a</p>\r\n\r\n<p>Radi&oacute;loga de la Unidad de Radiolog&iacute;a</p>','Cirujano Dentista','carrera/docente/mujer_TJjm0kJ.png',1,'ciencias_preclinicas','<p>Radiolog&iacute;a Oral y Maxilofacial</p>','8200',NULL),(31,'Alejandro','Zamorano','Arancibia','<p>Encargado de acreditaci&oacute;n y calidad</p>\r\n\r\n<p>Docente de Biomateriales I y II</p>\r\n\r\n<p>Docente de Precl&iacute;nico Integrado II.</p>','Cirujano Dentista.','carrera/docente/hombre_rG5rUoJ.png',2,'ciencias_preclinicas','<p>Rehabilitaci&oacute;n Oral.</p>\r\n\r\n<p>Mag&iacute;ster en Pedagog&iacute;a Universitaria.</p>','33434',NULL),(32,'José Luis','Parra','Vargas','<p>Docente asignaturas&nbsp;Biomateriales&nbsp; I y II.</p>','Cirujano Dentista','carrera/docente/hombre_aWJIC24.png',3,'ciencias_preclinicas','<p>No registra</p>','305186',NULL),(33,'David','Miranda','González','<p>Docente asignaturas&nbsp;Periodoncia I, II y III</p>\r\n\r\n<p>Docente asignatura&nbsp;Biomateriales I</p>','Cirujano Dentista','carrera/docente/hombre_xrI1lrE.png',4,'ciencias_preclinicas','<p>Periodoncia e Implantolog&iacute;a Buco Maxilofacial.</p>','306919',NULL),(34,'Andrés Manuel','Guerrero','Cereceda','<p>PROFESOR ASISTENTE</p>\r\n\r\n<p>COORDINADOR DE LA UNIDAD DE CIRUG&Iacute;A</p>\r\n\r\n<p>DOCENTE ASIGNATURA DE ANATOM&Iacute;A DE CABEZA Y CUELLO, CIRUG&Iacute;A I, CIRUG&Iacute;A II, CIRUG&Iacute;A M&Aacute;XILOFACIAL Y CIRUG&Iacute;A Y TRAUMATOLOG&Iacute;A M&Aacute;XILOFACIAL.</p>','CIRUJANO DENTISTA','carrera/docente/Andres_Guerrero_pagina.jpg',1,'cirugia','<p>CIRUG&Iacute;A Y TRAUMATOLOG&Iacute;A BUCO M&Aacute;XILOFACIAL</p>','8166','<p>No registra</p>'),(35,'Mauricio Alejandro','Carvajal','Contreras','<p>DOCENTE ASIGNATURA DE CIRUG&Iacute;A M&Aacute;XILOFACIAL Y CIRUG&Iacute;A Y TRAUMATOLOG&Iacute;A M&Aacute;XILOFACIAL</p>','CIRUJANO DENTISTA','carrera/docente/hombre_LuGwWfP.png',2,'cirugia','<p>CIRUG&Iacute;A Y TRAUMATOLOG&Iacute;A BUCO M&Aacute;XILOFACIAL</p>','9189',NULL),(36,'Eduardo Felipe','Tapia','Ortiz','<p>Coordinador y docente asignaturas Cirug&iacute;a Maxilofacial y Cirug&iacute;a y Traumatolog&iacute;a Maxilofacial</p>','CIRUJANO DENTISTA','carrera/docente/hombre_w3p7ilx.png',3,'cirugia','<p>Cirug&iacute;a y Traumatolog&iacute;a Buco Maxilofacial&nbsp;</p>','8154',NULL),(37,'Jorge Antonio','Muñoz','Contreras','<p>Docente asignaturas Cirug&iacute;a I y II, Cirug&iacute;a Maxilofacial y Cirug&iacute;a y Traumatolog&iacute;a Maxilofacial</p>\r\n\r\n<p>&nbsp;</p>','CIRUJANO DENTISTA','carrera/docente/Jorge_Muñoz_Pagina.jpg',4,'cirugia','<p>No registra</p>','32190',NULL),(38,'Marko Andrés','Simunovic','Contreras','<p>Docente asignaturas Cirug&iacute;a Maxilofacial y Cirug&iacute;a y Traumatolog&iacute;a Maxilofacial</p>\r\n\r\n<p>&nbsp;</p>','CIRUJANO DENTISTA','carrera/docente/hombre_IDjz4ux.png',5,'cirugia','<p>No registra</p>','446027',NULL),(39,'Juan Pablo','Morales','Concha','<p>Docente asignaturas Cirug&iacute;a Maxilofacial y Cirug&iacute;a y Traumatolog&iacute;a MaxiloFacial.</p>\r\n\r\n<p>Coordinador y docente asignatura de Semiolog&iacute;a</p>\r\n\r\n<p>Docente asignatura&nbsp;Oclusi&oacute;n<br />\r\n&nbsp;</p>','CIRUJANO DENTISTA','carrera/docente/Juan_Pablo_Morales_Pagina.jpg',6,'cirugia','<p>No registra</p>','161343',NULL),(40,'Diego Bastián','Cortez','Espejo','<p>Docente asignaturas&nbsp;Cirug&iacute;a I y II.</p>','CIRUJANO DENTISTA','carrera/docente/hombre_isSuBW5.png',7,'cirugia','<p>No registra</p>','446027',NULL),(41,'Yanara Rocío','Carrasco','Erices','<p>Docente asignaturas Cirug&iacute;a I y II</p>','CIRUJANO DENTISTA','carrera/docente/mujer_UePdVoJ.png',8,'cirugia','<p>No registra</p>','399470',NULL),(42,'Tamara','Dalbosco','Rendic','<p>Docente asignaturas Precl&iacute;nico Integrado I y II.</p>','Cirujano Dentista.','carrera/docente/mujer_F2jrhYy.png',5,'ciencias_preclinicas','<p>Rehabilitaci&oacute;n Oral</p>','95549',NULL),(43,'Eduardo','Labarca','Bardelli','<p>Docente asignaturas&nbsp;Precl&iacute;nico Integrado I y II.</p>','Cirujano Dentista.','carrera/docente/hombre_6N5fB7D.png',6,'ciencias_preclinicas','<p>No registra</p>','94688',NULL),(44,'Christian','Parra','Ramírez','<p>Docente asignaturas&nbsp;Precl&iacute;nico Integrado I y II.</p>','Cirujano Dentista.','carrera/docente/hombre_gajWsOE.png',7,'ciencias_preclinicas','<p>Rehabilitaci&oacute;n Oral</p>','64010',NULL),(45,'Ignacio','Cáceres','López','<p>Docente asignaturas Precl&iacute;nico Integrado I y II.</p>','Cirujano Dentista.','carrera/docente/hombre_Y7w2wPQ.png',8,'ciencias_preclinicas','<p>Implantolog&iacute;a Bucomaxilofacial.</p>','8201',NULL),(46,'Christian','Castillo','Jiménez.','<p>Coordinador Ciencias Precl&iacute;nicas</p>\r\n\r\n<p>Coordinador y docente asignaturas Precl&iacute;nico Integrado I y II<br />\r\nDocente asignatura de Rehabilitaci&oacute;n Oral I y II&nbsp;</p>','Cirujano Dentista.','carrera/docente/hombre_wnFUQHj.png',9,'ciencias_preclinicas','<p>Rehabilitaci&oacute;n Oral</p>','8225',NULL),(47,'Francisco José','Pedreros','Fernández','<p>Coordinador y docente asignaturas de Pr&oacute;tesis Removible I y II</p>','Cirujano dentista','carrera/docente/hombre_upPfPII.png',4,'rehabilitacion_oral','<p>Especialista Rehabilitaci&oacute;n oral</p>\r\n\r\n<p>Mag&iacute;ster en Odontolog&iacute;a Est&eacute;tica</p>','7322',NULL),(48,'Daniela','Pérez','Silva','<p>Coordinadora y docente Asignatura de Cariolog&iacute;a</p>\r\n\r\n<p>Docente Asignaturas Operatoria I y II</p>','CIRUJANO DENTISTA','carrera/docente/mujer_KEOhwjL.png',1,'rehabilitacion_oral','<p>No registra</p>','43560',NULL);
+/*!40000 ALTER TABLE `carrera_docentes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `carrera_tipopoliticapublica`
+--
+
+DROP TABLE IF EXISTS `carrera_tipopoliticapublica`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `carrera_tipopoliticapublica` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(400) NOT NULL,
+  `orden` int(11) NOT NULL,
+  `mostrar` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carrera_tipopoliticapublica`
+--
+
+LOCK TABLES `carrera_tipopoliticapublica` WRITE;
+/*!40000 ALTER TABLE `carrera_tipopoliticapublica` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carrera_tipopoliticapublica` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clinica_contenido`
+--
+
+DROP TABLE IF EXISTS `clinica_contenido`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clinica_contenido` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `seccion` varchar(100) NOT NULL,
+  `texto` longtext,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clinica_contenido`
+--
+
+LOCK TABLES `clinica_contenido` WRITE;
+/*!40000 ALTER TABLE `clinica_contenido` DISABLE KEYS */;
+INSERT INTO `clinica_contenido` VALUES (1,'Organigrama','<p><img alt=\"\" src=\"/media/media/2018/01/24/organigrama_clinica_DIJyTPZ.svg\" /></p>'),(3,'Preguntas Frecuentes','<div class=\"text-left\"><!-- Bootstrap Accordion-->\r\n<div aria-multiselectable=\"true\" class=\"panel-group accordion offset-top-0\" id=\"accordion-1\" role=\"tablist\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\" id=\"headingOne\" role=\"tab\">\r\n<div class=\"panel-title\"><a aria-expanded=\"true\" class=\"collapsed\" data-parent=\"#accordion-1\" data-toggle=\"collapse\" href=\"#collapseOne\" role=\"button\">Formas de Pago</a></div>\r\n</div>\r\n\r\n<div aria-labelledby=\"headingOne\" class=\"panel-collapse collapse\" id=\"collapseOne\" role=\"tabpanel\">\r\n<div class=\"panel-body\">Efectivo, tarjetas bancarias.</div>\r\n</div>\r\n</div>\r\n\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\" id=\"headingTwo\" role=\"tab\">\r\n<div class=\"panel-title\"><a aria-expanded=\"true\" class=\"collapsed\" data-parent=\"#accordion-1\" data-toggle=\"collapse\" href=\"#collapseTwo\" role=\"button\">Admisi&oacute;n</a></div>\r\n</div>\r\n\r\n<div aria-labelledby=\"headingTwo\" class=\"panel-collapse collapse\" id=\"collapseTwo\" role=\"tabpanel\">\r\n<div class=\"panel-body\">A inicios del semestre mediante inscripci&oacute;n en libro de registro y llamado a proceso de Tamizaje.</div>\r\n</div>\r\n</div>\r\n\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\" id=\"headingThree\" role=\"tab\">\r\n<div class=\"panel-title\"><a aria-expanded=\"true\" class=\"collapsed\" data-parent=\"#accordion-1\" data-toggle=\"collapse\" href=\"#collapseThree\" role=\"button\">Horario</a></div>\r\n</div>\r\n\r\n<div aria-labelledby=\"headingThree\" class=\"panel-collapse collapse\" id=\"collapseThree\" role=\"tabpanel\">\r\n<div class=\"panel-body\">Lunes a Viernes de 08.00 a 20.30 hrs, variaci&oacute;n de acuerdo a cada c&aacute;tedra.</div>\r\n</div>\r\n</div>\r\n\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\" id=\"headingFourth\" role=\"tab\">\r\n<div class=\"panel-title\"><a aria-expanded=\"true\" class=\"collapsed\" data-parent=\"#accordion-1\" data-toggle=\"collapse\" href=\"#collapseFourth\" role=\"button\">Tel&eacute;fono</a></div>\r\n</div>\r\n\r\n<div aria-labelledby=\"headingFourth\" class=\"panel-collapse collapse\" id=\"collapseFourth\" role=\"tabpanel\">\r\n<div class=\"panel-body\">+56-51-2334660 (Atenci&oacute;n de tel&eacute;fonos desde las 08.00 a las 18.30 hrs.)</div>\r\n</div>\r\n</div>\r\n\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\" id=\"headingFive\" role=\"tab\">\r\n<div class=\"panel-title\"><a aria-expanded=\"true\" class=\"collapsed\" data-parent=\"#accordion-1\" data-toggle=\"collapse\" href=\"#collapseFive\" role=\"button\">Direcci&oacute;n</a></div>\r\n</div>\r\n\r\n<div aria-labelledby=\"headingFive\" class=\"panel-collapse collapse\" id=\"collapseFive\" role=\"tabpanel\">\r\n<div class=\"panel-body\">J. Cisternas N&deg;1015, La Serena.</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>');
+/*!40000 ALTER TABLE `clinica_contenido` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clinica_equipo`
+--
+
+DROP TABLE IF EXISTS `clinica_equipo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clinica_equipo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombres` varchar(100) NOT NULL,
+  `apellido_paterno` varchar(100) NOT NULL,
+  `apellido_materno` varchar(100) NOT NULL,
+  `cargo` varchar(10) NOT NULL,
+  `foto` varchar(100) NOT NULL,
+  `nivel` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clinica_equipo`
+--
+
+LOCK TABLES `clinica_equipo` WRITE;
+/*!40000 ALTER TABLE `clinica_equipo` DISABLE KEYS */;
+INSERT INTO `clinica_equipo` VALUES (1,'María','Angulo','Godoy','auxiliar','clinica/equipo/maria_angulo.jpg',1),(2,'Francisco','Pedreros','Fernández','director','clinica/equipo/francisco_pedreros_DVFwiQz.jpg',1),(4,'Fabiola','Gutiérrez','Rojas','enfermera','clinica/equipo/fabiola_gutierrez_XF8NDFA.jpg',1),(5,'Elizabeth','Conejeros','Concha','enfermera','clinica/equipo/elizabeth_conejeros_WxIaWVA.jpg',2),(6,'Jorge','Cortés','Rojas','auxiliar','clinica/equipo/jorge_cortes_0EUCEpW.jpg',1),(7,'Leticia','Pallante','Rojas','tecnico','clinica/equipo/leticia_pallante_DOgtPBQ.jpg',1),(8,'Ana','Pizarro','González','tecnico','clinica/equipo/ana_pizarro_8IQA1rS.jpg',1),(9,'Claudia','Galleguillos','Véliz','tecnico','clinica/equipo/claudia_galleguillos_gLQKWcS.jpg',1),(10,'Ermelinda','Pizarro','Robledo','tecnico','clinica/equipo/ermelinda_pizarro_AFxXJyb.jpg',1),(11,'Gloria','Pastén','Plaza','tecnico','clinica/equipo/gloria_pasten_F9qMwiU.jpg',1),(12,'Maribel','Vargas','Osorio','tecnico','clinica/equipo/maribel_vargas_dZdeBzY.jpg',1),(13,'Aline','Toro','Gálvez','secretaria','clinica/equipo/aline_toro_q8sd3Ga.jpg',1),(14,'Jacqueline','Polanco','Toro','tecnico','clinica/equipo/jacqueline_polanco_2FD0kN4.jpg',1),(15,'Lorena','Díaz','Elgueta','auxiliar','clinica/equipo/lorena_diaz_TE77R36.jpg',1),(16,'Sheyla','Maldonado','Vicencio','secretaria','clinica/equipo/sheyla_maldonado_tXoIzFc.jpg',1),(17,'Anilsa','Varas','Aros','auxiliar','clinica/equipo/anilsa_varas.jpg',1),(18,'Mónica','Ramos','Sepúlveda','tecnico','clinica/equipo/monica_ramos.jpg',1),(19,'Rita','Vargas','González','tecnico','clinica/equipo/rita_vargas.jpg',1),(20,'Patricia','Díaz','Godoy','tecnico','clinica/equipo/patricia_diaz.jpg',1),(21,'Melissa','Cordova','Díaz','secretaria','clinica/equipo/melissa_cordova.jpg',1),(22,'Ana María','Gutierrez','Pizarro','auxiliar','clinica/equipo/ana_maria_gutierrez.png',5),(23,'Carlos Alberto','Mondaca','Paredes','auxiliar','clinica/equipo/carlos_mondaca.png',6),(24,'Marcela Andrea','Escobar','Miranda','secretaria','clinica/equipo/marcela_escobar.png',4),(25,'Melissa Milena','Ortiz','Luna','secretaria','clinica/equipo/melissa_ortiz.png',5),(26,'Cristina Paz','Ramirez','Venegas','enfermera','clinica/equipo/cristina_ramirez.png',3),(27,'Carla Karime','Mondaca','Carmona','tecnico','clinica/equipo/carla_mondaca.png',11),(28,'Laura Marisole','Madrid','Rojas','tecnico','clinica/equipo/laura_madrid.png',12),(29,'Indy Francisca','Nuñez','Bonilla','tecnico','clinica/equipo/indy_nunez.png',13),(30,'Danniela Constanza','Pastén','Araya','tecnico','clinica/equipo/danniela_pasten.png',14);
+/*!40000 ALTER TABLE `clinica_equipo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clinica_galeria`
+--
+
+DROP TABLE IF EXISTS `clinica_galeria`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clinica_galeria` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clinica_galeria`
+--
+
+LOCK TABLES `clinica_galeria` WRITE;
+/*!40000 ALTER TABLE `clinica_galeria` DISABLE KEYS */;
+INSERT INTO `clinica_galeria` VALUES (1,'Infraestructura'),(2,'Alumnos');
+/*!40000 ALTER TABLE `clinica_galeria` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clinica_imagen`
+--
+
+DROP TABLE IF EXISTS `clinica_imagen`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clinica_imagen` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `url` varchar(100) NOT NULL,
+  `galeria_id` int(11) NOT NULL,
+  `nivel` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `clinica_imagen_galeria_id_9c8c52e8_fk_clinica_galeria_id` (`galeria_id`),
+  CONSTRAINT `clinica_imagen_galeria_id_9c8c52e8_fk_clinica_galeria_id` FOREIGN KEY (`galeria_id`) REFERENCES `clinica_galeria` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clinica_imagen`
+--
+
+LOCK TABLES `clinica_imagen` WRITE;
+/*!40000 ALTER TABLE `clinica_imagen` DISABLE KEYS */;
+INSERT INTO `clinica_imagen` VALUES (1,'clinica/galeria/10_thumb.jpg',1,1),(2,'clinica/galeria/11_thumb.jpg',1,1),(3,'clinica/galeria/1_thumb.jpg',1,1),(4,'clinica/galeria/2_thumb.jpg',1,1),(5,'clinica/galeria/3_thumb.jpg',1,1),(6,'clinica/galeria/4_thumb.jpg',1,1),(7,'clinica/galeria/5_thumb.jpg',1,1),(8,'clinica/galeria/6_thumb.jpg',1,1),(9,'clinica/galeria/7_thumb.jpg',1,1),(10,'clinica/galeria/9_thumb.jpg',1,1),(11,'clinica/galeria/clinica1.jpg',2,11),(12,'clinica/galeria/clinica2.jpg',2,12),(13,'clinica/galeria/clinica3.jpg',1,13),(14,'clinica/galeria/clinica4.jpg',2,14),(15,'clinica/galeria/clinica5.jpg',2,15),(16,'clinica/galeria/clinica6.jpg',2,16),(17,'clinica/galeria/clinica7.jpg',2,17),(18,'clinica/galeria/clinica8.jpg',2,18);
+/*!40000 ALTER TABLE `clinica_imagen` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clinica_servicio`
+--
+
+DROP TABLE IF EXISTS `clinica_servicio`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clinica_servicio` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(200) NOT NULL,
+  `tipo_servicio_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `clinica_servicio_tipo_servicio_id_a65833e7` (`tipo_servicio_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clinica_servicio`
+--
+
+LOCK TABLES `clinica_servicio` WRITE;
+/*!40000 ALTER TABLE `clinica_servicio` DISABLE KEYS */;
+INSERT INTO `clinica_servicio` VALUES (1,'Radiografías Panorámicas (Ortopantomografías)',2),(2,'Telerradiografías',2),(3,'Radiografía ATM Bilateral',2),(4,'Radiografía Senos maxilares',2),(5,'Radiografía Retroalveolar',2),(6,'Radiografía Retroalveolar total',2),(7,'Radiografía Aleta mordida unilateral adulto (Bite Wing)',2),(8,'Radiografía Aleta mordida bilateral adulto (Bite Wing)',2),(9,'Radiografía Aleta mordida unilateral pediátrica (Bite Wing)',2),(10,'Radiografía Aleta mordida bilateral pediátrica (Bite Wing)',2),(11,'Radiografía oclusal',2),(12,'Exodoncias simples',1),(13,'Atención de niños y niñas de 4 a 12 años para realización de prevención y promoción de la salud oral, odontología restauradora y mínimamente invasiva',1),(14,'Destartraje supra y sub gingival (Higiene bucal)',1),(15,'Pulido radicular',1),(16,'Tratamiento de periodontitis incipiente y moderada',1),(17,'Prótesis fija unitarias (coronas) y plurales (puentes) sobre dientes pilares',1),(18,'Tratamientos de prótesis removibles, metálicas y acrílicas para pacientes desdentados parciales',1),(19,'Tratamiento de endodoncia (tratamiento de conducto) en dientes anteriores y pre molares',1),(23,'Aplicaciones de flúor',1),(24,'Aplicación de sellantes',1),(25,'Endodoncias dientes temporales (pulpotomías)',1),(27,'Actividades de prevención y promoción de la salud oral',1),(32,'Odontología restauradora y mínimamente invasiva (Operatoria Dental)',1),(33,'Procedimientos de cirugía menor maxilofacial derivados de las asignaturas clínicas (exodoncias múltiples, terceros molares, alveoloplastías, entre otros)',1);
+/*!40000 ALTER TABLE `clinica_servicio` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clinica_tiposervicio`
+--
+
+DROP TABLE IF EXISTS `clinica_tiposervicio`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clinica_tiposervicio` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `foto` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `descripcion` varchar(2000) COLLATE utf8_spanish_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clinica_tiposervicio`
+--
+
+LOCK TABLES `clinica_tiposervicio` WRITE;
+/*!40000 ALTER TABLE `clinica_tiposervicio` DISABLE KEYS */;
+INSERT INTO `clinica_tiposervicio` VALUES (1,'Odontología','clinica/servicio/servicios_odontologia.jpg','Atención de salud bucal de tipo ambulatoria brindada por estudiantes de 4° y 5° año de la Carrera de Odontología, supervisada por docentes Odontólogos según especialidad.'),(2,'Imagenología','clinica/servicio/servicios_imagenologia.jpg',NULL);
+/*!40000 ALTER TABLE `clinica_tiposervicio` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `coordinacion_area_coordinador`
+--
+
+DROP TABLE IF EXISTS `coordinacion_area_coordinador`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `coordinacion_area_coordinador` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombres` varchar(100) NOT NULL,
+  `apellido_paterno` varchar(100) NOT NULL,
+  `apellido_materno` varchar(100) NOT NULL,
+  `cargo` varchar(100) NOT NULL,
+  `foto` varchar(100) NOT NULL,
+  `nivel` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `coordinacion_area_coordinador`
+--
+
+LOCK TABLES `coordinacion_area_coordinador` WRITE;
+/*!40000 ALTER TABLE `coordinacion_area_coordinador` DISABLE KEYS */;
+INSERT INTO `coordinacion_area_coordinador` VALUES (1,'Viviana','Escudero','Jaramillo','Área Curricular de Ciencias Básicas','coordinacion_area/coordinadores/viviana_escudero.jpg',1);
+/*!40000 ALTER TABLE `coordinacion_area_coordinador` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_admin_log`
+--
+
+DROP TABLE IF EXISTS `django_admin_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_admin_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `action_time` datetime(6) NOT NULL,
+  `object_id` longtext COLLATE utf8_spanish_ci,
+  `object_repr` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `action_flag` smallint(5) unsigned NOT NULL,
+  `change_message` longtext COLLATE utf8_spanish_ci NOT NULL,
+  `content_type_id` int(11) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `django_admin_log_content_type_id_c4bce8eb_fk_django_co` (`content_type_id`),
+  KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`),
+  CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=279 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_admin_log`
+--
+
+LOCK TABLES `django_admin_log` WRITE;
+/*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
+INSERT INTO `django_admin_log` VALUES (1,'2018-01-23 11:36:46.879599','1','Imagen object',2,'[{\"changed\": {\"fields\": [\"url\"]}}]',12,1),(2,'2018-01-23 11:43:42.905906','2','Contenido object',2,'[{\"changed\": {\"fields\": [\"seccion\"]}}]',7,2),(3,'2018-01-23 11:44:43.881618','1','Contenido object',2,'[{\"changed\": {\"fields\": [\"seccion\", \"texto\"]}}]',7,2),(4,'2018-01-23 11:45:03.293299','5','Contenido object',1,'[{\"added\": {}}]',7,2),(5,'2018-01-23 11:47:06.410210','5','Contenido object',2,'[{\"changed\": {\"fields\": [\"seccion\", \"texto\"]}}]',7,2),(6,'2018-01-23 11:48:19.257264','1','Contenido object',2,'[{\"changed\": {\"fields\": [\"seccion\", \"texto\"]}}]',7,2),(7,'2018-01-23 11:51:19.043486','4','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(8,'2018-01-23 11:54:06.646946','2','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(9,'2018-01-23 11:55:06.103559','2','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(10,'2018-01-23 12:02:42.978096','5','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(11,'2018-01-23 12:06:39.126839','5','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(12,'2018-01-23 12:07:12.477995','5','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(13,'2018-01-23 12:09:11.165121','5','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(14,'2018-01-23 12:09:29.785627','5','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(15,'2018-01-23 12:09:56.228480','5','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(16,'2018-01-23 12:11:25.895796','5','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(17,'2018-01-23 12:16:30.459315','1','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(18,'2018-01-23 12:16:53.772835','1','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(19,'2018-01-23 12:17:38.497537','1','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(20,'2018-01-23 12:22:37.661978','1','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(21,'2018-01-23 12:25:37.760262','1','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(22,'2018-01-23 12:26:26.047632','1','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(23,'2018-01-23 12:27:53.888259','1','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(24,'2018-01-23 12:28:26.432824','1','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(25,'2018-01-23 12:29:15.987099','1','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(26,'2018-01-23 12:38:22.407434','1','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(27,'2018-01-23 12:52:14.208818','3','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(28,'2018-01-23 12:52:51.644036','3','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(29,'2018-01-23 15:24:27.180854','3','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',11,1),(30,'2018-01-23 17:46:22.349849','3','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',11,1),(31,'2018-01-24 17:24:02.640882','2','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,1),(32,'2018-01-24 18:28:52.450110','4','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(33,'2018-01-24 18:31:42.244934','4','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(34,'2018-01-24 18:32:35.862433','2','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(35,'2018-01-24 18:48:56.438248','5','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(36,'2018-01-24 18:55:57.148060','3','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(37,'2018-01-24 18:57:22.120246','5','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(38,'2018-01-24 18:58:18.007221','5','Contenido object',2,'[]',7,2),(39,'2018-01-24 18:59:49.908503','5','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(40,'2018-01-24 19:00:30.629089','5','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(41,'2018-01-24 19:02:14.721760','3','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(42,'2018-01-24 19:02:40.686306','3','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(43,'2018-01-24 19:12:14.508210','1','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',11,2),(44,'2018-01-24 19:16:36.602166','1','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',11,2),(45,'2018-01-25 19:06:00.583587','7','Francisco Alarcón Peredo',2,'[{\"changed\": {\"fields\": [\"apellido_paterno\", \"cargo\"]}}]',16,1),(46,'2018-01-25 19:26:55.912090','1','Viviana Escudero Jaramillo',2,'[{\"changed\": {\"fields\": [\"cargo\"]}}]',16,3),(47,'2018-01-25 19:27:37.497859','9','Mónica Acuña Olivares',2,'[{\"changed\": {\"fields\": [\"nombres\", \"apellido_paterno\", \"cargo\"]}}]',16,3),(48,'2018-01-25 19:28:10.719817','4','María Gabriela Barahona Moore',2,'[{\"changed\": {\"fields\": [\"nombres\", \"cargo\"]}}]',16,3),(49,'2018-01-25 19:30:12.190972','3','Konrad Fritz León',2,'[{\"changed\": {\"fields\": [\"apellido_materno\"]}}]',16,3),(50,'2018-01-25 19:30:52.715312','10','Verónica Flores Rojas',2,'[{\"changed\": {\"fields\": [\"nombres\", \"cargo\"]}}]',16,3),(51,'2018-01-25 19:31:45.370147','5','Ana María García Arévalo',2,'[{\"changed\": {\"fields\": [\"nombres\", \"apellido_paterno\", \"apellido_materno\", \"cargo\"]}}]',16,3),(52,'2018-01-26 12:57:23.972237','21','Melissa Cordova Díaz',2,'[{\"changed\": {\"fields\": [\"apellido_materno\"]}}]',10,3),(53,'2018-01-26 12:58:34.693055','8','Ana Pizarro González',2,'[{\"changed\": {\"fields\": [\"apellido_materno\"]}}]',10,3),(54,'2018-01-26 13:01:17.053699','19','Rita Vargas González',2,'[{\"changed\": {\"fields\": [\"apellido_materno\"]}}]',10,3),(55,'2018-01-26 13:01:25.394832','20','Patricia Díaz Godoy',2,'[{\"changed\": {\"fields\": [\"apellido_paterno\"]}}]',10,3),(56,'2018-01-26 13:01:49.900916','18','Mónica Ramos Sepúlveda',2,'[{\"changed\": {\"fields\": [\"nombres\", \"apellido_materno\"]}}]',10,3),(57,'2018-01-26 13:02:03.469215','15','Lorena Díaz Elgueta',2,'[{\"changed\": {\"fields\": [\"apellido_paterno\"]}}]',10,3),(58,'2018-01-26 13:02:37.936443','13','Aline Toro Gálvez',2,'[{\"changed\": {\"fields\": [\"apellido_materno\"]}}]',10,3),(59,'2018-01-26 13:03:19.003669','11','Gloria Pastén Plaza',2,'[{\"changed\": {\"fields\": [\"apellido_paterno\"]}}]',10,3),(60,'2018-01-26 13:04:01.610175','9','Claudia Galleguillos Véliz',2,'[{\"changed\": {\"fields\": [\"apellido_materno\"]}}]',10,3),(61,'2018-01-26 13:04:23.679782','6','Jorge Cortés Rojas',2,'[{\"changed\": {\"fields\": [\"apellido_paterno\"]}}]',10,3),(62,'2018-01-26 13:04:53.634127','4','Fabiola Gutiérrez Rojas',2,'[{\"changed\": {\"fields\": [\"apellido_paterno\"]}}]',10,3),(63,'2018-01-26 13:05:46.267964','2','Francisco Pedreros Fernández',2,'[{\"changed\": {\"fields\": [\"apellido_materno\"]}}]',10,3),(64,'2018-01-26 13:07:47.725134','1','María Angulo Godoy',2,'[{\"changed\": {\"fields\": [\"nombres\"]}}]',10,3),(65,'2018-04-18 15:07:25.943076','1','Contacto object',3,'',17,1),(66,'2018-04-18 15:07:25.946612','2','Contacto object',3,'',17,1),(67,'2018-04-25 15:47:42.307094','7','Francisco Alarcón Peredo',2,'[{\"changed\": {\"fields\": [\"cargo\"]}}]',16,3),(68,'2018-04-25 15:48:17.932645','9','Mónica Acuña Olivares',2,'[{\"changed\": {\"fields\": [\"cargo\"]}}]',16,3),(69,'2018-04-25 15:49:25.964844','10','Verónica Flores Rojas',2,'[{\"changed\": {\"fields\": [\"cargo\"]}}]',16,3),(70,'2018-04-25 15:50:06.457801','11','Manuela Camilla Mondion .',2,'[{\"changed\": {\"fields\": [\"cargo\"]}}]',16,3),(71,'2018-04-25 15:50:24.605511','11','Manuela Camilla Mondion .',2,'[]',16,3),(72,'2018-04-25 15:51:11.339659','4','María Gabriela Barahona Moore',2,'[{\"changed\": {\"fields\": [\"cargo\"]}}]',16,3),(73,'2018-04-25 15:51:25.678227','3','Konrad Fritz León',2,'[{\"changed\": {\"fields\": [\"cargo\"]}}]',16,3),(74,'2018-04-25 15:51:43.429249','2','Darwin Perez Miranda',2,'[{\"changed\": {\"fields\": [\"cargo\"]}}]',16,3),(75,'2018-04-25 15:51:56.812126','5','Ana María García Arévalo',2,'[{\"changed\": {\"fields\": [\"cargo\"]}}]',16,3),(76,'2018-04-25 15:52:14.011596','6','Francisca Riquelme Pedreros',2,'[{\"changed\": {\"fields\": [\"cargo\"]}}]',16,3),(77,'2018-04-25 17:44:04.426717','22','Ana María Gutierrez Pizarro',1,'[{\"added\": {}}]',10,3),(78,'2018-04-25 17:45:08.083511','23','Carlos Alberto Mondaca Paredes',1,'[{\"added\": {}}]',10,3),(79,'2018-04-25 17:47:45.919345','24','Marcela Andrea Escobar Miranda',1,'[{\"added\": {}}]',10,3),(80,'2018-04-25 17:49:05.555974','25','Melissa Ortiz Luna',1,'[{\"added\": {}}]',10,3),(81,'2018-04-25 17:49:26.527168','25','Melissa Milena Ortiz Luna',2,'[{\"changed\": {\"fields\": [\"nombres\"]}}]',10,3),(82,'2018-04-25 17:50:43.567859','26','Cristina Paz Ramirez Venegas',1,'[{\"added\": {}}]',10,3),(83,'2018-04-25 17:58:23.247505','27','Carla Karime Mondaca Carmona',1,'[{\"added\": {}}]',10,3),(84,'2018-04-25 18:53:43.787210','28','Laura Marisole Madrid Rojas',1,'[{\"added\": {}}]',10,3),(85,'2018-04-25 18:55:08.097972','29','Indy Francisca Nuñez Bonilla',1,'[{\"added\": {}}]',10,3),(86,'2018-04-25 19:00:06.258025','30','Danniela Constanza Pastén Araya',1,'[{\"added\": {}}]',10,3),(87,'2018-05-04 02:01:21.322861','11','Imagen object',1,'[{\"added\": {}}]',12,3),(88,'2018-05-04 02:01:34.810194','12','Imagen object',1,'[{\"added\": {}}]',12,3),(89,'2018-05-04 02:01:44.688048','13','Imagen object',1,'[{\"added\": {}}]',12,3),(90,'2018-05-04 02:01:56.389320','14','Imagen object',1,'[{\"added\": {}}]',12,3),(91,'2018-05-04 02:02:06.195430','15','Imagen object',1,'[{\"added\": {}}]',12,3),(92,'2018-05-04 02:02:17.853358','16','Imagen object',1,'[{\"added\": {}}]',12,3),(93,'2018-05-04 02:02:30.819132','17','Imagen object',1,'[{\"added\": {}}]',12,3),(94,'2018-05-04 02:02:43.639968','18','Imagen object',1,'[{\"added\": {}}]',12,3),(95,'2018-05-08 12:45:37.591643','2','Alumnos',1,'[{\"added\": {}}]',14,1),(96,'2018-05-08 12:45:51.608329','18','Imagen object',2,'[{\"changed\": {\"fields\": [\"galeria\"]}}]',12,1),(97,'2018-05-08 12:45:56.758410','17','Imagen object',2,'[{\"changed\": {\"fields\": [\"galeria\"]}}]',12,1),(98,'2018-05-08 12:46:02.296375','16','Imagen object',2,'[{\"changed\": {\"fields\": [\"galeria\"]}}]',12,1),(99,'2018-05-08 12:46:06.501568','16','Imagen object',2,'[]',12,1),(100,'2018-05-08 12:46:12.030667','15','Imagen object',2,'[{\"changed\": {\"fields\": [\"galeria\"]}}]',12,1),(101,'2018-05-08 12:46:17.321017','14','Imagen object',2,'[{\"changed\": {\"fields\": [\"galeria\"]}}]',12,1),(102,'2018-05-08 12:46:24.837424','12','Imagen object',2,'[{\"changed\": {\"fields\": [\"galeria\"]}}]',12,1),(103,'2018-05-08 12:46:31.699350','11','Imagen object',2,'[{\"changed\": {\"fields\": [\"galeria\"]}}]',12,1),(104,'2018-05-09 17:49:51.586606','2','admin',2,'[{\"changed\": {\"fields\": [\"password\"]}}]',4,2),(105,'2018-05-09 17:50:01.583854','2','jggalleguillos',2,'[{\"changed\": {\"fields\": [\"username\"]}}]',4,2),(106,'2018-05-09 17:52:42.671870','4','dperez',1,'[{\"added\": {}}]',4,2),(107,'2018-05-09 17:53:28.074946','4','dperez',2,'[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\"]}}]',4,2),(108,'2018-05-09 17:56:19.841925','4','dperez',2,'[]',4,2),(109,'2018-05-10 14:24:10.305670','1','Odontología',1,'[{\"added\": {}}]',18,1),(110,'2018-05-10 14:24:30.619137','2','Imagenología',1,'[{\"added\": {}}]',18,1),(111,'2018-05-10 14:25:05.754215','11','Servicio object',2,'[{\"changed\": {\"fields\": [\"tipo_servicio\"]}}]',13,1),(112,'2018-05-10 14:25:13.524946','10','Servicio object',2,'[{\"changed\": {\"fields\": [\"tipo_servicio\"]}}]',13,1),(113,'2018-05-10 14:25:20.062479','9','Servicio object',2,'[{\"changed\": {\"fields\": [\"tipo_servicio\"]}}]',13,1),(114,'2018-05-10 14:25:24.908948','8','Servicio object',2,'[{\"changed\": {\"fields\": [\"tipo_servicio\"]}}]',13,1),(115,'2018-05-10 14:25:29.865664','7','Servicio object',2,'[{\"changed\": {\"fields\": [\"tipo_servicio\"]}}]',13,1),(116,'2018-05-10 14:25:34.320149','6','Servicio object',2,'[{\"changed\": {\"fields\": [\"tipo_servicio\"]}}]',13,1),(117,'2018-05-10 14:25:39.224671','5','Servicio object',2,'[{\"changed\": {\"fields\": [\"tipo_servicio\"]}}]',13,1),(118,'2018-05-10 14:25:43.890800','4','Servicio object',2,'[{\"changed\": {\"fields\": [\"tipo_servicio\"]}}]',13,1),(119,'2018-05-10 14:25:48.537150','3','Servicio object',2,'[{\"changed\": {\"fields\": [\"tipo_servicio\"]}}]',13,1),(120,'2018-05-10 14:25:53.305258','2','Servicio object',2,'[{\"changed\": {\"fields\": [\"tipo_servicio\"]}}]',13,1),(121,'2018-05-10 14:25:57.999212','1','Servicio object',2,'[{\"changed\": {\"fields\": [\"tipo_servicio\"]}}]',13,1),(122,'2018-05-10 15:24:45.202089','4','Contenido object',3,'',11,1),(123,'2018-05-10 18:32:43.498746','3','Contacto object',3,'',17,1),(124,'2018-05-10 18:32:43.501795','4','Contacto object',3,'',17,1),(125,'2018-05-10 18:32:43.504272','5','Contacto object',3,'',17,1),(126,'2018-05-15 19:14:31.930968','2','Darwin Pérez Miranda',2,'[{\"changed\": {\"fields\": [\"apellido_paterno\", \"cargo\", \"titulo\", \"area\", \"especialidad\", \"registro_siss\", \"nivel\"]}}]',16,3),(127,'2018-05-15 19:17:42.464084','7','Francisco Alarcón Peredo',2,'[{\"changed\": {\"fields\": [\"cargo\", \"titulo\", \"especialidad\", \"registro_siss\"]}}]',16,3),(128,'2018-05-15 19:19:18.968064','3','Konrad Fritz León',2,'[{\"changed\": {\"fields\": [\"cargo\", \"titulo\", \"especialidad\", \"registro_siss\", \"nivel\"]}}]',16,3),(129,'2018-05-15 19:19:36.906358','3','Konrad Fritz León',2,'[{\"changed\": {\"fields\": [\"cargo\", \"nivel\"]}}]',16,3),(130,'2018-05-15 19:21:29.454169','9','Mónica Acuña Olivares',2,'[{\"changed\": {\"fields\": [\"cargo\", \"titulo\", \"especialidad\", \"registro_siss\"]}}]',16,3),(131,'2018-05-15 19:22:42.764086','4','María Gabriela Barahona Moore',2,'[{\"changed\": {\"fields\": [\"cargo\", \"titulo\", \"especialidad\", \"registro_siss\"]}}]',16,3),(132,'2018-05-15 19:23:59.332163','10','Verónica Flores Rojas',2,'[{\"changed\": {\"fields\": [\"cargo\", \"titulo\", \"especialidad\", \"registro_siss\"]}}]',16,3),(133,'2018-05-15 19:24:23.955156','9','Mónica Acuña Olivares',2,'[{\"changed\": {\"fields\": [\"nivel\"]}}]',16,3),(134,'2018-05-15 19:24:31.275541','7','Francisco Alarcón Peredo',2,'[{\"changed\": {\"fields\": [\"cargo\", \"nivel\"]}}]',16,3),(135,'2018-05-15 19:24:50.877873','7','Francisco Alarcón Peredo',2,'[{\"changed\": {\"fields\": [\"nivel\"]}}]',16,3),(136,'2018-05-15 19:24:57.983003','9','Mónica Acuña Olivares',2,'[{\"changed\": {\"fields\": [\"nivel\"]}}]',16,3),(137,'2018-05-15 19:27:32.039928','5','Ana María García Arévalo',2,'[{\"changed\": {\"fields\": [\"cargo\", \"titulo\", \"especialidad\", \"registro_siss\"]}}]',16,3),(138,'2018-05-15 19:31:51.251267','2','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(139,'2018-05-15 19:33:09.892212','2','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(140,'2018-05-15 19:33:55.749395','2','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(141,'2018-05-15 19:35:34.628155','2','Contenido object',2,'[{\"changed\": {\"fields\": [\"texto\"]}}]',7,2),(142,'2018-05-15 21:12:05.295625','12','José Manuel González Pastén',1,'[{\"added\": {}}]',16,3),(143,'2018-05-15 21:12:33.255419','12','José Manuel González Pastén',2,'[{\"changed\": {\"fields\": [\"nivel\"]}}]',16,3),(144,'2018-05-15 21:14:41.149273','13','Jorge Andrés Maldonado Williams',1,'[{\"added\": {}}]',16,3),(145,'2018-05-15 21:22:18.623657','14','Giuseppe Eccher Herrera',1,'[{\"added\": {}}]',16,3),(146,'2018-05-15 21:24:15.231456','15','Cristian Ignacio Tapia Apey',1,'[{\"added\": {}}]',16,3),(147,'2018-05-15 21:24:34.576717','15','Cristian Ignacio Tapia Apey',2,'[{\"changed\": {\"fields\": [\"nivel\"]}}]',16,3),(148,'2018-05-15 21:26:07.343238','16','Paula Arriagada Diémer',1,'[{\"added\": {}}]',16,3),(149,'2018-05-15 21:27:36.113097','17','Carlos Araneda Sotomayor',1,'[{\"added\": {}}]',16,3),(150,'2018-05-15 21:28:55.773124','18','Gonzalo Hidalgo Zañartu',1,'[{\"added\": {}}]',16,3),(151,'2018-05-15 21:32:15.248045','19','Raúl Ernesto Frugone Zambra',1,'[{\"added\": {}}]',16,3),(152,'2018-05-15 21:33:42.415621','20','Miguel Alejandro Fuentealba Fernández',1,'[{\"added\": {}}]',16,3),(153,'2018-05-15 21:35:42.977541','21','Marissa Catalina Herbias Morales',1,'[{\"added\": {}}]',16,3),(154,'2018-05-15 21:37:48.578681','22','Claudia López Mora',1,'[{\"added\": {}}]',16,3),(155,'2018-05-15 21:42:39.991764','23','Juan Balbontín Cerda',1,'[{\"added\": {}}]',16,3),(156,'2018-05-15 21:43:46.220152','24','Rossana Vásquez Morán',1,'[{\"added\": {}}]',16,3),(157,'2018-05-15 21:45:08.206774','25','Jennie Ospino Saumett',1,'[{\"added\": {}}]',16,3),(158,'2018-05-15 21:46:23.744322','26','María de los Angeles Valdivia Cortés',1,'[{\"added\": {}}]',16,3),(159,'2018-05-15 21:47:40.775960','27','María Lazo Soissa',1,'[{\"added\": {}}]',16,3),(160,'2018-05-15 21:48:44.092751','28','David Miranda González',1,'[{\"added\": {}}]',16,3),(161,'2018-05-15 21:49:57.773359','29','Natalia Olivares Araya',1,'[{\"added\": {}}]',16,3),(162,'2018-05-15 21:52:31.731743','6','Francisca Beatriz Riquelme Pedreros',2,'[{\"changed\": {\"fields\": [\"nombres\", \"cargo\", \"titulo\", \"especialidad\", \"registro_siss\"]}}]',16,3),(163,'2018-05-15 21:55:50.163382','30','Sofía Castro Castillo',1,'[{\"added\": {}}]',16,3),(164,'2018-05-15 21:57:05.012453','31','Alejandro Zamorano Arancibia',1,'[{\"added\": {}}]',16,3),(165,'2018-05-15 21:58:55.966442','32','José Luis Parra Vargas',1,'[{\"added\": {}}]',16,3),(166,'2018-05-15 22:00:39.251475','33','David Miranda González',1,'[{\"added\": {}}]',16,3),(167,'2018-05-16 12:35:15.384363','34','ANDRÉS MANUEL GUERRERO CERECEDA',1,'[{\"added\": {}}]',16,3),(168,'2018-05-16 12:36:58.269984','35','MAURICIO ALEJANDRO CARVAJAL CONTRERAS',1,'[{\"added\": {}}]',16,3),(169,'2018-05-16 12:39:44.514404','36','EDUARDO FELIPE TAPIA ORTIZ',1,'[{\"added\": {}}]',16,3),(170,'2018-05-16 12:41:54.116845','37','JORGE ANTONIO MUÑOZ CONTRERAS',1,'[{\"added\": {}}]',16,3),(171,'2018-05-16 12:43:43.484995','38','MARKO ANDRÉS SIMUNOVIC CONTRERAS',1,'[{\"added\": {}}]',16,3),(172,'2018-05-16 12:46:17.954608','39','JUAN PABLO MORALES CONCHA',1,'[{\"added\": {}}]',16,3),(173,'2018-05-16 12:48:54.214161','40','DIEGO BASTIÁN CORTEZ ESPEJO',1,'[{\"added\": {}}]',16,3),(174,'2018-05-16 12:50:29.878337','41','YANARA ROCÍO CARRASCO ERICES',1,'[{\"added\": {}}]',16,3),(175,'2018-05-16 12:56:05.389276','42','Tamara Dalbosco Rendic',1,'[{\"added\": {}}]',16,3),(176,'2018-05-16 12:57:27.425407','43','Eduardo Labarca Bardelli',1,'[{\"added\": {}}]',16,3),(177,'2018-05-16 12:58:46.607227','44','Christian Parra Ramírez',1,'[{\"added\": {}}]',16,3),(178,'2018-05-16 13:00:26.364049','45','Ignacio Cáceres López',1,'[{\"added\": {}}]',16,3),(179,'2018-05-16 13:03:33.389418','46','Christian Castillo Jiménez.',1,'[{\"added\": {}}]',16,3),(180,'2018-05-16 15:46:39.012332','4','dperez',2,'[{\"changed\": {\"fields\": [\"password\"]}}]',4,1),(181,'2018-05-16 15:47:25.274238','4','dperez',2,'[{\"changed\": {\"fields\": [\"is_staff\"]}}]',4,1),(182,'2018-05-16 15:47:54.145393','4','dperez',2,'[]',4,1),(183,'2018-05-16 21:34:15.689874','47','Francisco Pedreros Fernández',1,'[{\"added\": {}}]',16,3),(184,'2018-05-16 21:34:38.934474','47','Francisco José Pedreros Fernández',2,'[{\"changed\": {\"fields\": [\"nombres\"]}}]',16,3),(185,'2018-05-16 21:37:15.090910','19','Raúl Ernesto Frugone Zambra',2,'[{\"changed\": {\"fields\": [\"especialidad\"]}}]',16,3),(186,'2018-06-12 14:27:44.045241','37','JORGE ANTONIO MUÑOZ CONTRERAS',2,'[{\"changed\": {\"fields\": [\"especialidad\"]}}]',16,4),(187,'2018-06-12 14:36:30.766084','37','JORGE ANTONIO MUÑOZ CONTRERAS',2,'[{\"changed\": {\"fields\": [\"especialidad\", \"foto\"]}}]',16,4),(188,'2018-06-12 14:46:19.346294','34','ANDRÉS MANUEL GUERRERO CERECEDA',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\", \"foto\"]}}]',16,4),(189,'2018-06-12 15:11:51.480453','39','JUAN PABLO MORALES CONCHA',2,'[{\"changed\": {\"fields\": [\"especialidad\", \"foto\"]}}]',16,4),(190,'2018-06-12 15:15:30.772316','16','Paula Arriagada Diémer',2,'[{\"changed\": {\"fields\": [\"especialidad\"]}}]',16,4),(191,'2018-06-12 15:16:25.197084','16','Paula Arriagada Diémer',2,'[{\"changed\": {\"fields\": [\"especialidad\"]}}]',16,4),(192,'2018-06-15 03:00:20.240284','48','Daniela Pérez Silva',1,'[{\"added\": {}}]',16,4),(193,'2018-06-15 03:01:11.020279','34','Andrés Manuel Guerrero Cereceda',2,'[{\"changed\": {\"fields\": [\"nombres\", \"apellido_paterno\", \"apellido_materno\"]}}]',16,4),(194,'2018-06-15 03:01:48.802893','30','Sofía Castro Castillo',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(195,'2018-06-15 03:03:19.555597','23','Juan Balbontín Cerda',2,'[{\"changed\": {\"fields\": [\"especialidad\"]}}]',16,4),(196,'2018-06-15 03:04:55.459406','7','Francisco Alarcón Peredo',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(197,'2018-06-15 03:07:46.672827','3','Konrad Fritz León',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(198,'2018-06-15 03:08:22.160868','3','Konrad Fritz León',2,'[]',16,4),(199,'2018-06-15 03:10:29.667274','2','Darwin Pérez Miranda',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(200,'2018-06-15 03:12:29.987715','35','Mauricio Alejandro Carvajal Contreras',2,'[{\"changed\": {\"fields\": [\"nombres\", \"apellido_paterno\", \"apellido_materno\", \"especialidad\"]}}]',16,4),(201,'2018-06-15 03:13:05.267514','31','Alejandro Zamorano Arancibia',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(202,'2018-06-15 03:13:29.655840','24','Rossana Vásquez Morán',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(203,'2018-06-15 03:13:53.405408','12','José Manuel González Pastén',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(204,'2018-06-15 03:14:37.452996','9','Mónica Acuña Olivares',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(205,'2018-06-15 03:15:03.182880','4','María Gabriela Barahona Moore',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(206,'2018-06-15 03:16:50.916775','36','Eduardo Felipe Tapia Ortiz',2,'[{\"changed\": {\"fields\": [\"nombres\", \"apellido_paterno\", \"apellido_materno\", \"cargo\", \"especialidad\"]}}]',16,4),(207,'2018-06-15 03:17:20.334383','32','José Luis Parra Vargas',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(208,'2018-06-15 03:17:55.704299','25','Jennie Ospino Saumett',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(209,'2018-06-15 03:18:38.258208','13','Jorge Andrés Maldonado Williams',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(210,'2018-06-15 03:19:03.010465','10','Verónica Flores Rojas',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(211,'2018-06-15 03:19:34.229804','5','Ana María García Arévalo',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(212,'2018-06-15 03:20:14.503726','47','Francisco José Pedreros Fernández',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(213,'2018-06-15 03:22:12.554997','37','Jorge Antonio Muñoz Contreras',2,'[{\"changed\": {\"fields\": [\"nombres\", \"apellido_paterno\", \"apellido_materno\", \"cargo\", \"especialidad\"]}}]',16,4),(214,'2018-06-15 03:23:15.262445','33','David Miranda González',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(215,'2018-06-15 03:23:51.745251','26','María de los Angeles Valdivia Cortés',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(216,'2018-06-15 03:25:44.076171','11','Manuela Camilla Mondion',2,'[{\"changed\": {\"fields\": [\"nombres\", \"apellido_paterno\", \"apellido_materno\", \"cargo\", \"especialidad\", \"registro_siss\"]}}]',16,4),(217,'2018-06-15 03:26:13.458080','6','Francisca Beatriz Riquelme Pedreros',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(218,'2018-06-15 03:26:40.690429','42','Tamara Dalbosco Rendic',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(219,'2018-06-15 03:27:41.809376','38','Marko Andrés Simunovic Contreras',2,'[{\"changed\": {\"fields\": [\"nombres\", \"apellido_paterno\", \"apellido_materno\", \"cargo\", \"especialidad\"]}}]',16,4),(220,'2018-06-15 03:28:12.444424','27','María Lazo Soissa',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(221,'2018-06-15 03:28:55.023419','14','Giuseppe Eccher Herrera',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(222,'2018-06-15 03:29:17.634349','43','Eduardo Labarca Bardelli',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(223,'2018-06-15 03:31:05.785201','39','Juan Pablo Morales Concha',2,'[{\"changed\": {\"fields\": [\"nombres\", \"apellido_paterno\", \"apellido_materno\", \"cargo\"]}}]',16,4),(224,'2018-06-15 03:33:58.989476','15','Cristian Ignacio Tapia Apey',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(225,'2018-06-15 03:35:35.934290','44','Christian Parra Ramírez',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(226,'2018-06-15 03:36:33.397966','40','DIEGO BASTIÁN CORTEZ ESPEJO',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(227,'2018-06-15 03:38:29.359689','40','Diego Bastián Cortez Espejo',2,'[{\"changed\": {\"fields\": [\"nombres\", \"apellido_paterno\", \"apellido_materno\"]}}]',16,4),(228,'2018-06-15 03:39:41.856920','29','Natalia Olivares Araya',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(229,'2018-06-15 03:41:08.893911','16','Paula Arriagada Diémer',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(230,'2018-06-15 03:41:31.635691','45','Ignacio Cáceres López',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(231,'2018-06-15 15:08:35.647361','41','Yanara Rocío Carrasco Erices',2,'[{\"changed\": {\"fields\": [\"nombres\", \"apellido_paterno\", \"apellido_materno\", \"cargo\", \"especialidad\"]}}]',16,4),(232,'2018-06-15 15:09:39.000658','17','Carlos Araneda Sotomayor',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(233,'2018-06-15 15:11:32.074760','46','Christian Castillo Jiménez.',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(234,'2018-06-15 15:12:08.590300','46','Christian Castillo Jiménez.',2,'[]',16,4),(235,'2018-06-15 15:12:38.356225','18','Gonzalo Hidalgo Zañartu',2,'[{\"changed\": {\"fields\": [\"cargo\", \"especialidad\"]}}]',16,4),(236,'2018-06-15 15:14:03.028265','19','Raúl Ernesto Frugone Zambra',2,'[{\"changed\": {\"fields\": [\"titulo\", \"especialidad\"]}}]',16,4),(237,'2018-06-15 15:14:30.040345','20','Miguel Alejandro Fuentealba Fernández',2,'[{\"changed\": {\"fields\": [\"especialidad\"]}}]',16,4),(238,'2018-06-15 15:15:04.978757','21','Marissa Catalina Herbias Morales',2,'[{\"changed\": {\"fields\": [\"especialidad\"]}}]',16,4),(239,'2018-06-15 15:15:41.318312','22','Claudia López Mora',3,'',16,4),(240,'2018-06-19 22:37:26.365466','34','Andrés Manuel Guerrero Cereceda',2,'[{\"changed\": {\"fields\": [\"postitulos\"]}}]',16,3),(242,'2018-09-05 15:11:37.668373','5','admin',3,'',4,2),(243,'2018-09-25 19:25:58.419071','2','jggalleguillos',2,'[{\"changed\": {\"fields\": [\"password\"]}}]',4,1),(244,'2018-09-25 19:26:17.227364','2','jggalleguillos',2,'[{\"changed\": {\"fields\": [\"password\"]}}]',4,1),(245,'2018-09-28 15:20:27.261702','2','jggalleguillos',2,'[{\"changed\": {\"fields\": [\"password\"]}}]',4,1),(246,'2019-03-12 11:39:59.577329','4','2018 ',2,'[{\"changed\": {\"fields\": [\"puntaje_minimo\"]}}]',9,2),(247,'2019-03-12 11:40:14.872719','4','2018 ',2,'[{\"changed\": {\"fields\": [\"puntaje_minimo\"]}}]',9,2),(248,'2019-03-12 11:40:29.995856','4','2018 ',2,'[{\"changed\": {\"fields\": [\"puntaje_minimo\"]}}]',9,2),(249,'2019-03-12 11:40:48.075992','4','2018 ',2,'[{\"changed\": {\"fields\": [\"puntaje_maximo\", \"puntaje_ponderado\"]}}]',9,2),(250,'2020-09-25 14:12:04.283257','4','dperez',2,'[{\"changed\": {\"fields\": [\"is_active\"]}}]',4,3),(251,'2020-09-25 14:13:14.369525','5','kfritz',1,'[{\"added\": {}}]',4,3),(252,'2020-09-25 14:14:15.267935','5','kfritz',2,'[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\"]}}]',4,3),(253,'2020-09-25 14:14:26.653261','5','kfritz',2,'[{\"changed\": {\"fields\": [\"is_staff\"]}}]',4,3),(254,'2020-09-25 14:45:42.888065','6','jbalbontin',1,'[{\"added\": {}}]',4,3),(255,'2020-09-25 14:46:39.883363','6','jbalbontin',2,'[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\"]}}]',4,3),(256,'2020-10-29 13:31:30.513164','1','Documento object',1,'[{\"added\": {}}]',20,7),(257,'2020-10-29 13:32:43.641679','2','Documento object',1,'[{\"added\": {}}]',20,7),(258,'2020-10-29 15:15:33.310680','2','Documento object',2,'[{\"changed\": {\"fields\": [\"mostrar\"]}}]',20,7),(259,'2020-10-29 15:16:59.553087','3','Documento object',1,'[{\"added\": {}}]',20,7),(260,'2020-10-30 15:34:27.921950','4','Documento object',1,'[{\"added\": {}}]',20,7),(261,'2020-10-30 15:35:03.745276','4','Documento object',2,'[{\"changed\": {\"fields\": [\"titulo\"]}}]',20,7),(262,'2020-10-30 15:35:18.778904','4','Documento object',2,'[{\"changed\": {\"fields\": [\"titulo\"]}}]',20,7),(263,'2020-10-30 15:35:26.344108','4','Documento object',2,'[]',20,7),(264,'2020-10-30 15:38:51.467683','4','Documento object',3,'',20,7),(265,'2020-10-30 15:39:15.107238','5','Documento object',1,'[{\"added\": {}}]',20,7),(266,'2020-10-30 15:40:03.866481','6','Documento object',1,'[{\"added\": {}}]',20,7),(267,'2020-10-30 15:40:14.342932','5','Documento object',2,'[{\"changed\": {\"fields\": [\"titulo\"]}}]',20,7),(268,'2020-10-30 20:46:25.835323','1','Noticia object',1,'[{\"added\": {}}]',22,7),(269,'2020-10-30 20:50:43.574215','1','Noticia object',2,'[{\"changed\": {\"fields\": [\"descripcion\"]}}]',22,7),(270,'2020-10-30 21:05:13.161036','1','Noticia object',2,'[{\"changed\": {\"fields\": [\"descripcion\"]}}]',22,7),(271,'2020-10-30 21:06:14.501484','1','Noticia object',2,'[{\"changed\": {\"fields\": [\"descripcion\"]}}]',22,7),(272,'2020-11-06 14:08:13.957419','7','Documento object',1,'[{\"added\": {}}]',20,7),(273,'2020-11-06 14:08:31.064214','1','Documento object',3,'',20,7),(274,'2020-11-06 14:09:46.649928','7','Documento object',2,'[{\"changed\": {\"fields\": [\"descripcion\"]}}]',20,7),(275,'2020-11-06 14:11:07.642104','8','Documento object',1,'[{\"added\": {}}]',20,7),(276,'2020-11-06 14:12:33.557074','9','Documento object',1,'[{\"added\": {}}]',20,7),(277,'2020-11-06 20:43:44.133928','1','Directivo object',1,'[{\"added\": {}}]',28,7),(278,'2020-11-06 20:55:06.938465','1','Coordinador object',1,'[{\"added\": {}}]',29,7);
+/*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_content_type`
+--
+
+DROP TABLE IF EXISTS `django_content_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_content_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `app_label` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `model` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_content_type`
+--
+
+LOCK TABLES `django_content_type` WRITE;
+/*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
+INSERT INTO `django_content_type` VALUES (21,'actividad','actividad'),(1,'admin','logentry'),(2,'auth','group'),(3,'auth','permission'),(4,'auth','user'),(19,'carrera','actividad'),(23,'carrera','actividadcientificoproductivo'),(24,'carrera','actividadgruposinteres'),(30,'carrera','actividadnumerobeneficiario'),(25,'carrera','actividadpoliticapublica'),(26,'carrera','actividadpoliticapublicaparticipacion'),(9,'carrera','admision'),(17,'carrera','contacto'),(8,'carrera','contactos'),(7,'carrera','contenido'),(16,'carrera','docentes'),(27,'carrera','tipopoliticapublica'),(11,'clinica','contenido'),(10,'clinica','equipo'),(14,'clinica','galeria'),(12,'clinica','imagen'),(13,'clinica','servicio'),(18,'clinica','tiposervicio'),(5,'contenttypes','contenttype'),(29,'coordinacion_area','coordinador'),(20,'documentos','documento'),(28,'equipo_directivo','directivo'),(22,'noticia','noticia'),(6,'sessions','session'),(15,'thumbnail','kvstore');
+/*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_migrations`
+--
+
+DROP TABLE IF EXISTS `django_migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_migrations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `app` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `applied` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_migrations`
+--
+
+LOCK TABLES `django_migrations` WRITE;
+/*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2018-01-22 19:24:27.011663'),(2,'auth','0001_initial','2018-01-22 19:24:27.386982'),(3,'admin','0001_initial','2018-01-22 19:24:27.481051'),(4,'admin','0002_logentry_remove_auto_add','2018-01-22 19:24:27.498421'),(5,'contenttypes','0002_remove_content_type_name','2018-01-22 19:24:27.570721'),(6,'auth','0002_alter_permission_name_max_length','2018-01-22 19:24:27.605524'),(7,'auth','0003_alter_user_email_max_length','2018-01-22 19:24:27.645272'),(8,'auth','0004_alter_user_username_opts','2018-01-22 19:24:27.657122'),(9,'auth','0005_alter_user_last_login_null','2018-01-22 19:24:27.691138'),(10,'auth','0006_require_contenttypes_0002','2018-01-22 19:24:27.694552'),(11,'auth','0007_alter_validators_add_error_messages','2018-01-22 19:24:27.707327'),(12,'auth','0008_alter_user_username_max_length','2018-01-22 19:24:27.749374'),(13,'carrera','0001_initial','2018-01-22 19:24:27.771436'),(14,'carrera','0002_auto_20180122_1624','2018-01-22 19:24:27.812200'),(15,'clinica','0001_initial','2018-01-22 19:24:27.883793'),(16,'clinica','0002_auto_20180122_1624','2018-01-22 19:24:27.957444'),(17,'sessions','0001_initial','2018-01-22 19:24:27.989818'),(18,'thumbnail','0001_initial','2018-01-22 19:24:28.187463'),(19,'carrera','0003_auto_20180123_0951','2018-01-23 12:51:31.470031'),(20,'clinica','0003_auto_20180123_0951','2018-01-23 12:51:31.477657'),(21,'carrera','0004_auto_20180124_1241','2018-01-24 15:42:23.843229'),(22,'carrera','0005_auto_20180124_1555','2018-01-24 18:55:47.981580'),(23,'carrera','0006_auto_20180417_1103','2018-04-17 14:04:17.537583'),(24,'clinica','0004_remove_servicio_valor','2018-04-17 14:04:17.592553'),(25,'carrera','0007_auto_20180418_1158','2018-04-18 14:58:41.675844'),(26,'clinica','0005_auto_20180510_1102','2018-05-10 14:21:02.983004'),(27,'carrera','0008_auto_20180515_1016','2018-05-15 14:17:04.602630'),(28,'carrera','0009_auto_20180516_1606','2018-05-16 20:06:18.626045'),(29,'carrera','0010_docentes_postitulos','2018-06-19 16:19:43.745107'),(30,'carrera','0002_auto_20180115_1657','2020-10-28 20:19:18.285869'),(31,'documentos','0001_initial','2020-10-28 20:35:37.281604'),(32,'documentos','0002_documento_tipo_documento','2020-10-29 13:28:05.932204'),(33,'actividad','0001_initial','2020-10-30 15:44:16.575953'),(34,'actividad','0002_auto_20201028_2057','2020-10-30 15:44:16.585625'),(35,'actividad','0003_auto_20201030_1220','2020-10-30 15:44:16.594943'),(36,'noticia','0001_initial','2020-10-30 20:27:34.367834'),(37,'carrera','0002_auto_20201106_1338','2020-11-06 13:51:50.073482'),(38,'coordinacion_area','0001_initial','2020-11-06 19:16:11.652400'),(39,'equipo_directivo','0001_initial','2020-11-06 19:16:11.686904'),(40,'equipo_directivo','0002_directivo_tipo_cargo','2020-11-06 19:25:37.993371');
+/*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_session`
+--
+
+DROP TABLE IF EXISTS `django_session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_session` (
+  `session_key` varchar(40) COLLATE utf8_spanish_ci NOT NULL,
+  `session_data` longtext COLLATE utf8_spanish_ci NOT NULL,
+  `expire_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`session_key`),
+  KEY `django_session_expire_date_a5c62663` (`expire_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_session`
+--
+
+LOCK TABLES `django_session` WRITE;
+/*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+INSERT INTO `django_session` VALUES ('0gd5cnhtcixyklzw014yh91mixj8moew','ZTU1MTk4NzIwNDIyZTZlM2YwOTZiMjBlOGU3Y2RjODUwOWY3YTNmYjp7Il9hdXRoX3VzZXJfaGFzaCI6IjY3NjY5MTA3NTE0OWE4ZDdkMjY0OWNkOTEyN2RhNjRmMTYwZTQ0ZWEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI0In0=','2018-05-30 15:47:30.911294'),('17xz1pjno0kuruo6gdxlcvetrxz0ek23','ZGJkNTgxYTVlNTQ4MzcwNTUzMDc3NzZlYjQwMDFjZjFhMTQ5OWE1MTp7Il9hdXRoX3VzZXJfaGFzaCI6IjA1NjgzNWViODllNWFkZTI3NmExZDE3ZjU4ZmI1MjE2OWZhYWJiMmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2018-10-12 15:19:21.944891'),('25oqcj072t4jdt353dnee0xlydbkj0ah','ZDk2MjJmNzMwZTFlMzNkMjk3MWE1YWFiZjgzNDE2NjRmZjAxOWNmMjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE3OTEzNTgxY2VlYWFiMzI0ZWZjMDMzZTBhN2YzOTVlMWFjMjNlYWMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIzIn0=','2020-10-09 12:12:42.002797'),('5al1rgezzrk6yxwslcu05nzxw91aytbb','ZTU1MTk4NzIwNDIyZTZlM2YwOTZiMjBlOGU3Y2RjODUwOWY3YTNmYjp7Il9hdXRoX3VzZXJfaGFzaCI6IjY3NjY5MTA3NTE0OWE4ZDdkMjY0OWNkOTEyN2RhNjRmMTYwZTQ0ZWEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI0In0=','2018-05-31 14:49:27.503224'),('5r8gw5za193xheexcdoo0uhrgdjyomad','YmZjZDllMjEwMDY0NzYwZjQ3MmIxNDEyMGUwZDJiODk0NzYxYTk0NDp7Il9hdXRoX3VzZXJfaGFzaCI6IjM4YWU0NDhkMTIxYWE2ZmNkYjEzYzlmNzI2M2VjYTY0YjBhNDY4ZTEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=','2018-10-12 15:38:39.055807'),('6gt5ysn8royd0cmyrbvasfe5n7g7jlwy','MTNiYzdmOTA2NWMxZjI4ZjYxMmYxYTNjNWM5ODVhZWMzOTA0NDczNTp7Il9hdXRoX3VzZXJfaGFzaCI6IjJlM2ZiMWFiODViZjBmYjA3Y2FjYTUxYzBlN2U1ODJiNTcyZGQ0YzMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIzIn0=','2018-05-30 21:14:47.708404'),('6q51wxthst4xdtj3mg16r6tuobeechz4','YmZjZDllMjEwMDY0NzYwZjQ3MmIxNDEyMGUwZDJiODk0NzYxYTk0NDp7Il9hdXRoX3VzZXJfaGFzaCI6IjM4YWU0NDhkMTIxYWE2ZmNkYjEzYzlmNzI2M2VjYTY0YjBhNDY4ZTEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=','2018-10-12 15:20:49.863660'),('6viu7hijm3ynbfzp6dv6ofmz2sys7hmm','ZTU1MTk4NzIwNDIyZTZlM2YwOTZiMjBlOGU3Y2RjODUwOWY3YTNmYjp7Il9hdXRoX3VzZXJfaGFzaCI6IjY3NjY5MTA3NTE0OWE4ZDdkMjY0OWNkOTEyN2RhNjRmMTYwZTQ0ZWEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI0In0=','2018-08-01 15:32:52.476711'),('719u8bogd5d4psyfcpy5vfwpuyhzmpk1','NDQ5M2QxMTFlZWU4YjFjNzM0YTkwMDc2OTc2Y2I2MWNhYTg2NzZjMzp7Il9hdXRoX3VzZXJfaGFzaCI6ImM5ODMwMDMyNDhmNDgxNzk5Zjc2ZjFmNTIzZTFlY2U5NTkyOTMyYzkiLCJfYXV0aF91c2VyX2lkIjoiMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2018-05-23 17:49:51.596021'),('7m3ucgx7lch7s5p3evqfnuhnddvsaw3w','MTNiYzdmOTA2NWMxZjI4ZjYxMmYxYTNjNWM5ODVhZWMzOTA0NDczNTp7Il9hdXRoX3VzZXJfaGFzaCI6IjJlM2ZiMWFiODViZjBmYjA3Y2FjYTUxYzBlN2U1ODJiNTcyZGQ0YzMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIzIn0=','2018-05-30 21:17:46.461914'),('7mjy9arovbo49urxp7iw3wk7pfq8hyjn','MTNiYzdmOTA2NWMxZjI4ZjYxMmYxYTNjNWM5ODVhZWMzOTA0NDczNTp7Il9hdXRoX3VzZXJfaGFzaCI6IjJlM2ZiMWFiODViZjBmYjA3Y2FjYTUxYzBlN2U1ODJiNTcyZGQ0YzMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIzIn0=','2018-05-30 21:28:48.479686'),('9h44a6yvhnlnvqqsmpswophlrmni0v0g','Y2M1ZDU2YzdmYjZkODZlNTQ4N2QyZWJlMDJhNGJlZTEwNTIyN2I5MTp7Il9hdXRoX3VzZXJfaWQiOiI3IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJhZDMyMzdhYzJiYzQ4MTk0ZjgyYzRhMTA2MGQ0YjZmMDE0MjNmMjA4In0=','2020-11-20 13:58:44.088553'),('amhgo31l5k15okz0tl5xw6w2emqs7z27','ZGJkNTgxYTVlNTQ4MzcwNTUzMDc3NzZlYjQwMDFjZjFhMTQ5OWE1MTp7Il9hdXRoX3VzZXJfaGFzaCI6IjA1NjgzNWViODllNWFkZTI3NmExZDE3ZjU4ZmI1MjE2OWZhYWJiMmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2018-02-05 19:52:03.740929'),('c7uo8hb2pt4liwxrv8rq00w1m9j1uylu','MTNiYzdmOTA2NWMxZjI4ZjYxMmYxYTNjNWM5ODVhZWMzOTA0NDczNTp7Il9hdXRoX3VzZXJfaGFzaCI6IjJlM2ZiMWFiODViZjBmYjA3Y2FjYTUxYzBlN2U1ODJiNTcyZGQ0YzMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIzIn0=','2018-07-02 05:24:15.295681'),('cienof0no1u093p5i9i2hwispizkmooi','YmZjZDllMjEwMDY0NzYwZjQ3MmIxNDEyMGUwZDJiODk0NzYxYTk0NDp7Il9hdXRoX3VzZXJfaGFzaCI6IjM4YWU0NDhkMTIxYWE2ZmNkYjEzYzlmNzI2M2VjYTY0YjBhNDY4ZTEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=','2018-10-12 15:40:12.395660'),('diez3aq831f7ewwcu7hq483xgqcxvpfm','Y2M1ZDU2YzdmYjZkODZlNTQ4N2QyZWJlMDJhNGJlZTEwNTIyN2I5MTp7Il9hdXRoX3VzZXJfaWQiOiI3IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJhZDMyMzdhYzJiYzQ4MTk0ZjgyYzRhMTA2MGQ0YjZmMDE0MjNmMjA4In0=','2020-11-19 22:32:48.958222'),('dyr8beaufmks3cwdres0kyji70m7qlhg','YWI0ZmUwMTkwZmZkYTFmOGM2MjY5M2E2OTI0NGYwYTJjNDc0ZWRkYTp7Il9hdXRoX3VzZXJfaGFzaCI6IjA4OGI4YWZhZTk2ODYzMjBjY2RkZTdjYjM2NzEwODcyNGIzYmQ2MzAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=','2018-09-21 17:53:02.624710'),('f6y3qjo864irvdk1xifq6udbins3og26','ZGJkNTgxYTVlNTQ4MzcwNTUzMDc3NzZlYjQwMDFjZjFhMTQ5OWE1MTp7Il9hdXRoX3VzZXJfaGFzaCI6IjA1NjgzNWViODllNWFkZTI3NmExZDE3ZjU4ZmI1MjE2OWZhYWJiMmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2018-05-24 15:24:28.497078'),('gpwiye83io5q5mlpc1jw7ell43osp8o2','ZTU1MTk4NzIwNDIyZTZlM2YwOTZiMjBlOGU3Y2RjODUwOWY3YTNmYjp7Il9hdXRoX3VzZXJfaGFzaCI6IjY3NjY5MTA3NTE0OWE4ZDdkMjY0OWNkOTEyN2RhNjRmMTYwZTQ0ZWEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI0In0=','2018-06-26 13:09:30.552924'),('h1fx2lmeweey7r4wtl8iu5i9cn9f497w','ODc3OWIyN2RjODBiNDFlZGUzMGRlYjM3MzY5MGVlZDI4MGYzMGE1Yzp7Il9hdXRoX3VzZXJfaGFzaCI6IjcwODBjOGU5ZDQ1NGVmZWRjMjU5MzQwZWMxYzU0ZDFlOGEwY2UzNzQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=','2018-10-12 15:17:43.058519'),('hwhug60n12v8a2fhkgoc1fcrx3kpoaxe','MmE0MmQxMTc5Yjc2Y2JmM2U0YzdlOWE4NGNlMmM3ZWY2N2I1NGE0Yzp7Il9hdXRoX3VzZXJfaGFzaCI6IjEzYzAxMmFjZTdkMzgxMzVjMzA4MGJkZGNmN2NjMzdlZTExNjM5ZTEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=','2018-02-06 11:43:15.699618'),('j23bl1htad8wb2bip9epaclv5l4is1vj','ZGJkNTgxYTVlNTQ4MzcwNTUzMDc3NzZlYjQwMDFjZjFhMTQ5OWE1MTp7Il9hdXRoX3VzZXJfaGFzaCI6IjA1NjgzNWViODllNWFkZTI3NmExZDE3ZjU4ZmI1MjE2OWZhYWJiMmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2018-05-02 15:07:11.313410'),('j3lox3hn6cy3wi7uu35egneu88d3mn20','MjZmMjgyZDU1ZjEwYzdhMmNkODliYjczMGU4MmYyNjkwZjg4NDMwYTp7Il9hdXRoX3VzZXJfaGFzaCI6IjkwZWJlNGFjOWRlZDZmN2Y0ZTY4ZTdhYmYwYjRjYjJhMmNjMzFkNGYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=','2020-10-22 21:09:53.074784'),('l4k1h0v9rfrw98n77c705q6b7g6h3vyy','ZDk2MjJmNzMwZTFlMzNkMjk3MWE1YWFiZjgzNDE2NjRmZjAxOWNmMjp7Il9hdXRoX3VzZXJfaGFzaCI6IjE3OTEzNTgxY2VlYWFiMzI0ZWZjMDMzZTBhN2YzOTVlMWFjMjNlYWMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIzIn0=','2019-03-26 12:14:30.595825'),('mnfeeaegxqngm8v0my7quua7spl3crdq','ZGJkNTgxYTVlNTQ4MzcwNTUzMDc3NzZlYjQwMDFjZjFhMTQ5OWE1MTp7Il9hdXRoX3VzZXJfaGFzaCI6IjA1NjgzNWViODllNWFkZTI3NmExZDE3ZjU4ZmI1MjE2OWZhYWJiMmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2018-09-26 16:12:57.911026'),('n1t056z9peuly04eekyhgifgdwug71u0','ZGJkNTgxYTVlNTQ4MzcwNTUzMDc3NzZlYjQwMDFjZjFhMTQ5OWE1MTp7Il9hdXRoX3VzZXJfaGFzaCI6IjA1NjgzNWViODllNWFkZTI3NmExZDE3ZjU4ZmI1MjE2OWZhYWJiMmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2018-05-24 14:22:07.197033'),('nd4yod1ousxw0z4ao5ceoc3mds6j3qna','MTQzNmViZGMzMjhiMDUyMDhlODBkNjk4MjRkM2IyYWJhMjhjZGEwZDp7Il9hdXRoX3VzZXJfaGFzaCI6IjA1NjgzNWViODllNWFkZTI3NmExZDE3ZjU4ZmI1MjE2OWZhYWJiMmIiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2018-10-12 15:20:27.274453'),('q5o889ipibdhttbbhdyuevdxv7u72mzm','ZGJkNTgxYTVlNTQ4MzcwNTUzMDc3NzZlYjQwMDFjZjFhMTQ5OWE1MTp7Il9hdXRoX3VzZXJfaGFzaCI6IjA1NjgzNWViODllNWFkZTI3NmExZDE3ZjU4ZmI1MjE2OWZhYWJiMmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2018-08-30 16:14:50.189726'),('s9ja9g1ktesctbrsffw2ksn0f36ca92w','Y2M1ZDU2YzdmYjZkODZlNTQ4N2QyZWJlMDJhNGJlZTEwNTIyN2I5MTp7Il9hdXRoX3VzZXJfaWQiOiI3IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJhZDMyMzdhYzJiYzQ4MTk0ZjgyYzRhMTA2MGQ0YjZmMDE0MjNmMjA4In0=','2020-11-05 23:53:05.535821'),('t1exdku1ulshfhmz24tntd5d7lf96e1t','MmE0MmQxMTc5Yjc2Y2JmM2U0YzdlOWE4NGNlMmM3ZWY2N2I1NGE0Yzp7Il9hdXRoX3VzZXJfaGFzaCI6IjEzYzAxMmFjZTdkMzgxMzVjMzA4MGJkZGNmN2NjMzdlZTExNjM5ZTEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=','2018-02-07 18:28:08.327240'),('vj22utupzslo1ngxaadodn20pestr97b','ODc3OWIyN2RjODBiNDFlZGUzMGRlYjM3MzY5MGVlZDI4MGYzMGE1Yzp7Il9hdXRoX3VzZXJfaGFzaCI6IjcwODBjOGU5ZDQ1NGVmZWRjMjU5MzQwZWMxYzU0ZDFlOGEwY2UzNzQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=','2018-10-12 15:18:24.058552'),('vnawuncrfkf8k8mlqaalmv3o3gd96inx','MjNlZmIwZDc2MDhjYTc4OGRmZWUxZGQ4NmJlM2U1NTlmZjM3ZWZhNjp7Il9hdXRoX3VzZXJfaGFzaCI6ImRhZjRmMDkyMmJiYWQzZmU4MWJhMzRhYzIyZjVjYWY5NGIxZGMyMmUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI1In0=','2020-10-16 13:48:55.997294'),('wohiy5h9k3ypzvc837e280srm98bty9k','MTNiYzdmOTA2NWMxZjI4ZjYxMmYxYTNjNWM5ODVhZWMzOTA0NDczNTp7Il9hdXRoX3VzZXJfaGFzaCI6IjJlM2ZiMWFiODViZjBmYjA3Y2FjYTUxYzBlN2U1ODJiNTcyZGQ0YzMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIzIn0=','2018-10-11 19:53:10.758360'),('ws3o5orwlpaebty6hnf3q7asqdq7s842','ZGJkNTgxYTVlNTQ4MzcwNTUzMDc3NzZlYjQwMDFjZjFhMTQ5OWE1MTp7Il9hdXRoX3VzZXJfaGFzaCI6IjA1NjgzNWViODllNWFkZTI3NmExZDE3ZjU4ZmI1MjE2OWZhYWJiMmIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=','2018-07-03 16:23:57.647338'),('xpb0he7ujyvycvtkndyx8ljohsq0aam8','YWI0ZmUwMTkwZmZkYTFmOGM2MjY5M2E2OTI0NGYwYTJjNDc0ZWRkYTp7Il9hdXRoX3VzZXJfaGFzaCI6IjA4OGI4YWZhZTk2ODYzMjBjY2RkZTdjYjM2NzEwODcyNGIzYmQ2MzAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=','2018-09-19 15:11:26.898689'),('xrgd4w58wrexbpaa0p6i50v0cpcrct0a','MTQzNmViZGMzMjhiMDUyMDhlODBkNjk4MjRkM2IyYWJhMjhjZGEwZDp7Il9hdXRoX3VzZXJfaGFzaCI6IjA1NjgzNWViODllNWFkZTI3NmExZDE3ZjU4ZmI1MjE2OWZhYWJiMmIiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2018-05-30 15:46:39.024273'),('ylr47f5h41rjl5btkg7slrmn0d9ovi7n','MTNiYzdmOTA2NWMxZjI4ZjYxMmYxYTNjNWM5ODVhZWMzOTA0NDczNTp7Il9hdXRoX3VzZXJfaGFzaCI6IjJlM2ZiMWFiODViZjBmYjA3Y2FjYTUxYzBlN2U1ODJiNTcyZGQ0YzMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIzIn0=','2018-02-08 13:49:28.335494'),('z7t4g7llbtfbeafmh4iesv5oxpdphmk1','MjZmMjgyZDU1ZjEwYzdhMmNkODliYjczMGU4MmYyNjkwZjg4NDMwYTp7Il9hdXRoX3VzZXJfaGFzaCI6IjkwZWJlNGFjOWRlZDZmN2Y0ZTY4ZTdhYmYwYjRjYjJhMmNjMzFkNGYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=','2019-03-26 11:38:16.064443');
+/*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `documentos_documento`
+--
+
+DROP TABLE IF EXISTS `documentos_documento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `documentos_documento` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(200) NOT NULL,
+  `descripcion` varchar(5000) DEFAULT NULL,
+  `archivo` varchar(20000) NOT NULL,
+  `mostrar` tinyint(1) NOT NULL,
+  `prioridad` int(11) NOT NULL,
+  `tipo_documento` varchar(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `documentos_documento`
+--
+
+LOCK TABLES `documentos_documento` WRITE;
+/*!40000 ALTER TABLE `documentos_documento` DISABLE KEYS */;
+INSERT INTO `documentos_documento` VALUES (2,'Prueba de doc vinculación','prueba de doc vinculación','documentos/sample_u4nsnfB.pdf',0,1,'P'),(3,'POLÍTICA VINCULACIÓN CON EL MEDIO CARRERA DE ODONTOLOGÍA','Es el documento que específica la manera que la carrera de odontología desarrolla sus políticas de vinculación con el medio.','documentos/Politica_de_Vinculacion_con_el_Medio_carrera_de_Odontologia.pdf',1,1,'P'),(5,'POLÍTICA DE INVESTIGACIÓN','Este documento describe las políticas de la carrera de odontología en ámbitos de investigación.','documentos/POLITICA_INVESTIGACION.pdf',1,1,'I'),(6,'CRITERIOS DE INVESTIGACIÓN','Este documento describe los criterios de investigación de la carrera de odontolgía.','documentos/CRITERIOS_DE_INVESTIGACION.pdf',1,2,'I'),(7,'Reglamento Académico Interno de la carrera de Odontología de la Facultad de Ciencias.','Resolución exenta N° 20 que aprueba Reglamento Académico Interno de la carrera de Odontología de la Facultad de Ciencias.','documentos/RES_EXTA_N20_APRUEBA_REGLAMENTO_ACADEMICO_INTERNO_ODONTOLOGIA_VISADA.pdf',1,1,'G'),(8,'Reglamento Clínico de la carrera de Odontología de la Facultad de Ciencias.','Resolución exenta N° 21 que aprueba Reglamento Clínico de la carrera de Odontología de la Facultad de Ciencias.','documentos/RESOLUCIO_N21_VISADA_POR_CONTRALORIA_DEFINITIVA.pdf',1,2,'G'),(9,'Reglamento Internado Clínico Asistencial de la carrera de Odontología de la Facultad de Ciencias.','Resolución Exenta N° 22 que aprueba el Reglamento Internado Clínico Asistencial de la carrera de Odontología de la Facultad de Ciencias.','documentos/RESOLUCION_N_22_VISADA_POR_CONTRALORIA.pdf',1,3,'G');
+/*!40000 ALTER TABLE `documentos_documento` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `equipo_directivo_directivo`
+--
+
+DROP TABLE IF EXISTS `equipo_directivo_directivo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `equipo_directivo_directivo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombres` varchar(100) NOT NULL,
+  `apellido_paterno` varchar(100) NOT NULL,
+  `apellido_materno` varchar(100) NOT NULL,
+  `cargo` varchar(100) NOT NULL,
+  `foto` varchar(100) NOT NULL,
+  `nivel` int(11) NOT NULL,
+  `tipo_cargo` varchar(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `equipo_directivo_directivo`
+--
+
+LOCK TABLES `equipo_directivo_directivo` WRITE;
+/*!40000 ALTER TABLE `equipo_directivo_directivo` DISABLE KEYS */;
+INSERT INTO `equipo_directivo_directivo` VALUES (1,'Cristian','Oyanadel','Escudero','Director de Carrera','equipo_directivo/directivos/hombre.png',1,'D');
+/*!40000 ALTER TABLE `equipo_directivo_directivo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `noticia_noticia`
+--
+
+DROP TABLE IF EXISTS `noticia_noticia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `noticia_noticia` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(150) NOT NULL,
+  `descripcion` longtext,
+  `inicio` datetime(6) DEFAULT NULL,
+  `cierre` datetime(6) DEFAULT NULL,
+  `imagen` varchar(100) NOT NULL,
+  `mostrar` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `noticia_noticia`
+--
+
+LOCK TABLES `noticia_noticia` WRITE;
+/*!40000 ALTER TABLE `noticia_noticia` DISABLE KEYS */;
+INSERT INTO `noticia_noticia` VALUES (1,'Gran éxito en el tratamiento de pacientes con necesidades diferentes.','<p style=\"border:none; padding:0cm; margin:0cm\"><span style=\"font-size:12pt\"><span style=\"font-family:&quot;Cambria&quot;,serif\"><span lang=\"ES-TRAD\" style=\"font-size:9.0pt\">El alumno conoce conceptos importantes con respecto a discapacidad (talleres con metodolog&iacute;as activas de aprendizaje), aspectos sicosociales que rodean el entorno del paciente. Comprende y adquiere conceptos para el manejo de los pacientes especiales, confecciona una adecuada ficha cl&iacute;nica y puede desarrollar un plan de tratamiento preventivo individualizado para cada paciente. En cl&iacute;nica logra atender pacientes con necesidades especiales en salud, tanto en actividades preventivas como rehabilitadoras simples.</span></span></span></p>','2019-04-08 03:00:00.000000','2019-07-08 04:00:00.000000','noticias/pacientes_con_necesidades_especiales_640x480.jpg',1);
+/*!40000 ALTER TABLE `noticia_noticia` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `thumbnail_kvstore`
+--
+
+DROP TABLE IF EXISTS `thumbnail_kvstore`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `thumbnail_kvstore` (
+  `key` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `value` longtext COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `thumbnail_kvstore`
+--
+
+LOCK TABLES `thumbnail_kvstore` WRITE;
+/*!40000 ALTER TABLE `thumbnail_kvstore` DISABLE KEYS */;
+INSERT INTO `thumbnail_kvstore` VALUES ('sorl-thumbnail||image||03104ebfd29f81cbbb6bbe3cd1405bff','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/5_thumb.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||image||0bfe99701ae83e39ef2646f8664da5a0','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/9_thumb.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||image||11dc94244275def6f9e6a12332c338dc','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/11_thumb.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||image||126e0953b94d88b7c0ff451f1e562c56','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/clinica6.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||image||1ebf0a9768059928382855f4045e9476','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/7f/d6/7fd6ff75065b49c35d9f68e203b928bd.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||307f4eae95f0a00640fb541089d6742f','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/6_thumb.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||image||3869a782455961517d7a3ebc5d5f6b86','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/clinica8.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||image||475950c4afff75f89116776154845feb','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/82/49/8249e67b1f71a99a748d4ec9e719f2d6.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||4d56866fd022aa6c85ddd44da6fc1ebe','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/clinica7.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||image||54876f9455200bcea2d6ec7c5f922689','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/ed/dc/eddc727f92a965fa477b3c37ba96e1c4.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||56e30025c1539bcbebba3c68272ea038','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/clinica2.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||image||5e285808a0a4bd01c81a0d40f2f3007d','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/54/30/54306b3eaf2590c9f4845c80e459b038.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||6385736bdaa978cb17b17898dcce2ad1','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/clinica4.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||image||722ed1f2caa7d5e17a6717e31ead106a','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/55/a2/55a2a82fc5262ef5b5c5a3a018eda68b.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||745df415421b4581d0ac4e5ba346dc79','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/91/e8/91e8347e0dfe7a43b42cfb45ac5a6b1b.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||76dc5d78a40c1a6a593956873b7c72bb','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/4_thumb.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||image||7d10ac09d03f6c21fdcdd219b2ae8119','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/0f/0b/0f0b305b80dfe6f98e83b321b1568d21.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||829ddf55322761b3c90bc9183f3fc909','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/clinica5.jpg\", \"size\": [1200, 839]}'),('sorl-thumbnail||image||83a030d78f7dc048ce0a146835eb4a87','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/10_thumb.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||image||8f7f329ede2068e2c056aa13d435c07f','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/dc/02/dc023d9a9cf8fdb2c7bc0568309501a3.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||91bcdc347a563dc2e2b40220cc254a18','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/2_thumb.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||image||9aebbc6a7ff472e08a2472c648b23794','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/94/db/94dbdde52b7b21c8c94d7e6e91700a5f.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||9b1395f399379858380b2769b1316b43','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/f5/dc/f5dccb350e530c7b52683eb7d7f8a17b.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||9fbdadacef9c574823faaf17d9ce83fc','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/8a/4c/8a4ce2582714d305bea24e8e012486e7.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||a0f9bd71ae769f5229a636a1623f4966','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/31/01/3101c7415bf49663fbacc938a363ad30.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||aa14216d4286686b79f12198a2e74eeb','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/7e/c2/7ec2dff1e71aab44dbe58ae1099cfd90.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||c629f75bb110a8e136ebfb9212498dc5','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/a4/26/a426e0b9b197cf5ad123ac579f0e2f9d.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||cd19e05e13235d715384926a04184ad6','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/51/c5/51c5978b4bfdf5c498435791aafdaff3.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||d4848adef6c0abecee3ca4c6e7aca39d','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/7_thumb.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||image||d5bede7622db85cbfb01c7c985d193e7','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/3b/65/3b65b669f7e99cc8b2d11753a14340c5.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||db2436e3a64cd55d837e727856b4bc54','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/13/5c/135c6663b57ba93973d90cc6377c55a8.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||df52673099452122f6d0a73c4883397a','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/1_thumb.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||image||e2a0754c4e0d2031c381155b042b7e25','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/clinica3.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||image||e45b694deea6fae26081114086700c10','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/clinica1.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||image||e75c28cbd2f4f2473803792e76dbee1f','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"cache/f9/5a/f95a4f24847a1897d47cf89554f7e96a.jpg\", \"size\": [370, 240]}'),('sorl-thumbnail||image||f16a4866605df380f130933bc1090e10','{\"storage\": \"django.core.files.storage.FileSystemStorage\", \"name\": \"clinica/galeria/3_thumb.jpg\", \"size\": [1200, 800]}'),('sorl-thumbnail||thumbnails||03104ebfd29f81cbbb6bbe3cd1405bff','[\"9fbdadacef9c574823faaf17d9ce83fc\"]'),('sorl-thumbnail||thumbnails||0bfe99701ae83e39ef2646f8664da5a0','[\"d5bede7622db85cbfb01c7c985d193e7\"]'),('sorl-thumbnail||thumbnails||11dc94244275def6f9e6a12332c338dc','[\"7d10ac09d03f6c21fdcdd219b2ae8119\"]'),('sorl-thumbnail||thumbnails||126e0953b94d88b7c0ff451f1e562c56','[\"db2436e3a64cd55d837e727856b4bc54\"]'),('sorl-thumbnail||thumbnails||307f4eae95f0a00640fb541089d6742f','[\"745df415421b4581d0ac4e5ba346dc79\"]'),('sorl-thumbnail||thumbnails||3869a782455961517d7a3ebc5d5f6b86','[\"9aebbc6a7ff472e08a2472c648b23794\"]'),('sorl-thumbnail||thumbnails||4d56866fd022aa6c85ddd44da6fc1ebe','[\"475950c4afff75f89116776154845feb\"]'),('sorl-thumbnail||thumbnails||56e30025c1539bcbebba3c68272ea038','[\"722ed1f2caa7d5e17a6717e31ead106a\"]'),('sorl-thumbnail||thumbnails||6385736bdaa978cb17b17898dcce2ad1','[\"8f7f329ede2068e2c056aa13d435c07f\"]'),('sorl-thumbnail||thumbnails||76dc5d78a40c1a6a593956873b7c72bb','[\"c629f75bb110a8e136ebfb9212498dc5\"]'),('sorl-thumbnail||thumbnails||829ddf55322761b3c90bc9183f3fc909','[\"9b1395f399379858380b2769b1316b43\"]'),('sorl-thumbnail||thumbnails||83a030d78f7dc048ce0a146835eb4a87','[\"a0f9bd71ae769f5229a636a1623f4966\"]'),('sorl-thumbnail||thumbnails||91bcdc347a563dc2e2b40220cc254a18','[\"cd19e05e13235d715384926a04184ad6\"]'),('sorl-thumbnail||thumbnails||d4848adef6c0abecee3ca4c6e7aca39d','[\"5e285808a0a4bd01c81a0d40f2f3007d\"]'),('sorl-thumbnail||thumbnails||df52673099452122f6d0a73c4883397a','[\"e75c28cbd2f4f2473803792e76dbee1f\"]'),('sorl-thumbnail||thumbnails||e2a0754c4e0d2031c381155b042b7e25','[\"1ebf0a9768059928382855f4045e9476\"]'),('sorl-thumbnail||thumbnails||e45b694deea6fae26081114086700c10','[\"aa14216d4286686b79f12198a2e74eeb\"]'),('sorl-thumbnail||thumbnails||f16a4866605df380f130933bc1090e10','[\"54876f9455200bcea2d6ec7c5f922689\"]');
+/*!40000 ALTER TABLE `thumbnail_kvstore` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-11-06 21:41:26

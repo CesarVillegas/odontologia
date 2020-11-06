@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from apps.documentos.models import Documento
-from apps.carrera.models import ActividadGruposInteres, ActividadCientificoProductivo, ActividadPoliticaPublicaParticipacion, ActividadPoliticaPublica, TipoPoliticaPublica, ActividadNumeroBeneficiario
+from ..documentos.models import Documento
+from ..carrera.models import ActividadGruposInteres, ActividadCientificoProductivo, ActividadPoliticaPublicaParticipacion, ActividadPoliticaPublica, TipoPoliticaPublica, ActividadNumeroBeneficiario
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.

@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from apps.carrera.models import ActividadGruposInteres, ActividadCientificoProductivo, ActividadPoliticaPublicaParticipacion, TipoPoliticaPublica, ActividadPoliticaPublica, ActividadNumeroBeneficiario
+from ..carrera.models import ActividadGruposInteres, ActividadCientificoProductivo, ActividadPoliticaPublicaParticipacion, TipoPoliticaPublica, ActividadPoliticaPublica, ActividadNumeroBeneficiario
 
 # Actividades
 class GrupoInteresAdmin(admin.ModelAdmin):

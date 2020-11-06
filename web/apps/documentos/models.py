@@ -26,8 +26,8 @@ class Documento(models.Model):
     )
     titulo = models.CharField(max_length=200, blank=False, null=False)
     descripcion = models.CharField(max_length=5000, null=True, blank=True)
-    tipo_documento = models.CharField(max_length=1, choices=DOCUMENTOS_CHOICES, blank=False, null=False, default='G')
-    archivo = models.FileField(upload_to='documentos/', blank=False, max_length=20000, validators=[validate_document], help_text='Tamaño máximo del archivo es 15Mb y solo se permite .pdf .docx .xlsx.')
+    tipo_documento = models.CharField(max_length=100,choices=DOCUMENTOS_CHOICES, blank=False, null=False, default='G')
+    archivo = models.FileField(upload_to='documentos/', blank=False, max_length=5000, validators=[validate_document], help_text='Tamaño máximo del archivo es 15Mb y solo se permite .pdf .docx .xlsx.')
     mostrar = models.BooleanField(default=True, help_text="Visualizar este Documento.")
     prioridad = models.IntegerField(default=1, help_text="Prioridad en el que se publican estos contenidos.")
 
