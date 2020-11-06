@@ -25,7 +25,7 @@ import re
 
 def getinstagram():
     BASE_URL='https://api.instagram.com/v1/'
-    APP_ACCESS_TOKEN='7601766579.15c4221.f5ccc92f3f4446f1ab2e2ca0de4b0eb6'
+    APP_ACCESS_TOKEN='#'
     request_url = (BASE_URL + 'users/self/media/recent/?access_token=%s&count=8') % (APP_ACCESS_TOKEN)
     recent_post = requests.get(request_url).json()
     posts = recent_post['data']
@@ -97,7 +97,7 @@ def twitter_timeline(request):
     return render(request)
 
 def index(request):
-    return render(request, 'carrera/index.html')
+    return render(request, 'carrera/index.html', {"instagram_profile_name": "odontologiauls"})
 
 def admision(request):
     admisiones = Admision.objects.all().last()
@@ -206,13 +206,17 @@ def detalle_academico(request):
     except ObjectDoesNotExist:
         return render(request, '404.html', status=404)
 
-
 def vinculacion(request):
     return render(request, 'carrera/vinculacion.html')
 
+def pyp(request):
+    return render(request, 'carrera/vinculacion.html')
 
 def handler404(request):
     return render(request, '404.html', status=404)
 
 def handler500(request):
     return render(request, '500.html', status=500)
+
+def equipo_directivo(request):
+    return render(request, 'carrera/equipo_directivo.html')

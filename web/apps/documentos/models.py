@@ -18,8 +18,15 @@ def validate_document(fieldfile_obj):
 
 
 class Documento(models.Model):
+    DOCUMENTOS_CHOICES = (
+        ('G','Documento General'),
+        ('A','Documento Actividades Vinculacíon'),
+        ('I','Documento Investigación'),
+        ('P','Documento Políticas Vinculación'),
+    )
     titulo = models.CharField(max_length=200, blank=False, null=False)
     descripcion = models.CharField(max_length=5000, null=True, blank=True)
+    tipo_documento = models.CharField(max_length=1, choices=DOCUMENTOS_CHOICES, blank=False, null=False, default='G')
     archivo = models.FileField(upload_to='documentos/', blank=False, max_length=20000, validators=[validate_document], help_text='Tamaño máximo del archivo es 15Mb y solo se permite .pdf .docx .xlsx.')
     mostrar = models.BooleanField(default=True, help_text="Visualizar este Documento.")
     prioridad = models.IntegerField(default=1, help_text="Prioridad en el que se publican estos contenidos.")
@@ -50,11 +57,11 @@ def auto_delete_file_on_change(sender, instance, **kwargs):
         return False
 
     try:
-        old_imagen = Documento.objects.get(pk=instance.pk).archivo
+        old_doc = Documento.objects.get(pk=instance.pk).archivo
     except Documento.DoesNotExist:
         return False
 
-    new_imagen = instance.archivo
-    if not old_imagen == new_imagen:
-        if os.path.isfile(old_imagen.path):
-            os.remove(old_imagen.path)
+    new_doc = instance.archivo
+    if not old_doc == new_doc:
+        if os.path.isfile(old_doc.path):
+            os.remove(old_doc.path)

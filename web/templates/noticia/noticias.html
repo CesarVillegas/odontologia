@@ -1,0 +1,151 @@
+{% extends "carrera/basecontenido.html" %} 
+{% load staticfiles %} 
+{% block title %}Odontología{% endblock %} 
+{% block content %} 
+<!-- Modern Breadcrumbs-->
+<section class="breadcrumb-modern context-dark text-md-left">
+    <div class="shell section-34 section-md-top-110 section-md-bottom-41">
+        <h1>Noticias</h1>
+        <ul class="list-inline list-inline-arrows p offset-top-34 offset-md-top-70">
+            <li><a href="/">Carrera</a></li>
+            <li>Noticias</li>
+        </ul>
+    </div>
+</section>
+<!-- Page Content-->
+<main class="page-content">
+    <section class="section-98 section-sm-50 section-lg-bottom-0">
+        <div class="shell text-left">
+            <div class="range range-xs-center">
+                <div class="cell-md-10 cell-lg-8">
+                  <div class="range">
+                    {% if noticias %}
+                      {% for noticia in noticias %}
+                        <div class="cell-sm-6">
+                          <article class="post post-modern post-modern-classic post-modern-classic-full">
+                            <!-- Post media-->
+                            <header class="post-media">
+                              <a href="{% url 'detalle' actid=noticia.id %}">
+                                <img width="770" height="480" src="{{ noticia.imagen.url }}" alt="" class="img-responsive img-cover"/>
+                              </a>
+                            </header>
+                            <!-- Post content-->
+                            <section class="post-content text-left">
+                              <!-- Post Title-->
+                              <div class="post-title offset-top-8">
+                                <h4 class="text-bold"><a href="{% url 'detalle' actid=noticia.id %}">{{ noticia.titulo }}</a></h4>
+                              </div>
+                              <ul class="list-inline list-inline-dashed">
+                                <li>{{ noticia.inicio|date:"d M Y, H:i" }} hrs</li>
+                                <li>{{ noticia.cierre|date:"d M Y, H:i" }} hrs</li>
+                              </ul>
+                              <!-- Post Body-->
+                              <div class="post-body">
+                                {{ noticia.descripcion|truncatechars:200|safe }}
+                              </div>
+                              <!--
+                              <div class="tags group group-sm"><a href="#" class="btn-tag btn btn-default">Health</a><a href="#" class="btn-tag btn btn-default">Care</a><a href="#" class="btn-tag btn btn-default">Chiropractic</a>
+                              </div>
+                              -->
+                            </section>
+                          </article>
+                        </div>
+                      {% endfor %}
+                      <div class="cell-sm-12">
+                        <!-- Classic Pagination-->
+                        <div class="offset-top-50 offset-lg-top-60 text-lg-left">
+                          <nav>
+                            <ul class="pagination-classic">
+                              <li>
+                                {% if noticias.has_previous %}
+                                  <a href="?page={{ noticias.previous_page_number }}" class="btn btn-java">
+                                {% else %}
+                                  <a href="#" class="btn btn-java disabled">
+                                {% endif %}
+                                <span class="fa-chevron-left" aria-hidden="true"></span></a>
+                              </li>
+                              {% for a in noticias.paginator.page_range %}
+                                {% if noticias.number == a %}
+                                  <li class="active"><span class="btn btn-java">{{ a }}</span></li>
+                                {% else %}
+                                  <li><a href="?page={{ a }}" class="btn btn-java">{{ a }}</a></li>
+                                {% endif %}
+                              {% endfor %}
+                              <li>
+                                {% if noticias.has_next %} 
+                                  <a href="?page={{ noticias.next_page_number }}" class="btn btn-java">
+                                {% else %}
+                                  <a href="#" class="btn btn-java disabled">
+                                {% endif %}
+                                <span class="fa-chevron-right" aria-hidden="true"></span></a>
+                              </li>
+                            </ul>
+                          </nav>
+                        </div>
+                      </div>
+                    {% else %}
+                      <div class="cell-sm-12">
+                        <div class="offset-top-30 offset-md-top-60">
+                          <h6 style="text-align:left">Actualmente no existen noticias o la busqueda que esta realizando no tiene resultados.</h6>
+                        </div>
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="cell-sm-10 cell-md-8 cell-lg-4 offset-top-66 offset-md-top-90 offset-lg-top-0">
+                   <div class="blog-grid-sidebar inset-lg-left-30">
+                      <!-- Search in Blog-->
+                      <div>
+                        <h6>Filtro de noticias</h6>
+                        <hr class="text-subline">
+                        <div class="offset-top-14 offset-md-top-20 rd-search-blog">
+                          <!-- RD Search Form-->
+                          <form action="{% url 'noticias' %}" method="GET" class="form-search rd-search">
+                            <div class="form-group">
+                              <label for="blog-classic-form-search-widget" class="form-label form-search-label">Buscar</label>
+                              <input id="blog-classic-form-search-widget" type="text" name="query" autocomplete="off" class="form-search-input form-control null">
+                            </div>
+                            <button type="submit" class="form-search-submit"><span class="fa fa-search"></span></button>
+                          </form>
+                        </div>
+                      </div>
+                      <!-- Archive-->
+                      <div class="offset-top-30 offset-md-top-60">
+                        <h6>Noticias archivadas</h6>
+                        <hr class="text-subline">
+                      </div>
+                      <div class="offset-top-14 offset-md-top-20">
+                        <div class="range range-xs-center range-lg-left">
+                          {% if fechas %}
+                            <div class="cell-xs-6 cell-lg-5">
+                              <!-- List Marked Left -->
+                              <ul class="list list-marked inset-left-0 list-marked-icon text-dark list-marked-gray">
+                                {% for fecha in fechas %}
+                                  {% if not forloop.counter|divisibleby:2 %}
+                                    <li><a href="{% url 'noticias' %}?mes={{fecha|date:'n'}}&anio={{fecha|date:'Y'}}">{{ fecha|date:"M Y" }}</a></li>
+                                  {% endif %}
+                                {% endfor %}
+                              </ul>
+                              
+                            </div>
+                            <div class="cell-xs-6 cell-lg-5 offset-top-10 offset-xs-top-0 inset-xs-left-5">
+                              <!-- List Marked Right-->
+                              <ul class="list list-marked inset-left-0 list-marked-icon text-dark list-marked-gray">
+                                {% for fecha in fechas %}
+                                  {% if forloop.counter|divisibleby:2 %}
+                                    <li><a href="{% url 'noticias' %}?mes={{fecha|date:'n'}}&anio={{fecha|date:'Y'}}">{{ fecha|date:"M Y" }}</a></li>
+                                  {% endif %}
+                                {% endfor %}
+                              </ul>
+                            </div>
+                          {% endif %}
+                        </div>
+                    </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+

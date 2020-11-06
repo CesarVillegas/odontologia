@@ -18,13 +18,24 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from apps.carrera import views
+
+# handler404 = views.handler404
+# handler500 = views.handler500
 
 urlpatterns = [
     url(r'^', include('apps.carrera.urls'), name='carrera'),
     url(r'^clinica/', include('apps.clinica.urls'), name='clinica'),
+    url(r'^investigacion/', include('apps.investigacion.urls'), name='investigacion'),
+    url(r'^vinculacion/', include('apps.vinculacion.urls'), name='vinculacion'),
     url(r'^documentos/', include('apps.documentos.urls'), name='documentos'),
+    url(r'^equipo_directivo/', include('apps.equipo_directivo.urls'), name='equipo_directivo'),
+    url(r'^coordinacion_area/', include('apps.coordinacion_area.urls'), name='coordinacion_area'),
+    url(r'^noticia/', include('apps.noticia.urls'), name='noticia'),
     url(r'^adminodontologia/', admin.site.urls),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^404/$', views.handler404, name='handler404'),
+    url(r'^500/$', views.handler500, name='handler500'),
 ]
 
 if settings.DEBUG:
