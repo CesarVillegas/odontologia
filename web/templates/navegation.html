@@ -7,12 +7,12 @@
             <div class="rd-navbar-top-panel">
                 <div>
                     <a href="http://www.userena.cl/" target="_blank">
-                        <img width='330px' height='auto' class='img-responsive' src="{% static 'images/logo-uls-blue.svg' %}" alt='logo-uls'/>
+                        <img width="330px" height="auto" class="img-responsive" src="{% static 'images/logo-uls-blue.svg' %}" alt="logo-uls"/>
                     </a>
                 </div>
                 <div>
                     <a href="/">
-                        <img width='250px' height='auto' class='img-responsive' src="{% static 'images/logo-odonto-dark.svg' %}" alt='logo-odonto'/>
+                        <img width="250px" height="auto" class="img-responsive" src="{% static 'images/logo-odonto-dark.svg' %}" alt="logo-odonto"/>
                     </a>
                 </div>
                 <div>
@@ -24,7 +24,7 @@
                 <!-- RD Navbar Toggle-->
                 <button data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
                 <!--Navbar Brand-->
-                <div class="rd-navbar-brand veil-md"><a href="index.html"><img width='330' height='auto' class='img-responsive' src="{% static 'images/logo-uls-odonto-dark.svg' %}" alt='logo'/></a></div>
+                <div class="rd-navbar-brand veil-md"><a href="index.html"><img width="330" height="auto" class="img-responsive" src="{% static 'images/logo-uls-odonto-dark.svg' %}" alt="logo"/></a></div>
                 <button data-rd-navbar-toggle=".rd-navbar, .rd-navbar-top-panel" class="rd-navbar-top-panel-toggle"><span></span></button>
             </div>
             <div class="rd-navbar-menu-wrap">
@@ -62,14 +62,14 @@
                             </li>
                             <li class="{% active_menu '/vinculacion' %}"><a href="#"><span>Vinculación con el medio</span></a>
                                 <ul class="rd-navbar-dropdown">
-                                    <li><a href="/vinculacion/politicas"><span class="text-middle">Políticas</span></a></li>
+                                    <li><a href="{% url 'politicas' %}"><span class="text-middle">Políticas</span></a></li>
                                     <li><a href="{% url 'noticias' %}"><span class="text-middle">Noticias</span></a></li>
                                     <li><a href="{% url 'actividades' %}"><span class="text-middle">Actividades</span></a></li>
                                 </ul>
                             </li>
                             <li class="{% active_menu '/investigacion' %}"><a href="#"><span>Investigación</span></a>
                                 <ul class="rd-navbar-dropdown">
-                                    <li><a href="/investigacion/documentos"><span class="text-middle">Políticas y Criterios</span></a></li>
+                                    <li><a href="/investigacion/politicas"><span class="text-middle">Políticas y Criterios</span></a></li>
                                     <li><a href="/investigacion/productividad"><span class="text-middle">Productividad</span></a></li>
                                 </ul></li>
                             <li class="{% active_menu '/documentos' %}"><a href="/documentos"><span>Documentos</span></a></li>

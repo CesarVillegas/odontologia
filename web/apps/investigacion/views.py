@@ -14,7 +14,7 @@ def index(request):
         documentos = paginator.page(paginator.num_pages)
     return render(request, 'investigacion/index.html',{'documentos':documentos})
 
-def documentos(request):
+def documentos_politica(request):
     docs = Documento.objects.filter(mostrar=True, tipo_documento='I').order_by('titulo').order_by('prioridad')
     paginator = Paginator(docs, 6)
     page = request.GET.get('page')
