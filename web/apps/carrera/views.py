@@ -165,7 +165,7 @@ def enviarcorreo(contacto):
         server.sendmail(fromaddr, toaddr, msg.as_string())
         server.close()
     except Exception as e:
-        print '%s (%s)' % (e.message, type(e))
+        print (e.message, type(e))
         return False
     return True
 
@@ -205,6 +205,11 @@ def detalle_academico(request):
         return render(request, 'carrera/detalle_academico.html', {'datos': datos})
     except ObjectDoesNotExist:
         return render(request, '404.html', status=404)
+
+
+def vinculacion(request):
+    return render(request, 'carrera/vinculacion.html')
+
 
 def handler404(request):
     return render(request, '404.html', status=404)

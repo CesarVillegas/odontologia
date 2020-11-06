@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'apps.carrera',
     'apps.clinica',
+    'apps.documentos',
 ]
 
 MIDDLEWARE = [
@@ -102,7 +103,7 @@ else:
             'NAME': 'webodonto',
             'USER': 'userodonto',
             'PASSWORD': 'odontoq1w2e3',
-            'HOST': '127.0.0.1',
+            'HOST': 'db',
             'PORT': '3306',
         }
     }
