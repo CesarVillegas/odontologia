@@ -23,7 +23,7 @@
                     <div class="offset-top-41 offset-lg-top-66">
                         {% if documentos %}
                           {% for documento in documentos %}
-                          <div class="unit unit-horizontal unit-middle">
+                          <div class="unit unit-horizontal unit-middle unit-space">
                             {%  ifequal documento.extension '.pdf' %}
                               <div class="unit-left"><span class="icon fa-file-pdf-o" style="color:#ce0e2d;"></span></div>
                             {% endifequal %}
@@ -35,9 +35,9 @@
                             {% endifequal %}
 
                             <div class="unit-body">
-                              <h4><a href="{{ documento.archivo.url }}" target="_blank">{{ documento.titulo }}</a><br>
+                              <h4><a href="{{ documento.archivo.url }}" target="_blank" class="doc-title">{{ documento.titulo }}</a>
                               </h4>
-                              <p>{{ documento.descripcion }}</p>
+                              <p class="doc-descripcion">{{ documento.descripcion }}</p>
                             </div>
                           </div>
                           {% endfor %}

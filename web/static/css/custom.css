@@ -469,3 +469,19 @@ section.section-30-down{
   border-radius: 5px;
   background-color: #fff;
 }
+
+/* Documentos */
+
+div .unit.unit-horizontal.unit-middle.unit-space{
+  margin-bottom: 20px;
+}
+
+div.unit-body a.doc-title{
+  text-transform: capitalize;
+}
+
+div.unit-body p.doc-descripcion{
+  padding: 0px;
+  margin: 0px;
+  line-height: 1.1;
+}

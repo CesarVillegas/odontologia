@@ -342,9 +342,8 @@ section.section-30-down{
 .profile-card {
   position: relative;
   overflow: hidden;
-  margin-bottom: 10px;
-  box-shadow: 0px 2px 3px #222;
-  top: 150px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.15);
 }
 
 .profile-card:hover .profile-img img {
@@ -360,11 +359,11 @@ section.section-30-down{
 .profile-card .profile-content::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -3px;
+  left: -3px;
   width: 50%;
   height: 40%;
-  border: 3px solid #333;
+  border: 3px solid #f2f2f2;
   border-right: 3px solid transparent;
   border-bottom: 3px solid transparent;
   transform: scale(1, 1);
@@ -374,11 +373,11 @@ section.section-30-down{
 .profile-card .profile-content::after {
   content: "";
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: -3px;
+  right: -3px;
   width: 50%;
   height: 40%;
-  border: 3px solid #222;
+  border: 3px solid #f2f2f2;
   border-left: 3px solid transparent;
   border-top: 3px solid transparent;
   transition: all 0.50s linear;
@@ -407,12 +406,14 @@ section.section-30-down{
 }
 
 .profile-card .profile-content:hover {
-  background-color: rgba(255, 43, 131, 0.5);
+  background-color: rgba(33,78,131,0.5);
 }
 
 .profile-card .profile-content .title {
-  font-size: 24px;
-  color: #333;
+  font-size: 26px;
+  color: #fff;
+  text-shadow: 0 0 3px #214e83;
+  padding: 0px 10px 0 10px;
   opacity: 0;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -422,7 +423,7 @@ section.section-30-down{
 
 .profile-card:hover .title {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(-10px);
 }
 
 .profile-card:hover .title::after {
@@ -430,12 +431,12 @@ section.section-30-down{
   display: block;
   width: 50%;
   margin: 10px auto;
-  border-bottom: 2px solid #222;
+  border-bottom: 2px solid #f2f2f2;
 }
 
-.profile-card .profile-content .title>span {
+.profile-card .profile-content .title > span {
   display: block;
-  margin: 5px 0;
+  margin: 8px 0;
   font-size: 14px;
   text-transform: capitalize;
 }
@@ -467,4 +468,14 @@ section.section-30-down{
   text-align: center;
   border-radius: 5px;
   background-color: #fff;
+}
+
+/* Documentos */
+
+div.unit-body a.doc-title{
+  text-transform: uppercase;
+}
+
+div.unit-body p.doc-descripcion{
+  padding: 0px;
 }
