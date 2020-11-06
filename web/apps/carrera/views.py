@@ -15,6 +15,7 @@ from email.utils import make_msgid
 from datetime import datetime
 from .models import Admision, Contacto, Contenido, Docentes
 from .forms import FormularioContacto
+from apps.coordinacion_area.models import Coordinador
 import time
 import smtplib
 import json
@@ -222,4 +223,5 @@ def equipo_directivo(request):
     return render(request, 'carrera/equipo_directivo.html')
 
 def coordinacion(request):
-    return render(request, 'carrera/coordinacion.html')
+    c = Coordinador.objects.all()
+    return render(request, 'carrera/coordinacion.html', {'coordinadores': c})

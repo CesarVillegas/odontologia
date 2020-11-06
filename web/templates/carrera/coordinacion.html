@@ -20,6 +20,7 @@
     <div class="shell text-left">
       <div class="isotope-wrap">
         <div class="row">
+          {% for coordinador in coordinadores %}
           <div class="col-md-4">
             <!--
             <figure class="thumbnail-josip thumbnail-spacing">
@@ -36,11 +37,11 @@
 
             <div class="profile-card">
               <div class="profile-img">
-                <img src="{% static 'images/carrera/docentes/mujer.png' %}" alt="Team Image"/>
+                <img src="{{ coordinador.foto.url }}" alt="Team Image"/>
               </div>
               <div class="profile-content">
-                <h2 class="title">Rosa Cuevas
-                  <span>Área Curricular de Patología y Diagnóstico Área Curricular de Patología y Diagnóstico</span>
+                <h2 class="title">{{ coordinador.nombres }}+' '+{{ coordinador.apellido_paterno }}+' '+{{ coordinador.apellido_materno }}
+                  <span>{{ coordinador.cargo }}</span>
                 </h2>
                 <!--
                 <ul class="social-link">
@@ -54,32 +55,7 @@
             </div>
 
           </div>
-          <div class="col-md-4">
-
-            <div class="profile-card">
-              <div class="profile-img">
-                <img src="{% static 'images/carrera/docentes/mujer.png' %}" alt="Team Image"/>
-              </div>
-              <div class="profile-content">
-                <h2 class="title">Rosa Cuevas
-                  <span>Área Curricular de Patología y Diagnóstico</span>
-                </h2>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-4">
-            <div class="profile-card">
-              <div class="profile-img">
-                <img src="{% static 'images/carrera/docentes/mujer.png' %}" alt="Team Image"/>
-              </div>
-              <div class="profile-content">
-                <h2 class="title">Rosa Cuevas
-                  <span>Área Curricular de Patología y Diagnóstico</span>
-                </h2>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
