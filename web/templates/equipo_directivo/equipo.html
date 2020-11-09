@@ -51,8 +51,8 @@
                                   <hr class="divider divider-lg hr-sm-left-2 bg-primary">
                                   <div class="offset-top-41 offset-lg-top-60">
                                       <div class="range range-xs-left">
-                                          {% for director in directivos %}
-                                          <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                          {% for director in directores %}
+                                          <!--div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
                                               <figure class="thumbnail-josip thumbnail-spacing">
                                                   <img src="{{ director.foto.url }}" alt=""/>
                                                   <div class="thumbnail-desc" style="padding: 10px 10px 20px; text-align:center">
@@ -60,12 +60,24 @@
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ director.apellido_paterno }}</h6>
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ director.titulo }}</h6>
                                                   </div>
-                                                  <!--figcaption>
+                                                  <-!--figcaption>
                                                     <a type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#rehabilitacion_{{ rehabilitacion.id }}">
                                                       ver perfil completo
                                                     </a>
-                                                  </figcaption-->
+                                                  </figcaption->
                                               </figure>
+                                          </div-->
+                                          <div class="col-md-4">
+                                            <div class="profile-card">
+                                              <div class="profile-img">
+                                                <img src="{{ director.foto.url }}" alt="Team Image"/>
+                                              </div>
+                                              <div class="profile-content">
+                                                <h2 class="title">{{ director.nombres }} {{ director.apellido_paterno }} {{ director.apellido_materno }}
+                                                  <span>{{ director.cargo }}</span>
+                                                </h2>
+                                              </div>
+                                            </div>
                                           </div>
                                           {% endfor %}
                                       </div>
@@ -77,20 +89,32 @@
                                   <div class="offset-top-41 offset-lg-top-60">
                                       <div class="range range-xs-left">
                                           {% for administrador in administradores %}
-                                          <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                          <!--div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
                                               <figure class="thumbnail-josip thumbnail-spacing">
                                                   <img width="270" height="270" src="{{ administrador.foto.url }}" alt=""/>
                                                   <div class="thumbnail-desc" style="padding: 10px 10px 20px; text-align:center">
                                                     <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ administrador.nombres }}</h6>
                                                     <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ administrador.apellido_paterno }}</h6>
                                                     <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ administrador.cargo }}</h6>
-                                                  </div>
+                                                  </div-->
                                                   <!--figcaption>
                                                     <a type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#odontopediatria_{{ odontopediatria.id }}">
                                                       ver perfil completo
                                                     </a>
                                                   </figcaption-->
-                                              </figure>
+                                              <!--/figure>
+                                          </div-->
+                                          <div class="col-md-4">
+                                            <div class="profile-card">
+                                              <div class="profile-img">
+                                                <img src="{{ administrador.foto.url }}" alt="Team Image"/>
+                                              </div>
+                                              <div class="profile-content">
+                                                <h2 class="title">{{ administrador.nombres }} {{ administrador.apellido_paterno }} {{ administrador.apellido_materno }}
+                                                  <span>{{ administrador.cargo }}</span>
+                                                </h2>
+                                              </div>
+                                            </div>
                                           </div>
                                           {% endfor %}
                                       </div>
@@ -102,20 +126,32 @@
                                   <div class="offset-top-41 offset-lg-top-60">
                                       <div class="range range-xs-left">
                                           {% for coordinador in coordinadores %}
-                                          <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                          <!--div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
                                               <figure class="thumbnail-josip thumbnail-spacing">
                                                   <img width="270" height="270" src="{{ coordinador.foto.url }}" alt=""/>
                                                   <div class="thumbnail-desc" style="padding: 10px 10px 20px; text-align:center">
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ coordinador.nombre }}</h6>
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ coordinador.apellido_paterno }}</h6>
                                                       <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ coordinador.cargo }}</h6>
-                                                  </div>
+                                                  </div-->
                                                   <!--figcaption>
                                                     <a type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#periodoncia_{{ periodoncia.id }}">
                                                       ver perfil completo
                                                     </a>
                                                   </figcaption-->
-                                              </figure>
+                                              <!--/figure>
+                                          </div-->
+                                          <div class="col-md-4">
+                                            <div class="profile-card">
+                                              <div class="profile-img">
+                                                <img src="{{ coordinador.foto.url }}" alt="Team Image"/>
+                                              </div>
+                                              <div class="profile-content">
+                                                <h2 class="title">{{ coordinador.nombres }} {{ coordinador.apellido_paterno }} {{ coordinador.apellido_materno }}
+                                                  <span>{{ coordinador.cargo }}</span>
+                                                </h2>
+                                              </div>
+                                            </div>
                                           </div>
                                           {% endfor %}
                                       </div>
