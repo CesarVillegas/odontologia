@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 from ..documentos.models import Documento
+from .models import Productividad
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
@@ -28,4 +29,5 @@ def documentos_politica(request):
     return render(request, 'investigacion/documentos.html',{'documentos':documentos})
 
 def cienciometria(request):
-    return render(request, 'investigacion/cienciometria.html')
+    actividades = Productividad.objects.filter().order_by('temporada').reverse()
+    return render(request, 'investigacion/cienciometria.html',{'actividades':actividades})
