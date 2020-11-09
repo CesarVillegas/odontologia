@@ -109,7 +109,7 @@ else:
             'NAME': 'webodonto',
             'USER': 'userodonto',
             'PASSWORD': 'odontoq1w2e3',
-            'HOST': 'db',
+            'HOST': '127.0.0.1',
             'PORT': '3306',
         }
     }
