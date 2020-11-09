@@ -25,7 +25,7 @@ services:
       MYSQL_PASSWORD: "odontoq1w2e3"
       MYSQL_ROOT_PASSWORD: "rootq1w2e3"
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 20s
       retries: 10
     volumes:
@@ -34,5 +34,3 @@ services:
       - "3306:3306"
     expose:
       - "3306"
-    volumes:
-      - .:/home

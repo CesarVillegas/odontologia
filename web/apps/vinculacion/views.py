@@ -1,9 +1,9 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from ..documentos.models import Documento
 from ..carrera.models import ActividadGruposInteres, ActividadCientificoProductivo, ActividadPoliticaPublicaParticipacion, ActividadPoliticaPublica, TipoPoliticaPublica, ActividadNumeroBeneficiario
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-# Create your views here.
 
 def index(request):
     return render(request, 'vinculacion/index.html')

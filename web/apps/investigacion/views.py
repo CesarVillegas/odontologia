@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from ..documentos.models import Documento
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger

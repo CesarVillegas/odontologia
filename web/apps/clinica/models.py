@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.core.files.images import get_image_dimensions
