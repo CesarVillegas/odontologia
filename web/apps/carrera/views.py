@@ -13,6 +13,7 @@ from email.utils import formataddr
 from email.utils import formatdate
 from email.utils import make_msgid
 from datetime import datetime
+from django.views.generic import TemplateView
 from .models import Admision, Contacto, Contenido, Docentes
 from .forms import FormularioContacto
 import time
@@ -96,8 +97,17 @@ def twitter_timeline(request):
         return HttpResponse(json.dumps(json_data, sort_keys=True), content_type="application/json")
     return render(request)
 
-def index(request):
-    return render(request, 'carrera/index.html', {"instagram_profile_name": "odontologiauls"})
+#def index(request):
+#   return render(request, 'carrera/index.html')
+
+class Index(TemplateView):
+    template_name = 'carrera/index.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(Index, self).get_context_data(*args, **kwargs)
+        context['name'] = "index"
+        context['instagram_profile_name'] = "odontologiauls"
+        return context
 
 def admision(request):
     admisiones = Admision.objects.all().last()
