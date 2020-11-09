@@ -156,11 +156,11 @@
                               {% if politica.tipo_id == tipo.id %}
                                 <tr>
                                   <td>{{ politica.id }}</td>
-                                  <td>{{ politica.actividad }}</td>
-                                  <td>{{ politica.descripcion }}</td>
-                                  <td>{{ politica.participantes }}</td>
-                                  <td>{{ politica.anio }}</td>
-                                  <td>{{ politica.grupo_interes }}</td>
+                                  <td>{% autoescape off %}{{ politica.actividad }}{% endautoescape %}</td>
+                                  <td>{% autoescape off %}{{ politica.descripcion }}{% endautoescape %}</td>
+                                  <td>{% autoescape off %}{{ politica.participantes }}{% endautoescape %}</td>
+                                  <td>{% autoescape off %}{{ politica.anio }}{% endautoescape %}</td>
+                                  <td>{% autoescape off %}{{ politica.grupo_interes }}{% endautoescape %}</td>
                                 </tr>
                               {% endif %}
                             {% endfor %}
