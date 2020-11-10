@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'apps.noticia',
     'apps.equipo_directivo',
     'apps.coordinacion_area',
-    'django_instagram',
 ]
 
 MIDDLEWARE = [

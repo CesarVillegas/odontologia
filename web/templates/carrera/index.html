@@ -1,6 +1,5 @@
 {% extends "carrera/base.html" %}
 {% load staticfiles %}
-{% load instagram_client %} 
 
 {% block title %}Odontología{% endblock %} 
 
@@ -36,21 +35,21 @@
       <div class="shell">
           <h3>Novedades</h3>
           <hr class="divider divider-lg bg-primary">
-          <div class="range offset-top-60">
-              <div id="loading_section_instagram" class="loading">
-                  <center>
-                      <img src="{% static 'images/loading.gif' %}" width="100px" height="100px">
-                      <p>Cargando...</p>
-                  </center>
-              </div>
-              <div id="instagram_section" data-loop="false" data-margin="10" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="4" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-class-light owl-theme owl-loaded" style="display:none;">
-              </div>
-          </div>
+          <div class="row">
+            <div class="offset-top-60 col-sm-12">
+                <div id="loading_section_instagram" class="loading">
+                    <center>
+                        <img src="{% static 'images/loading.gif' %}" width="100px" height="100px">
+                        <p>Cargando...</p>
+                    </center>
+                </div>
+                <div id="instagram_section" data-loop="false" data-margin="10" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="4" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-class-light owl-theme owl-loaded" style="display:none;">
+                </div>
+            </div>
 
-          <div class="range offset-top-60">
-              <div class="col-md-12" style="margin-top:20px;">
-                  <center><a href="https://www.instagram.com/odontologiauls/" class="btn btn-ellipse btn-java" target="_blank">mas novedades</a></center>
-              </div>
+            <div class="offset-top-60 col-sm-12">
+                <center><a href="https://www.instagram.com/odontologiauls/" class="btn btn-ellipse btn-java" target="_blank">mas novedades</a></center>
+            </div>
           </div>
       </div>
   </section>

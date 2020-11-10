@@ -24,21 +24,19 @@ import requests
 import re
 
 
-def getinstagram():
-    BASE_URL='https://api.instagram.com/v1/'
-    APP_ACCESS_TOKEN='#'
-    request_url = (BASE_URL + 'users/self/media/recent/?access_token=%s&count=8') % (APP_ACCESS_TOKEN)
-    recent_post = requests.get(request_url).json()
-    posts = recent_post['data']
+def getinstagram(username):
+    BASE_URL='https://www.instagram.com/'+username+'/?__a=1'
+    recent_post = requests.get(BASE_URL).json()
+    posts = recent_post.graphql.user.edge_owner_to_timeline_media.edges
     imagenes = []
     for post in posts:
-        imagenes.append({'image':post['images']['thumbnail']['url'],'url':post['link']})
+        imagenes.append({'image':post.node.display_url,'url':post.node.shortcode})
     return imagenes
 
 #@csrf_exempt
 def instagram_timeline(request):
     if request.method == 'GET':
-        instagram_images = getinstagram()
+        instagram_images = getinstagram('odontologiauls')
         return HttpResponse(json.dumps(instagram_images), content_type="application/json")
     return render(request)
 
@@ -97,16 +95,8 @@ def twitter_timeline(request):
         return HttpResponse(json.dumps(json_data, sort_keys=True), content_type="application/json")
     return render(request)
 
-#def index(request):
-#   return render(request, 'carrera/index.html')
-
-class Index(TemplateView):
-    template_name = 'carrera/index.html'
-
-    def get_context_data(self, *args, **kwargs):
-        context = super(Index, self).get_context_data(*args, **kwargs)
-        context["instagram_profile_name"] = "OdontologiaULS"
-        return context
+def index(request):
+  return render(request, 'carrera/index.html')
 
 def admision(request):
     admisiones = Admision.objects.all().last()
