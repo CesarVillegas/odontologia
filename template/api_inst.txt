@@ -1,0 +1,37 @@
+
+APP_ID=698783474086775
+
+APP_SECRET=ede1d753100223ad36608117dc192b5b
+
+REDIRECT=https://localhost:8000/
+
+CODE=AQBG8bAzaT0Y4u498ypu0suS4fzRwUJGbs-PKK18nLG8DJDs4I3vqRTJXe87BNamYm7Nsj-z9ZuOpAd7V7XxwiV0eq4Zx9CRHFhUvhl4E51qZoKP2ukf0dYQdNK1jO4FB8uBcUq2deoYW83Q2PAGJkQdPa0IhwRxJwdjuCS7o_CI6OXP-l_doOKkH9d6vSPVheZsQQGExlUncBI5TRqx_xqdfLaMV5zoDgvmIKGv9GZrZw
+
+ACCESS_TOKEN=IGQVJYQkNyWkMwTnVLRHJRTTgwZAFpuY1loOVpWVGROUkhXZAkoxV1VEeEZADbkZA3elllQU9zS0F0bXhNNjJITGRXXzNZAZATdUVmstM1VjbWttWGdPbTBYZA3pEd21ONVp0WkRFUW02TDYxR3dGTExkbzhFcElkZAS0zXzYwTmM0
+
+USER_ID=17841407637390220
+
+MEDIA_ID1=17859801779152928
+
+MEDIA_ID2=17872097572985979
+
+---
+
+curl -i -X GET "https://api.instagram.com/oauth/authorize?client_id=$APP_ID&redirect_uri=$REDIRECT&response_type=code&scope=user_profile,user_media"
+
+curl -i -X GET "https://api.instagram.com/oauth/authorize?client_id=698783474086775&redirect_uri=https://localhost:8000/&response_type=code&scope=user_profile,user_media"
+
+----
+
+curl -X POST "https://api.instagram.com/oauth/access_token?grant_type=authorization_code&client_id=$APP_ID&client_secret=$APP_SECRET&redirect_uri=https://localhost:8000/&code=$CODE"
+
+curl -X POST "https://api.instagram.com/oauth/access_token?grant_type=fb_exchange_token&client_id=$APP_ID&client_secret=$APP_SECRET&redirect_uri=https://localhost:8000/&fb_exchange_token=$ACCESS_TOKEN"
+
+curl -X POST "https://api.instagram.com/oauth/access_token?client_id=698783474086775&client_secret=ede1d753100223ad36608117dc192b5b&grant_type=authorization_code&redirect_uri=https://localhost:8000/&code=AQC9Bytwe1_psxKb7Wp3ILYB_mjnOrbKvSzHE3Mr9bXHZZZ_C643-Jn9NAQmN3IgKdJVRzlGmeGzcu-yiXpeNIL46JbbQLBxlj_jFJtG0UyTB6lApbcZe5LpL0oiHbhaxs16eT5RLPJx1qNJjckfTEtljBtQzNU_dc1DYHCAIsHELBBFQZtEEkUiBRdUYDOFYuHyy111EJgrn9RObYcbS4mpp8HlAtxDNWDhuRftYmO9UQ"
+
+----
+
+curl -X GET "https://graph.instagram.com/17841407637390220/media?access_token=IGQVJYQkNyWkMwTnVLRHJRTTgwZAFpuY1loOVpWVGROUkhXZAkoxV1VEeEZADbkZA3elllQU9zS0F0bXhNNjJITGRXXzNZAZATdUVmstM1VjbWttWGdPbTBYZA3pEd21ONVp0WkRFUW02TDYxR3dGTExkbzhFcElkZAS0zXzYwTmM0"
+
+curl -X GET "https://graph.instagram.com/17859801779152928?fields=caption,media_url,timestamp&access_token=IGQVJYQkNyWkMwTnVLRHJRTTgwZAFpuY1loOVpWVGROUkhXZAkoxV1VEeEZADbkZA3elllQU9zS0F0bXhNNjJITGRXXzNZAZATdUVmstM1VjbWttWGdPbTBYZA3pEd21ONVp0WkRFUW02TDYxR3dGTExkbzhFcElkZAS0zXzYwTmM0"
+
