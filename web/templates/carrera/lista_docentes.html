@@ -176,6 +176,56 @@
                                       </div>
                                   </div>
                               </div>
+                              <div data-filter="radiologia_imagenologia" class="col-md-12 isotope-item">
+                                <h3>Radiología e Imagenología</h3>
+                                <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                                <div class="offset-top-41 offset-lg-top-60">
+                                    <div class="range range-xs-left">
+                                        {% for radiologia_imagenologia in radiologias_imagenologias %}
+                                        <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                            <figure class="thumbnail-josip thumbnail-spacing">
+                                                <img width="270" height="270" src="{{ radiologia_imagenologia.foto.url }}" alt=""/>
+                                                <div class="thumbnail-desc" style="padding: 10px 10px 20px; text-align:center">
+                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ radiologia_imagenologia.nombres }}</h6>
+                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ radiologia_imagenologia.apellido_paterno }}</h6>
+                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ radiologia_imagenologia.titulo }}</h6>
+                                                </div>
+                                                <figcaption>
+                                                  <a type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#radiologia_imagenologia_{{ radiologia_imagenologia.id }}">
+                                                    ver perfil completo
+                                                  </a>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-filter="ortodoncia_ortopedia" class="col-md-12 isotope-item">
+                              <h3>Ortodoncia y Ortepedia</h3>
+                              <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                              <div class="offset-top-41 offset-lg-top-60">
+                                  <div class="range range-xs-left">
+                                      {% for ortodoncia_ortopedia in ortodoncias_ortopedias %}
+                                      <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                          <figure class="thumbnail-josip thumbnail-spacing">
+                                              <img width="270" height="270" src="{{ ortodoncia_ortopedia.foto.url }}" alt=""/>
+                                              <div class="thumbnail-desc" style="padding: 10px 10px 20px; text-align:center">
+                                                  <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ ortodoncia_ortopedia.nombres }}</h6>
+                                                  <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ ortodoncia_ortopedia.apellido_paterno }}</h6>
+                                                  <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ ortodoncia_ortopedia.titulo }}</h6>
+                                              </div>
+                                              <figcaption>
+                                                <a type="button" class="btn btn-block btn-rect text-md-center btn-java" data-toggle="modal" data-target="#ortodoncia_ortopedia_{{ ortodoncia_ortopedia.id }}">
+                                                  ver perfil completo
+                                                </a>
+                                              </figcaption>
+                                          </figure>
+                                      </div>
+                                      {% endfor %}
+                                  </div>
+                              </div>
+                          </div>
                               <div data-filter="ciencias_preclinicas" class="col-md-12 isotope-item">
                                   <h3>Ciencias Preclínica</h3>
                                   <hr class="divider divider-lg hr-sm-left-2 bg-primary">
@@ -483,6 +533,120 @@
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ cirugia.cargo }}{% endautoescape %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+      <!-- Modal radiologia_imagenologia -->
+      {% for radiologia_imagenologia in radiologias_imagenologias %}
+        <div class="modal fade" id="radiologia_imagenologia_{{ radiologia_imagenologia.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-top:10%">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-md-center" id="myModalLabel">{{ radiologia_imagenologia.nombres }} {{ radiologia_imagenologia.apellido_paterno }} {{ radiologia_imagenologia.apellido_materno }}</h4>
+              </div>
+              <div class="modal-body">
+                <section class="section-98 section-sm-top-34 section-sm-bottom-110" style="margin-bottom: 10px; padding-top:10px">
+                    <div class="shell">
+                        <!--h4>{{ cirugia.nombres }} {{ cirugia.apellido_paterno }}</h4 -->
+                        <div class="range range-xs-center" style="margin-top: 10px;">
+                            <div class="cell-xs-10 cell-md-4" style="margin-top: 10px;">
+                                <!-- Member block type 5-->
+                                <div class="inset-md-right-20 cell-xs-10 cell-md-8 text-md-left offset-top-10 offset-md-top-0" style="border: 10px solid #fff;border-radius: 5px;box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.15);">
+                                  <img src="{{ radiologia_imagenologia.foto.url }}" width="320" height="320" alt="" class="img-responsive center-block" />
+                                </div>
+                            </div>
+                            <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
+                                <div class="range">
+                                    <div class="cell-sm-6">
+                                        <div>Profesión</div>
+                                        <h5 class="text-bold">{{ radiologia_imagenologia.titulo }}</h5>
+                                    </div>
+                                    <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
+                                        <div>Registro SISS</div>
+                                        <h5 class="text-bold">{{ radiologia_imagenologia.registro_siss }}</h5>
+                                    </div>
+                                </div>
+                                <div class="offset-top-66 text-left">
+                                    <h6>Especialidad</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ radiologia_imagenologia.especialidad }}{% endautoescape %}</p>
+
+                                    <h6>Postgrados y Postítulos</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ radiologia_imagenologia.postitulos }}{% endautoescape %}</p>
+
+                                    <h6>Cargo</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ radiologia_imagenologia.cargo }}{% endautoescape %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+      <!-- Modal ortodoncia_ortopedia -->
+      {% for ortodoncia_ortopedia in ortodoncias_ortopedias %}
+        <div class="modal fade" id="ortodoncia_ortopedia_{{ ortodoncia_ortopedia.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-top:10%">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-md-center" id="myModalLabel">{{ ortodoncia_ortopedia.nombres }} {{ ortodoncia_ortopedia.apellido_paterno }} {{ ortodoncia_ortopedia.apellido_materno }}</h4>
+              </div>
+              <div class="modal-body">
+                <section class="section-98 section-sm-top-34 section-sm-bottom-110" style="margin-bottom: 10px; padding-top:10px">
+                    <div class="shell">
+                        <!--h4>{{ cirugia.nombres }} {{ cirugia.apellido_paterno }}</h4 -->
+                        <div class="range range-xs-center" style="margin-top: 10px;">
+                            <div class="cell-xs-10 cell-md-4" style="margin-top: 10px;">
+                                <!-- Member block type 5-->
+                                <div class="inset-md-right-20 cell-xs-10 cell-md-8 text-md-left offset-top-10 offset-md-top-0" style="border: 10px solid #fff;border-radius: 5px;box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.15);">
+                                  <img src="{{ ortodoncia_ortopedia.foto.url }}" width="320" height="320" alt="" class="img-responsive center-block" />
+                                </div>
+                            </div>
+                            <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
+                                <div class="range">
+                                    <div class="cell-sm-6">
+                                        <div>Profesión</div>
+                                        <h5 class="text-bold">{{ ortodoncia_ortopedia.titulo }}</h5>
+                                    </div>
+                                    <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
+                                        <div>Registro SISS</div>
+                                        <h5 class="text-bold">{{ ortodoncia_ortopedia.registro_siss }}</h5>
+                                    </div>
+                                </div>
+                                <div class="offset-top-66 text-left">
+                                    <h6>Especialidad</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ ortodoncia_ortopedia.especialidad }}{% endautoescape %}</p>
+
+                                    <h6>Postgrados y Postítulos</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ ortodoncia_ortopedia.postitulos }}{% endautoescape %}</p>
+
+                                    <h6>Cargo</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ ortodoncia_ortopedia.cargo }}{% endautoescape %}</p>
                                 </div>
                             </div>
                         </div>
