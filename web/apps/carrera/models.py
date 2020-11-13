@@ -14,7 +14,9 @@ AREA = (
     ('periodoncia', 'Periodoncia'),
     ('endodoncia', 'Endodoncia'),
     ('cirugia', 'Cirugía'),
-    ('ciencias_preclinicas', 'Ciencias Preclínicas'),
+    ('ciencias_preclinicas', 'Ciencias Básicas y Preclínicas'),
+    ('ortodoncia_ortopedia', 'Ortodoncia y Ortopedia'),
+    ('radiologia_imagenologia', 'Radiología y Imagenología'),
 )
 
 
