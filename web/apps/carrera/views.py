@@ -195,7 +195,9 @@ def docentes(request):
     endodoncias = Docentes.objects.all().filter(area='endodoncia')
     cirugias = Docentes.objects.all().filter(area='cirugia')
     ciencias_preclinicas = Docentes.objects.all().filter(area='ciencias_preclinicas')
-    return render(request, 'carrera/lista_docentes.html', {'rehabilitacion_orales': rehabilitacion_orales, 'odontopediatrias':odontopediatrias, 'periodoncias': periodoncias, 'endodoncias':endodoncias, 'cirugias': cirugias, 'ciencias_preclinicas': ciencias_preclinicas})
+    radiologias_imagenologias = Docentes.objects.all().filter(area='radiologia_imagenologia')
+    ortodoncias_ortopedias = Docentes.objects.all().filter(area='ortodoncia_ortopedia')
+    return render(request, 'carrera/lista_docentes.html', {'rehabilitacion_orales': rehabilitacion_orales, 'odontopediatrias':odontopediatrias, 'periodoncias': periodoncias, 'endodoncias':endodoncias, 'cirugias': cirugias, 'ciencias_preclinicas': ciencias_preclinicas, 'ortodoncias_ortopedias': ortodoncias_ortopedias, 'radiologias_imagenologias': radiologias_imagenologias})
 
 def detalle_academico(request):
     try:
