@@ -77,8 +77,10 @@ class Docentes(models.Model):
     nombres = models.CharField(max_length=100, blank=False, null=False)
     apellido_paterno = models.CharField(max_length=100, blank=False, null=False)
     apellido_materno = models.CharField(max_length=100, blank=False, null=False)
+    email = models.EmailField(max_length=254)
     cargo = RichTextField(max_length=500, blank=False, null=True, config_name='awesome_ckeditor')
     titulo = models.CharField(max_length=150, blank=False, null=False)
+    casa_estudio = models.CharField(max_length=150)
     area = models.CharField(max_length=30, choices=AREA)
     especialidad = RichTextField(max_length=500, blank=False, null=True, config_name='awesome_ckeditor')
     postitulos = RichTextField(max_length=500, blank=False, null=True, config_name='awesome_ckeditor')
@@ -150,4 +152,3 @@ class ActividadPoliticaPublica(models.Model):
 class ActividadNumeroBeneficiario(models.Model):
     anio = models.CharField(max_length=10, verbose_name="Año")
     beneficiario = models.CharField(max_length=30)
-    
