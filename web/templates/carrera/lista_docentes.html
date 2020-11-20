@@ -33,7 +33,7 @@
                               <li class="section-relative">
                                   <button data-custom-toggle="isotope-1" data-custom-toggle-disable-on-blur="true" class="isotope-filters-toggle btn btn-sm btn-default">Filtro<span class="caret"></span>
                                   </button>
-                                  <ul id="isotope-1" class="list-sm-inline isotope-filters-list">                                      
+                                  <ul id="isotope-1" class="list-sm-inline isotope-filters-list">
                                       <li><a data-isotope-filter="ciencias_preclinicas" data-isotope-group="gallery" href="#">Cs. Básicas y Preclínicas</a></li>
                                       <li><a data-isotope-filter="cirugias" data-isotope-group="gallery" href="#">Cirugía</a></li>
                                       <li><a data-isotope-filter="endodoncias" data-isotope-group="gallery" href="#">Endodoncia </a></li>
@@ -227,7 +227,7 @@
                               </div>
                           </div>
                               <div data-filter="ciencias_preclinicas" class="col-md-12 isotope-item">
-                                  <h3>Ciencias Preclínica</h3>
+                                  <h3>Ciencias Básicas y Preclínicas</h3>
                                   <hr class="divider divider-lg hr-sm-left-2 bg-primary">
                                   <div class="offset-top-41 offset-lg-top-60">
                                       <div class="range range-xs-left">
@@ -282,7 +282,8 @@
                                 <div class="range">
                                     <div class="cell-sm-6">
                                         <div>Profesión</div>
-                                        <h5 class="text-bold">{{ rehabilitacion.titulo }}</h5>
+                                        <h5 class="text-bold">{{ rehabilitacion.titulo }} <br>
+                                        {{ rehabilitacion.casa_estudio }}</h5>
                                     </div>
                                     <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
                                         <div>Registro SISS</div>
@@ -293,14 +294,18 @@
                                     <h6>Especialidad</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ rehabilitacion.especialidad }}{% endautoescape %}</p>
-
+                                    <br>
                                     <h6>Postgrados y Postítulos</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ rehabilitacion.postitulos }}{% endautoescape %}</p>
-
+                                    <br>
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ rehabilitacion.cargo }}{% endautoescape %}</p>
+                                    <br>
+                                    <h6>Contacto del Docente</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ rehabilitacion.email }}{% endautoescape %}</p>
                                 </div>
                             </div>
                         </div>
@@ -340,7 +345,8 @@
                                 <div class="range">
                                     <div class="cell-sm-6">
                                         <div>Profesión</div>
-                                        <h5 class="text-bold">{{ odontopediatria.titulo }}</h5>
+                                        <h5 class="text-bold">{{ odontopediatria.titulo }}<br>
+                                        {{ odontopediatria.casa_estudio }}</h5>
                                     </div>
                                     <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
                                         <div>Registro SISS</div>
@@ -351,14 +357,18 @@
                                     <h6>Especialidad</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ odontopediatria.especialidad }}{% endautoescape %}</p>
-
+                                    <br>
                                     <h6>Postgrados y Postítulos</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ odontopediatria.postitulos }}{% endautoescape %}</p>
-
+                                    <br>
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ odontopediatria.cargo }}{% endautoescape %}</p>
+                                    <br>
+                                    <h6>Contacto del Docente</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ odontopediatria.email }}{% endautoescape %}</p>
                                 </div>
                             </div>
                         </div>
@@ -398,7 +408,8 @@
                                 <div class="range">
                                     <div class="cell-sm-6">
                                         <div>Profesión</div>
-                                        <h5 class="text-bold">{{ periodoncia.titulo }}</h5>
+                                        <h5 class="text-bold">{{ periodoncia.titulo }}<br>
+                                        {{ periodoncia.casa_estudio }}</h5>
                                     </div>
                                     <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
                                         <div>Registro SISS</div>
@@ -409,14 +420,18 @@
                                     <h6>Especialidad</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ periodoncia.especialidad }}{% endautoescape %}</p>
-
+                                    <br>
                                     <h6>Postgrados y Postítulos</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ periodoncia.postitulos }}{% endautoescape %}</p>
-
+                                    <br>
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ periodoncia.cargo }}{% endautoescape %}</p>
+                                    <br>
+                                    <h6>Contacto del Docente</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ periodoncia.email }}{% endautoescape %}</p>
                                 </div>
                             </div>
                         </div>
@@ -460,21 +475,26 @@
                                     </div>
                                     <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
                                         <div>Registro SISS</div>
-                                        <h5 class="text-bold">{{ endodoncia.registro_siss }}</h5>
+                                        <h5 class="text-bold">{{ endodoncia.titulo }}<br>
+                                        {{ endodoncia.casa_estudio }}</h5>
                                     </div>
                                 </div>
                                 <div class="offset-top-66 text-left">
                                     <h6>Especialidad</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ endodoncia.especialidad }}{% endautoescape %}</p>
-
+                                    <br>
                                     <h6>Postgrados y Postítulos</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ endodoncia.postitulos }}{% endautoescape %}</p>
-
+                                    <br>
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ endodoncia.cargo }}{% endautoescape %}</p>
+                                    <br>
+                                    <h6>Contacto del Docente</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ endodoncia.email }}{% endautoescape %}</p>
                                 </div>
                             </div>
                         </div>
@@ -514,7 +534,8 @@
                                 <div class="range">
                                     <div class="cell-sm-6">
                                         <div>Profesión</div>
-                                        <h5 class="text-bold">{{ cirugia.titulo }}</h5>
+                                        <h5 class="text-bold">{{ cirugia.titulo }}<br>
+                                        {{ cirugia.casa_estudio }}</h5>
                                     </div>
                                     <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
                                         <div>Registro SISS</div>
@@ -525,14 +546,18 @@
                                     <h6>Especialidad</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ cirugia.especialidad }}{% endautoescape %}</p>
-
+                                    <br>
                                     <h6>Postgrados y Postítulos</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ cirugia.postitulos }}{% endautoescape %}</p>
-
+                                    <br>
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ cirugia.cargo }}{% endautoescape %}</p>
+                                    <br>
+                                    <h6>Contacto del Docente</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ cirugia.email }}{% endautoescape %}</p>
                                 </div>
                             </div>
                         </div>
@@ -571,7 +596,8 @@
                                 <div class="range">
                                     <div class="cell-sm-6">
                                         <div>Profesión</div>
-                                        <h5 class="text-bold">{{ radiologia_imagenologia.titulo }}</h5>
+                                        <h5 class="text-bold">{{ radiologia_imagenologia.titulo }}<br>
+                                        {{ radiologia_imagenologia.casa_estudio }}</h5>
                                     </div>
                                     <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
                                         <div>Registro SISS</div>
@@ -582,14 +608,18 @@
                                     <h6>Especialidad</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ radiologia_imagenologia.especialidad }}{% endautoescape %}</p>
-
+                                    <br>
                                     <h6>Postgrados y Postítulos</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ radiologia_imagenologia.postitulos }}{% endautoescape %}</p>
-
+                                    <br>
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ radiologia_imagenologia.cargo }}{% endautoescape %}</p>
+                                    <br>
+                                    <h6>Contacto del Docente</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ radiologia_imagenologia.email }}{% endautoescape %}</p>
                                 </div>
                             </div>
                         </div>
@@ -628,7 +658,8 @@
                                 <div class="range">
                                     <div class="cell-sm-6">
                                         <div>Profesión</div>
-                                        <h5 class="text-bold">{{ ortodoncia_ortopedia.titulo }}</h5>
+                                        <h5 class="text-bold">{{ ortodoncia_ortopedia.titulo }}<br>
+                                        {{ ortodoncia_ortopedia.casa_estudio }}</h5>
                                     </div>
                                     <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
                                         <div>Registro SISS</div>
@@ -639,14 +670,18 @@
                                     <h6>Especialidad</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ ortodoncia_ortopedia.especialidad }}{% endautoescape %}</p>
-
+                                    <br>
                                     <h6>Postgrados y Postítulos</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ ortodoncia_ortopedia.postitulos }}{% endautoescape %}</p>
-
+                                    <br>
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ ortodoncia_ortopedia.cargo }}{% endautoescape %}</p>
+                                    <br>
+                                    <h6>Contacto del Docente</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ ortodoncia_ortopedia.email }}{% endautoescape %}</p>
                                 </div>
                             </div>
                         </div>
@@ -685,7 +720,8 @@
                                 <div class="range">
                                     <div class="cell-sm-6">
                                         <div>Profesión</div>
-                                        <h5 class="text-bold">{{ ciencias_preclinica.titulo }}</h5>
+                                        <h5 class="text-bold">{{ ciencias_preclinica.titulo }} <br>
+                                        {{ ciencias_preclinica.casa_estudio }}</h5>
                                     </div>
                                     <div class="cell-sm-6 offset-top-41 offset-sm-top-0">
                                         <div>Registro SISS</div>
@@ -696,14 +732,18 @@
                                     <h6>Especialidad</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ ciencias_preclinica.especialidad }}{% endautoescape %}</p>
-
+                                    <br>
                                     <h6>Postgrados y Postítulos</h6>
                                     <hr class="text-subline">
-                                    <p>{% autoescape off %}{{ cirugia.postitulos }}{% endautoescape %}</p>
-
+                                    <p>{% autoescape off %}{{ ciencias_preclinica.postitulos }}{% endautoescape %}</p>
+                                    <br>
                                     <h6>Cargo</h6>
                                     <hr class="text-subline">
                                     <p>{% autoescape off %}{{ ciencias_preclinica.cargo }}{% endautoescape %}</p>
+                                    <br>
+                                    <h6>Contacto del Docente</h6>
+                                    <hr class="text-subline">
+                                    <p>{% autoescape off %}{{ ciencias_preclinica.email }}{% endautoescape %}</p>
                                 </div>
                             </div>
                         </div>

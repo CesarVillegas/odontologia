@@ -77,7 +77,7 @@ class Docentes(models.Model):
     nombres = models.CharField(max_length=100, blank=False, null=False)
     apellido_paterno = models.CharField(max_length=100, blank=False, null=False)
     apellido_materno = models.CharField(max_length=100, blank=False, null=False)
-    email = models.EmailField(max_length=254, default='')
+    email = models.EmailField(max_length=254, default='odontologia@userena.cl')
     cargo = RichTextField(max_length=500, blank=False, null=True, config_name='awesome_ckeditor')
     titulo = models.CharField(max_length=150, blank=False, null=False)
     casa_estudio = models.CharField(max_length=150, default='')
