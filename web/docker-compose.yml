@@ -17,7 +17,7 @@ services:
         condition: service_healthy
   db:
     container_name: mysql-odonto
-    image: mysql:5.6
+    image: mysql:5.7
     restart: always
     environment:
       MYSQL_DATABASE: "webodonto"
