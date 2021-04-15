@@ -57,43 +57,43 @@
 <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        //Fetch 
-        fetch('https://www.instagram.com/odontologiauls/?__a=1')
-          .then(function(response) {
-            return response.json();
-          })
-          .then(function(myJson) {
-            media = myJson.graphql.user.edge_owner_to_timeline_media.edges;
-            media.forEach(addItem);
 
-            console.log(media[0]);
-
-            function addItem(item, index) {
-              var caption = '';
-              if (item.node.edge_media_to_caption.edges.length > 0)
-                caption = item.node.edge_media_to_caption.edges[0].node.text;
-              else
-                caption = 'Conoce mas sobre esta actividad';
-              var child = '<div class="owl-item">'+
-                '<div class="item-instagram">'+
-                  '<div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">'+
-                    '<div class="unit-left unit-item-narrow">'+
-                      '<a href="//instagram.com/p/'+item.node.shortcode+'" class="box-instagram" target="_blank">'+
-                          '<img id="img_instagram_'+index+'" src="'+item.node.display_url+'" alt="" class="quote-img img-instagram"/>'+
-                          '<div class="img-overlay"><div><p>'+caption.substring(0,100)+'...</p></div></div>'+
-                      '</a>'+
-                    '</div>'+
-                  '</div>'+
-                '</div></div>';
-              $('#instagram_section').trigger('add.owl.carousel', [$(child)]);
+        $.ajax({
+            type: "get",
+            url: "carrera/instagram_timeline/",
+            dataType: "json",
+            success: function(data){
+                function addItem(item, index) {
+                  var caption = '';
+                  if (item.caption.edges.length > 0)
+                    caption = item.caption.edges[0].node.text;
+                  else
+                    caption = 'Conoce mas sobre esta actividad';
+                  var child = '<div class="owl-item">'+
+                    '<div class="item-instagram">'+
+                      '<div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">'+
+                        '<div class="unit-left unit-item-narrow">'+
+                          '<a href="//instagram.com/p/'+item.url+'" class="box-instagram" target="_blank">'+
+                              '<img id="img_instagram_'+index+'" src="'+item.image+'" alt="" class="quote-img img-instagram"/>'+
+                              '<div class="img-overlay"><div><p>'+caption.substring(0,100)+'...</p></div></div>'+
+                          '</a>'+
+                        '</div>'+
+                      '</div>'+
+                    '</div></div>';
+                  $('#instagram_section').trigger('add.owl.carousel', [$(child)]);
+                }
+                
+                data.forEach(addItem);
+                $('#instagram_section').trigger('refresh.owl.carousel');
+                $("#instagram_section").trigger('to.owl.carousel', [0, 1, true]);
+                $('#loading_section_instagram').hide();
+                $('#instagram_section').show();
+                $("#instagram_section").data('owlCarousel').onResize();
+            },
+            error: function(){
+                console.log('No llegan imagenes de instagram.')
             }
-
-            $('#instagram_section').trigger('refresh.owl.carousel');
-            $("#instagram_section").trigger('to.owl.carousel', [0, 1, true]);
-            $('#loading_section_instagram').hide();
-            $('#instagram_section').show();
-            $("#instagram_section").data('owlCarousel').onResize();
-          });
+        });
     });
 </script>
 <!-- Call to action-->

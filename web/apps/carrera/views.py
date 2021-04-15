@@ -25,12 +25,35 @@ import re
 
 
 def getinstagram(username):
-    BASE_URL='https://www.instagram.com/'+username+'/?__a=1'
-    recent_post = requests.get(BASE_URL).json()
-    posts = recent_post.graphql.user.edge_owner_to_timeline_media.edges
+    url='https://www.instagram.com/'+username+'/'
+    querystring = {"__a":"1"}
+    payload = ""
+    headers = {
+        'User-Agent': "PostmanRuntime/7.11.0",
+        'Accept': "*/*",
+        'Cache-Control': "no-cache",
+        'Postman-Token': "15c85edb-c3ee-4066-a7c2-4c8f3bead6d1,5b6251fc-8893-4d67-a30f-776a79746986",
+        'Host': "www.instagram.com",
+        'cookie': "csrftoken=ckhaAeRS02W5dxIyU0WJszx083FBqbPp; ig_nrcb=1; ig_did=8E646F6B-0E8B-4038-9C31-698DB4E6840C; mid=X6RIgAAEAAHcAYF6LA4-jyfCS7hj",
+        'accept-encoding': "gzip, deflate",
+        'Connection': "keep-alive",
+        'cache-control': "no-cache"
+        }
+    response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
+    data = response.json()
+    #posts = response.graphql.user.edge_owner_to_timeline_media.edges
+    posts = data['graphql']['user']['edge_owner_to_timeline_media']['edges']
     imagenes = []
+    index = 0
     for post in posts:
-        imagenes.append({'image':post.node.display_url,'url':post.node.shortcode})
+      imagenes.append({
+        'image': post['node']['display_url'],
+        'url': post['node']['shortcode'],
+        'caption': post['node']['edge_media_to_caption']
+      })
+      if index >= 7:
+        break
+      index+=1
     return imagenes
 
 #@csrf_exempt
