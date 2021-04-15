@@ -40,6 +40,7 @@ def getinstagram(username):
         'cache-control': "no-cache"
         }
     response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
+    print(response)
     data = response.json()
     #posts = response.graphql.user.edge_owner_to_timeline_media.edges
     posts = data['graphql']['user']['edge_owner_to_timeline_media']['edges']
