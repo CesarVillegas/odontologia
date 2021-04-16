@@ -26,24 +26,21 @@ import re
 
 def getinstagram(username):
     url='https://www.instagram.com/'+username+'/'
-    querystring = {"__a":"1"}
+    querystring = {}
     payload = ""
     headers = {
-        'User-Agent': "PostmanRuntime/7.11.0",
+        'User-Agent': "Mozilla/5.0",
         'Accept': "*/*",
         'Cache-Control': "no-cache",
-        'Postman-Token': "15c85edb-c3ee-4066-a7c2-4c8f3bead6d1,5b6251fc-8893-4d67-a30f-776a79746986",
-        'Host': "www.instagram.com",
         'cookie': "csrftoken=ckhaAeRS02W5dxIyU0WJszx083FBqbPp; ig_nrcb=1; ig_did=8E646F6B-0E8B-4038-9C31-698DB4E6840C; mid=X6RIgAAEAAHcAYF6LA4-jyfCS7hj",
         'accept-encoding': "gzip, deflate",
         'Connection': "keep-alive",
         'cache-control': "no-cache"
         }
     response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
-    print(response)
-    data = response.json()
-    #posts = response.graphql.user.edge_owner_to_timeline_media.edges
-    posts = data['graphql']['user']['edge_owner_to_timeline_media']['edges']
+    data = json.loads(response.text.split("window._sharedData = ")[1].split(";</script>")[0])
+    graphql = data['entry_data']['ProfilePage'][0]['graphql']
+    posts = graphql['user']['edge_owner_to_timeline_media']['edges']
     imagenes = []
     index = 0
     for post in posts:
@@ -57,7 +54,37 @@ def getinstagram(username):
       index+=1
     return imagenes
 
-#@csrf_exempt
+    # url='https://www.instagram.com/'+username+'/'
+    # querystring = {"__a":"1"}
+    # payload = ""
+    # headers = {
+    #     'User-Agent': "Mozilla/5.0",
+    #     'Accept': "*/*",
+    #     'Cache-Control': "no-cache",
+    #     'Postman-Token': "15c85edb-c3ee-4066-a7c2-4c8f3bead6d1,5b6251fc-8893-4d67-a30f-776a79746986",
+    #     'Host': "www.instagram.com",
+    #     'cookie': "csrftoken=ckhaAeRS02W5dxIyU0WJszx083FBqbPp; ig_nrcb=1; ig_did=8E646F6B-0E8B-4038-9C31-698DB4E6840C; mid=X6RIgAAEAAHcAYF6LA4-jyfCS7hj",
+    #     'accept-encoding': "gzip, deflate",
+    #     'Connection': "keep-alive",
+    #     'cache-control': "no-cache"
+    #     }
+    # response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
+    # data = response.json()
+    # posts = data['graphql']['user']['edge_owner_to_timeline_media']['edges']
+    # imagenes = []
+    # index = 0
+    # for post in posts:
+    #   imagenes.append({
+    #     'image': post['node']['display_url'],
+    #     'url': post['node']['shortcode'],
+    #     'caption': post['node']['edge_media_to_caption']
+    #   })
+    #   if index >= 7:
+    #     break
+    #   index+=1
+    # return imagenes
+
+@csrf_exempt
 def instagram_timeline(request):
     if request.method == 'GET':
         instagram_images = getinstagram('odontologiauls')
@@ -188,7 +215,7 @@ def enviarcorreo(contacto):
         server.sendmail(fromaddr, toaddr, msg.as_string())
         server.close()
     except Exception as e:
-        print (e.message, type(e))
+        print(e.message, type(e))
         return False
     return True
 
