@@ -60,11 +60,16 @@
                                                 <button data-custom-toggle="isotope-1" data-custom-toggle-disable-on-blur="true" class="isotope-filters-toggle btn btn-sm btn-default">Filtro<span class="caret"></span>
                                                 </button>
                                                 <ul id="isotope-1" class="list-sm-inline isotope-filters-list">
-                                                    <li><a data-isotope-filter="Directores" data-isotope-group="gallery" href="#" class="active">Director Técnico</a></li>
-                                                    <li><a data-isotope-filter="Enfermeras" data-isotope-group="gallery" href="#">Enfermeras </a></li>
-                                                    <li><a data-isotope-filter="Tecnicos" data-isotope-group="gallery" href="#">Técnicos Dentales</a></li>
-                                                    <li><a data-isotope-filter="Secretarias" data-isotope-group="gallery" href="#">Secretarias </a></li>
-                                                    <li><a data-isotope-filter="Auxiliares" data-isotope-group="gallery" href="#">Auxiliares </a></li>
+                                                    {% if directores %}<li><a data-isotope-filter="Directores" data-isotope-group="gallery" href="#" class="active">Director Técnico</a></li>{% endif%}
+                                                    {% if administradora_coa %}<li><a data-isotope-filter="admin_coa" data-isotope-group="gallery" href="#">Administradora COAD</a></li>{% endif%}
+                                                    {% if radiologa %}<li><a data-isotope-filter="radiologa" data-isotope-group="gallery" href="#">Radióloga Coordinadora</a></li>{% endif%}
+                                                    {% if enfermeras %}<li><a data-isotope-filter="Enfermeras" data-isotope-group="gallery" href="#">Enfermeras </a></li>{% endif%}
+                                                    {% if tecnicos %}<li><a data-isotope-filter="Tecnicos" data-isotope-group="gallery" href="#">Técnicos Dentales</a></li>{% endif%}
+                                                    {% if secretarias %}<li><a data-isotope-filter="Secretarias" data-isotope-group="gallery" href="#">Secretarias </a></li>{% endif%}
+                                                    {% if auxiliares %}<li><a data-isotope-filter="Auxiliares" data-isotope-group="gallery" href="#">Auxiliares </a></li>{% endif%}
+                                                    {% if mayordomo %}<li><a data-isotope-filter="mayordomo" data-isotope-group="gallery" href="#">Mayordomo </a></li>{% endif%}
+                                                    {% if tec_mantencion %}<li><a data-isotope-filter="tec_mantencion" data-isotope-group="gallery" href="#">Técnico en Mantención</a></li>{% endif%}
+                                                    {% if guardia %}<li><a data-isotope-filter="guardia" data-isotope-group="gallery" href="#">Guardia</a></li>{% endif%}
                                                 </ul>
                                             </li>
                                         </ul>
@@ -74,6 +79,7 @@
                                 <div class="col-lg-9 offset-lg-top-0 offset-top-34">
                                     <div data-isotope-layout="fitRows" data-isotope-group="gallery" class="isotope">
                                         <div data-photo-swipe-gallery="gallery" class="row text-sm-left">
+                                            {% if directores %}
                                             <div data-filter="Directores" class="col-md-12 isotope-item">
                                                 <h3>Director Técnico</h3>
                                                 <hr class="divider divider-lg hr-sm-left-2 bg-primary">
@@ -93,6 +99,50 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            {% endif%}
+                                            {% if administradora_coa %}
+                                            <div data-filter="admin_coa" class="col-md-12 isotope-item">
+                                                <h3>Administradora COAD</h3>
+                                                <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                                                <div class="offset-top-41 offset-lg-top-60">
+                                                    <div class="range range-xs-left">
+                                                        {% for admin in administradora_coa %}
+                                                        <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                                            <figure class="thumbnail-josip thumbnail-spacing">
+                                                                <img width="270" height="270" src="{{ admin.foto.url }}" alt=""/>
+                                                                <div class="thumbnail-desc" style="padding: 10px; text-align:center">
+                                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ admin.nombres }}</h6>
+                                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ admin.apellido_paterno }} {{ admin.apellido_materno }}</h6>
+                                                                </div>
+                                                            </figure>
+                                                        </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% if radiologa %}
+                                            <div data-filter="radiologa" class="col-md-12 isotope-item">
+                                                <h3>Radióloga Coordinadora</h3>
+                                                <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                                                <div class="offset-top-41 offset-lg-top-60">
+                                                    <div class="range range-xs-left">
+                                                        {% for radio in radiologa %}
+                                                        <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                                            <figure class="thumbnail-josip thumbnail-spacing">
+                                                                <img width="270" height="270" src="{{ radio.foto.url }}" alt=""/>
+                                                                <div class="thumbnail-desc" style="padding: 10px; text-align:center">
+                                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ radio.nombres }}</h6>
+                                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ radio.apellido_paterno }} {{ radio.apellido_materno }}</h6>
+                                                                </div>
+                                                            </figure>
+                                                        </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% if enfermeras %}
                                             <div data-filter="Enfermeras" class="col-md-12 isotope-item">
                                                 <h3>Enfermeras coordinadoras</h3>
                                                 <hr class="divider divider-lg hr-sm-left-2 bg-primary">
@@ -112,6 +162,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            {% endif %}
+                                            {% if tecnicos %}
                                             <div data-filter="Tecnicos" class="col-md-12 isotope-item">
                                                 <h3>Técnicos Dentales</h3>
                                                 <hr class="divider divider-lg hr-sm-left-2 bg-primary">
@@ -131,6 +183,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            {% endif %}
+                                            {% if secretarias %}
                                             <div data-filter="Secretarias" class="col-md-12 isotope-item">
                                                 <h3>Secretarias Administrativas</h3>
                                                 <hr class="divider divider-lg hr-sm-left-2 bg-primary">
@@ -150,6 +204,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            {% endif %}
+                                            {% if auxiliares %}
                                             <div data-filter="Auxiliares" class="col-md-12 isotope-item">
                                                 <h3>Auxiliares de Servicio</h3>
                                                 <hr class="divider divider-lg hr-sm-left-2 bg-primary">
@@ -169,6 +225,70 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            {% endif %}
+                                            {% if mayordomo %}
+                                            <div data-filter="mayordomo" class="col-md-12 isotope-item">
+                                                <h3>Mayordomo</h3>
+                                                <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                                                <div class="offset-top-41 offset-lg-top-60">
+                                                    <div class="range range-xs-left">
+                                                        {% for may in mayordomo %}
+                                                        <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                                            <figure class="thumbnail-josip thumbnail-spacing">
+                                                                <img width="270" height="270" src="{{ may.foto.url }}" alt=""/>
+                                                                <div class="thumbnail-desc" style="padding: 10px; text-align:center">
+                                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ may.nombres }}</h6>
+                                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ may.apellido_paterno }} {{ may.apellido_materno }}</h6>
+                                                                </div>
+                                                            </figure>
+                                                        </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% if tec_mantencion %}
+                                            <div data-filter="tec_mantencion" class="col-md-12 isotope-item">
+                                                <h3>Técnico en Mantención</h3>
+                                                <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                                                <div class="offset-top-41 offset-lg-top-60">
+                                                    <div class="range range-xs-left">
+                                                        {% for tec_mant in tec_mantencion %}
+                                                        <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                                            <figure class="thumbnail-josip thumbnail-spacing">
+                                                                <img width="270" height="270" src="{{ tec_mant.foto.url }}" alt=""/>
+                                                                <div class="thumbnail-desc" style="padding: 10px; text-align:center">
+                                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ tec_mant.nombres }}</h6>
+                                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ tec_mant.apellido_paterno }} {{ tec_mant.apellido_materno }}</h6>
+                                                                </div>
+                                                            </figure>
+                                                        </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% if guardia %}
+                                            <div data-filter="guardia" class="col-md-12 isotope-item">
+                                                <h3>Guardia</h3>
+                                                <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                                                <div class="offset-top-41 offset-lg-top-60">
+                                                    <div class="range range-xs-left">
+                                                        {% for guar in guardia %}
+                                                        <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                                            <figure class="thumbnail-josip thumbnail-spacing">
+                                                                <img width="270" height="270" src="{{ guar.foto.url }}" alt=""/>
+                                                                <div class="thumbnail-desc" style="padding: 10px; text-align:center">
+                                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ guar.nombres }}</h6>
+                                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ guar.apellido_paterno }} {{ guar.apellido_materno }}</h6>
+                                                                </div>
+                                                            </figure>
+                                                        </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>

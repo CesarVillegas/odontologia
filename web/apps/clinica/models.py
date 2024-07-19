@@ -7,10 +7,15 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 CARGO = (
     ('director', 'Director Técnico'),
+    ('admin_coa', 'administradora COAD'),
+    ('radiologa', 'Radióloga Coordinadora'),
     ('enfermera', 'Enfermera Coordinadora'),
     ('tecnico', 'Técnico Dental'),
     ('secretaria', 'Secretaria Administrativa'),
     ('auxiliar', 'Auxiliar de Servicio'),
+    ('mayordomo', 'Mayordomo'),
+    ('tec_mante', 'Técnico en Mantención'),
+    ('guardia', 'Guardia'),
 )
 
 def validate_image(fieldfile_obj):
