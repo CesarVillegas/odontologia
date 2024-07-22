@@ -4,56 +4,33 @@
 {% block title %}Odontología{% endblock %} 
 
 {% block content %}
-<!--What makes us different-->   
-<div class="row"> 
-    <section class="section-100-up section-30-down marco-video">
-        <div class="shell">
-            <h3>Multimedia</h3>
-            <hr class="divider divider-lg bg-primary">
-            <div class="row">
-                <div class="col-md-6 marco-video">
-                    <iframe src="https://www.youtube.com/embed/zRIHDmUppJg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <p class="msg">
-                      <span class="fa-quote-left"></span>Video de acreditación Carrera de Odontología<span class="fa-quote-right"></span>
-                    </p>
-                </div>
-                <div class="col-md-6 marco-video">
-                    <iframe src="https://www.youtube.com/embed/M879tQ6bbx8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <p class="msg">
-                      <span class="fa-quote-left"></span>Video de acreditación Clínica Odontológica<span class="fa-quote-right"></span>
-                    </p>
-                </div>
-                <div class="col-md-12" style="margin-top:20px;">
-                    <center><a href="https://www.youtube.com/channel/UC-uRcTLGKySwEn976VaeXtA/" class="btn btn-ellipse btn-java" target="_blank">mas videos</a></center>
-                </div>
+
+<!--What makes us different-->
+<section class="section-150-up" style="padding-bottom: 200px;">
+    <div class="shell">
+        <h3>Marcamos la diferencia</h3>
+        <hr class="divider divider-lg bg-primary">
+        <div class="range offset-top-60">
+            <div class="cell-md-4">
+                <div class="icon icon-xlg icon-rect icon-default icon-tecnologia-xl"></div>
+                <h5 class="text-bold text-primary">Ciencia, humanidad y tecnología</h5>
+                <p>La carrera de Odontología tiene una fuerte formación científica, humanista y tecnológica.</p>
+            </div>
+            <div class="cell-md-4 offset-top-50 offset-md-top-0">
+                <div class="icon icon-xlg icon-rect icon-default icon-compromiso-xl"></div>
+                <h5 class="text-bold text-primary">Responsabilidad social</h5>
+                <p>Sólidos principios éticos y responsabilidad social.</p>
+            </div>
+            <div class="cell-md-4 offset-top-50 offset-md-top-0">
+                <div class="icon icon-xlg icon-rect icon-default icon-biomedicina-xl"></div>
+                <h5 class="text-bold text-primary">Ciencias biomédicas</h5>
+                <p>Énfasis en las ciencias biomédicas básicas, técnicas y clínicas para entender las condiciones normales y patologías.</p>
             </div>
         </div>
-    </section>
-</div>
-<div class="row">
-  <section class="section-70-up section-150-down">
-      <div class="shell">
-          <h3>Novedades</h3>
-          <hr class="divider divider-lg bg-primary">
-          <div class="row">
-            <div class="offset-top-60 col-sm-12">
-                <div id="loading_section_instagram" class="loading">
-                    <center>
-                        <img src="{% static 'images/loading.gif' %}" width="100px" height="100px">
-                        <p>Cargando...</p>
-                    </center>
-                </div>
-                <div id="instagram_section" data-loop="false" data-margin="10" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="4" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-class-light owl-theme owl-loaded" style="display:none;">
-                </div>
-            </div>
+    </div>
+</section>
 
-            <div class="offset-top-60 col-sm-12">
-                <center><a href="https://www.instagram.com/odontologiauls/" class="btn btn-ellipse btn-java" target="_blank">mas novedades</a></center>
-            </div>
-          </div>
-      </div>
-  </section>
-</div>   
+<!--What makes us different-->   
 <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -105,29 +82,7 @@
         </div>
     </div>
 </section>
-<!--What makes us different-->
-<section class="section-150-up section-100-down">
-    <div class="shell">
-        <h3>Marcamos la diferencia</h3>
-        <hr class="divider divider-lg bg-primary">
-        <div class="range offset-top-60">
-            <div class="cell-md-4">
-                <div class="icon icon-xlg icon-rect icon-default icon-tecnologia-xl"></div>
-                <h5 class="text-bold text-primary">Ciencia, humanidad y tecnología</h5>
-                <p>La carrera de Odontología tiene una fuerte formación científica, humanista y tecnológica.</p>
-            </div>
-            <div class="cell-md-4 offset-top-50 offset-md-top-0">
-                <div class="icon icon-xlg icon-rect icon-default icon-compromiso-xl"></div>
-                <h5 class="text-bold text-primary">Responsabilidad social</h5>
-                <p>Sólidos principios éticos y responsabilidad social.</p>
-            </div>
-            <div class="cell-md-4 offset-top-50 offset-md-top-0">
-                <div class="icon icon-xlg icon-rect icon-default icon-biomedicina-xl"></div>
-                <h5 class="text-bold text-primary">Ciencias biomédicas</h5>
-                <p>Énfasis en las ciencias biomédicas básicas, técnicas y clínicas para entender las condiciones normales y patologías.</p>
-            </div>
-        </div>
-    </div>
-</section>
+
+
 {% endblock %}
 
