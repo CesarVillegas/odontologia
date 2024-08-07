@@ -22,6 +22,7 @@ def equipo(request):
     directores = Equipo.objects.all().filter(cargo='director')
     administradora_coa = Equipo.objects.all().filter(cargo='admin_coa')
     radiologa = Equipo.objects.all().filter(cargo='radiologa')
+    enfermeras_coordinadoras = Equipo.objects.all().filter(cargo='enf_coord')
     enfermeras = Equipo.objects.all().filter(cargo='enfermera')
     tecnicos = Equipo.objects.all().filter(cargo='tecnico')
     secretarias = Equipo.objects.all().filter(cargo='secretaria')
@@ -29,7 +30,7 @@ def equipo(request):
     mayordomo = Equipo.objects.all().filter(cargo='mayordomo')
     tec_mantencion = Equipo.objects.all().filter(cargo='tec_mante')
     guardia = Equipo.objects.all().filter(cargo='guardia')
-    return render(request, 'clinica/equipo.html', {'directores':directores, 'administradora_coa':administradora_coa, 'radiologa': radiologa, 'enfermeras':enfermeras, 'tecnicos':tecnicos, 'secretarias':secretarias, 'auxiliares':auxiliares, 'mayordomo': mayordomo, 'tec_mantencion': tec_mantencion, 'guardia':guardia})
+    return render(request, 'clinica/equipo.html', {'directores':directores, 'administradora_coa':administradora_coa, 'radiologa': radiologa, 'enfermeras_coordinadoras': enfermeras_coordinadoras,'enfermeras':enfermeras, 'tecnicos':tecnicos, 'secretarias':secretarias, 'auxiliares':auxiliares, 'mayordomo': mayordomo, 'tec_mantencion': tec_mantencion, 'guardia':guardia})
 
 def catedra(request):
     return render(request, 'clinica/catedra.html')

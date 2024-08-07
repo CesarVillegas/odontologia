@@ -63,6 +63,7 @@
                                                     {% if directores %}<li><a data-isotope-filter="Directores" data-isotope-group="gallery" href="#" class="active">Director Técnico</a></li>{% endif%}
                                                     {% if administradora_coa %}<li><a data-isotope-filter="admin_coa" data-isotope-group="gallery" href="#">Administradora COAD</a></li>{% endif%}
                                                     {% if radiologa %}<li><a data-isotope-filter="radiologa" data-isotope-group="gallery" href="#">Radióloga Coordinadora</a></li>{% endif%}
+                                                    {% if enfermeras_coordinadoras %}<li><a data-isotope-filter="enfermeras_coordinadoras" data-isotope-group="gallery" href="#">Enfermeras Coordinadoras </a></li>{% endif%}
                                                     {% if enfermeras %}<li><a data-isotope-filter="Enfermeras" data-isotope-group="gallery" href="#">Enfermeras </a></li>{% endif%}
                                                     {% if tecnicos %}<li><a data-isotope-filter="Tecnicos" data-isotope-group="gallery" href="#">Técnicos Dentales</a></li>{% endif%}
                                                     {% if secretarias %}<li><a data-isotope-filter="Secretarias" data-isotope-group="gallery" href="#">Secretarias </a></li>{% endif%}
@@ -134,6 +135,27 @@
                                                                 <div class="thumbnail-desc" style="padding: 10px; text-align:center">
                                                                     <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ radio.nombres }}</h6>
                                                                     <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ radio.apellido_paterno }} {{ radio.apellido_materno }}</h6>
+                                                                </div>
+                                                            </figure>
+                                                        </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% if enfermeras_coordinadoras %}
+                                            <div data-filter="enfermeras_coordinadoras" class="col-md-12 isotope-item">
+                                                <h3>Enfermera Coordinadora</h3>
+                                                <hr class="divider divider-lg hr-sm-left-2 bg-primary">
+                                                <div class="offset-top-41 offset-lg-top-60">
+                                                    <div class="range range-xs-left">
+                                                        {% for enfermera_coord in enfermeras_coordinadoras %}
+                                                        <div class="cell-xs-8 cell-sm-7 cell-md-4 offset-top-41 offset-md-top-0">
+                                                            <figure class="thumbnail-josip thumbnail-spacing">
+                                                                <img width="270" height="270" src="{{ enfermera_coord.foto.url }}" alt=""/>
+                                                                <div class="thumbnail-desc" style="padding: 10px; text-align:center">
+                                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ enfermera_coord.nombres }}</h6>
+                                                                    <h6 class="thumbnail-josip-title text-bold text-white" style="margin: 0px;">{{ enfermera_coord.apellido_paterno }} {{ enfermera_coord.apellido_materno }}</h6>
                                                                 </div>
                                                             </figure>
                                                         </div>
