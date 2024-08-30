@@ -15,8 +15,8 @@ def validate_image_noticia(fieldfile_obj):
     if filesize > megabyte_limit*1024*1024:
         raise ValidationError("El tamano maximo permitido es de %sMB" % str(megabyte_limit))
     w, h = get_image_dimensions(fieldfile_obj)
-    if w != 740 and h != 480:
-        raise ValidationError("Las dimensiones de la imagen son de %ix%i, y estas deben ser de 740x480 pixeles" %(h,w))
+    if w != 740 or h != 480:
+        raise ValidationError("Las dimensiones de la imagen son de %ix%i, y estas deben ser de 740x480 pixeles" %(w,h))
 
 
 class Noticia(models.Model):

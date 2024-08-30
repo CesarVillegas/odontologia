@@ -16,12 +16,14 @@ from datetime import datetime
 from django.views.generic import TemplateView
 from .models import Admision, Contacto, Contenido, Docentes
 from .forms import FormularioContacto
+from ..noticia.models import Noticia
 import time
 import smtplib
 import json
 import twitter
 import requests
 import re
+
 
 
 def getinstagram(username):
@@ -147,7 +149,16 @@ def twitter_timeline(request):
     return render(request)
 
 def index(request):
-  return render(request, 'carrera/index.html')
+    noticias = Noticia.objects.filter(mostrar=True).order_by('-inicio')[:3]
+    return render(request, 'carrera/index.html',{'noticias':noticias})
+
+#   print(noticias.query)       # print(noticias)
+#   nts = Noticia.objects.filter(mostrar=True).order_by('titulo').order_by('-inicio')
+#   noticias = Noticia.objects.filter(mostrar=True).dates('inicio','month',order='DESC')
+    # noticias = (Noticia.objects.filter(unidad__key='VIPULS', mostrar=True) | Noticia.objects.filter(mostrar=True,mostrar_principal=True)).order_by('-fecha')[:6]    
+    # return render(request, 'carrera/index.html',{'noticias': noticias})
+    # noticias = Noticia.objects.filter(mostrar=True).order_by('titulo').order_by('-inicio')[:3]
+
 
 def admision(request):
     admisiones = Admision.objects.all().last()

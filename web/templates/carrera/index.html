@@ -6,7 +6,7 @@
 {% block content %}
 
 <!--What makes us different-->
-<section class="section-150-up" style="padding-bottom: 200px;">
+<section class="section-150-up">
     <div class="shell">
         <h3>Marcamos la diferencia</h3>
         <hr class="divider divider-lg bg-primary">
@@ -29,6 +29,58 @@
         </div>
     </div>
 </section>
+
+
+
+
+ <!-- Latest blog posts-->
+  <!-- {   % if noticias %  } -->
+  <section class="section-98 section-sm-110">
+    <div class="shell">
+        <h3>Noticias</h3>
+        <hr class="divider divider-lg bg-primary">
+        <div class="range range-xs-center offset-top-60">
+
+            {% for noticia in noticias %}
+            <div class="cell-sm-8 cell-md-4">
+                <!-- Post Modern-->
+                <article class="post post-modern post-modern-classic">
+                    <!-- Post media-->
+                    <header class="post-media">
+                        <a href="{% url 'detalle' actid=noticia.id %}">
+                            <img width="370" height="250" src="{{ noticia.imagen.url }}" alt="" class="img-responsive img-cover" />
+                        </a>
+                    </header>
+                    <!-- Post content-->
+                    <section class="post-content text-left">
+                        <!-- Post Title-->
+                        <div class="post-title offset-top-8">
+                            <h4 class="text-bold" style="text-align: justify;">
+                                <a href="{% url 'detalle' actid=noticia.id %}">
+                                {{ noticia.titulo }}
+                                </a>
+                            </h4>
+                        </div>
+                        <ul class="list-inline list-inline-dashed">
+                            <li>{{ noticia.inicio|date:"d M Y, H:i" }}</li>
+                            <!-- <li><a href="#" class="text-primary">autor 1</a></li> -->
+                        </ul>
+                        <!-- Post Body-->
+                        <div class="post-body" style="text-align: justify;">
+                            <p>{{ noticia.descripcion|truncatechars:200|safe }}</p>
+                        </div>
+                        <div class="tags group group-sm">
+                        </div>
+                    </section>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="offset-top-50"><a href="{% url 'noticias' %}" class="btn btn-ellipse btn-java">Ver todas las noticias</a></div>
+    </div>
+</section>
+
+
 
 <!--What makes us different-->   
 <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
